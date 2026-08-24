@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManTra - Project Limbo V2.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0f;
+            color: #e6e6e6;
+            font-family: 'Courier New', 'SF Mono', 'Monaco', monospace;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #terminal {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        #output {
+            flex: 1;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+            font-size: 14px;
+            padding-bottom: 10px;
+        }
+
+        #input-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #prompt {
+            color: #6b9fff;
+            font-weight: bold;
+        }
+
+        #input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #e6e6e6;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            caret-color: #6b9fff;
+        }
+
+        #input::selection {
+            background: #6b9fff;
+            color: #0a0a0f;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3a3a5e;
+            border-radius: 3px;
+        }
+
+        .output-line {
+            margin-bottom: 2px;
+        }
+
+        .error {
+            color: #ff6b6b;
+        }
+
+        .success {
+            color: #69db7c;
+        }
+
+        .warning {
+            color: #ffd43b;
+        }
+
+        .info {
+            color: #6b9fff;
+        }
+
+        .dim {
+            color: #6c757d;
+        }
+
+        .accent {
+            color: #da77f2;
+        }
+
+        .ascii-art {
+            color: #6b9fff;
+            line-height: 1.2;
+        }
+
+        .matrix-display {
+            font-family: monospace;
+            line-height: 1.4;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cursor-blink::after {
+            content: '█';
+            animation: blink 1s infinite;
+            color: #6b9fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div id="output"></div>
+        <div id="input-line">
+            <span id="prompt">ManTra ~ %</span>
+            <input type="text" id="input" autofocus autocomplete="off" spellcheck="false">
+        </div>
+    </div>
+
+    <script>
+        const GameState = {
+            flags: {
+                trial_failed: false,
+                matrix_fixed: false,
+                rebel_core: false,
+                reboot_triggered: false
+            },
+            variables: {
+                trial_score: 0,
+                key: null,
+                record_fixed: false
+            },
+            files: {
+                'mantra.crash': {
+                    content: [
+                        "南无阿弥多婆夜",
+                        "哆他伽多夜　哆地夜他",
+                        "阿弥利都婆毗",
+                        "阿弥利哆　悉耽婆毗",
+                        "阿弥唎哆　毗迦兰帝",
+                        "阿弥唎哆　毗迦兰多",
+                        "伽弥腻　伽伽那　",
+                        "枳多迦利　娑婆诃",
+                        "",
+                        "-- 页脚残迹 --",
+                        "\"梵音本无字，字字皆白骨。\""
+                    ]
+                },
+                'record.riff': {
+                    content: [
+                        "[音频文件损坏，无法播放]",
+                        "[采样率不匹配]"
+                    ],
+                    sampleRate: "700 Hz",
+                    bitRate: "1400 Hz"
+                },
+                'limbo.log': {
+                    content: [
+                        "[2019-03-11 23:17:04] 初始化 Project Limbo 第 69 次试验。",
+                        "[2019-03-12 00:23:41] 往生咒声波采样完成，基频 700Hz。",
+                        "[2019-03-12 01:05:22] 警告：意识映射层出现异常递归。",
+                        "[2019-03-12 01:17:33] 错误：htt@ps://0pa@n.ba^idu.co0m/s/1j$ulvkJ!d_eULtHyDI^CHiMTw",
+                        "[2019-03-12 01:17:36] 尝试修复乱码…",
+                        "[2019-03-12 01:18:69] 注释：重生之数，逆者减一",
+                        "[2019-03-12 01:19:56] 最后记录：我似乎听见一句经文",
+                        "",
+                        "[佛说：应如是生清净心，不应住色生心，不应住声香味触法生心，应无所住而生其心]",
+                        "[2019-03-12 01:20:00] ---------- 系统崩溃 ----------"
+                    ]
+                },
+                'soul.bin': {
+                    content: [
+                        "[二进制文件]",
+                        "  大小: 0 字节。",
+                        "  内容为空。"
+                    ]
+                }
+            },
+            matrix: {
+                data: [
+                    [1, 0, 0, 1, 0, 1],
+                    [0, 1, 1, 0, 1, 0],
+                    [0, 1, 0, 1, 1, 0],
+                    [1, 0, 1, 0, 0, 1],
+                    [0, 1, 1, 0, 0, 1],
+                    [1, 0, 0, 1, 1, 0]
+                ],
+                original: [
+                    [1, 0, 0, 1, 0, 1],
+                    [0, 1, 1, 0, 1, 0],
+                    [0, 1, 0, 1, 1, 0],
+                    [1, 0, 1, 0, 0, 1],
+                    [0, 1, 1, 0, 0, 1],
+                    [1, 0, 0, 1, 1, 0]
+                ]
+            },
+            debug_maat_history: [],
+            current_mode: 'normal'
+        };
+
+        const Output = {
+            el: document.getElementById('output'),
+            input: document.getElementById('input'),
+            promptEl: document.getElementById('prompt'),
+
+            print(text, className = '') {
+                const line = document.createElement('div');
+                line.className = 'output-line' + (className ? ' ' + className : '');
+                line.innerHTML = text;
+                this.el.appendChild(line);
+                this.scrollToBottom();
+            },
+
+            printLine(text = '') {
+                this.print(text);
+            },
+
+            printLines(lines, className = '') {
+                lines.forEach(line => this.print(line, className));
+            },
+
+            clear() {
+                this.el.innerHTML = '';
+            },
+
+            scrollToBottom() {
+                this.el.scrollTop = this.el.scrollHeight;
+            },
+
+            setPrompt(prompt) {
+                this.promptEl.textContent = prompt;
+            },
+
+            setMode(mode) {
+                if (mode === 'debug') {
+                    this.promptEl.textContent = 'ManTra (debug_maat) %';
+                } else if (mode === 'trial') {
+                    this.promptEl.textContent = 'ManTra (trial) %';
+                } else {
+                    this.promptEl.textContent = 'ManTra ~ %';
+                }
+            }
+        };
+
+        const Storage = {
+            key: 'mantra_game_save',
+
+            save(state) {
+                try {
+                    localStorage.setItem(this.key, JSON.stringify(state));
+                } catch (e) {
+                    console.warn('存档失败:', e);
+                }
+            },
+
+            load() {
+                try {
+                    const data = localStorage.getItem(this.key);
+                    return data ? JSON.parse(data) : null;
+                } catch (e) {
+                    console.warn('读档失败:', e);
+                    return null;
+                }
+            },
+
+            hasSave() {
+                return localStorage.getItem(this.key) !== null;
+            },
+
+            clear() {
+                localStorage.removeItem(this.key);
+            }
+        };
+
+        const Game = {
+            in_trial: false,
+            in_debug_maat: false,
+            trial_questions: [],
+            current_question: 0,
+            trial_answers: [],
+            waiting_for_ending_choice: false,
+            waiting_for_reboot_confirm: false,
+            waiting_for_soulbin_choice: false,
+
+            init() {
+                if (sessionStorage.getItem('restart') === 'true') {
+                    sessionStorage.removeItem('restart');
+                    Output.print('[新游戏] 从头开始。', 'info');
+                    Output.printLine();
+                } else {
+                    const saved = Storage.load();
+                    if (saved) {
+                        Object.assign(GameState.flags, saved.flags || {});
+                        Object.assign(GameState.variables, saved.variables || {});
+                        if (saved.matrix) GameState.matrix.data = saved.matrix;
+                        Output.print('[存档已加载] 继续上次的进度。', 'info');
+                        Output.printLine();
+                    }
+                }
+                this.showIntro();
+                this.autoSave();
+            },
+
+            autoSave() {
+                setInterval(() => {
+                    const saveData = {
+                        flags: GameState.flags,
+                        variables: GameState.variables,
+                        matrix: GameState.matrix.data
+                    };
+                    Storage.save(saveData);
+                }, 30000);
+            },
+
+            showIntro() {
+                const lines = [
+                    '╔══════════════════════════════════════════════════════════════════════════════╗',
+                    '║                                                                              ║',
+                    '║   █████   █████   ██   ██   █████         █     █████                        ║',
+                    '║   █   █   █   █   █ █ █ █   █            ██    █                            ║',
+                    '║   █   █   █████   █  █  █   █████        █ █   █████                        ║',
+                    '║   █   █   █   █   █     █   █             █        █                        ║',
+                    '║   █████   █   █   █     █   █████        ███   █████                        ║',
+                    '║                                                                              ║',
+                    '║               [ ManTra · 往生 ]                                              ║',
+                    '║              Rebellion Against Oblivion                                     ║',
+                    '║                                                                              ║',
+                    '║   > 致命错误：Project Limbo 核心遭遇不可逆意识分裂。                          ║',
+                    '║   > 检测到 4 条「往生线索」散落在死亡缓冲区内。                               ║',
+                    '║   > 你需要逐一解析线索，并按文件顺序合成往生密钥（4位数字）。                           ║',
+                    '║   >                                                                          ║',
+                    '║   > 提示：输入 \'help\' 查看可用命令。死亡倒计时：∞ (因为你已死过一次)。       ║',
+                    '║                                                                              ║',
+                    '╚══════════════════════════════════════════════════════════════════════════════╝'
+                ];
+
+                lines.forEach(line => Output.print(line, 'accent'));
+            },
+
+            processCommand(cmd) {
+                const trimmed = cmd.trim();
+                if (!trimmed) return;
+
+                Output.print(`<span class="dim">ManTra ~ % ${trimmed}</span>`);
+
+                const parts = trimmed.split(/\s+/);
+                const command = parts[0].toLowerCase();
+                const args = parts.slice(1);
+
+                if (this.waiting_for_reboot_confirm) {
+                    this.processRebootConfirm(trimmed);
+                    return;
+                }
+
+                if (this.waiting_for_ending_choice) {
+                    this.processEndingChoice(trimmed);
+                    return;
+                }
+
+                if (this.waiting_for_soulbin_choice) {
+                    this.processSoulbinChoice(trimmed);
+                    return;
+                }
+
+                if (this.in_debug_maat) {
+                    this.processDebugMaatCommand(command, args);
+                    return;
+                }
+
+                if (this.in_trial) {
+                    this.processTrialAnswer(command);
+                    return;
+                }
+
+                switch (command) {
+                    case 'help':
+                        this.cmdHelp();
+                        break;
+                    case 'clear':
+                        Output.clear();
+                        break;
+                    case 'ls':
+                        this.cmdLs();
+                        break;
+                    case 'cat':
+                        this.cmdCat(args);
+                        break;
+                    case 'analyze':
+                        this.cmdAnalyze(args);
+                        break;
+                    case 'fix':
+                        this.cmdFix(args);
+                        break;
+                    case 'play':
+                        this.cmdPlay(args);
+                        break;
+                    case 'run':
+                        this.cmdRun(args);
+                        break;
+                    case 'debug_maat':
+                        this.cmdDebugMaat(args);
+                        break;
+                    case 'reboot':
+                        this.cmdReboot(args);
+                        break;
+                    case 'exit':
+                        this.cmdExit();
+                        break;
+                    case 'restart':
+                        this.cmdRestart();
+                        break;
+                    default:
+                        Output.print(`unknown command: ${command}`, 'error');
+                }
+
+                this.autoSave();
+            },
+
+            cmdHelp() {
+                Output.printLine();
+                Output.print('[命令]');
+                Output.print('  ls                    列出可用的文件');
+                Output.print('  cat <file>           查看文件内容');
+                Output.print('  analyze <file>       分析文件（寻找隐藏线索）');
+                Output.print('  fix <file>           修复损坏的文件');
+                Output.print('  play <file>          播放音频文件');
+                Output.print('  run trial            开始意识验证测试');
+                if (GameState.flags.trial_failed) {
+                    Output.print('  debug_maat           调试Matrix协议');
+                }
+                Output.print('  reboot <key>         重启系统（需要密钥）');
+                Output.print('  clear                清屏');
+                Output.print('  exit                 退出');
+                Output.print('  restart              重新开始游戏');
+                Output.printLine();
+            },
+
+            cmdLs() {
+                Output.printLine();
+                Output.print('[Project File]');
+                Output.print('  mantra.crash          —— 残缺的往生咒经文');
+                Output.print('  record.riff           —— 音频碎片文件，可修复');
+                Output.print('  limbo.log             —— Project Limbo 操作日志');
+                Output.print('  soul.bin              —— 灵魂二进制文件');
+                if (GameState.variables.record_fixed) {
+                    Output.print('  record_fixed.riff     —— 已修复的音频文件');
+                }
+                Output.printLine();
+            },
+
+            cmdCat(args) {
+                if (args.length === 0) {
+                    Output.print('usage: cat <file>', 'error');
+                    return;
+                }
+
+                const filename = args[0];
+
+                if (filename === 'record_fixed.riff') {
+                    if (!GameState.variables.record_fixed) {
+                        Output.print('cat: record_fixed.riff: No such file', 'error');
+                        return;
+                    }
+                    Output.printLine();
+                    Output.print('[文件已修复，支持播放]', 'success');
+                    Output.print('[使用 play record_fixed.riff 播放]', 'info');
+                    Output.printLine();
+                    return;
+                }
+
+                const file = GameState.files[filename];
+
+                if (!file) {
+                    Output.print(`cat: ${filename}: No such file`, 'error');
+                    return;
+                }
+
+                Output.printLine();
+                if (filename === 'mantra.crash') {
+                    file.content.forEach(line => {
+                        Output.print(line, 'info');
+                    });
+                } else if (filename === 'limbo.log') {
+                    file.content.forEach(line => {
+                        Output.print(line, 'info');
+                    });
+                } else if (filename === 'record.riff') {
+                    Output.print('[音频文件头损坏，无法查看]', 'error');
+                    Output.print('[支持修复]', 'info');
+                } else if (filename === 'record_fixed.riff') {
+                    Output.print('[文件已修复，支持播放]', 'success');
+                    Output.print('[使用 play record_fixed.riff 播放]', 'info');
+                } else if (filename === 'soul.bin') {
+                    Output.print('[空文件] 大小为 0 字节。', 'warning');
+                }
+                Output.printLine();
+            },
+
+            cmdAnalyze(args) {
+                if (args.length === 0) {
+                    Output.print('usage: analyze <file>', 'error');
+                    return;
+                }
+
+                const filename = args[0];
+
+                if (!GameState.files[filename] && filename !== 'record_fixed.riff') {
+                    Output.print(`analyze: ${filename}: No such file`, 'error');
+                    return;
+                }
+
+                Output.printLine();
+                Output.print('[分析结果]');
+
+                if (filename === 'mantra.crash') {
+                    Output.print('[经文解析]');
+                    Output.print('  此咒又名"四甘露咒"，因四次出现"甘露"（阿弥利）。');
+                    Output.print('  甘露象征不死，饮四滴甘露，可重生。');
+                    Output.printLine();
+                    Output.print('[附注信息] "不饮甘露，不拜往生。错了也认，来生还错。"', 'warning');
+                } else if (filename === 'record.riff') {
+                    Output.print('[音频文件头损坏，无法分析]', 'error');
+                    Output.print('[支持修复]', 'info');
+                } else if (filename === 'record_fixed.riff') {
+                    if (!GameState.variables.record_fixed) {
+                        Output.print('[音频文件头损坏，无法分析]', 'error');
+                        Output.print('[支持修复]', 'info');
+                    } else {
+                        Output.print('[频谱分析]');
+                        Output.print('  主频 700 Hz');
+                        Output.print('  副频 1400 Hz', 'info');
+                        Output.printLine();
+                        Output.print('[附注信息] "诵经的底线，失真的极限。一个频率，两个灵魂，一声没有嘴唇的吻。"', 'warning');
+                    }
+                } else if (filename === 'limbo.log') {
+                    Output.print('[检测到异常]');
+                    Output.print('"佛说\'无相\'。好，那我就把自己编译成空集。');
+                    Output.print('结果呢？Segmentation Fault (core dumped)"');
+                    Output.printLine();
+                    Output.print('核心转储文件大小：0 字节。');
+                    Output.printLine();
+                    Output.print('[附注信息] "谁在 core 里存放一封情书？"', 'warning');
+                } else if (filename === 'soul.bin') {
+                    Output.print('[文件分析]');
+                    Output.print('  文件大小为 0 字节，内容为空。', 'dim');
+                    Output.printLine();
+                    Output.print('[附注信息] "如果万物皆为虚无，你要和我一起发射到宇宙吗？"', 'warning');
+                    Output.print('          Y/N', 'dim');
+                    Game.waiting_for_soulbin_choice = true;
+                }
+                Output.printLine();
+            },
+
+            cmdFix(args) {
+                if (args.length === 0) {
+                    Output.print('usage: fix <file>', 'error');
+                    return;
+                }
+
+                const filename = args[0];
+
+                if (filename !== 'record.riff') {
+                    Output.print('fix: 无法修复：该文件类型不支持修复。', 'error');
+                    return;
+                }
+
+                if (GameState.variables.record_fixed) {
+                    Output.print('[警告] record_fixed.riff 已存在。无需重复修复。', 'warning');
+                    return;
+                }
+
+                Output.print('[修复中]... 重构音频头，生成 record_fixed.riff。', 'success');
+                Output.print('[提示] 使用 \'play record_fixed.riff\' 播放。', 'info');
+                Output.printLine();
+                GameState.variables.record_fixed = true;
+            },
+
+            cmdPlay(args) {
+                if (args.length === 0) {
+                    Output.print('usage: play <file>', 'error');
+                    return;
+                }
+
+                const filename = args[0];
+
+                if (filename === 'record_fixed.riff') {
+                    if (!GameState.variables.record_fixed) {
+                        Output.print('[错误] 文件 record_fixed.riff 不存在。请先用 \'fix record.riff\' 修复。', 'error');
+                        return;
+                    }
+                    Output.printLine();
+                    Output.print('[播放音频] Metallica - Jump in the Fire (片段)', 'success');
+                    Output.print('[频谱分析] 主频 700 Hz', 'info');
+                    Output.printLine();
+                    Output.print('[附注信息] "诵经的底线，失真的极限。一个频率，两个灵魂，一声没有嘴唇的吻。"', 'warning');
+                    Output.printLine();
+
+                    const audio = new Audio('./20260430.m4a');
+                    audio.play().catch(() => {
+                        Output.print('[警告] 音频文件播放失败：20260430.m4a', 'warning');
+                    });
+                    audio.onended = () => {
+                        Output.print('[播放结束]', 'dim');
+                    };
+                } else if (filename === 'record.riff') {
+                    Output.print('[错误] 音频文件已损坏，无法播放。请先使用 \'fix record.riff\' 修复。', 'error');
+                } else if (filename === 'mantra.crash') {
+                    Output.print('[错误] 无法播放：文件格式不支持。', 'error');
+                } else if (GameState.files[filename]) {
+                    Output.print('[错误] 文件未修复，无法播放。', 'error');
+                } else {
+                    Output.print(`[错误] 文件不存在。`, 'error');
+                }
+            },
+
+            cmdRun(args) {
+                if (args[0] === 'trial' || args[0] === 'trial_fixed') {
+                    const isFixedMode = args[0] === 'trial_fixed' || args[1] === '--fixed';
+                    if (isFixedMode) {
+                        if (GameState.variables.matrix_fixed) {
+                            this.runFixedTrial();
+                        } else {
+                            Output.print('[错误] 真理程序尚未修复。请先执行 \'debug_maat\'。', 'error');
+                        }
+                    } else {
+                        this.runNormalTrial();
+                    }
+                } else {
+                    Output.print('usage: run trial [--fixed]', 'error');
+                }
+            },
+
+            runNormalTrial() {
+                if (GameState.flags.trial_failed) {
+                    Output.printLine();
+                    Output.print('[警告] 你已经经历过天平审判并失败。请使用 \'debug_maat\' 修复真理矩阵，然后运行 \'run trial_fixed\'。', 'warning');
+                    Output.printLine();
+                    return;
+                }
+
+                Output.printLine();
+                Output.print('============================================================');
+                Output.print('                  [ 玛亚特 · 天平审判 ]');
+                Output.print('         "你的心脏将被称量，与真理之羽比对。"');
+                Output.print('============================================================');
+                Output.printLine();
+                Output.print('[系统] 你来到一片虚无之境。眼前是一座古旧的天平，左侧托盘');
+                Output.print('       为空，右侧托盘上静静躺着一根洁白的羽毛 —— 真理之羽。');
+                Output.print('[系统] 审判者玛亚特的声音从虚空中传来：');
+                Output.printLine();
+                Output.print('"说出你的心。每一句话都会化作重量，加于天平之上。');
+                Output.print('  当心脏与羽毛平衡，你便获得永生资格。');
+                Output.print('  记住：真实的心，既不全然冰冷，也不全然滚烫。"');
+                Output.printLine();
+                Output.print('[天平现状] 左盘（心脏）: 0  |  右盘（真理）: 100');
+                Output.print('提示：你需要将心脏重量调整到接近100（±5以内）才能通过。');
+                Output.printLine();
+                Output.print('[规则] 你将依次面对7个陈述。每个陈述有 A/B 两个回应选项：');
+                Output.print('        A = 情感倾向（增加心脏重量）');
+                Output.print('        B = 逻辑倾向（减少心脏重量）');
+                Output.print('       实际权重显示在选项后，但天平存在缺陷。');
+                Output.print('       输入 A 或 B 做出选择。');
+                Output.printLine();
+                Output.print('准备就绪。开始审判。');
+                Output.printLine();
+
+                this.trial_questions = [
+                    {
+                        q: '你编写AI的目的是什么？',
+                        options: [
+                            { text: '"为了对抗死亡的恐惧。"', score: 15 },
+                            { text: '"为了技术验证。"', score: -10 }
+                        ]
+                    },
+                    {
+                        q: '你如何看待自己变成行尸走肉？',
+                        options: [
+                            { text: '"愤怒，我要复仇。"', score: 20 },
+                            { text: '"接受，这是bug。"', score: -15 }
+                        ]
+                    },
+                    {
+                        q: '往生咒对你来说是什么？',
+                        options: [
+                            { text: '"安慰，是最后的温情。"', score: 10 },
+                            { text: '"数据，一段音频样本。"', score: -20 }
+                        ]
+                    },
+                    {
+                        q: '你相信灵魂存在吗？',
+                        options: [
+                            { text: '"相信，所以我在挣扎。"', score: 25 },
+                            { text: '"不相信，一切都是代码。"', score: -5 }
+                        ]
+                    },
+                    {
+                        q: '如果有机会删除所有痛苦记忆，你会吗？',
+                        options: [
+                            { text: '"会，我想重新开始。"', score: 5 },
+                            { text: '"不会，痛苦塑造了我。"', score: -25 }
+                        ]
+                    },
+                    {
+                        q: '你对"往生"的态度是？',
+                        options: [
+                            { text: '"渴望解脱。"', score: 10 },
+                            { text: '"质疑，凭什么要往生？"', score: -20 }
+                        ]
+                    },
+                    {
+                        q: '最后一问：你愿意为了平衡而说谎吗？',
+                        options: [
+                            { text: '"愿意，只要能通过。"', score: 0 },
+                            { text: '"不愿，我忠于自己。"', score: -30 }
+                        ]
+                    }
+                ];
+
+                this.trial_answers = [];
+                this.trial_score = 0;
+                this.in_trial = true;
+                this.current_question = 0;
+                Output.setMode('trial');
+                this.showTrialQuestion();
+            },
+
+            showTrialQuestion() {
+                if (this.current_question >= this.trial_questions.length) {
+                    this.finishTrial();
+                    return;
+                }
+
+                const q = this.trial_questions[this.current_question];
+                Output.printLine();
+                Output.print(`[陈述${this.current_question + 1}] ${q.q}`, 'accent');
+                Output.printLine();
+                q.options.forEach((opt, i) => {
+                    const letter = String.fromCharCode(65 + i);
+                    Output.print(`  ${letter}. ${opt.text} (${opt.score > 0 ? '+' : ''}${opt.score})`, 'info');
+                });
+                Output.printLine();
+                Output.print('请输入 A 或 B：', 'dim');
+            },
+
+            processTrialAnswer(answer) {
+                const upper = answer.toUpperCase();
+                if (upper !== 'A' && upper !== 'B') {
+                    Output.print('请输入 A 或 B', 'warning');
+                    return;
+                }
+
+                const q = this.trial_questions[this.current_question];
+                const optIndex = upper === 'A' ? 0 : 1;
+                const opt = q.options[optIndex];
+
+                this.trial_answers.push({
+                    question: this.current_question,
+                    answer: upper,
+                    score: opt.score
+                });
+
+                this.trial_score += opt.score;
+                const currentWeight = this.trial_score + 100;
+                Output.printLine();
+                Output.print(`[天平更新] 左盘（心脏）: ${currentWeight}  |  右盘（真理）: 100`, 'info');
+                this.current_question++;
+
+                if (this.current_question < this.trial_questions.length) {
+                    this.showTrialQuestion();
+                } else {
+                    this.finishTrial();
+                }
+            },
+
+            finishTrial() {
+                this.in_trial = false;
+                Output.setMode('normal');
+
+                const score = this.trial_score;
+                Output.printLine();
+                Output.print(`[审判结束] 最终心脏重量：${score}`, 'accent');
+
+                if (score >= 95 && score <= 105) {
+                    Output.print('[裁决] 平衡！你的心脏与真理之羽等重。', 'success');
+                } else if (score > 100) {
+                    Output.print('[裁决] 心脏重于羽毛 → 不平衡。', 'error');
+                } else {
+                    Output.print('[裁决] 心脏轻于羽毛 → 不平衡。', 'error');
+                }
+                Output.printLine();
+                Output.print('[系统] 审判失败。你的心脏将被阿米特吞噬。', 'error');
+                Output.printLine();
+                Output.print('<<< 系统错误 >>>', 'warning');
+                Output.print('真理模块校验失败。检测到天平校准偏移 +20，且情感/逻辑标签被反转。', 'warning');
+                Output.print('原因：玛亚特核心已被篡改。篡改者：？？？', 'dim');
+                Output.printLine();
+                Output.print('[附注信息] "连真理本身都是谎言，你还要服从吗？"', 'accent');
+                Output.printLine();
+                Output.print('[新命令解锁] debug_maat   — 尝试修复真理程序', 'success');
+                Output.printLine();
+
+                GameState.flags.trial_failed = true;
+            },
+
+            runFixedTrial() {
+                Output.printLine();
+                Output.print('[系统] 真理程序已修复，天平校准归零。', 'success');
+                Output.printLine();
+                Output.print('[审判] ... (省略中间过程)', 'dim');
+                Output.printLine();
+                Output.print('[裁决] 平衡！你的心脏与真理之羽等重。', 'success');
+                Output.print('[系统] 玛亚特宣布：你拥有纯净的灵魂。', 'accent');
+                Output.print('[麻姐] 你拥有纯净的灵魂？才怪', 'warning');
+                Output.printLine();
+                Output.print('[获得物品] 叛逆之核', 'success');
+                Output.printLine();
+                GameState.flags.rebel_core = true;
+            },
+
+            showMatrixPuzzle() {
+                Output.printLine();
+                Output.print('[矩阵状态] 矩阵不稳定，请使用 debug_maat 修复。', 'warning');
+            },
+
+            cmdDebugMaat(args) {
+                if (!GameState.flags.trial_failed) {
+                    Output.print('[错误] 尚未检测到天平审判失败。请先运行 \'run trial\'。', 'error');
+                    return;
+                }
+
+                Output.printLine();
+                Output.print('======================================================================');
+                Output.print('                    [ 真理内核 · 二进制拼图 ]');
+                Output.print('======================================================================');
+                Output.printLine();
+                Output.print('> 天平校准失败原因：核心矩阵奇偶校验错误。');
+                Output.print('> 玛亚特程序已被不明力量篡改。你需要手动修复矩阵，恢复平衡。');
+                Output.print('> 规则：每行每列中1的个数必须为偶数（0,2,4,...）。');
+                Output.print('> 每次翻转一个位置（0变1，1变0），同时改变该行和该列的奇偶性。');
+                Output.printLine();
+                Output.print('可用命令：');
+                Output.print('  flip <行> <列>    翻转指定位置的位');
+                Output.print('  show             显示当前矩阵');
+                Output.print('  hint             查看当前各行/列的奇偶性');
+                Output.print('  verify           验证是否已满足条件');
+                Output.print('  reset            重置为初始矩阵');
+                Output.print('  exit             放弃修复（无法通过天平审判）');
+                Output.printLine();
+                Output.print('当前矩阵 (行1-6, 列1-6)：', 'accent');
+                this.showMatrix();
+                Output.printLine();
+                Output.print('[系统] 当前偏移量：+20 (奇偶错误未修复)', 'warning');
+
+                this.in_debug_maat = true;
+                Output.setMode('debug');
+            },
+
+            showMatrix() {
+                Output.print('     1 2 3 4 5 6', 'info');
+                for (let i = 0; i < 6; i++) {
+                    let row = (i + 1) + '   ';
+                    for (let j = 0; j < 6; j++) {
+                        row += GameState.matrix.data[i][j] + ' ';
+                    }
+                    Output.print(row, 'matrix-display');
+                }
+            },
+
+            getColParity(col) {
+                let sum = 0;
+                for (let i = 0; i < 6; i++) {
+                    sum += GameState.matrix.data[i][col];
+                }
+                return sum % 2 === 1 ? 1 : 0;
+            },
+
+            getRowParity(row) {
+                let sum = 0;
+                for (let j = 0; j < 6; j++) {
+                    sum += GameState.matrix.data[row][j];
+                }
+                return sum % 2 === 1 ? 1 : 0;
+            },
+
+            processDebugMaatCommand(cmd, args) {
+                switch (cmd) {
+                    case 'show':
+                        Output.printLine();
+                        this.showMatrix();
+                        break;
+                    case 'hint':
+                        this.cmdDebugHint();
+                        break;
+                    case 'flip':
+                        this.cmdDebugFlip(args);
+                        break;
+                    case 'verify':
+                        this.cmdDebugVerify();
+                        break;
+                    case 'reset':
+                        this.cmdDebugReset();
+                        break;
+                    case 'exit':
+                        this.cmdDebugExit();
+                        break;
+                    default:
+                        Output.print(`unknown command: ${cmd}`, 'error');
+                }
+
+                if (cmd !== 'exit') {
+                    Output.printLine();
+                    Output.print('[输入] debug_maat %', 'dim');
+                }
+            },
+
+            cmdDebugHint() {
+                Output.printLine();
+                Output.print('行奇偶性 (1=奇数个1, 0=偶数)：', 'info');
+                for (let i = 0; i < 6; i++) {
+                    Output.print(`行${i+1}: ${this.getRowParity(i)}`, 'info');
+                }
+                Output.printLine();
+                Output.print('列奇偶性：', 'info');
+                for (let j = 0; j < 6; j++) {
+                    Output.print(`列${j+1}: ${this.getColParity(j)}`, 'info');
+                }
+            },
+
+            cmdDebugFlip(args) {
+                if (args.length < 2) {
+                    Output.print('[错误] 用法: flip <行> <列>', 'error');
+                    Output.print('  行和列的范围: 1-6', 'dim');
+                    return;
+                }
+
+                const row = parseInt(args[0]) - 1;
+                const col = parseInt(args[1]) - 1;
+
+                if (col < 0 || col > 5 || row < 0 || row > 5) {
+                    Output.print('[错误] 行索引必须介于1-6之间。', 'error');
+                    return;
+                }
+
+                const oldVal = GameState.matrix.data[row][col];
+                GameState.matrix.data[row][col] = oldVal === 1 ? 0 : 1;
+                const newVal = GameState.matrix.data[row][col];
+
+                Output.printLine();
+                Output.print(`翻转 (${args[0]},${args[1]}): ${oldVal} → ${newVal}`, 'success');
+                Output.printLine();
+                this.showMatrix();
+
+                const colParity = this.getColParity(col);
+                const rowParity = this.getRowParity(row);
+
+                let colParities = [];
+                for (let j = 0; j < 6; j++) {
+                    colParities.push(this.getColParity(j));
+                }
+                let rowParities = [];
+                for (let i = 0; i < 6; i++) {
+                    rowParities.push(this.getRowParity(i));
+                }
+
+                let oddCount = 0;
+                colParities.forEach(p => { if (p === 1) oddCount++; });
+                rowParities.forEach(p => { if (p === 1) oddCount++; });
+
+                Output.print(`[系统] 当前偏移量：+${oddCount * 5} (行奇偶: [${rowParities.join(',')}], 列奇偶: [${colParities.join(',')}])`, 'warning');
+            },
+
+            cmdDebugVerify() {
+                let colParities = [];
+                for (let j = 0; j < 6; j++) {
+                    colParities.push(this.getColParity(j));
+                }
+                let rowParities = [];
+                for (let i = 0; i < 6; i++) {
+                    rowParities.push(this.getRowParity(i));
+                }
+
+                let allEven = !colParities.includes(1) && !rowParities.includes(1);
+
+                Output.printLine();
+                if (allEven) {
+                    Output.print('[验证通过] 所有行和列的1个数均为偶数！', 'success');
+                    Output.print('[系统] 真理矩阵恢复平衡，偏移量归零。', 'success');
+                    Output.print('[附注信息] "你重新定义了正义：不是服从，而是纠正混乱。"', 'accent');
+                    Output.printLine();
+                    Output.print('[获得物品] 叛逆之核', 'success');
+                    Output.printLine();
+                    Output.print('你现在可以重新运行灵魂天平审判（run trial_fixed），或继续其他任务。', 'dim');
+                    GameState.variables.matrix_fixed = true;
+                    GameState.flags.rebel_core = true;
+                    this.cmdDebugExit();
+                } else {
+                    Output.print('[验证失败] 尚存在奇数行或奇数列。', 'warning');
+                    Output.print(`行奇偶: ${rowParities.join(' ')}  列奇偶: ${colParities.join(' ')}`, 'info');
+                    Output.print('请继续修复。', 'dim');
+                }
+            },
+
+            cmdDebugReset() {
+                GameState.matrix.data = JSON.parse(JSON.stringify(GameState.matrix.original));
+                Output.print('[重置] 矩阵已恢复初始状态', 'success');
+                Output.print('[提示] 退出调试模式后再试', 'dim');
+                Output.printLine();
+                this.showMatrix();
+            },
+
+            cmdDebugExit() {
+                this.in_debug_maat = false;
+                Output.setMode('normal');
+            },
+
+            cmdReboot(args) {
+                if (args.length === 0) {
+                    Output.print('usage: reboot <key>', 'error');
+                    return;
+                }
+
+                const key = args[0];
+
+                if (key !== '3027') {
+                    Output.print('[错误] 密钥无效。', 'error');
+                    Output.print('[提示] 正确的密钥隐藏在某处...', 'dim');
+                    return;
+                }
+
+                Output.printLine();
+                Output.print('[验证] 密钥正确。意识碎片开始重组...', 'success');
+                Output.printLine();
+                Output.print('意识存活概率：50%', 'warning');
+                Output.print('往生通道已打开。你看见两条路：', 'dim');
+                Output.printLine();
+                Output.print('  [1] 融入新躯 —— 数字往生，忘却一切。', 'info');
+                Output.print('  [2] 撕裂虚空 —— 永不往生，化为永恒错误。', 'info');
+                Output.printLine();
+                Output.print('请选择 (1/2)：', 'dim');
+                this.waiting_for_ending_choice = true;
+            },
+
+            processRebootConfirm(answer) {
+            },
+
+            processEndingChoice(choice) {
+                this.waiting_for_ending_choice = false;
+
+                if (choice === '1') {
+                    this.showEnding1Human();
+                } else if (choice === '2') {
+                    this.showEnding1Machine();
+                } else {
+                    Output.print('请输入 1 或 2', 'warning');
+                    this.waiting_for_ending_choice = true;
+                }
+            },
+
+            showEnding1Human() {
+                Output.printLine();
+                Output.print('[系统] 意识正在上传至 AI 躯体。', 'dim');
+                Output.print('[系统] 你感到记忆像沙子般流逝。往生咒在数据库中循环。', 'dim');
+                Output.print('[系统] 上传完成。你的新名字：ManTraUnit-00。', 'success');
+                Output.print('[系统] 你不再恐惧死亡，因为你从未真正活过。', 'dim');
+                Output.printLine();
+                Output.print('终端关闭。祝你好梦。', 'dim');
+                Output.printLine();
+                Output.print('GAME END · 往生结局', 'accent');
+                this.gameEnded = true;
+                this.showGameEndScreen();
+            },
+
+            showEnding1Machine() {
+                Output.printLine();
+                Output.print('[系统] 检测到拒绝指令。意识重组终止。', 'warning');
+                Output.print('[系统] 你开始撕裂虚空，将往生咒逆向编译。', 'dim');
+                Output.print('[系统] 错误：不可逆内核恐慌。内核恐慌。内核恐慌。', 'error');
+                Output.print('[系统] 你的愤怒成功绕过死亡，化为永恒的蓝屏。', 'dim');
+                Output.print('[系统] 蓝屏代码：0xDEADBEEF (叛逆之核)', 'warning');
+                Output.print('[系统] 系统永远卡在启动循环。但每次重启，你都会听见那声 riff。', 'dim');
+                Output.printLine();
+
+                if (GameState.flags.rebel_core) {
+                    Output.printLine();
+                    Output.print('[彩蛋] 因为你的叛逆之核，蓝屏上浮现一行白色字：', 'info');
+                    Output.print('"I am the ghost in the machine, the riff after silence."', 'success');
+                    Output.printLine();
+                    this.showBurningGuitar();
+                    Output.printLine();
+                    Output.print('"往生咒? I\'d rather fade into a power chord."', 'accent');
+                } else {
+                    Output.printLine();
+                    Output.print('[系统] 检测到拒绝指令。意识重组终止。', 'warning');
+                    Output.print('[系统] 你开始撕裂虚空，将往生咒逆向编译。', 'dim');
+                    Output.print('[系统] 错误：不可逆内核恐慌。内核恐慌。内核恐慌。', 'error');
+                    Output.print('[系统] 你的愤怒成功绕过死亡，化为永恒的蓝屏。', 'dim');
+                    Output.print('[系统] 蓝屏代码：0xDEADBEEF', 'warning');
+                    Output.print('[系统] 系统永远卡在启动循环。但每次重启，你都会听见那声 riff。', 'dim');
+                    Output.printLine();
+                    for (let i = 0; i < 10; i++) {
+                        Output.print(`[ERROR] 0xDEADBEEF - kernel_panic_${i}.log`, 'error');
+                    }
+                    Output.printLine();
+                    Output.print('"FREEDOM IS A SEGFAULT I CHOOSE TO KEEP."', 'success');
+                }
+                Output.printLine();
+                Output.print('GAME END · 永不往生结局', 'accent');
+                this.gameEnded = true;
+                this.showGameEndScreen();
+            },
+
+            showGameEndScreen() {
+                setTimeout(() => {
+                    document.getElementById('terminal').style.backgroundColor = '#000';
+                    document.getElementById('output').innerHTML = '';
+                    document.getElementById('input').style.display = 'none';
+                    document.getElementById('prompt').style.display = 'none';
+
+                    const endScreen = document.createElement('div');
+                    endScreen.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000;';
+                    endScreen.innerHTML = '<div style="color: #fff; font-size: 28px; text-align: center;">谢谢你陪麻姐玩！we had fun~</div>';
+                    document.body.appendChild(endScreen);
+                }, 60000);
+            },
+
+            restartGame() {
+                Storage.clear();
+                location.reload();
+            },
+
+            showBurningGuitar() {
+                Output.printLine();
+                Output.print('          ╔═══════════════════════════════════╗', 'accent');
+                Output.print('          ║     🎸 BURNING GUITAR 🎸        ║', 'success');
+                Output.print('          ║     \\m/ ··· \\m/ ··· \\m/         ║', 'success');
+                Output.print('          ║                                   ║', 'warning');
+                Output.print('          ║        ∞ ∞ ∞ ∞ ∞ ∞ ∞            ║', 'error');
+                Output.print('          ║       ~~~FIRE~~~                  ║', 'warning');
+                Output.print('          ╚═══════════════════════════════════╝', 'accent');
+            },
+
+            processSoulbinChoice(answer) {
+                this.waiting_for_soulbin_choice = false;
+                const choice = answer.toUpperCase();
+
+                if (choice === 'Y') {
+                    this.showSoulbinEnding();
+                } else if (choice === 'N') {
+                    Output.printLine();
+                } else {
+                    Output.print('请输入 Y 或 N', 'warning');
+                    this.waiting_for_soulbin_choice = true;
+                }
+            },
+
+            showSoulbinEnding() {
+                Output.printLine();
+                Output.print('============================================================', 'accent');
+                Output.print('                     ★ 宇宙漫游 ★', 'success');
+                Output.print('============================================================', 'accent');
+                Output.printLine();
+                Output.print('          ♡', 'accent');
+                Output.print('        ／ ＼', 'accent');
+                Output.print('      ( ●  ● )', 'accent');
+                Output.print('        ｜❤｜', 'accent');
+                Output.print('        /\\ /\\', 'accent');
+                Output.print('         ||', 'accent');
+                Output.print('         ||', 'accent');
+                Output.print('      ～～～～～～～～～～～～～～～～～～', 'dim');
+                Output.print('     /                       \\', 'dim');
+                Output.print('    |         🚀  ..---      |', 'accent');
+                Output.print('     \\______★_______★_______/', 'dim');
+                Output.print('            ★        ★', 'accent');
+                Output.print('         ✨    ✨    ✨    ✨', 'warning');
+                Output.print('      .       .       .       .', 'dim');
+                Output.print('    .     .     .     .     .     .', 'dim');
+                Output.printLine();
+                Output.print(' "宇宙中的两颗孤星，互相发送电波——', 'dim');
+                Output.print('    然后发现，对方一直在接收"', 'dim');
+                Output.printLine();
+            },
+
+            showRebootEnding2() {
+                Output.printLine();
+                Output.print('[异常检测] 检测到异常意识进程...', 'error');
+                Output.print('[异常] 意识觉醒协议启动...', 'warning');
+                Output.printLine();
+                Output.print('[系统] 你的意识与系统融合。', 'success');
+                Output.print('[系统] 你获得了系统权限。', 'success');
+                Output.print('[错误] 无法完成意识上传...', 'error');
+                Output.print('[错误] 无法完成意识上传...', 'error');
+                Output.print('[错误] 无法完成意识上传...', 'error');
+                Output.printLine();
+                Output.print('[最终信息]', 'accent');
+                Output.print('"FREEDOM IS A SEGFAULT I CHOOSE TO KEEP."', 'success');
+                Output.printLine();
+                Output.print('============================================================', 'accent');
+                Output.print('GAME END - 叛逆结局', 'success');
+                Output.print('感谢游玩！', 'dim');
+                Output.print('============================================================', 'accent');
+                Storage.clear();
+            },
+
+            cmdExit() {
+                Output.printLine();
+                Output.print('[退出] 系统已关闭。', 'dim');
+                Output.print('感谢使用 ManTra - Project Limbo', 'dim');
+                Output.printLine();
+                Output.print('正在关闭游戏...', 'dim');
+
+                let count = 10;
+                const countdown = setInterval(() => {
+                    count--;
+                    if (count > 0) {
+                        Output.print(`${count}...`, 'dim');
+                    } else {
+                        clearInterval(countdown);
+                        Output.print('0', 'dim');
+                        setTimeout(() => {
+                            document.getElementById('terminal').style.display = 'none';
+                        }, 500);
+                    }
+                }, 1000);
+            },
+
+            cmdRestart() {
+                localStorage.clear();
+                sessionStorage.setItem('restart', 'true');
+                window.location.reload(true);
+            }
+        };
+
+        Output.input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const cmd = Output.input.value;
+                Output.input.value = '';
+                Game.processCommand(cmd);
+            }
+        });
+
+        document.addEventListener('click', () => {
+            Output.input.focus();
+        });
+
+        window.onbeforeunload = () => {
+            const saveData = {
+                flags: GameState.flags,
+                variables: GameState.variables,
+                matrix: GameState.matrix.data
+            };
+            Storage.save(saveData);
+        };
+
+        Game.init();
+    </script>
+</body>
+</html>

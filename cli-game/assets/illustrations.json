@@ -1,0 +1,22 @@
+[
+  {
+    "name": "mantra-crash",
+    "size": "2496x1664",
+    "prompt": "Cyberpunk gothic dark illustration, deep void background #0a0a0f, monochrome with violet accent #da77f2, terminal aesthetic. A shattered ancient Sanskrit sutra scroll dissolving into floating binary code fragments and ASCII glyphs. Torn page edges glow faintly violet. Theravada Buddhist iconography (lotus, dharma wheel) reduced to monochrome line art, mixed with kernel-panic stack trace text fragments drifting upward like incense smoke. CRT scanlines, subtle noise texture. Composition with breathing room, central subject, lots of black space. No readable text, no faces, no bright saturated colors, no anime style, no realistic photography, no logos, no watermarks."
+  },
+  {
+    "name": "record-riff",
+    "size": "2496x1664",
+    "prompt": "Cyberpunk dark illustration, deep void background #0a0a0f, monochrome grayscale with violet accent #da77f2, terminal aesthetic, CRT scanlines. Two overlapping waveform spectra — one at 700Hz lower, one at 1400Hz higher — rendered as glowing violet sine curves over deep void. Background suggests a burning electric guitar silhouette in ASCII line art form. Two faint ghost figures visible at each waveform peak, almost kissing but never touching, abstract not detailed. Metallic punk aesthetic crossed with cyberpunk terminal. Composition with breathing room, lots of black space. No readable text, no detailed faces, no bright saturated colors, no realistic photography, no logos, no watermarks."
+  },
+  {
+    "name": "limbo-log",
+    "size": "2496x1664",
+    "prompt": "Cyberpunk melancholic romantic illustration, deep cyber-void background #0a0a0f, monochrome grayscale with violet accent #da77f2, terminal aesthetic. An empty hollow wireframe cube floating in deep void, the cube's interior glows with a single violet origami love letter, weightless. Around the cube, timestamp glyphs and stack trace fragments orbit slowly as abstract symbols. Subtle CRT scanlines, micro noise texture. Mood: Segmentation Fault as love song. Central subject, lots of black breathing space. No readable text, no faces, no bright saturated colors, no realistic photography, no logos, no watermarks."
+  },
+  {
+    "name": "soul-bin",
+    "size": "2496x1664",
+    "prompt": "Cyberpunk tender hopeful cosmic illustration, deep purple-black cosmic void #0a0a0f, monochrome with violet accent #da77f2, terminal aesthetic, CRT scanlines. Two distant stars (Altair and Vega) across the void, connected by a faint thread of violet light forming a delicate constellation. Between them, a tiny silhouette of a paper rocket drifting. Faint ASCII heart shapes visible in the starfield as constellations. Mood: the only soft thing in the cold universe. Three-thirds composition, lots of black breathing space. No readable text, no faces, no bright saturated colors, no realistic photography, no logos, no watermarks."
+  }
+]

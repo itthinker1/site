@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伊犁 8 天环线 · 2026</title>
+  <meta name="description" content="北疆河谷草原 8 天自驾路线，含交通、美食与游学清单">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --grass: #7BA05B;
+      --forest: #3E5641;
+      --snow: #F4F1EC;
+      --lake: #A8C8D8;
+      --orange: #E8A87C;
+      --paper: #FAF7F0;
+      --ink: #2C3A2E;
+      --gray: #6B7268;
+      --font-serif: 'Noto Serif SC', serif;
+      --font-sans: 'Noto Sans SC', sans-serif;
+      --font-hand: 'Caveat', cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(123,160,91,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(168,200,216,0.04) 0%, transparent 50%);
+    }
+    img { max-width: 100%; display: block; }
+
+    #hero {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      max-width: 760px;
+      max-height: 80vh;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(250,247,240,0) 0%, rgba(250,247,240,0) 90%, rgba(250,247,240,0.5) 95%, var(--paper) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 2.5rem 1.5rem 0; }
+    .hero-eyebrow {
+      font-family: var(--font-hand);
+      font-size: 1.5rem;
+      color: var(--grass);
+      letter-spacing: 0.1em;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      color: var(--forest);
+      font-weight: 700;
+      margin: 0.5rem 0 1rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 30rem;
+      margin: 0 auto;
+    }
+
+    #intro {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; left: 0; right: 0;
+      height: 6px;
+      background: var(--grass);
+      opacity: 0.3;
+      border-radius: 3px;
+    }
+    .intro-text p {
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .info-card {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--snow);
+      border: 1px dashed var(--grass);
+      border-radius: 12px;
+    }
+    .info-item { text-align: center; }
+    .info-num {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--forest);
+      font-weight: 700;
+    }
+    .info-label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.2rem;
+    }
+    @media (max-width: 600px) {
+      .info-card { grid-template-columns: repeat(2, 1fr); }
+    }
+    #timeline {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+      position: relative;
+    }
+    .loop-map {
+      display: block;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      height: auto;
+    }
+    #timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 8rem;
+      bottom: 5rem;
+      width: 2px;
+      background-image: linear-gradient(180deg, var(--grass) 50%, transparent 50%);
+      background-size: 2px 12px;
+      opacity: 0.5;
+    }
+    .day-card {
+      position: relative;
+      background: #FFFEFA;
+      border: 1px dashed var(--grass);
+      border-radius: 12px;
+      padding: 0;
+      margin: 0 0 3rem 60px;
+      box-shadow: 0 4px 20px rgba(60, 90, 60, 0.06);
+      overflow: hidden;
+      transform: rotate(-0.5deg);
+      transition: transform 0.3s ease;
+    }
+    .day-card:nth-child(odd) { transform: rotate(0.5deg); }
+    .day-card:hover { transform: rotate(0deg); }
+    .day-badge {
+      position: absolute;
+      left: -60px;
+      top: 1rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--grass);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-hand);
+      font-size: 1.3rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(123,160,91,0.4);
+      z-index: 2;
+    }
+    .day-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .day-body { padding: 1.5rem; }
+    .day-corner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background: var(--forest);
+      color: white;
+      padding: 0.45rem 0.9rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      border-radius: 0 0 6px 0;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      line-height: 1;
+    }
+    .day-corner .word {
+      font-family: var(--font-serif);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      opacity: 0.85;
+    }
+    .day-corner .num {
+      font-family: var(--font-hand);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .day-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    .day-desc {
+      color: var(--ink);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .day-meta {
+      list-style: none;
+      border-top: 1px dashed rgba(123,160,91,0.3);
+      padding-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .day-meta li {
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .day-meta .icon { display: inline-block; width: 1.5rem; }
+    .day-meta strong { color: var(--forest); margin-right: 0.3rem; }
+    .day-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .day-tags span {
+      background: rgba(168,200,216,0.4);
+      color: var(--forest);
+      padding: 0.2rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-family: var(--font-hand);
+    }
+    .day-options {
+      list-style: none;
+      background: rgba(123,160,91,0.06);
+      border-left: 3px solid var(--grass);
+      padding: 0.8rem 1rem;
+      margin: 0.8rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .day-options li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .day-options strong { color: var(--forest); }
+    @media (max-width: 600px) {
+      .day-card { margin-left: 50px; }
+      .day-badge { left: -50px; width: 40px; height: 40px; font-size: 1.1rem; }
+      #timeline::before { left: 20px; }
+    }
+    #tips {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .tip-card {
+      background: var(--snow);
+      border: 1px dashed var(--grass);
+      border-radius: 12px;
+      padding: 1.2rem;
+    }
+    .tip-card h3 {
+      list-style: none;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--forest);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .tip-card ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding-left: 0;
+    }
+    .tip-card li {
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .tip-icon { font-size: 1.3rem; }
+    @media (max-width: 600px) {
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+    footer {
+      text-align: center;
+      padding: 4rem 1.5rem 6rem;
+      background: linear-gradient(180deg, transparent, rgba(123,160,91,0.08));
+    }
+    .footer-tip {
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    .footer-sign {
+      font-family: var(--font-hand);
+      font-size: 2rem;
+      color: var(--forest);
+      margin: 1rem 0;
+    }
+    .footer-date {
+      font-family: var(--font-hand);
+      font-size: 1rem;
+      color: var(--gray);
+    }
+    [data-fade] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    [data-fade].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .day-img, .loop-map { cursor: zoom-in; transition: opacity 0.2s; }
+    .day-img:hover, .loop-map:hover { opacity: 0.9; }
+
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 25, 22, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 2rem;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-content {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .lightbox-overlay .lightbox-img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      display: block;
+      cursor: zoom-out;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -3rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--snow);
+      font-size: 2.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      line-height: 1;
+      transition: color 0.2s;
+      font-family: var(--font-sans);
+    }
+    .lightbox-close:hover { color: var(--grass); }
+    @media (max-width: 600px) {
+      .lightbox-close { top: -2.5rem; font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="asset/illustrations/hero.jpg" alt="伊犁河谷草原全景" />
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Yili Loop · 2026</p>
+      <h1 class="hero-title">伊犁 8 天环线</h1>
+      <p class="hero-sub">天山以北，河谷草原与雪山的旅行手帐</p>
+    </div>
+  </section>
+  <section id="intro">
+    <div class="intro-text">
+      <h2 class="section-title" data-fade>关于这趟旅程</h2>
+      <p>新疆很大，相当于 9 个湖北。以天山为界，北疆是河谷草原，南疆多沙漠戈壁。初次入疆，首推北疆伊犁——那拉提、赛里木湖、伊昭公路、夏塔、琼库什台、特克斯八卦城、唐布拉百里画廊都在这条小环线上。</p>
+      <p>下面是一份 8-10 天的路线，最美的风景就在路上。</p>
+    </div>
+    <div class="info-card" data-fade>
+      <div class="info-item"><span class="info-num">8</span><span class="info-label">天</span></div>
+      <div class="info-item"><span class="info-num">~3000</span><span class="info-label">公里</span></div>
+      <div class="info-item"><span class="info-num">北疆</span><span class="info-label">伊犁州</span></div>
+      <div class="info-item"><span class="info-num">9倍</span><span class="info-label">湖北面积</span></div>
+    </div>
+  </section>
+  <section id="timeline">
+    <img class="loop-map" src="asset/Untitled 1.png" alt="伊犁 8 天环线手绘地图" loading="lazy" data-fade />
+    <h2 class="section-title" style="display:block; text-align:center; margin:0 auto 3rem;" data-fade>8 日行程（建议调节为10天）</h2>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D1</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">1</span></span>
+      <img class="day-img" src="asset/illustrations/day1.jpg" alt="赛里木湖" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">伊宁 → 赛里木湖</h3>
+        <p class="day-desc">一脚油门驶入北疆。果子沟大桥在山间盘旋而过，转过弯口，赛里木湖蓝得不真实——这是天山的眼睛。傍晚环湖，看夕阳把雪山染成金色。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>果子沟大桥俯瞰、环湖公路、湖畔住宿</li>
+          <li><span class="icon">🍴</span><strong>必吃：</strong>返回伊宁后去海尔巴格餐厅（市公安局附近）</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>高海拔早晚温差大，备一件冲锋衣</li>
+        </ul>
+        <div class="day-tags"><span>自驾</span><span>湖泊</span><span>公路风景</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D2</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">2</span></span>
+      <img class="day-img" src="asset/illustrations/day2.jpg" alt="天马浴河" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">伊宁 → 昭苏</h3>
+        <p class="day-desc">沿伊犁河谷一路向南，途经汉家公主薰衣草庄园。昭苏是"天马之乡"，下午去看汗血宝马，赶上周末或许能撞见"天马浴河"——上千匹骏马跃入特克斯河的壮观场面。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>天马文化园、马术表演、喂马体验</li>
+          <li><span class="icon">🍴</span><strong>推荐：</strong>昭苏的手抓饭、熏马肠</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>天马浴河多在 7-8 月周末举行，出发前查官方公告</li>
+        </ul>
+        <div class="day-tags"><span>骑马</span><span>峡谷</span><span>边境</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D3</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">3</span></span>
+      <img class="day-img" src="asset/illustrations/day3.jpg" alt="夏塔古道" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">昭苏 → 夏塔</h3>
+        <p class="day-desc">夏塔是一条夹在天山之间的古道，唐玄奘曾经走过这里去印度。徒步进入河谷，杉林、雪山、温泉、野花次第展开。返回昭苏可走一段伊昭公路——号称最美但最险的盘山路。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>夏塔古道徒步、温泉、伊昭公路（视体力可选）</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>景区有电瓶车，徒步往返约 4-5 小时；伊昭公路雨雪天封闭</li>
+        </ul>
+        <div class="day-tags"><span>徒步</span><span>雪山</span><span>古道</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D4</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">4</span></span>
+      <img class="day-img" src="asset/illustrations/day4.jpg" alt="琼库什台木屋村落" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">昭苏 → 琼库什台</h3>
+        <p class="day-desc">翻越乌孙山，进入隐秘的高山牧场。琼库什台是中国哈萨克族原始村落保存最完整的地方，木屋、毡房、马群散落在层层叠叠的草原上。这里手机信号时有时无——刚好让人专心看星空。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>哈萨克木屋村落、立体草原、银河</li>
+          <li><span class="icon">🍴</span><strong>必尝：</strong>牧民家自制酸奶疙瘩、现挤奶茶</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>村里住宿条件简朴，提前订；备好现金</li>
+        </ul>
+        <div class="day-tags"><span>木屋</span><span>星空</span><span>牧区</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D5</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">5</span></span>
+      <img class="day-img" src="asset/illustrations/day5.jpg" alt="恰塔环线" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">特克斯 → 恰塔环线 → 巩留</h3>
+        <p class="day-desc">早上先逛特克斯八卦城——按周易布局的城市，从空中俯瞰是个完整的太极图。下午走恰塔环线（恰西-塔里木森林），从塔松林海一路开到开阔的草原，是路书作者最推荐的一段——感受从山谷到草原雪山的变化之美。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>八卦城、塔里木森林公园、恰西草原</li>
+          <li><span class="icon">🍴</span><strong>必吃：</strong>特克斯椒之约秘制椒麻鸡（80 元）+ 八卦之夜夜市</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>环线路况一般，注意车速；当晚住巩留县</li>
+        </ul>
+        <div class="day-tags"><span>越野</span><span>八卦城</span><span>河谷公路</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D6</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">6</span></span>
+      <img class="day-img" src="asset/illustrations/day6.jpg" alt="喀拉峻立体草原" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">巩留 → 喀拉峻 / 库尔德宁 / 那拉提（三选一）</h3>
+        <p class="day-desc">三个景区各有性格，按时间和兴趣挑一个。</p>
+        <ul class="day-options">
+          <li><strong>喀拉峻：</strong>立体草原天花板，光影起伏像绿色丝绸，最适合拍照</li>
+          <li><strong>库尔德宁：</strong>原始云杉林+雪山，小众清净，徒步爱好者首选</li>
+          <li><strong>那拉提：</strong>草原+空中草原+游客体验最丰富，老少咸宜</li>
+        </ul>
+        <p class="day-desc">如果时间宽裕，加一天玩两个。</p>
+        <ul class="day-meta">
+          <li><span class="icon">💡</span><strong>Tip：</strong>推荐喀拉峻——风景最具标志性、好出片，能代表伊犁草原</li>
+        </ul>
+        <div class="day-tags"><span>草原</span><span>三选一</span><span>立体景观</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D7</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">7</span></span>
+      <img class="day-img" src="asset/illustrations/day7.jpg" alt="唐布拉百里画廊" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">那拉提 → 乔尔玛 → 唐布拉百里画廊</h3>
+        <p class="day-desc">北上进入独库公路的精华段。乔尔玛是独库英烈纪念地，沿途百里画廊：雪山、温泉、草原、毡房在车窗外像电影长镜头一帧帧掠过。沿途随时停车、随时拍照——这就是"最美的风景在路上"的真实写照。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>独库公路片段、唐布拉草原</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>油量加满，部分路段加油站稀少；这一天行车较久，预留充裕时间</li>
+        </ul>
+        <div class="day-tags"><span>独库公路</span><span>画廊</span><span>长镜头</span></div>
+      </div>
+    </article>
+
+    <article class="day-card" data-fade>
+      <div class="day-badge"><span class="day-num">D8</span></div>
+      <span class="day-corner"><span class="word">DAY</span><span class="num">8</span></span>
+      <img class="day-img" src="asset/illustrations/day8.jpg" alt="伊宁六星街" loading="lazy" />
+      <div class="day-body">
+        <h3 class="day-title">返回伊宁</h3>
+        <p class="day-desc">收尾日。回到伊宁逛六星街——彩色俄式房屋、手风琴声、咖啡馆和馕坑并存的多元小巷。下午把车开回租车点，把行李里塞满馕、奶疙瘩、薰衣草精油带回家。</p>
+        <ul class="day-meta">
+          <li><span class="icon">🏔️</span><strong>亮点：</strong>六星街文艺漫步、伊宁老城</li>
+          <li><span class="icon">🍴</span><strong>必吃：</strong>再去一次海尔巴格、街边烤包子、手工冰淇淋</li>
+          <li><span class="icon">💡</span><strong>Tip：</strong>还车前检查油量、内饰，对照取车时的照片</li>
+        </ul>
+        <div class="day-tags"><span>返程</span><span>市区</span><span>美食</span></div>
+      </div>
+    </article>
+  </section>
+  <section id="tips">
+  <h2 class="section-title" style="display:block; text-align:center; margin:0 auto 3rem;" data-fade>实用贴士</h2>
+  <div class="tips-grid">
+    <div class="tip-card" data-fade>
+      <h3><span class="tip-icon">✈️</span> 怎么去</h3>
+      <ul>
+        <li>十堰 → 西安（火车 5-6h / 高铁 1h）</li>
+        <li>西安站 → 咸阳机场（地铁 4-14 号线，8 元）</li>
+        <li>咸阳 → 伊宁（飞机 4h15min）</li>
+        <li>总时长：约 1 天抵达</li>
+      </ul>
+    </div>
+    <div class="tip-card" data-fade>
+      <h3><span class="tip-icon">🚗</span> 当地租车</h3>
+      <ul>
+        <li>✅ 推荐：神州租车 / 一嗨租车（比互联网平台靠谱）</li>
+        <li>⚠️ 取车时全方位拍照上传 APP，划痕、内饰都拍</li>
+        <li>💡 提前预定有优惠</li>
+      </ul>
+    </div>
+    <div class="tip-card" data-fade>
+      <h3><span class="tip-icon">🎒</span> 游学清单</h3>
+      <ul>
+        <li>🌿 认识高原动植物</li>
+        <li>🏗️ 果子沟大桥超级工程</li>
+        <li>🐎 昭苏天马浴河 + 马术表演</li>
+        <li>🏛️ 特克斯八卦城</li>
+        <li>👘 穿民族服饰</li>
+        <li>🧵 打馕 / 剪羊毛 / 挤牛奶 / 做酸奶疙瘩</li>
+        <li>🗣️ 学哈萨克族问候语</li>
+      </ul>
+    </div>
+    <div class="tip-card" data-fade>
+      <h3><span class="tip-icon">🍴</span> 美食地图</h3>
+      <ul>
+        <li>🥟 烤包子 / 馕包肉 / 手抓饭 / 大盘鸡</li>
+        <li>🐔 椒麻鸡（椒之约·特克斯，¥80）</li>
+        <li>🐎 熏马肠（昭苏特色）</li>
+        <li>🍦 手工冰淇淋（伊宁街头）</li>
+        <li>🥛 酸奶疙瘩 / 现挤奶茶</li>
+        <li>💊 备药：乌梅、藿香酱、滴眼液、芦荟胶</li>
+      </ul>
+    </div>
+  </div>
+</section>
+  <footer>
+
+    <p class="footer-tip">北疆非常安全，人民很友好。注意尊重当地习俗——清真店里不饮酒、不吃猪肉。</p>
+    <p class="footer-sign">— 祝你们旅途愉快 —</p>
+    <p class="footer-date">京华小兄弟 · 2026</p>
+  </footer>
+
+
+  <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="关闭">&times;</button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('[data-fade]').forEach(el => io.observe(el));
+
+(function () {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+  function open(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  document.querySelectorAll('.day-img, .loop-map').forEach(img => {
+    img.addEventListener('click', () => open(img.src, img.alt));
+  });
+  lightboxClose.addEventListener('click', close);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) close();
+  });
+})();
+</script>
+</body>
+</html>

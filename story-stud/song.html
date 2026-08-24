@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋朝十八帝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimHei", "Noto Sans CJK SC", sans-serif;
+            background: #ffffff;
+            color: #000000;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            letter-spacing: 12px;
+            border-bottom: 4px double #000;
+            padding-bottom: 12px;
+            width: 1300px;
+        }
+
+        .period-label {
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            margin: 5px 0;
+            padding: 3px 0;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .timeline {
+            position: relative;
+            width: 1300px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            width: 190px;
+            border: 2.5px solid #000;
+            padding: 10px 8px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .card .temple-era {
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .card .name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .card .reign {
+            font-size: 11px;
+            margin-bottom: 5px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 4px 0;
+        }
+
+        .card .achievement {
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: normal;
+            font-family: "SimHei", "黑体", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+        }
+
+        .arrow-right {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 3px;
+            line-height: 1;
+            user-select: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .arrow-left {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 3px;
+            line-height: 1;
+            user-select: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .arrow-label {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: -2px;
+            line-height: 1;
+            color: #000;
+        }
+
+        .v-label {
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .v-connector-right {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 95px;
+            height: 45px;
+            position: relative;
+            z-index: 10;
+            margin: 3px 0;
+        }
+
+        .v-connector-left {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 95px;
+            height: 45px;
+            position: relative;
+            z-index: 10;
+            margin: 3px 0;
+        }
+
+        .v-line {
+            width: 3px;
+            height: 100%;
+            background: #000;
+            position: relative;
+        }
+
+        .v-arrow {
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .footer-note {
+            margin-top: 25px;
+            font-size: 13px;
+            text-align: center;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">宋 朝 十 八 帝</div>
+
+    <div class="timeline">
+        <div class="period-label">北 宋（公元960年 - 公元1127年）</div>
+
+        <!-- 第一排（左→右）：赵匡胤 → 赵光义 → 赵恒 → 赵祯 → 赵曙 → 赵顼 -->
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋太祖 建隆</div>
+                    <div class="name">赵匡胤</div>
+                    <div class="reign">公元960-976(16年)</div>
+                    <div class="achievement">陈桥兵变<br>建立宋朝</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">弟</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋太宗 太平兴国</div>
+                    <div class="name">赵光义</div>
+                    <div class="reign">公元976-997(21年)</div>
+                    <div class="achievement">统一中原<br>崇文抑武</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋真宗 咸平</div>
+                    <div class="name">赵恒</div>
+                    <div class="reign">公元997-1022(25年)</div>
+                    <div class="achievement">澶渊之盟<br>封禅泰山</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋仁宗 天圣</div>
+                    <div class="name">赵祯</div>
+                    <div class="reign">公元1022-1063(41年)</div>
+                    <div class="achievement">仁宗盛治<br>庆历新政</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">堂侄</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋英宗 治平</div>
+                    <div class="name">赵曙</div>
+                    <div class="reign">公元1063-1067(4年)</div>
+                    <div class="achievement">濮议之争<br>修资治通鉴</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋神宗 熙宁</div>
+                    <div class="name">赵顼</div>
+                    <div class="reign">公元1067-1085(18年)</div>
+                    <div class="achievement">王安石变法<br>元丰改制</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 垂直连接（右侧）：赵顼 ↓ 赵煦（父→子，不标注） -->
+        <div class="v-connector-right">
+            <div class="v-line">
+                <div class="v-arrow">↓</div>
+            </div>
+        </div>
+
+        <!-- 第二排（右→左蛇形）：赵煦 ← 赵佶 ← 赵桓 ← 赵构 ← 赵昚 ← 赵惇 -->
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋光宗 绍熙</div>
+                    <div class="name">赵惇</div>
+                    <div class="reign">公元1189-1194(5年)</div>
+                    <div class="achievement">绍熙内禅<br>精神失常</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left">←</div>
+                <div class="card">
+                    <div class="temple-era">宋孝宗 隆兴</div>
+                    <div class="name">赵昚</div>
+                    <div class="reign">公元1162-1189(27年)</div>
+                    <div class="achievement">隆兴北伐<br>乾淳之治</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left"><span class="arrow-label">养子</span>←</div>
+                <div class="card">
+                    <div class="temple-era">宋高宗 建炎</div>
+                    <div class="name">赵构</div>
+                    <div class="reign">公元1127-1162(35年)</div>
+                    <div class="achievement">建立南宋<br>绍兴和议</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left"><span class="arrow-label">弟</span>←</div>
+                <div class="card">
+                    <div class="temple-era">宋钦宗 靖康</div>
+                    <div class="name">赵桓</div>
+                    <div class="reign">公元1125-1127(2年)</div>
+                    <div class="achievement">靖康之变<br>北宋灭亡</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left">←</div>
+                <div class="card">
+                    <div class="temple-era">宋徽宗 建中靖国</div>
+                    <div class="name">赵佶</div>
+                    <div class="reign">公元1100-1125(25年)</div>
+                    <div class="achievement">书画皇帝<br>靖康之耻</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left"><span class="arrow-label">弟</span>←</div>
+                <div class="card">
+                    <div class="temple-era">宋哲宗 元祐</div>
+                    <div class="name">赵煦</div>
+                    <div class="reign">公元1085-1100(15年)</div>
+                    <div class="achievement">元祐更化<br>绍圣绍述</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 垂直连接（左侧）：赵惇 ↓ 赵扩（父→子，不标注） -->
+        <div class="v-connector-left">
+            <div class="v-line">
+                <div class="v-arrow">↓</div>
+            </div>
+        </div>
+
+        <div class="period-label">南 宋（公元1127年 - 公元1279年）</div>
+
+        <!-- 第三排（左→右）：赵扩 → 赵昀 → 赵禥 → 赵㬎 → 赵昰 → 赵昺 -->
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋宁宗 庆元</div>
+                    <div class="name">赵扩</div>
+                    <div class="reign">公元1194-1224(30年)</div>
+                    <div class="achievement">开禧北伐<br>嘉定和议</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">远房侄</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋理宗 宝庆</div>
+                    <div class="name">赵昀</div>
+                    <div class="reign">公元1224-1264(40年)</div>
+                    <div class="achievement">端平入洛<br>联蒙灭金</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">侄</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋度宗 咸淳</div>
+                    <div class="name">赵禥</div>
+                    <div class="reign">公元1264-1274(10年)</div>
+                    <div class="achievement">贾似道专权<br>襄樊之战</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋恭帝 德祐</div>
+                    <div class="name">赵㬎</div>
+                    <div class="reign">公元1274-1276(2年)</div>
+                    <div class="achievement">临安投降<br>被俘出家</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">兄</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋端宗 景炎</div>
+                    <div class="name">赵昰</div>
+                    <div class="reign">公元1276-1278(2年)</div>
+                    <div class="achievement">逃亡海上<br>病逝碙洲</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">弟</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宋末帝 祥兴</div>
+                    <div class="name">赵昺</div>
+                    <div class="reign">公元1278-1279(1年)</div>
+                    <div class="achievement">崖山海战<br>南宋灭亡</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">皇位传承顺序：赵匡胤 → 赵光义 → 赵恒 → 赵祯 → 赵曙 → 赵顼 → 赵煦 → 赵佶 → 赵桓 → 赵构 → 赵昚 → 赵惇 → 赵扩 → 赵昀 → 赵禥 → 赵㬎 → 赵昰 → 赵昺</div>
+</body>
+</html>

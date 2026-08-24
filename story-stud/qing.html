@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清朝十二帝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimHei", "Noto Sans CJK SC", sans-serif;
+            background: #ffffff;
+            color: #000000;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            letter-spacing: 12px;
+            border-bottom: 4px double #000;
+            padding-bottom: 12px;
+            width: 950px;
+        }
+
+        .timeline {
+            position: relative;
+            width: 950px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            width: 210px;
+            border: 2.5px solid #000;
+            padding: 10px 8px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .card .temple-era {
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .card .name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .card .reign {
+            font-size: 11px;
+            margin-bottom: 5px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 4px 0;
+        }
+
+        .card .achievement {
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: normal;
+            font-family: "SimHei", "黑体", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+        }
+
+        .arrow-right {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 3px;
+            line-height: 1;
+            user-select: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .arrow-left {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 3px;
+            line-height: 1;
+            user-select: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .arrow-label {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: -2px;
+            line-height: 1;
+            color: #000;
+        }
+
+        .v-connector-right {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 105px;
+            height: 45px;
+            position: relative;
+            z-index: 10;
+            margin: 3px 0;
+        }
+
+        .v-connector-left {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 105px;
+            height: 45px;
+            position: relative;
+            z-index: 10;
+            margin: 3px 0;
+        }
+
+        .v-line {
+            width: 3px;
+            height: 100%;
+            background: #000;
+            position: relative;
+        }
+
+        .v-arrow {
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .footer-note {
+            margin-top: 25px;
+            font-size: 13px;
+            text-align: center;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">清 朝 十 二 帝</div>
+    
+    <div class="timeline">
+        <!-- 第一排（左→右）：努尔哈赤 → 皇太极 → 顺治 → 康熙 -->
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清太祖 天命</div>
+                    <div class="name">努尔哈赤</div>
+                    <div class="reign">公元1616-1626(10年)</div>
+                    <div class="achievement">建立后金<br>统一女真</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清太宗 天聪/崇德</div>
+                    <div class="name">皇太极</div>
+                    <div class="reign">公元1626-1643(17年)</div>
+                    <div class="achievement">改国号为清<br>完善八旗</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清世祖 顺治</div>
+                    <div class="name">福临</div>
+                    <div class="reign">公元1643-1661(18年)</div>
+                    <div class="achievement">清军入关<br>定都北京</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清圣祖 康熙</div>
+                    <div class="name">玄烨</div>
+                    <div class="reign">公元1661-1722(61年)</div>
+                    <div class="achievement">平三藩 收台湾<br>开盛世</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 垂直连接：康熙 ↓ 雍正（父→子，不标注） -->
+        <div class="v-connector-right">
+            <div class="v-line">
+                <div class="v-arrow">↓</div>
+            </div>
+        </div>
+
+        <!-- 第二排（右→左蛇形）：雍正 → 乾隆 → 嘉庆 → 道光 -->
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清宣宗 道光</div>
+                    <div class="name">旻宁</div>
+                    <div class="reign">公元1820-1850(30年)</div>
+                    <div class="achievement">鸦片战争<br>近代史开端</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left">←</div>
+                <div class="card">
+                    <div class="temple-era">清仁宗 嘉庆</div>
+                    <div class="name">颙琰</div>
+                    <div class="reign">公元1796-1820(25年)</div>
+                    <div class="achievement">惩治和珅<br>平白莲教</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left">←</div>
+                <div class="card">
+                    <div class="temple-era">清高宗 乾隆</div>
+                    <div class="name">弘历</div>
+                    <div class="reign">公元1735-1796(60年)</div>
+                    <div class="achievement">盛世顶峰<br>修四库全书</div>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="arrow-left">←</div>
+                <div class="card">
+                    <div class="temple-era">清世宗 雍正</div>
+                    <div class="name">胤禛</div>
+                    <div class="reign">公元1722-1735(13年)</div>
+                    <div class="achievement">设军机处<br>摊丁入亩</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 垂直连接：道光 ↓ 咸丰（父→子，不标注） -->
+        <div class="v-connector-left">
+            <div class="v-line">
+                <div class="v-arrow">↓</div>
+            </div>
+        </div>
+
+        <!-- 第三排（左→右）：咸丰 → 同治 → 光绪 → 溥仪 -->
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清文宗 咸丰</div>
+                    <div class="name">奕詝</div>
+                    <div class="reign">公元1850-1861(11年)</div>
+                    <div class="achievement">太平天国<br>二次鸦片战争</div>
+                </div>
+                <div class="arrow-right">→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清穆宗 同治</div>
+                    <div class="name">载淳</div>
+                    <div class="reign">公元1861-1875(13年)</div>
+                    <div class="achievement">洋务运动<br>同治中兴</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">堂弟</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">清德宗 光绪</div>
+                    <div class="name">载湉</div>
+                    <div class="reign">公元1875-1908(33年)</div>
+                    <div class="achievement">甲午战争<br>戊戌变法</div>
+                </div>
+                <div class="arrow-right"><span class="arrow-label">侄</span>→</div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="temple-era">宣统帝 宣统</div>
+                    <div class="name">溥仪</div>
+                    <div class="reign">公元1908-1912(3年)</div>
+                    <div class="achievement">辛亥革命<br>清朝灭亡</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">皇位传承顺序：努尔哈赤 → 皇太极 → 顺治 → 康熙 → 雍正 → 乾隆 → 嘉庆 → 道光 → 咸丰 → 同治 → 光绪 → 溥仪</div>
+</body>
+</html>

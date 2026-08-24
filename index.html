@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Timefun · 小宇宙索引</title>
+        <meta name="description" content="一个慢节奏的私人项目集" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,600;9..144,800&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --paper: #f2ebdd;
+                --paper-warm: #e8dec9;
+                --cream: #fbf6ea;
+                --ink: #2b2622;
+                --ink-soft: #5b524a;
+                --ink-fade: #9a8e7e;
+                --rule: #c9bca1;
+                --accent: #c9582b;
+                --moss: #6b7a4e;
+                --sand: #d4a574;
+                --sky: #8fa8b8;
+                --serif: "Fraunces", "Noto Serif SC", serif;
+                --sans: "Noto Sans SC", sans-serif;
+                --hand: "Caveat", cursive;
+                --mono: "JetBrains Mono", monospace;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: var(--sans);
+                color: var(--ink);
+                background: var(--paper);
+                min-height: 100vh;
+                overflow-x: hidden;
+                background-image:
+                    radial-gradient(
+                        ellipse 80% 50% at 20% 0%,
+                        rgba(201, 88, 43, 0.06),
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        ellipse 60% 40% at 80% 100%,
+                        rgba(107, 122, 78, 0.07),
+                        transparent 60%
+                    ),
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.17, 0 0 0 0 0.15, 0 0 0 0 0.13, 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            }
+
+            /* —— 顶部信件式标头 —— */
+            .masthead {
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 56px 48px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                border-bottom: 1px solid var(--rule);
+                position: relative;
+            }
+            .masthead::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 48px;
+                right: 48px;
+                height: 1px;
+                background: var(--rule);
+                opacity: 0.5;
+            }
+
+            .brand {
+                display: flex;
+                align-items: baseline;
+                gap: 14px;
+            }
+            .brand-mark {
+                width: 36px;
+                height: 36px;
+                background: var(--ink);
+                color: var(--paper);
+                display: grid;
+                place-items: center;
+                font-family: var(--serif);
+                font-weight: 800;
+                font-size: 20px;
+                font-style: italic;
+                transform: translateY(6px);
+                border-radius: 50%;
+            }
+            .brand-name {
+                font-family: var(--serif);
+                font-size: 28px;
+                font-weight: 400;
+                letter-spacing: -0.02em;
+                font-style: italic;
+            }
+            .brand-name b {
+                font-weight: 800;
+                font-style: normal;
+            }
+
+            .meta {
+                font-family: var(--mono);
+                font-size: 11px;
+                color: var(--ink-fade);
+                text-align: right;
+                line-height: 1.7;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+            .meta .dot {
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background: var(--moss);
+                border-radius: 50%;
+                margin-right: 6px;
+                vertical-align: middle;
+                animation: blink 2.4s ease-in-out infinite;
+            }
+            @keyframes blink {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.3;
+                }
+            }
+
+            /* —— 主标语 —— */
+            .lede {
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 72px 48px 48px;
+                position: relative;
+            }
+
+            .lede h1 {
+                font-family: var(--serif);
+                font-size: clamp(48px, 8.5vw, 124px);
+                font-weight: 300;
+                line-height: 0.94;
+                letter-spacing: -0.035em;
+                color: var(--ink);
+                max-width: 14ch;
+            }
+            .lede h1 em {
+                font-style: italic;
+                font-weight: 800;
+                color: var(--accent);
+                position: relative;
+            }
+            .lede h1 em::after {
+                content: "*";
+                position: absolute;
+                top: -0.1em;
+                right: -0.4em;
+                font-size: 0.5em;
+                color: var(--sand);
+                animation: spin 12s linear infinite;
+                transform-origin: center;
+                display: inline-block;
+            }
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* —— 项目区 —— */
+            .projects {
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 8px 48px 96px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+
+            .project {
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                gap: 14px;
+                padding: 22px 22px 18px;
+                background: var(--cream);
+                border: 1px solid var(--rule);
+                border-radius: 14px;
+                text-decoration: none;
+                color: inherit;
+                position: relative;
+                overflow: hidden;
+                transition:
+                    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    border-color 0.4s ease,
+                    box-shadow 0.4s ease;
+            }
+            .project::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(
+                    circle at 100% 0%,
+                    var(--card-tint, transparent),
+                    transparent 65%
+                );
+                opacity: 0;
+                transition: opacity 0.5s ease;
+                pointer-events: none;
+            }
+            .project:hover {
+                transform: translateY(-3px);
+                border-color: var(--card-accent, var(--accent));
+                box-shadow: 0 14px 28px -18px rgba(43, 38, 34, 0.35);
+            }
+            .project:hover::before {
+                opacity: 1;
+            }
+            .project > * {
+                position: relative;
+            }
+
+            .project .head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .project .num {
+                font-family: var(--serif);
+                font-size: 22px;
+                font-weight: 400;
+                font-style: italic;
+                color: var(--ink-fade);
+                line-height: 1;
+                letter-spacing: -0.02em;
+                transition: color 0.4s ease;
+            }
+            .project:hover .num {
+                color: var(--card-accent, var(--accent));
+            }
+
+            .project .tag {
+                font-family: var(--mono);
+                font-size: 9.5px;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--ink-fade);
+                padding: 3px 8px;
+                border: 1px solid var(--rule);
+                border-radius: 100px;
+            }
+
+            .project .body {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .project .title {
+                font-family: var(--serif);
+                font-size: 26px;
+                font-weight: 400;
+                letter-spacing: -0.02em;
+                color: var(--ink);
+                line-height: 1.15;
+            }
+            .project .title em {
+                font-style: italic;
+                color: var(--card-accent, var(--accent));
+            }
+            .project .desc {
+                font-family: var(--sans);
+                font-size: 13px;
+                color: var(--ink-soft);
+                line-height: 1.55;
+                font-weight: 300;
+            }
+
+            .project .foot {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 10px;
+                border-top: 1px solid var(--rule);
+            }
+            .project .domain {
+                font-family: var(--mono);
+                font-size: 10.5px;
+                color: var(--ink-fade);
+                letter-spacing: 0.04em;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .project .domain b {
+                color: var(--card-accent, var(--accent));
+                font-weight: 400;
+            }
+
+            /* 适配图标 */
+            .compat-icons {
+                display: inline-flex;
+                gap: 4px;
+                margin-right: 2px;
+            }
+            .compat-icon {
+                width: 14px;
+                height: 14px;
+                display: inline-block;
+                color: var(--ink-fade);
+                transition: color 0.4s ease;
+            }
+            .project:hover .compat-icon {
+                color: var(--card-accent, var(--accent));
+            }
+            .project .arrow {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                border: 1px solid var(--ink);
+                display: grid;
+                place-items: center;
+                font-family: var(--serif);
+                font-size: 14px;
+                transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            }
+            .project:hover .arrow {
+                background: var(--card-accent, var(--accent));
+                color: var(--cream);
+                border-color: var(--card-accent, var(--accent));
+                transform: rotate(-45deg);
+            }
+
+            /* —— 每个项目独立调性 —— */
+            .project[data-key="yili"] {
+                --card-tint: rgba(107, 122, 78, 0.12);
+                --card-accent: var(--moss);
+            }
+            .project[data-key="cli"] {
+                --card-tint: rgba(143, 168, 184, 0.14);
+                --card-accent: #4a6878;
+            }
+            .project[data-key="story"] {
+                --card-tint: rgba(184, 72, 62, 0.1);
+                --card-accent: #8b3a2f;
+            }
+            .project[data-key="mls-story"] {
+                --card-tint: rgba(139, 90, 43, 0.1);
+                --card-accent: #8b5a2b;
+            }
+            .project[data-key="book"] {
+                --card-tint: rgba(176, 58, 46, 0.12);
+                --card-accent: #b03a2e;
+            }
+
+            /* —— 页脚 —— */
+            footer {
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 32px 48px 56px;
+                border-top: 1px solid var(--rule);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: var(--mono);
+                font-size: 11px;
+                color: var(--ink-fade);
+                letter-spacing: 0.08em;
+            }
+            footer .scribble {
+                font-family: var(--hand);
+                font-size: 20px;
+                color: var(--accent);
+                text-transform: none;
+                letter-spacing: 0;
+                transform: rotate(-3deg);
+            }
+
+            /* —— 入场动画 —— */
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            }
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .lede h1,
+            .project.fade-in {
+                opacity: 0;
+                animation: fadeIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            }
+            .lede h1 {
+                animation-delay: 0.05s;
+            }
+            .project.fade-in:nth-of-type(1) {
+                animation-delay: 0.18s;
+            }
+            .project.fade-in:nth-of-type(2) {
+                animation-delay: 0.28s;
+            }
+            .project.fade-in:nth-of-type(3) {
+                animation-delay: 0.38s;
+            }
+            .project.fade-in:nth-of-type(4) {
+                animation-delay: 0.48s;
+            }
+            .project.fade-in:nth-of-type(5) {
+                animation-delay: 0.58s;
+            }
+
+            /* —— 响应式 —— */
+            @media (max-width: 960px) {
+                .projects {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (max-width: 640px) {
+                .lede {
+                    padding: 48px 24px 28px;
+                }
+                .lede h1 {
+                    font-size: clamp(36px, 10.5vw, 52px);
+                    max-width: none;
+                }
+                .lede h1 .line2 {
+                    display: inline-block;
+                    white-space: nowrap;
+                }
+                .projects {
+                    padding: 4px 24px 64px;
+                    grid-template-columns: 1fr;
+                    gap: 14px;
+                }
+                .project {
+                    padding: 20px;
+                }
+                .project .title {
+                    font-size: 22px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="lede">
+            <h1>
+                慢慢做<br /><span class="line2">一些 <em>值得的事</em></span>
+            </h1>
+        </section>
+
+        <section class="projects">
+            <a
+                class="project fade-in"
+                data-key="mls-story"
+                href="https://site.timefun.cc/mls-story/index.html"
+            >
+                <div class="head">
+                    <span class="num">01</span>
+                    <span class="tag">Wiki · VitePress</span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>马拉松</em> · 历史文化</div>
+                    <div class="desc">
+                        VitePress 构建的马拉松历史文化
+                        Wiki，赛事、传奇与趣闻轶事。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="5"
+                                    y="2"
+                                    width="14"
+                                    height="20"
+                                    rx="2"
+                                ></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>mls-story</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a
+                class="project fade-in"
+                data-key="book"
+                href="https://site.timefun.cc/questCut/index.html"
+                target="_blank"
+                rel="noopener"
+            >
+                <div class="head">
+                    <span class="num">02</span>
+                    <span class="tag">Quiz · H5</span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>过关斩将</em> · 趣味答题</div>
+                    <div class="desc">
+                        移动端答题小游戏，小试牛刀、勇攀高峰、重整旗鼓三种模式。丹书铁卷，助你过关斩将。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="5"
+                                    y="2"
+                                    width="14"
+                                    height="20"
+                                    rx="2"
+                                ></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </span>
+                        <b>questCut</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a
+                class="project fade-in"
+                data-key="story"
+                href="https://site.timefun.cc/story-stud/index.html"
+            >
+                <div class="head">
+                    <span class="num">03</span>
+                    <span class="tag">History · Study</span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>朝代</em> · 皇帝世系</div>
+                    <div class="desc">
+                        唐宋明清四朝帝王世系卡片，传承有序，千秋一脉，适合打印学习。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>story-stud</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a
+                class="project fade-in"
+                data-key="yili"
+                href="https://site.timefun.cc/yili/index.html"
+            >
+                <div class="head">
+                    <span class="num">04</span>
+                    <span class="tag">Travel · 2026</span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>伊犁</em> · 八天环线</div>
+                    <div class="desc">
+                        北疆河谷与草原的自驾路书。雪山、薰衣草、烤包子。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="5"
+                                    y="2"
+                                    width="14"
+                                    height="20"
+                                    rx="2"
+                                ></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>yili</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a
+                class="project fade-in"
+                data-key="cli"
+                href="https://site.timefun.cc/cli-game/index.html"
+            >
+                <div class="head">
+                    <span class="num">05</span>
+                    <span class="tag">Game · Guide</span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>ManTra</em> · Project Limbo</div>
+                    <div class="desc">
+                        CLI 风格的完整通关攻略，写给夜深还想再开一局的玩家。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>cli-game</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+        </section>
+    </body>
+</html>

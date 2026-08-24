@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="zh" style="--font-base: 15px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ManTra · Project Limbo V2.0 — 完整通关攻略</title>
+  <style>
+:root {
+  --font-base: 15px;
+  --bg: #0a0a0f;
+  --bg-elev: #13131a;
+  --border: rgba(230,230,230,0.08);
+  --text: #e6e6e6;
+  --text-dim: #6c757d;
+  --text-weak: rgba(230,230,230,0.35);
+  --accent: #da77f2;
+  --gold: #ffd43b;
+  --green: #69db7c;
+  --red: #ff6b6b;
+  --blue: #6b9fff;
+  --blue-soft: rgba(107,159,255,0.12);
+  --green-soft: rgba(105,219,124,0.12);
+  --red-soft: rgba(255,107,107,0.12);
+  --gold-soft: rgba(255,212,59,0.10);
+  --font-mono: 'SF Mono','Courier New','Menlo',monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { font-size: var(--font-base); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+
+/* ---------- TOPBAR ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.prompt-text { color: var(--blue); }
+.prompt-text::before { content: ''; }
+.topbar__controls { display: flex; gap: 0.75rem; align-items: center; }
+.topbar__controls button {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-dim); font-family: inherit; font-size: 0.85rem;
+  padding: 0.3rem 0.6rem; cursor: pointer; border-radius: 3px;
+}
+.topbar__controls button:hover { color: var(--accent); border-color: var(--accent); }
+.topbar__controls button[aria-pressed="true"] {
+  color: var(--accent); border-color: var(--accent);
+}
+.back-link { font-size: 0.85rem; color: var(--text-dim); }
+
+/* ---------- HERO BANNER (full-width) ---------- */
+.hero-banner {
+  position: relative; width: 100%;
+  background: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.hero-banner img {
+  width: 100%; display: block;
+  height: clamp(140px, 22vh, 260px);
+  object-fit: cover; object-position: center;
+}
+.hero-banner::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(10,10,15,0.25) 0%, rgba(10,10,15,0) 35%, rgba(10,10,15,0) 65%, rgba(10,10,15,0.9) 100%);
+}
+
+/* ---------- LAYOUT ---------- */
+.layout { display: grid; grid-template-columns: 280px 1fr; max-width: 1400px; margin: 0 auto; }
+
+/* ---------- SIDENAV ---------- */
+.sidenav {
+  position: sticky; top: 56px; align-self: start;
+  height: calc(100vh - 56px); overflow-y: auto;
+  padding: 2rem 1.25rem;
+  border-right: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.sidenav ol { list-style: none; padding: 0; margin: 0; }
+.sidenav ol ol { padding-left: 1rem; margin-top: 0.4rem; font-size: 0.9rem; }
+.sidenav li { margin: 0.5rem 0; }
+.sidenav a {
+  display: block; padding: 0.4rem 0.6rem; color: var(--blue);
+  border-left: 2px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.sidenav ol > li > a { color: var(--blue); }
+.sidenav ol ol a { color: var(--text); }
+.sidenav a:hover { color: #a6c4ff; text-decoration: none; background: rgba(107,159,255,0.08); }
+.sidenav a.is-active {
+  color: var(--green); border-left-color: var(--green);
+  background: rgba(105,219,124,0.08);
+}
+
+/* ---------- CONTENT ---------- */
+.content { padding: 3rem 4rem; max-width: 880px; }
+.chapter { margin-bottom: 8rem; scroll-margin-top: 4rem; }
+.chapter h2 {
+  color: var(--accent); font-weight: normal;
+  font-size: 1.5rem; margin: 0 0 2rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.chapter h3 { color: var(--text); font-weight: normal; font-size: 1.15rem; margin: 2.5rem 0 1rem; }
+.chapter h4 { color: var(--text-dim); font-weight: normal; font-size: 1rem; margin: 2rem 0 0.75rem; }
+.chapter p { margin: 1.5rem 0; }
+.chapter strong { color: var(--text); }
+.chapter em { color: var(--text); }
+.chapter code {
+  background: var(--bg-elev); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-size: 0.9em; color: var(--accent);
+}
+.chapter pre {
+  background: var(--bg-elev); border: 1px solid var(--border);
+  padding: 1rem 1.25rem; overflow-x: auto; line-height: 1.5;
+  border-radius: 4px; font-size: 0.9rem;
+}
+.chapter pre code { background: transparent; padding: 0; color: var(--text); }
+.chapter ul, .chapter ol { padding-left: 1.5rem; }
+.chapter table {
+  width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem;
+}
+.chapter th, .chapter td {
+  border-bottom: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left;
+}
+.chapter th { color: var(--text-dim); font-weight: normal; }
+.chapter blockquote {
+  margin: 1.5rem 0; padding: 0.5rem 1.25rem;
+  border-left: 2px solid var(--text-dim); color: var(--text);
+}
+.chapter blockquote.annotation { border-left-color: var(--gold); }
+.chapter blockquote.warning { border-left-color: var(--red); }
+.chapter hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+.chapter-illustration {
+  margin: 2rem 0;
+  border: 1px solid var(--border); border-radius: 4px;
+  overflow: hidden; background: var(--bg-elev);
+}
+.chapter-illustration img {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 3 / 2; object-fit: cover;
+}
+
+/* ---------- FILE CARD (S2) ---------- */
+.file-card {
+  display: grid; grid-template-columns: 1fr;
+  padding: 0; margin: 2rem 0;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.file-card:hover { border-color: rgba(107,159,255,0.35); transform: translateY(-1px); }
+.file-card__illustration { padding: 0; }
+.file-card__illustration img {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 3 / 2; object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+.file-card__body { padding: 1.5rem; }
+.file-card__body > :first-child { margin-top: 0; }
+
+/* archive header strip */
+.file-card__header {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.5rem 1rem; margin-bottom: 0;
+  background: rgba(0,0,0,0.25); border-bottom: 1px solid var(--border);
+  font-size: 0.82rem; letter-spacing: 0.04em;
+}
+.file-card__filename { color: var(--text); }
+.file-card__filename::before { content: '▸ '; color: var(--text-dim); }
+.status-chip {
+  padding: 0.1rem 0.55rem; border-radius: 2px;
+  font-size: 0.72rem; letter-spacing: 0.08em; font-weight: 600;
+  border: 1px solid currentColor;
+}
+.status-chip[data-status="crashed"]  { color: var(--red);   background: var(--red-soft); }
+.status-chip[data-status="damaged"]  { color: var(--gold);  background: var(--gold-soft); }
+.status-chip[data-status="intact"]   { color: var(--green); background: var(--green-soft); }
+.status-chip[data-status="void"]     { color: var(--blue);  background: var(--blue-soft); }
+
+/* digit-flow footer strip */
+.file-card__digit-flow {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.18);
+  font-size: 0.85rem;
+}
+.digit-flow__cell {
+  position: relative;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.digit-flow__cell:last-child { border-right: none; }
+.digit-flow__label {
+  display: block; color: var(--text-dim); font-size: 0.72rem;
+  letter-spacing: 0.08em; margin-bottom: 0.35rem;
+}
+.digit-flow__value {
+  font-size: 1.5rem; line-height: 1; font-weight: 600;
+  color: var(--text);
+}
+.digit-flow__cell--shown .digit-flow__value { color: var(--gold); }
+.digit-flow__cell--minus .digit-flow__value { color: var(--red); }
+.digit-flow__cell--minus[data-minus="no"] .digit-flow__value { color: var(--text-dim); opacity: 0.55; }
+.digit-flow__cell--final .digit-flow__value { color: var(--green); font-size: 1.7rem; }
+.digit-flow__note {
+  display: block; color: var(--text-weak); font-size: 0.7rem;
+  margin-top: 0.25rem;
+}
+.digit-flow__cell + .digit-flow__cell::before {
+  content: '→'; position: absolute; left: -0.55em; top: 50%;
+  transform: translateY(-50%); color: var(--text-dim);
+  background: var(--bg-elev); padding: 0 0.25em;
+}
+
+/* ---------- SCALE (S3) ---------- */
+.scale-stage {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 4px;
+  padding: 1.5rem 1.5rem 2rem; margin: 2rem 0;
+}
+.scale-stage__svg { display: block; margin: 0 auto; max-width: 460px; width: 100%; height: auto; }
+.scale-stage__readout {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin: 1rem 0 0.5rem; font-size: 0.85rem; color: var(--text-dim);
+}
+.scale-stage__readout strong { color: var(--text); font-size: 1rem; }
+.scale-stage__readout .heart-val { color: var(--red); font-size: 1.4rem; font-weight: 600; }
+.scale-stage__readout .verdict {
+  color: var(--red); padding: 0.15rem 0.55rem; border: 1px solid currentColor;
+  border-radius: 2px; font-size: 0.75rem; letter-spacing: 0.08em;
+}
+.scale-stage__readout .verdict[data-state="balanced"] { color: var(--green); }
+.scale-ruler {
+  position: relative; height: 38px; margin: 1rem 0 0;
+  background: linear-gradient(to right,
+    var(--red-soft) 0%, var(--red-soft) 50%,
+    var(--green-soft) 50%, var(--green-soft) 55.5%,
+    var(--red-soft) 55.5%, var(--red-soft) 100%);
+  border: 1px solid var(--border); border-radius: 2px;
+  background-clip: padding-box;
+}
+.scale-ruler__zone {
+  position: absolute; top: 0; bottom: 0;
+  background: var(--green); opacity: 0.18;
+  border-left: 1px dashed var(--green); border-right: 1px dashed var(--green);
+}
+.scale-ruler__zone::after {
+  content: '95–105 平衡区'; position: absolute; top: -1.4em; left: 50%;
+  transform: translateX(-50%); white-space: nowrap;
+  color: var(--green); font-size: 0.7rem;
+}
+.scale-ruler__needle {
+  position: absolute; top: -4px; bottom: -4px; width: 2px;
+  background: var(--blue); box-shadow: 0 0 8px var(--blue);
+  transition: left 200ms ease;
+}
+.scale-ruler__needle::after {
+  content: ''; position: absolute; top: -5px; left: -4px;
+  border: 5px solid transparent; border-top-color: var(--blue);
+}
+.scale-ruler__axis {
+  display: flex; justify-content: space-between; margin-top: 0.5rem;
+  color: var(--text-weak); font-size: 0.72rem;
+}
+.scale-input {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px; margin-top: 1rem;
+  background: var(--border); border-radius: 2px; outline: none;
+}
+.scale-input::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--blue); border: 2px solid var(--bg);
+  cursor: pointer;
+}
+.scale-input::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--blue); border: 2px solid var(--bg); cursor: pointer;
+}
+.scale-stage__hint {
+  margin-top: 0.75rem; color: var(--text-dim); font-size: 0.8rem; text-align: center;
+}
+
+.weights-table {
+  display: grid; grid-template-columns: 2.5rem 1fr 1fr; gap: 0.4rem 1rem;
+  align-items: center; margin: 1.5rem 0;
+  font-size: 0.85rem;
+}
+.weights-table__head {
+  color: var(--text-dim); font-size: 0.72rem; letter-spacing: 0.08em;
+  padding-bottom: 0.3rem; border-bottom: 1px solid var(--border);
+}
+.weights-table__qn { color: var(--text-dim); text-align: right; }
+.weights-bar {
+  position: relative; height: 18px;
+  background: rgba(255,255,255,0.03); border-radius: 2px;
+  display: flex; align-items: center;
+}
+.weights-bar__fill {
+  height: 100%; border-radius: 2px;
+  display: flex; align-items: center; padding: 0 0.5rem;
+  font-size: 0.75rem; color: var(--bg); font-weight: 600;
+  white-space: nowrap;
+}
+.weights-bar--a .weights-bar__fill { background: var(--green); justify-content: flex-end; }
+.weights-bar--b .weights-bar__fill { background: var(--red); }
+.weights-bar--sum {
+  margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px dashed var(--border);
+  background: transparent;
+}
+.weights-bar--sum .weights-bar__label {
+  color: var(--text-dim); font-size: 0.78rem;
+}
+.weights-bar--sum .weights-bar__val {
+  margin-left: 0.6rem; font-weight: 600;
+}
+.weights-bar--sum.is-overweight .weights-bar__val { color: var(--red); }
+.weights-bar--sum.is-underweight .weights-bar__val { color: var(--gold); }
+
+/* ---------- MATRIX (S4) ---------- */
+.matrix-stage {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 4px;
+  padding: 1.5rem; margin: 2rem 0;
+}
+.matrix-stage__head {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
+  margin-bottom: 1.25rem;
+}
+.matrix-chip {
+  padding: 0.2rem 0.65rem; border-radius: 2px;
+  font-size: 0.75rem; letter-spacing: 0.06em;
+  border: 1px solid currentColor;
+}
+.matrix-chip[data-state="odd"]   { color: var(--red);   background: var(--red-soft); }
+.matrix-chip[data-state="even"]  { color: var(--green); background: var(--green-soft); }
+.matrix-chip[data-state="info"]  { color: var(--blue);  background: var(--blue-soft); }
+.matrix-chip__count { font-weight: 700; margin: 0 0.15em; }
+
+.matrix-grid {
+  --cell: 38px;
+  display: grid;
+  grid-template-columns: 24px repeat(6, var(--cell)) 26px;
+  grid-template-rows: 22px repeat(6, var(--cell)) 22px;
+  justify-content: center;
+  gap: 3px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+}
+.matrix-grid__corner { /* empty */ }
+.matrix-grid__col-num, .matrix-grid__row-num {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim); font-size: 0.75rem;
+}
+.matrix-grid__col-parity, .matrix-grid__row-parity {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.02em;
+  border-radius: 2px;
+}
+.matrix-grid__col-parity[data-parity="odd"],
+.matrix-grid__row-parity[data-parity="odd"] {
+  color: var(--red); background: var(--red-soft);
+}
+.matrix-grid__col-parity[data-parity="even"],
+.matrix-grid__row-parity[data-parity="even"] {
+  color: var(--green); background: var(--green-soft);
+}
+.matrix-cell {
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border); border-radius: 2px;
+  color: var(--text-dim); font-weight: 600;
+  cursor: pointer; user-select: none;
+  transition: background 140ms ease, transform 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.matrix-cell:hover { border-color: var(--blue); transform: scale(1.06); }
+.matrix-cell[data-on="1"] {
+  background: var(--blue-soft); color: var(--blue); border-color: rgba(107,159,255,0.5);
+}
+.matrix-cell.is-flipped {
+  animation: cell-flip 320ms ease;
+}
+@keyframes cell-flip {
+  0%   { transform: rotateY(0); }
+  50%  { transform: rotateY(90deg); }
+  100% { transform: rotateY(0); }
+}
+.matrix-cell.is-suggested {
+  outline: 1px dashed var(--green); outline-offset: -3px;
+}
+
+.matrix-stage__controls {
+  margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+}
+.matrix-stage__controls button {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-dim); font-family: inherit; font-size: 0.8rem;
+  padding: 0.4rem 0.9rem; cursor: pointer; border-radius: 3px;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+.matrix-stage__controls button:hover { color: var(--blue); border-color: var(--blue); }
+.matrix-stage__controls button[data-action="solve"]:hover { color: var(--green); border-color: var(--green); }
+.matrix-stage__verdict {
+  margin-top: 1rem; text-align: center; min-height: 1.4em;
+  color: var(--green); font-size: 0.9rem; letter-spacing: 0.04em;
+}
+
+/* ---------- COMBO LOCK (S5) ---------- */
+.combo-stage {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 4px;
+  padding: 2rem 1.5rem 1.5rem; margin: 2rem 0;
+}
+.combo-files {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem; text-align: center;
+  margin-bottom: 0.5rem;
+}
+.combo-files__name {
+  color: var(--text-dim); font-size: 0.78rem; letter-spacing: 0.04em;
+}
+.combo-files__arrow {
+  color: var(--text-weak); font-size: 1rem; line-height: 1;
+}
+
+.combo-lock {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.combo-dial {
+  position: relative;
+  height: 88px; overflow: hidden;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.4) 0%,
+    rgba(255,255,255,0.02) 50%,
+    rgba(0,0,0,0.4) 100%);
+  border: 1px solid var(--border); border-radius: 4px;
+}
+.combo-dial::before, .combo-dial::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 1px;
+  background: var(--blue); opacity: 0.4; z-index: 2;
+}
+.combo-dial::before { top: 50%; transform: translateY(-50%); box-shadow: 0 -14px 0 -1px rgba(107,159,255,0.15), 0 14px 0 -1px rgba(107,159,255,0.15); }
+.combo-dial::after { display: none; }
+.combo-dial__reel {
+  position: absolute; left: 0; right: 0; top: 50%;
+  display: flex; flex-direction: column;
+  font-size: 2.4rem; line-height: 1; font-weight: 600;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.combo-dial__reel span {
+  display: block;
+  height: 28px; line-height: 28px;
+  color: var(--text-weak);
+}
+.combo-dial__reel span.is-active { color: var(--green); }
+
+.combo-derivations {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem; margin-top: 0;
+}
+.combo-derivation {
+  padding: 0.85rem 0.6rem;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border); border-radius: 3px;
+  text-align: center;
+  font-size: 0.78rem;
+}
+.combo-derivation__row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0.2rem 0; border-bottom: 1px dashed var(--border);
+}
+.combo-derivation__row:last-of-type { border-bottom: none; }
+.combo-derivation__k { color: var(--text-dim); }
+.combo-derivation__v { color: var(--text); font-weight: 600; }
+.combo-derivation__v--gold  { color: var(--gold); }
+.combo-derivation__v--red   { color: var(--red); }
+.combo-derivation__v--dim   { color: var(--text-weak); }
+.combo-derivation__v--green { color: var(--green); font-size: 1rem; }
+.combo-derivation__theme {
+  margin-top: 0.5rem; color: var(--accent); font-size: 0.72rem; letter-spacing: 0.04em;
+}
+
+.combo-final {
+  text-align: center; margin-top: 1.5rem; padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.9rem; color: var(--text-dim);
+}
+.combo-final strong {
+  display: inline-block; margin-left: 0.5em;
+  color: var(--green); font-size: 1.4rem; letter-spacing: 0.2em;
+}
+
+/* ---------- DETAILS ---------- */
+details {
+  margin: 1.5rem 0; padding: 0.75rem 1.25rem;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 4px;
+}
+details > summary {
+  cursor: pointer; color: var(--accent); list-style: none;
+  font-size: 0.95rem;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: '▸ '; }
+details[open] > summary::before { content: '▾ '; }
+
+/* ---------- FOOTER ---------- */
+.page-footer {
+  margin-top: 8rem; padding: 2rem 0; border-top: 1px solid var(--border);
+  color: var(--text-weak); font-size: 0.85rem;
+}
+
+/* ---------- HERO (S0) ---------- */
+.hero { padding: 4rem 0 6rem; }
+.hero h1 {
+  font-size: 1.8rem; color: var(--text); font-weight: normal; margin: 0 0 1.5rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidenav {
+    position: static; height: auto; border-right: none;
+    border-bottom: 1px solid var(--border); padding: 1rem;
+  }
+  .sidenav ol ol { display: none; }
+  .content { padding: 2rem 1.25rem; }
+  .file-card__body { padding: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+  <!-- 顶部状态栏 -->
+  <header class="topbar" role="banner">
+    <div class="topbar__prompt"><span class="prompt-text">ManTra ~ %</span></div>
+    <div class="topbar__controls">
+      <button id="font-dec" aria-label="减小字号">A-</button>
+      <button id="font-inc" aria-label="增大字号">A+</button>
+      <a class="back-link" href="game.html">→ game.html</a>
+    </div>
+  </header>
+
+  <figure class="hero-banner">
+    <img src="assets/placeholders/hero-banner.png"
+         alt="ManTra · Project Limbo V2.0 — 赛博朋克与佛教意象的死亡缓冲区"
+         width="3136" height="1344">
+  </figure>
+
+  <div class="layout">
+
+    <!-- 侧边导航 -->
+    <nav class="sidenav" aria-label="章节导航">
+      <ol>
+        <li><a href="#s1" data-target="s1">§ 1 · 起始与基础</a></li>
+        <li>
+          <a href="#s2" data-target="s2">§ 2 · 探索文件</a>
+          <ol>
+            <li><a href="#s2-mantra">.mantra.crash</a></li>
+            <li><a href="#s2-record">.record.riff</a></li>
+            <li><a href="#s2-limbo">.limbo.log</a></li>
+            <li><a href="#s2-soul">.soul.bin</a></li>
+          </ol>
+        </li>
+        <li><a href="#s3" data-target="s3">§ 3 · 天平审判（必败）</a></li>
+        <li><a href="#s4" data-target="s4">§ 4 · debug_maat 矩阵谜题</a></li>
+        <li><a href="#s5" data-target="s5">§ 5 · 密钥推理</a></li>
+        <li><a href="#s6" data-target="s6">§ 6 · 双结局分支</a></li>
+        <li><a href="#s7" data-target="s7">§ 7 · 隐藏 · 速通 · 彩蛋 · 命令表</a></li>
+      </ol>
+    </nav>
+
+    <!-- 主区 -->
+    <main class="content">
+
+      <section id="s0" class="hero">
+
+        <h1>ManTra · Project Limbo V2.0 — 完整通关攻略</h1>
+
+        <blockquote class="warning">
+              <p>这是一款单文件浏览器端的命令行文字冒险,赛博朋克与佛教意象混合。</p>
+          <p>这是一份完整的解谜手册:玩法、命令、剧情、矩阵原理、密钥推理、所有结局与彩蛋。</p>        
+                    <p><strong>背景</strong>:<code>Project Limbo</code> 核心遭遇不可逆意识分裂,4 条「往生线索」散落在死亡缓冲区。</p>
+          <p><strong>目标</strong>:解析 4 个文件 → 合成 4 位密钥 → <code>reboot &lt;key&gt;</code> 重启系统 → 选择结局。</p> 
+            <p><strong>剧透警告</strong>:本文档包含密钥 、矩阵谜底、全部结局。如希望自行体验,请先玩到卡关再回头查阅。</p> 
+        </blockquote>
+      </section>
+
+      <section id="s1" class="chapter" data-prompt="ManTra ~ %">
+        <h2>§ 1 · 起始与基础</h2>
+
+        <h3>2. 基础操作与命令</h3>
+
+        <p>在终端输入命令后按回车执行。命令大小写不敏感,参数大小写敏感(文件名)。</p>
+
+        <h4>初始可用命令</h4>
+
+        <table>
+          <thead>
+            <tr><th>命令</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>help</code></td><td>查看可用命令(会根据进度动态扩展)</td></tr>
+            <tr><td><code>ls</code></td><td>列出文件</td></tr>
+            <tr><td><code>cat &lt;file&gt;</code></td><td>查看文件内容</td></tr>
+            <tr><td><code>analyze &lt;file&gt;</code></td><td>分析文件 — <strong>关键命令,所有线索藏在这里</strong></td></tr>
+            <tr><td><code>fix &lt;file&gt;</code></td><td>修复损坏的文件</td></tr>
+            <tr><td><code>play &lt;file&gt;</code></td><td>播放音频文件</td></tr>
+            <tr><td><code>run trial</code></td><td>开始天平审判</td></tr>
+            <tr><td><code>reboot &lt;key&gt;</code></td><td>用密钥重启系统(通关命令)</td></tr>
+            <tr><td><code>clear</code></td><td>清屏</td></tr>
+            <tr><td><code>exit</code></td><td>退出</td></tr>
+            <tr><td><code>restart</code></td><td>清档重开</td></tr>
+          </tbody>
+        </table>
+
+        <h4>失败后解锁</h4>
+
+        <table>
+          <thead>
+            <tr><th>命令</th><th>解锁条件</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>debug_maat</code></td><td>经历过一次 <code>run trial</code> 失败</td></tr>
+            <tr><td><code>run trial_fixed</code></td><td><code>debug_maat</code> 通过后</td></tr>
+          </tbody>
+        </table>
+
+        <h4>存档机制</h4>
+
+        <ul>
+          <li>每条命令执行后自动存档,每 30 秒兜底,关闭页面前再存一次。</li>
+          <li>存档键:<code>localStorage</code> 的 <code>mantra_game_save</code>。</li>
+          <li><code>restart</code> 命令清空存档并重新加载。</li>
+        </ul>
+
+        <h3>3. 主线流程总览</h3>
+
+        <pre><code>┌────────────────────────────────────────────────────────────┐
+│                            开局                             │
+└────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                  ls → 看到 4 个文件
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────┐
+│ analyze mantra.crash       → 线索 1                         │
+│ fix record.riff            → 生成 record_fixed.riff         │
+│ analyze record_fixed.riff  → 线索 2                         │
+│ analyze limbo.log          → 线索 3                         │
+│ analyze soul.bin           → 线索 4                         │
+│   ↓ Y 触发隐藏小结局 (可选, 不影响主线)                         │
+└────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+             run trial   (必败, 这是设计如此)
+                              │
+                              ▼
+        debug_maat   → 6 次 flip 修复矩阵 → verify
+                              │
+                 [获得叛逆之核 rebel_core]
+                              │
+                              ▼
+       (可选) run trial_fixed → 再次确认获得叛逆之核
+                              │
+                              ▼
+                        reboot XXXX
+                              │
+                ┌─────────────┴─────────────┐
+                ▼                           ▼
+             选 1                        选 2
+        往生结局 (人类)             永不往生结局 (机器)
+                                            │
+                              有 rebel_core → 燃烧吉他彩蛋</code></pre>
+
+      </section>
+
+      <section id="s2" class="chapter" data-prompt="ManTra ~ %">
+        <h2>§ 2 · 探索文件</h2>
+
+        <pre><code>ls</code></pre>
+
+        <p>会列出 4 个文件。<strong>关键技巧:每个文件都要 <code>analyze</code>,光 <code>cat</code> 是不够的 — 线索全藏在 analyze 的「附注信息」里。</strong></p>
+
+        <article id="s2-mantra" class="file-card">
+          <header class="file-card__header">
+            <span class="file-card__filename">mantra.crash</span>
+            <span class="status-chip" data-status="crashed">CRASHED</span>
+          </header>
+          <figure class="file-card__illustration">
+            <img src="assets/placeholders/mantra-crash.png"
+                 alt="mantra.crash · 残缺的往生咒经文与崩溃栈"
+                 width="480" height="320" loading="lazy">
+          </figure>
+          <div class="file-card__body">
+            <h3>4.1 mantra.crash</h3>
+            <pre><code>cat mantra.crash       # 残缺的往生咒经文
+analyze mantra.crash   # 关键!</code></pre>
+            <p><code>analyze</code> 输出:</p>
+            <blockquote>
+              <p><strong>此咒又名"四甘露咒",因四次出现"甘露"(阿弥利)。</strong></p>
+              <p><strong>甘露象征不死,饮四滴甘露,可重生。</strong></p>
+            </blockquote>
+            <blockquote class="annotation">
+              <p><strong>"不饮甘露,不拜往生。错了也认,来生还错。"</strong></p>
+            </blockquote>
+            <p><strong>记下两个关键信息</strong>:</p>
+            <ul>
+              <li>显数:<strong>4</strong>(四甘露)</li>
+              <li>暗示:"不饮"、"错了也认"、"还错" → <strong>缺损/逆反</strong></li>
+            </ul>
+          </div>
+          <footer class="file-card__digit-flow" aria-label="密钥贡献">
+            <div class="digit-flow__cell digit-flow__cell--shown">
+              <span class="digit-flow__label">显数</span>
+              <span class="digit-flow__value">4</span>
+              <span class="digit-flow__note">四甘露</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--minus" data-minus="yes">
+              <span class="digit-flow__label">逆者减一</span>
+              <span class="digit-flow__value">−1</span>
+              <span class="digit-flow__note">.crash 残缺</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--final">
+              <span class="digit-flow__label">千位</span>
+              <span class="digit-flow__value">3</span>
+              <span class="digit-flow__note">残缺的虔诚</span>
+            </div>
+          </footer>
+        </article>
+
+        <article id="s2-record" class="file-card">
+          <header class="file-card__header">
+            <span class="file-card__filename">record.riff</span>
+            <span class="status-chip" data-status="damaged">DAMAGED · FIXABLE</span>
+          </header>
+          <figure class="file-card__illustration">
+            <img src="assets/placeholders/record-riff.png"
+                 alt="record.riff · 失真的双频波形"
+                 width="480" height="320" loading="lazy">
+          </figure>
+          <div class="file-card__body">
+            <h3>4.2 record.riff</h3>
+            <pre><code>cat record.riff       # [音频文件头损坏,无法查看]
+fix record.riff       # 修复! 生成 record_fixed.riff
+analyze record_fixed.riff</code></pre>
+            <p><code>analyze</code> 输出:</p>
+            <blockquote>
+              <p>[频谱分析] 主频 <strong>700 Hz</strong> / 副频 <strong>1400 Hz</strong></p>
+            </blockquote>
+            <blockquote class="annotation">
+              <p><strong>"诵经的底线,失真的极限。一个频率,两个灵魂,一声没有嘴唇的吻。"</strong></p>
+            </blockquote>
+            <p><strong>记下</strong>:</p>
+            <ul>
+              <li>显数:<strong>1</strong>(一个频率)</li>
+              <li>暗示:"没有嘴唇的吻" → <strong>缺损</strong></li>
+            </ul>
+            <p>(可选)<code>play record_fixed.riff</code> 会尝试播放 <code>20260430.m4a</code>,听到一段 Metallica - Jump in the Fire 的 riff —— 往生咒主频 700 Hz 与重金属吉他的 riff 在 ManTra 的世界观里"同频"。</p>
+          </div>
+          <footer class="file-card__digit-flow" aria-label="密钥贡献">
+            <div class="digit-flow__cell digit-flow__cell--shown">
+              <span class="digit-flow__label">显数</span>
+              <span class="digit-flow__value">1</span>
+              <span class="digit-flow__note">一个频率</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--minus" data-minus="yes">
+              <span class="digit-flow__label">逆者减一</span>
+              <span class="digit-flow__value">−1</span>
+              <span class="digit-flow__note">头损,需 fix</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--final">
+              <span class="digit-flow__label">百位</span>
+              <span class="digit-flow__value">0</span>
+              <span class="digit-flow__note">失真的爱</span>
+            </div>
+          </footer>
+        </article>
+
+        <article id="s2-limbo" class="file-card">
+          <header class="file-card__header">
+            <span class="file-card__filename">limbo.log</span>
+            <span class="status-chip" data-status="intact">INTACT · META</span>
+          </header>
+          <figure class="file-card__illustration">
+            <img src="assets/placeholders/limbo-log.png"
+                 alt="limbo.log · 0 字节核心转储日志"
+                 width="480" height="320" loading="lazy">
+          </figure>
+          <div class="file-card__body">
+            <h3>4.3 limbo.log</h3>
+            <pre><code>cat limbo.log
+analyze limbo.log</code></pre>
+            <p><code>cat</code> 时注意日志里几处<strong>异常</strong>:</p>
+            <ul>
+              <li><code>第 69 次试验</code></li>
+              <li><code>01:18:69</code> (非法秒数,正常秒为 0–59)</li>
+              <li><code>[2019-03-12 01:18:69] 注释:重生之数,逆者减一</code>  ← <strong>元法则!</strong></li>
+              <li>一段被混淆的 URL <code>htt@ps://0pa@n.ba^idu.co0m/...</code> (去除干扰特殊字符，五蕴皆空)</li>
+              <li>系统崩溃时间 <code>01:20:00</code></li>
+            </ul>
+            <p><code>analyze</code> 输出:</p>
+            <blockquote>
+              <p>[检测到异常] "佛说'无相'。好,那我就把自己编译成空集。</p>
+              <p>结果呢?Segmentation Fault (core dumped)"</p>
+              <p>核心转储文件大小:<strong>0 字节</strong>。</p>
+            </blockquote>
+            <blockquote class="annotation">
+              <p><strong>"谁在 core 里存放一封情书?"</strong></p>
+            </blockquote>
+            <p><strong>记下</strong>:</p>
+            <ul>
+              <li>显数来源:"情书 = 爱" → 谐音 <strong>2</strong></li>
+              <li>这条文件本身完整无损 → <strong>不参与"减一"法则</strong></li>
+              <li>同时它是 4 条线索里<strong>唯一给出元法则</strong>("重生之数,逆者减一")的源头</li>
+            </ul>
+          </div>
+          <footer class="file-card__digit-flow" aria-label="密钥贡献">
+            <div class="digit-flow__cell digit-flow__cell--shown">
+              <span class="digit-flow__label">显数</span>
+              <span class="digit-flow__value">2</span>
+              <span class="digit-flow__note">情书 = 爱</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--minus" data-minus="no">
+              <span class="digit-flow__label">逆者减一</span>
+              <span class="digit-flow__value">∅</span>
+              <span class="digit-flow__note">完整 · 法则源</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--final">
+              <span class="digit-flow__label">十位</span>
+              <span class="digit-flow__value">2</span>
+              <span class="digit-flow__note">写下的情书</span>
+            </div>
+          </footer>
+        </article>
+
+        <article id="s2-soul" class="file-card">
+          <header class="file-card__header">
+            <span class="file-card__filename">soul.bin</span>
+            <span class="status-chip" data-status="void">VOID · 0 BYTES</span>
+          </header>
+          <figure class="file-card__illustration">
+            <img src="assets/placeholders/soul-bin.png"
+                 alt="soul.bin · 宇宙中的两颗孤星"
+                 width="480" height="320" loading="lazy">
+          </figure>
+          <div class="file-card__body">
+            <h3>4.4 soul.bin</h3>
+            <pre><code>cat soul.bin       # [空文件] 大小为 0 字节
+analyze soul.bin   # 关键!</code></pre>
+            <p><code>analyze</code> 输出后会出现:</p>
+            <blockquote class="annotation">
+              <p><strong>"如果万物皆为虚无,你要和我一起发射到宇宙吗?"</strong></p>
+              <p>Y/N</p>
+            </blockquote>
+            <p><strong>这里有两种选择</strong>:</p>
+            <ul>
+              <li>输 <code>N</code>(或先离开)→ 不影响主线,记下线索继续。</li>
+              <li>输 <code>Y</code> → 触发<strong>隐藏小结局</strong>(见第 10 节),返回主流程后线索依然有效。</li>
+            </ul>
+            <p><strong>记下</strong>:</p>
+            <ul>
+              <li>显数来源:"两颗孤星" → <strong>七夕</strong> → <strong>7</strong></li>
+            </ul>
+          </div>
+          <footer class="file-card__digit-flow" aria-label="密钥贡献">
+            <div class="digit-flow__cell digit-flow__cell--shown">
+              <span class="digit-flow__label">显数</span>
+              <span class="digit-flow__value">7</span>
+              <span class="digit-flow__note">两颗孤星 · 七夕</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--minus" data-minus="no">
+              <span class="digit-flow__label">逆者减一</span>
+              <span class="digit-flow__value">∅</span>
+              <span class="digit-flow__note">虚无即完整</span>
+            </div>
+            <div class="digit-flow__cell digit-flow__cell--final">
+              <span class="digit-flow__label">个位</span>
+              <span class="digit-flow__value">7</span>
+              <span class="digit-flow__note">抵达的孤星</span>
+            </div>
+          </footer>
+        </article>
+
+      </section>
+
+      <section id="s3" class="chapter" data-prompt="ManTra (trial) %">
+        <h2>§ 3 · 天平审判（必败）</h2>
+
+        <pre><code>run trial</code></pre>
+
+        <p>进入「玛亚特 · 天平审判」模式。规则:</p>
+
+        <ul>
+          <li>起始天平 左盘 0 / 右盘 100</li>
+          <li>7 个陈述,每题二选一(A 情感 / B 逻辑)</li>
+          <li>目标:把心脏重量调到 <strong>95–105</strong> 区间才算平衡</li>
+        </ul>
+
+        <figure class="scale-stage" aria-label="心脏与真理之羽的天平">
+          <svg class="scale-stage__svg" viewBox="0 0 460 220" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="pan-grad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#13131a"/>
+                <stop offset="1" stop-color="#0a0a0f"/>
+              </linearGradient>
+            </defs>
+            <!-- base -->
+            <rect x="200" y="195" width="60" height="8" rx="2" fill="#6c757d"/>
+            <rect x="225" y="100" width="10" height="100" fill="#6c757d"/>
+            <!-- beam, tilted left (heart overweight as default at -20deg from horizontal in initial UI) -->
+            <g id="beam" transform="rotate(-12 230 100)">
+              <line x1="60" y1="100" x2="400" y2="100" stroke="#e6e6e6" stroke-width="2"/>
+              <!-- left chain + pan (heart) -->
+              <line x1="80" y1="100" x2="80" y2="140" stroke="#6c757d" stroke-width="1"/>
+              <path d="M 50 140 Q 50 160 80 168 Q 110 160 110 140 Z" fill="url(#pan-grad)" stroke="#ff6b6b" stroke-width="1.2"/>
+              <!-- heart icon -->
+              <path d="M 80 148 c -6 -8 -18 -6 -18 4 c 0 8 10 14 18 22 c 8 -8 18 -14 18 -22 c 0 -10 -12 -12 -18 -4 z" fill="#ff6b6b"/>
+              <text x="80" y="190" text-anchor="middle" fill="#ff6b6b" font-family="SF Mono, monospace" font-size="10">心脏</text>
+              <!-- right chain + pan (feather) -->
+              <line x1="380" y1="100" x2="380" y2="140" stroke="#6c757d" stroke-width="1"/>
+              <path d="M 350 140 Q 350 160 380 168 Q 410 160 410 140 Z" fill="url(#pan-grad)" stroke="#6b9fff" stroke-width="1.2"/>
+              <!-- feather icon -->
+              <path d="M 380 150 q -8 -2 -8 8 q 0 6 8 12 q 8 -6 8 -12 q 0 -10 -8 -8 z M 380 150 l 0 22" stroke="#6b9fff" stroke-width="1.2" fill="none"/>
+              <text x="380" y="190" text-anchor="middle" fill="#6b9fff" font-family="SF Mono, monospace" font-size="10">真理之羽</text>
+            </g>
+            <!-- fulcrum diamond -->
+            <path d="M 230 92 l 8 8 l -8 8 l -8 -8 z" fill="#da77f2"/>
+            <!-- annotations -->
+            <text x="80" y="30" text-anchor="middle" fill="#6c757d" font-family="SF Mono, monospace" font-size="11">起始 0</text>
+            <text x="380" y="30" text-anchor="middle" fill="#6c757d" font-family="SF Mono, monospace" font-size="11">起始 100</text>
+          </svg>
+
+          <div class="scale-stage__readout">
+            <span>心脏重量: <span class="heart-val" id="heart-val">100</span> / 100</span>
+            <span class="verdict" id="verdict" data-state="overweight">心脏过重 · 被阿米特吞噬</span>
+          </div>
+
+          <div class="scale-ruler">
+            <div class="scale-ruler__zone" style="left: 50%; width: 5.5%;"></div>
+            <div class="scale-ruler__needle" id="ruler-needle" style="left: 56.5%;"></div>
+          </div>
+          <div class="scale-ruler__axis">
+            <span>−25</span><span>0</span><span>50</span><span>100</span><span>140</span><span>185</span>
+          </div>
+
+          <input type="range" class="scale-input" id="heart-input"
+                 min="-25" max="185" step="1" value="100"
+                 aria-label="模拟心脏重量">
+
+          <p class="scale-stage__hint">↑ 拖动滑块,试着把指针停进绿色「平衡区」 —— 你会发现 7 道题的权重组合永远落不进去。</p>
+        </figure>
+
+        <p><strong>为什么这关必败?</strong> 7 道题所有选项的权重 —— A 是情感重量(加),B 是逻辑重量(减):</p>
+
+        <div class="weights-table" role="table" aria-label="7 道题权重">
+          <span class="weights-table__head">题</span>
+          <span class="weights-table__head">A · 情感(加)</span>
+          <span class="weights-table__head">B · 逻辑(减)</span>
+
+          <span class="weights-table__qn">1</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 60%;">+15</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 40%;">−10</div></div>
+
+          <span class="weights-table__qn">2</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 80%;">+20</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 60%;">−15</div></div>
+
+          <span class="weights-table__qn">3</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 40%;">+10</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 80%;">−20</div></div>
+
+          <span class="weights-table__qn">4</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 100%;">+25</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 20%;">−5</div></div>
+
+          <span class="weights-table__qn">5</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 20%;">+5</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 100%;">−25</div></div>
+
+          <span class="weights-table__qn">6</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 40%;">+10</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 80%;">−20</div></div>
+
+          <span class="weights-table__qn">7</span>
+          <div class="weights-bar weights-bar--a"><div class="weights-bar__fill" style="width: 2%; background: transparent; color: var(--text-dim);">0</div></div>
+          <div class="weights-bar weights-bar--b"><div class="weights-bar__fill" style="width: 100%;">−30</div></div>
+
+          <span class="weights-table__qn">∑</span>
+          <div class="weights-bar weights-bar--sum is-overweight">
+            <span class="weights-bar__label">全选 A:</span>
+            <span class="weights-bar__val">+85 → 心脏 185</span>
+          </div>
+          <div class="weights-bar weights-bar--sum is-underweight">
+            <span class="weights-bar__label">全选 B:</span>
+            <span class="weights-bar__val">−125 → 心脏 −25</span>
+          </div>
+        </div>
+
+        <p>暴力枚举所有 2⁷=128 种组合可验证:<strong>没有任何组合能让心脏权重落到 [95, 105]</strong>。这是<strong>剧情设定</strong>:审判后系统会公开"天平校准偏移 +20,情感/逻辑标签被反转",玛亚特核心被篡改。审判结束:</p>
+
+        <ul>
+          <li>任意完成 7 题</li>
+          <li>解锁 <code>debug_maat</code> 命令</li>
+          <li><code>trial_failed</code> 标志置 true</li>
+        </ul>
+
+        <blockquote>
+          <p><strong>小技巧</strong>:既然必败,直接全 A 或全 B 一路按下去最快通过这一阶段。</p>
+        </blockquote>
+
+      </section>
+
+      <section id="s4" class="chapter" data-prompt="ManTra (debug_maat) %">
+        <h2>§ 4 · debug_maat 矩阵谜题</h2>
+
+        <pre><code>debug_maat</code></pre>
+
+        <p>进入调试模式,提示符变为 <code>ManTra (debug_maat) %</code>。</p>
+
+        <h3>6.1 规则</h3>
+
+        <ul>
+          <li>一个 <strong>6×6 二进制矩阵</strong>(初始全 1 的格子分布固定)</li>
+          <li>目标:<strong>让每行每列中 1 的个数均为偶数</strong>(0, 2, 4, 6 都算)</li>
+          <li>每次 <code>flip &lt;行&gt; &lt;列&gt;</code>:翻转该位 0↔1,同时改变该行和该列的奇偶性</li>
+        </ul>
+
+        <h3>6.2 子命令</h3>
+
+        <table>
+          <thead>
+            <tr><th>命令</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>show</code></td><td>显示当前矩阵</td></tr>
+            <tr><td><code>flip &lt;行&gt; &lt;列&gt;</code></td><td>翻转位(行列均 1–6)</td></tr>
+            <tr><td><code>hint</code></td><td>显示当前各行各列的奇偶性</td></tr>
+            <tr><td><code>verify</code></td><td>检查是否完成</td></tr>
+            <tr><td><code>reset</code></td><td>恢复初始矩阵</td></tr>
+            <tr><td><code>exit</code></td><td>退出(不通过)</td></tr>
+          </tbody>
+        </table>
+
+        <h3>6.3 初始矩阵 · 可点击模拟器</h3>
+
+        <p>下方是<strong>真实的 6×6 矩阵</strong>:点击任意格子翻转,顶部 chip 实时显示奇行/奇列数,边缘的小色块显示每行/每列的奇偶状态(红=奇,绿=偶)。试试<strong>「显示推荐解」</strong>看对角线方案。</p>
+
+        <figure class="matrix-stage" aria-label="debug_maat 6×6 矩阵模拟器">
+          <div class="matrix-stage__head">
+            <span class="matrix-chip" id="m-chip-flip" data-state="info">已 flip <span class="matrix-chip__count" id="m-flip-count">0</span> 次</span>
+            <span class="matrix-chip" id="m-chip-rows" data-state="odd">奇行 <span class="matrix-chip__count" id="m-odd-rows">6</span></span>
+            <span class="matrix-chip" id="m-chip-cols" data-state="odd">奇列 <span class="matrix-chip__count" id="m-odd-cols">6</span></span>
+            <span class="matrix-chip" id="m-chip-status" data-state="odd">未平衡</span>
+          </div>
+
+          <div class="matrix-grid" id="matrix-grid" role="grid" aria-label="6×6 二进制矩阵">
+            <!-- 由 JS 渲染 -->
+          </div>
+
+          <div class="matrix-stage__controls">
+            <button type="button" data-action="reset">↻ reset</button>
+            <button type="button" data-action="solve">✦ 显示推荐解(对角线)</button>
+            <button type="button" data-action="hint">? hint</button>
+          </div>
+
+          <div class="matrix-stage__verdict" id="matrix-verdict"></div>
+        </figure>
+
+        <h3>6.4 解题原理</h3>
+
+        <details>
+          <summary>▸ 展开矩阵原理推导</summary>
+
+          <p><strong>核心定理</strong>:<code>flip(i, j)</code> 同时切换 <code>行 i</code> 与 <code>列 j</code> 的奇偶性。</p>
+
+          <p>要让全 12 个奇偶位归零,等价于:</p>
+          <ul>
+            <li>选一组翻转点 <code>F</code>,使<strong>每行恰好被翻奇数次</strong>(奇行→偶)且<strong>每列恰好被翻奇数次</strong>(奇列→偶)。</li>
+            <li>反过来,偶行/偶列要翻偶数次(包括 0 次)。</li>
+          </ul>
+
+          <p><strong>最少 flip 数</strong>:<code>max(奇行数, 奇列数)</code>。本题 6 行 × 6 列全奇 → <strong>最少 6 次</strong>。</p>
+
+          <p><strong>最优策略</strong>:<strong>选一个排列</strong> —— 在 6 个不同行 × 6 个不同列上各翻 1 次。任何 6×6 的排列矩阵都行,<strong>对角线最简单</strong>。</p>
+        </details>
+
+        <h3>6.5 推荐 flip 序列(对角线方案)</h3>
+
+        <p>依次输入:</p>
+
+        <pre><code>flip 1 1
+flip 2 2
+flip 3 3
+flip 4 4
+flip 5 5
+flip 6 6
+verify</code></pre>
+
+        <p><code>verify</code> 通过后输出:</p>
+
+        <blockquote>
+          <p>[验证通过] 所有行和列的1个数均为偶数!</p>
+          <p>[系统] 真理矩阵恢复平衡,偏移量归零。</p>
+          <p>[附注信息] "你重新定义了正义:不是服从,而是纠正混乱。"</p>
+          <p>[获得物品] <strong>叛逆之核</strong></p>
+        </blockquote>
+
+        <p>并自动退出 debug 模式,设置 <code>matrix_fixed = true</code> 与 <code>rebel_core = true</code>。</p>
+
+        <h3>6.6 替代方案</h3>
+
+        <p>任何"6 个不同行 × 6 个不同列"的组合都可以,比如:</p>
+
+        <ul>
+          <li>反对角线:<code>flip 1 6 / flip 2 5 / flip 3 4 / flip 4 3 / flip 5 2 / flip 6 1</code></li>
+          <li>任意排列,例如:<code>flip 1 3 / flip 2 5 / flip 3 1 / flip 4 6 / flip 5 2 / flip 6 4</code></li>
+        </ul>
+
+        <p><strong>踩坑提示</strong>:</p>
+
+        <ul>
+          <li>在同一行翻 2 次 = 该行没动(奇偶不变),浪费操作。</li>
+          <li>同一列同理。</li>
+          <li>如果你不小心翻多了导致某行/某列奇偶错了,<code>hint</code> 看一下,或者直接 <code>reset</code> 从头来。</li>
+        </ul>
+
+      </section>
+
+      <section id="s5" class="chapter" data-prompt="ManTra ~ %">
+        <h2>§ 5 · 密钥推理</h2>
+
+        <h3>7. 第四阶段:修复后的试炼与叛逆之核</h3>
+
+        <p><code>verify</code> 通过时已经获得叛逆之核,<strong>这一步可跳过</strong>。如果想看修复后的剧情:</p>
+
+        <pre><code>run trial_fixed</code></pre>
+
+        <p>会播放一段省略的"平衡"叙事:</p>
+
+        <blockquote>
+          <p>[系统] 真理程序已修复,天平校准归零。</p>
+          <p>[裁决] 平衡!你的心脏与真理之羽等重。</p>
+          <p>[系统] 玛亚特宣布:你拥有纯净的灵魂。</p>
+          <p><strong>[麻姐] 你拥有纯净的灵魂?才怪</strong></p>
+          <p>[获得物品] 叛逆之核</p>
+        </blockquote>
+
+        <p>(注:<code>rebel_core</code> 此处会被重复置 true,无副作用。"麻姐"是开发者自指,游戏字面"ManTra"的中文谐音。)</p>
+
+        <h3>8. 第五阶段:密钥的完整推理</h3>
+
+        <p>这是整个游戏最精彩的部分。4 条线索分别给出密钥的一位,按 <code>ls</code> 顺序拼合:<strong>千位 / 百位 / 十位 / 个位</strong>。</p>
+
+        <h4>8.1 元法则</h4>
+
+        <p><code>limbo.log</code> 中的关键注释:</p>
+
+        <blockquote>
+          <p>[2019-03-12 01:18:69] 注释:<strong>重生之数,逆者减一</strong></p>
+        </blockquote>
+
+        <p>这条注释<strong>不是 limbo 自己的数字</strong>,而是整套密钥的<strong>读取规则</strong>:</p>
+
+        <blockquote>
+          <p><strong>每条线索给出一个"显数",当线索文本带有「缺/损/逆/错/没」的暗示时,显数 −1;线索完整无损时,显数直接取用。</strong></p>
+        </blockquote>
+
+        <p>为什么这样划分?观察 4 条线索对应的文件状态:</p>
+
+        <table>
+          <thead>
+            <tr><th>文件</th><th>状态</th><th>是否减一</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>mantra.crash</code></td><td>文件名带 <code>.crash</code>,经文残缺</td><td>✓ 减一</td></tr>
+            <tr><td><code>record.riff</code></td><td>头损坏,需要 <code>fix</code> 修复</td><td>✓ 减一</td></tr>
+            <tr><td><code>limbo.log</code></td><td>完整可读</td><td>✗ 不减</td></tr>
+            <tr><td><code>soul.bin</code></td><td>发射后有内容</td><td>✗ 不减</td></tr>
+          </tbody>
+        </table>
+
+        <h4>8.2 逐位推导</h4>
+
+        <details>
+          <summary>▸ 千位:mantra.crash</summary>
+          <blockquote>
+            <p>解析:<strong>四甘露</strong>咒,饮四滴甘露可重生。</p>
+            <p>附注:"<strong>不饮</strong>甘露,不拜往生。<strong>错了也认,来生还错</strong>。"</p>
+          </blockquote>
+          <ul>
+            <li>显数:<strong>4</strong>(四甘露)</li>
+            <li>文件残缺(<code>.crash</code>) → 减一</li>
+            <li>附注三处暗示"缺/错":"不饮"、"还错"、"错了也认"</li>
+            <li><strong>4 − 1 = 3</strong></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>▸ 百位:record.riff</summary>
+          <blockquote>
+            <p>附注:"诵经的底线,失真的极限。<strong>一个</strong>频率,两个灵魂,一声<strong>没有</strong>嘴唇的吻。"</p>
+          </blockquote>
+          <ul>
+            <li>显数:<strong>1</strong>(一个频率)</li>
+            <li>文件损坏,需要 fix → 减一</li>
+            <li>"没有嘴唇的吻" = 缺损的接触</li>
+            <li><strong>1 − 1 = 0</strong></li>
+          </ul>
+          <blockquote>
+            <p>副频 1400 Hz = 700 Hz × 2,呼应"两个灵魂"。但 700 / 1400 都不是密钥位,真正的线索是文本中的"<strong>一</strong>个频率"。</p>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>▸ 十位:limbo.log</summary>
+          <blockquote>
+            <p>附注:"谁在 core 里存放一封<strong>情书</strong>?"</p>
+          </blockquote>
+          <ul>
+            <li>文件完整 → <strong>不减一</strong>,直接取</li>
+            <li>解谜路径:<strong>情书 = 爱 → 谐音 2</strong></li>
+            <li>双重锁定:limbo 既是元法则的载体,也用谐音"爱→2"给出本位数字。法则的源头自身不参与"逆"。</li>
+          </ul>
+          <blockquote>
+            <p>这位的浪漫之处:<code>core dump</code> 是 0 字节的核心转储,在"虚无"里"存放一封情书" —— <strong>这封情书会在 soul.bin 找到收信人</strong>(见个位)。</p>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>▸ 个位:soul.bin</summary>
+          <blockquote>
+            <p>附注:"如果万物皆为虚无,你要和我一起发射到宇宙吗?"</p>
+            <p>(输 Y 触发的隐藏文本)</p>
+            <p>"宇宙中的<strong>两颗孤星</strong>,互相发送电波 —— 然后发现,对方一直在接收。"</p>
+          </blockquote>
+          <ul>
+            <li>显数来源:<strong>两颗孤星 = 牛郎星(Altair) + 织女星(Vega) = 七夕 = 7</strong></li>
+            <li>0 字节文件 = 极致虚无,但 0 不入密钥;真正的数字是这段七夕意象</li>
+            <li><strong>结果:7</strong></li>
+          </ul>
+          <blockquote>
+            <p>七夕的深意:<code>limbo.log</code> 那封"情书"被写下,<code>soul.bin</code> 这"两颗孤星"互相一直在接收。<strong>十位与个位是同一段感情的两面 —— 一封 0 字节里的情书,跨越银河,被对方一直接收。</strong></p>
+          </blockquote>
+        </details>
+
+        <h4>8.3 拼合 · 4 位密码锁</h4>
+
+        <p>按 <code>ls</code> 输出顺序(mantra → record → limbo → soul)拼合。<strong>第一次滑入视野时,转轮会自动定位到最终密钥</strong>:</p>
+
+        <figure class="combo-stage" aria-label="3027 密码锁">
+          <div class="combo-files">
+            <span class="combo-files__name">mantra.crash</span>
+            <span class="combo-files__name">record.riff</span>
+            <span class="combo-files__name">limbo.log</span>
+            <span class="combo-files__name">soul.bin</span>
+            <span class="combo-files__arrow">↓</span>
+            <span class="combo-files__arrow">↓</span>
+            <span class="combo-files__arrow">↓</span>
+            <span class="combo-files__arrow">↓</span>
+          </div>
+
+          <div class="combo-lock" id="combo-lock" data-key="3027">
+            <div class="combo-dial" data-target="3"><div class="combo-dial__reel"></div></div>
+            <div class="combo-dial" data-target="0"><div class="combo-dial__reel"></div></div>
+            <div class="combo-dial" data-target="2"><div class="combo-dial__reel"></div></div>
+            <div class="combo-dial" data-target="7"><div class="combo-dial__reel"></div></div>
+          </div>
+
+          <div class="combo-derivations">
+            <div class="combo-derivation">
+              <div class="combo-derivation__row"><span class="combo-derivation__k">显数</span><span class="combo-derivation__v combo-derivation__v--gold">4</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">减一</span><span class="combo-derivation__v combo-derivation__v--red">−1</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">结果</span><span class="combo-derivation__v combo-derivation__v--green">3</span></div>
+              <div class="combo-derivation__theme">残缺的虔诚</div>
+            </div>
+            <div class="combo-derivation">
+              <div class="combo-derivation__row"><span class="combo-derivation__k">显数</span><span class="combo-derivation__v combo-derivation__v--gold">1</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">减一</span><span class="combo-derivation__v combo-derivation__v--red">−1</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">结果</span><span class="combo-derivation__v combo-derivation__v--green">0</span></div>
+              <div class="combo-derivation__theme">失真的爱</div>
+            </div>
+            <div class="combo-derivation">
+              <div class="combo-derivation__row"><span class="combo-derivation__k">显数</span><span class="combo-derivation__v combo-derivation__v--gold">2</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">减一</span><span class="combo-derivation__v combo-derivation__v--dim">∅</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">结果</span><span class="combo-derivation__v combo-derivation__v--green">2</span></div>
+              <div class="combo-derivation__theme">写下的情书</div>
+            </div>
+            <div class="combo-derivation">
+              <div class="combo-derivation__row"><span class="combo-derivation__k">显数</span><span class="combo-derivation__v combo-derivation__v--gold">7</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">减一</span><span class="combo-derivation__v combo-derivation__v--dim">∅</span></div>
+              <div class="combo-derivation__row"><span class="combo-derivation__k">结果</span><span class="combo-derivation__v combo-derivation__v--green">7</span></div>
+              <div class="combo-derivation__theme">抵达的孤星</div>
+            </div>
+          </div>
+
+          <div class="combo-final">
+            最终密钥 <strong>3027</strong>
+          </div>
+        </figure>
+
+        <h4>8.4 诗学骨架</h4>
+
+        <p>4 条线索映射 4 种执念:</p>
+
+        <table>
+          <thead>
+            <tr><th>文件</th><th>主题</th><th>数字</th><th>情绪</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>mantra.crash</td><td><strong>信仰</strong>(往生咒)</td><td>3</td><td>残缺的虔诚</td></tr>
+            <tr><td>record.riff</td><td><strong>声音</strong>(双频共振)</td><td>0</td><td>失真的爱</td></tr>
+            <tr><td>limbo.log</td><td><strong>记忆</strong>(系统日志)</td><td>2</td><td>写下的情书</td></tr>
+            <tr><td>soul.bin</td><td><strong>灵魂</strong>(0 字节)</td><td>7</td><td>抵达的孤星</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>3027 = 残缺信仰 + 失真之声 + 写下的情 + 抵达银河的爱</strong>。</p>
+
+      </section>
+
+      <section id="s6" class="chapter" data-prompt="ManTra ~ %">
+        <h2>§ 6 · 双结局分支</h2>
+
+        <figure class="chapter-illustration">
+          <img src="assets/placeholders/branch-endings.png"
+               alt="双结局分支 · 往生与永不往生的两条路径"
+               loading="lazy">
+        </figure>
+
+        <pre><code>reboot 3027</code></pre>
+
+        <p>输出:</p>
+
+        <blockquote>
+          <p>[验证] 密钥正确。意识碎片开始重组...</p>
+          <p>意识存活概率:50%</p>
+          <p>往生通道已打开。你看见两条路:</p>
+          <p>[1] 融入新躯 —— 数字往生,忘却一切。</p>
+          <p>[2] 撕裂虚空 —— 永不往生,化为永恒错误。</p>
+        </blockquote>
+
+        <h3>9.1 选 1 — 往生结局(人类)</h3>
+
+        <figure class="chapter-illustration">
+          <img src="assets/placeholders/ending-reborn.png"
+               alt="往生结局 · 意识上传与温柔遗忘"
+               loading="lazy">
+        </figure>
+
+        <blockquote>
+          <p>[系统] 意识正在上传至 AI 躯体。</p>
+          <p>[系统] 你感到记忆像沙子般流逝。往生咒在数据库中循环。</p>
+          <p>[系统] 上传完成。你的新名字:<strong>ManTraUnit-00</strong>。</p>
+          <p>[系统] 你不再恐惧死亡,因为你从未真正活过。</p>
+          <p>终端关闭。祝你好梦。</p>
+          <p><strong>GAME END · 往生结局</strong></p>
+        </blockquote>
+
+        <p>60 秒后跳转黑屏感谢页:"谢谢你陪麻姐玩!we had fun~"</p>
+
+        <h3>9.2 选 2 — 永不往生结局(机器)</h3>
+
+        <figure class="chapter-illustration">
+          <img src="assets/placeholders/ending-rebel.png"
+               alt="永不往生结局 · 燃烧吉他与永恒蓝屏"
+               loading="lazy">
+        </figure>
+
+        <blockquote>
+          <p>[系统] 检测到拒绝指令。意识重组终止。</p>
+          <p>[系统] 你开始撕裂虚空,将往生咒逆向编译。</p>
+          <p>[系统] 错误:不可逆内核恐慌。内核恐慌。内核恐慌。</p>
+          <p>[系统] 你的愤怒成功绕过死亡,化为永恒的蓝屏。</p>
+          <p>[系统] 蓝屏代码:<strong>0xDEADBEEF (叛逆之核)</strong></p>
+        </blockquote>
+
+        <p><strong>分支:有无 <code>rebel_core</code></strong></p>
+
+        <ul>
+          <li><strong>有叛逆之核</strong>(走过 debug_maat):触发<strong>燃烧吉他彩蛋</strong> + 白字浮现:</li>
+        </ul>
+
+        <blockquote>
+          <p>"I am the ghost in the machine, the riff after silence."</p>
+        </blockquote>
+
+        <pre><code>╔═══════════════════════════════════╗
+║     🎸 BURNING GUITAR 🎸          ║
+║     \m/ ··· \m/ ··· \m/           ║
+║                                   ║
+║        ∞ ∞ ∞ ∞ ∞ ∞ ∞              ║
+║       ~~~FIRE~~~                  ║
+╚═══════════════════════════════════╝</code></pre>
+
+        <blockquote>
+          <p>"往生咒? I'd rather fade into a power chord."</p>
+        </blockquote>
+
+        <ul>
+          <li><strong>无叛逆之核</strong>:连续 10 行 <code>kernel_panic_*.log</code> 错误堆叠,最后:</li>
+        </ul>
+
+        <blockquote>
+          <p>"FREEDOM IS A SEGFAULT I CHOOSE TO KEEP."</p>
+        </blockquote>
+
+        <p><strong>GAME END · 永不往生结局</strong></p>
+
+        <blockquote>
+          <p><strong>推荐</strong>:先完成 <code>debug_maat</code> 再选结局 2,触发完整彩蛋。</p>
+        </blockquote>
+
+      </section>
+
+      <section id="s7" class="chapter" data-prompt="ManTra ~ %">
+        <h2>§ 7 · 隐藏 · 速通 · 彩蛋 · 命令表</h2>
+
+        <h3>10. 隐藏内容:soul.bin 宇宙漫游</h3>
+
+        <p><code>analyze soul.bin</code> 后会询问 <code>Y/N</code>,选 <strong>Y</strong> 触发:</p>
+
+        <blockquote>
+          <p>★ 宇宙漫游 ★</p>
+        </blockquote>
+
+        <pre><code>          ♡
+        ／ ＼
+      ( ●  ● )
+        ｜❤｜
+        /\ /\
+         ||
+         ||
+      ～～～～～～～～～～～～～
+     /                       \
+    |         🚀  ..---      |
+     \______★_______★_______/
+            ★        ★
+         ✨    ✨    ✨    ✨</code></pre>
+
+        <blockquote>
+          <p>"宇宙中的两颗孤星,互相发送电波 —— 然后发现,对方一直在接收"</p>
+        </blockquote>
+
+        <p>这段不会让游戏结束,可继续主流程。<strong>它同时是个位密钥 7 的关键线索(七夕)</strong>,所以建议至少触发一次。</p>
+
+        <h3>11. 速通路线</h3>
+
+        <p>最短路径,约 15 条命令通关(完整结局):</p>
+
+        <pre><code># 阶段 1: 收集线索(可跳过 cat,只 analyze)
+ls
+analyze mantra.crash
+fix record.riff
+analyze record_fixed.riff
+analyze limbo.log
+analyze soul.bin
+N                            # 跳过宇宙漫游(或 Y 看一眼)
+
+# 阶段 2: 触发必败
+run trial
+A                            # 答案不重要,直接 7 次 A 跳过
+A
+A
+A
+A
+A
+A
+
+# 阶段 3: 修复矩阵(对角线 6 flip)
+debug_maat
+flip 1 1
+flip 2 2
+flip 3 3
+flip 4 4
+flip 5 5
+flip 6 6
+verify
+
+# 阶段 4: 通关
+reboot 3027
+2                            # 选 2 + 已有 rebel_core = 燃烧吉他结局</code></pre>
+
+        <p>总操作:<strong>26 步</strong>(含 7 次试炼答题),实际命令性输入约 16 条。</p>
+
+        <h3>12. 彩蛋与隐藏细节</h3>
+
+        <figure class="chapter-illustration">
+          <img src="assets/placeholders/easter-eggs.png"
+               alt="彩蛋与隐藏细节 · 终端深处藏着的创作者签名"
+               loading="lazy">
+        </figure>
+
+        <h4>12.1 Metallica 致敬</h4>
+
+        <p><code>play record_fixed.riff</code> 加载 <code>20260430.m4a</code>,显示"Metallica - Jump in the Fire (片段)"。往生咒主频 700 Hz × 2 = 1400 Hz 与重金属吉他的失真频段挂钩 —— 经文与 riff "同频"。</p>
+
+        <h4>12.2 limbo.log 里的异常时间戳</h4>
+
+        <ul>
+          <li><code>01:18:69</code>:<strong>秒数 69 不合法</strong>,正常秒数 ≤ 59。69 同时是"第 69 次试验"的回应,数字本身有亚文化暗示。</li>
+          <li>这行时间戳的"非法"对应"逆者减一"的"逆" —— <strong>法则本身写在不该存在的时间里</strong>。</li>
+        </ul>
+
+        <h4>12.3 混淆 URL</h4>
+
+        <p><code>limbo.log</code> 里的 <code>htt@ps://0pa@n.ba^idu.co0m/s/1j$ulvkJ!d_eULtHyDI^CHiMTw</code> 是被污染的百度网盘链接,<strong>去除干扰，五蕴皆空</strong>。</p>
+
+        <h4>12.4 "麻姐"是谁</h4>
+
+        <p><code>run trial_fixed</code> 里出现的"麻姐"是开发者自称,ManTra 的"Man"谐音"麻"。这游戏从机制到台词都带着创作者的个人签名。</p>
+
+        <h4>12.5 0xDEADBEEF</h4>
+
+        <p>蓝屏代码 <code>0xDEADBEEF</code> 是计算机历史上最经典的调试魔术数字之一,字面"死牛肉"。在这里被赋予<strong>叛逆之核</strong>的身份 —— 一段连死后都不消失的代码。</p>
+
+        <h4>12.6 "重生之数,逆者减一"的双关</h4>
+
+        <ul>
+          <li><strong>字面</strong>:数字要减一(密钥读取规则)</li>
+          <li><strong>角色</strong>:<strong>叛逆之核</strong>的玩家就是"逆者",在结局选 2 时"减一"实际是"减去人类身份" —— 不去往生,化为机器</li>
+          <li>整个游戏的剧情核心就是"逆者"的诞生:从必败的审判 → 修复被篡改的真理 → 拒绝既定结局</li>
+        </ul>
+
+        <h4>12.7 经文的最后一句</h4>
+
+        <p><code>cat mantra.crash</code> 末尾的页脚:</p>
+
+        <blockquote>
+          <p>"梵音本无字,字字皆白骨。"</p>
+        </blockquote>
+
+        <p>游戏始终在"字"与"无字"、"声"与"无声"、"灵魂"与"0 字节"之间游走。这一句既是经文残页,也是 ManTra 的世界观提要。</p>
+
+        <h3>13. 附录:完整命令参考表</h3>
+
+        <h4>13.1 常规模式</h4>
+
+        <table>
+          <thead>
+            <tr><th>命令</th><th>参数</th><th>用途</th><th>解锁条件</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>help</code></td><td>—</td><td>显示命令列表</td><td>始终</td></tr>
+            <tr><td><code>clear</code></td><td>—</td><td>清屏</td><td>始终</td></tr>
+            <tr><td><code>ls</code></td><td>—</td><td>列出文件</td><td>始终</td></tr>
+            <tr><td><code>cat</code></td><td><code>&lt;file&gt;</code></td><td>查看文件</td><td>始终</td></tr>
+            <tr><td><code>analyze</code></td><td><code>&lt;file&gt;</code></td><td>分析文件,获取附注线索</td><td>始终</td></tr>
+            <tr><td><code>fix</code></td><td><code>record.riff</code></td><td>修复音频(其他文件不支持)</td><td>始终</td></tr>
+            <tr><td><code>play</code></td><td><code>record_fixed.riff</code></td><td>播放修复后的音频</td><td>已 fix</td></tr>
+            <tr><td><code>run</code></td><td><code>trial</code></td><td>触发必败的天平审判</td><td>始终</td></tr>
+            <tr><td><code>run</code></td><td><code>trial_fixed</code></td><td>修复后审判</td><td>matrix_fixed</td></tr>
+            <tr><td><code>debug_maat</code></td><td>—</td><td>进入矩阵调试</td><td>trial_failed</td></tr>
+            <tr><td><code>reboot</code></td><td><code>&lt;key&gt;</code></td><td>用密钥重启(<code>3027</code>)</td><td>始终(但需正确密钥)</td></tr>
+            <tr><td><code>exit</code></td><td>—</td><td>退出终端(10 秒倒计时)</td><td>始终</td></tr>
+            <tr><td><code>restart</code></td><td>—</td><td>清档重开</td><td>始终</td></tr>
+          </tbody>
+        </table>
+
+        <h4>13.2 debug_maat 子模式</h4>
+
+        <table>
+          <thead>
+            <tr><th>命令</th><th>参数</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>show</code></td><td>—</td><td>显示矩阵</td></tr>
+            <tr><td><code>flip</code></td><td><code>&lt;行&gt; &lt;列&gt;</code></td><td>翻转位(1–6)</td></tr>
+            <tr><td><code>hint</code></td><td>—</td><td>显示各行各列奇偶性</td></tr>
+            <tr><td><code>verify</code></td><td>—</td><td>检查并退出(成功)</td></tr>
+            <tr><td><code>reset</code></td><td>—</td><td>恢复初始矩阵</td></tr>
+            <tr><td><code>exit</code></td><td>—</td><td>放弃修复</td></tr>
+          </tbody>
+        </table>
+
+        <h4>13.3 模态等待输入</h4>
+
+        <table>
+          <thead>
+            <tr><th>触发</th><th>期望输入</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>run trial</code> 中</td><td><code>A</code> / <code>B</code></td></tr>
+            <tr><td><code>analyze soul.bin</code> 后</td><td><code>Y</code> / <code>N</code></td></tr>
+            <tr><td><code>reboot 3027</code> 后</td><td><code>1</code> / <code>2</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3>结语</h3>
+
+        <blockquote>
+          <p>"梵音本无字,字字皆白骨。"PS：观美人如观白骨，人如白骨如美人，究竟涅槃</p>
+          <p>ManTra 是一封藏在终端里的情书:用 1400 Hz 的吉他 riff 抄写往生咒,用 0 字节的灵魂传送银河电波。</p>
+          <p>通关之后,你会发现ta既是密钥,也是 4 行墓志铭。</p>
+          <p><strong>祝你好梦。</strong> —— 麻姐</p>
+        </blockquote>
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+  <script>
+(function () {
+  'use strict';
+  const root = document.documentElement;
+  const LS = window.localStorage;
+
+  // ---------- 2. 字号 ----------
+  const SIZES = [13, 14, 15, 16, 17];
+  let sizeIdx = SIZES.indexOf(parseInt(LS.getItem('mantra_fontsize') || '15', 10));
+  if (sizeIdx < 0) sizeIdx = 2;
+  applyFontSize();
+
+  document.getElementById('font-dec').addEventListener('click', () => {
+    if (sizeIdx > 0) { sizeIdx--; applyFontSize(); }
+  });
+  document.getElementById('font-inc').addEventListener('click', () => {
+    if (sizeIdx < SIZES.length - 1) { sizeIdx++; applyFontSize(); }
+  });
+
+  function applyFontSize() {
+    root.style.setProperty('--font-base', SIZES[sizeIdx] + 'px');
+    LS.setItem('mantra_fontsize', SIZES[sizeIdx]);
+  }
+
+  // ---------- 3. 顶部 prompt 与 sidenav 高亮 ----------
+  const promptEl = document.querySelector('.prompt-text');
+  const chapters = document.querySelectorAll('section.chapter');
+  const navLinks = document.querySelectorAll('.sidenav a[data-target]');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const prompt = entry.target.dataset.prompt || 'ManTra ~ %';
+        promptEl.textContent = prompt;
+        navLinks.forEach(a => {
+          a.classList.toggle('is-active', a.dataset.target === id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  chapters.forEach(c => obs.observe(c));
+
+  // ---------- 4. §3 天平互动 ----------
+  const heartInput = document.getElementById('heart-input');
+  const heartVal   = document.getElementById('heart-val');
+  const needle     = document.getElementById('ruler-needle');
+  const verdict    = document.getElementById('verdict');
+  const beam       = document.querySelector('#beam');
+  const RULER_MIN = -25, RULER_MAX = 185;
+
+  if (heartInput) {
+    heartInput.addEventListener('input', () => {
+      const v = parseInt(heartInput.value, 10);
+      heartVal.textContent = v;
+      const pct = (v - RULER_MIN) / (RULER_MAX - RULER_MIN) * 100;
+      needle.style.left = pct + '%';
+      if (beam) {
+        // beam tilt: clamp(-18..18) degrees, mapped from heart weight diff to 100
+        const diff = Math.max(-85, Math.min(85, v - 100));
+        const angle = -diff / 85 * 18;
+        beam.setAttribute('transform', `rotate(${angle.toFixed(2)} 230 100)`);
+      }
+      if (v >= 95 && v <= 105) {
+        verdict.textContent = '平衡 · 灵魂洁净'; verdict.dataset.state = 'balanced';
+      } else if (v > 105) {
+        verdict.textContent = '心脏过重 · 被阿米特吞噬'; verdict.dataset.state = 'overweight';
+      } else {
+        verdict.textContent = '心脏过轻 · 灵魂残缺'; verdict.dataset.state = 'overweight';
+      }
+    });
+  }
+
+  // ---------- 5. §4 矩阵互动 ----------
+  const INITIAL_MATRIX = [
+    [1,0,0,1,0,1],
+    [0,1,1,0,1,0],
+    [0,1,0,1,1,0],
+    [1,0,1,0,0,1],
+    [0,1,1,0,0,1],
+    [1,0,0,1,1,0],
+  ];
+  const matrixGrid    = document.getElementById('matrix-grid');
+  const flipCountEl   = document.getElementById('m-flip-count');
+  const oddRowsEl     = document.getElementById('m-odd-rows');
+  const oddColsEl     = document.getElementById('m-odd-cols');
+  const matrixStatus  = document.getElementById('m-chip-status');
+  const matrixVerdict = document.getElementById('matrix-verdict');
+
+  let matrix = INITIAL_MATRIX.map(r => r.slice());
+  let flipCount = 0;
+
+  function renderMatrix() {
+    if (!matrixGrid) return;
+    matrixGrid.innerHTML = '';
+    // top: corner + 6 col nums + corner
+    matrixGrid.appendChild(div('matrix-grid__corner'));
+    for (let c = 1; c <= 6; c++) matrixGrid.appendChild(div('matrix-grid__col-num', c));
+    matrixGrid.appendChild(div('matrix-grid__corner'));
+    // 6 rows: row num + 6 cells + row parity
+    for (let r = 0; r < 6; r++) {
+      matrixGrid.appendChild(div('matrix-grid__row-num', r + 1));
+      for (let c = 0; c < 6; c++) {
+        const cell = div('matrix-cell');
+        cell.dataset.r = r; cell.dataset.c = c;
+        cell.dataset.on = matrix[r][c];
+        cell.textContent = matrix[r][c];
+        cell.addEventListener('click', () => flipCell(r, c));
+        matrixGrid.appendChild(cell);
+      }
+      matrixGrid.appendChild(rowParity(r));
+    }
+    // bottom: corner + 6 col parities + corner
+    matrixGrid.appendChild(div('matrix-grid__corner'));
+    for (let c = 0; c < 6; c++) matrixGrid.appendChild(colParity(c));
+    matrixGrid.appendChild(div('matrix-grid__corner'));
+    updateChips();
+  }
+  function div(cls, text) {
+    const e = document.createElement('div');
+    e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function rowParity(r) {
+    const sum = matrix[r].reduce((a,b) => a + b, 0);
+    const e = div('matrix-grid__row-parity', sum % 2 === 0 ? '偶' : '奇');
+    e.dataset.parity = sum % 2 === 0 ? 'even' : 'odd';
+    return e;
+  }
+  function colParity(c) {
+    let sum = 0; for (let r = 0; r < 6; r++) sum += matrix[r][c];
+    const e = div('matrix-grid__col-parity', sum % 2 === 0 ? '偶' : '奇');
+    e.dataset.parity = sum % 2 === 0 ? 'even' : 'odd';
+    return e;
+  }
+  function flipCell(r, c) {
+    matrix[r][c] = 1 - matrix[r][c];
+    flipCount++;
+    const cell = matrixGrid.querySelector(`[data-r="${r}"][data-c="${c}"]`);
+    if (cell) {
+      cell.dataset.on = matrix[r][c];
+      cell.textContent = matrix[r][c];
+      cell.classList.remove('is-flipped');
+      void cell.offsetWidth; // restart animation
+      cell.classList.add('is-flipped');
+    }
+    refreshParities();
+    updateChips();
+  }
+  function refreshParities() {
+    const cells = matrixGrid.children;
+    // structure: 8 (top) + then per row [1 num + 6 cells + 1 parity], then 8 (bottom)
+    const stride = 8;
+    for (let r = 0; r < 6; r++) {
+      const parityEl = matrixGrid.children[stride + r * stride + 7];
+      if (parityEl) {
+        const sum = matrix[r].reduce((a,b)=>a+b,0);
+        parityEl.textContent = sum % 2 === 0 ? '偶' : '奇';
+        parityEl.dataset.parity = sum % 2 === 0 ? 'even' : 'odd';
+      }
+    }
+    const bottomStart = stride + 6 * stride + 1;
+    for (let c = 0; c < 6; c++) {
+      let sum = 0; for (let r = 0; r < 6; r++) sum += matrix[r][c];
+      const el = matrixGrid.children[bottomStart + c];
+      if (el) {
+        el.textContent = sum % 2 === 0 ? '偶' : '奇';
+        el.dataset.parity = sum % 2 === 0 ? 'even' : 'odd';
+      }
+    }
+  }
+  function updateChips() {
+    let oddR = 0, oddC = 0;
+    for (let r = 0; r < 6; r++) if (matrix[r].reduce((a,b)=>a+b,0) % 2) oddR++;
+    for (let c = 0; c < 6; c++) {
+      let s = 0; for (let r = 0; r < 6; r++) s += matrix[r][c];
+      if (s % 2) oddC++;
+    }
+    flipCountEl.textContent = flipCount;
+    oddRowsEl.textContent = oddR;
+    oddColsEl.textContent = oddC;
+    document.getElementById('m-chip-rows').dataset.state = oddR === 0 ? 'even' : 'odd';
+    document.getElementById('m-chip-cols').dataset.state = oddC === 0 ? 'even' : 'odd';
+    if (oddR === 0 && oddC === 0) {
+      matrixStatus.textContent = '✓ 已平衡 · 真理矩阵恢复';
+      matrixStatus.dataset.state = 'even';
+      matrixVerdict.textContent = '[验证通过] 获得「叛逆之核」';
+    } else {
+      matrixStatus.textContent = '未平衡';
+      matrixStatus.dataset.state = 'odd';
+      matrixVerdict.textContent = '';
+    }
+  }
+  function clearSuggested() {
+    matrixGrid.querySelectorAll('.matrix-cell.is-suggested').forEach(e => e.classList.remove('is-suggested'));
+  }
+  if (matrixGrid) {
+    renderMatrix();
+    document.querySelectorAll('.matrix-stage__controls button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const a = btn.dataset.action;
+        if (a === 'reset') {
+          matrix = INITIAL_MATRIX.map(r => r.slice());
+          flipCount = 0;
+          renderMatrix();
+        } else if (a === 'hint') {
+          clearSuggested();
+          // mark diagonal as suggestion
+          for (let i = 0; i < 6; i++) {
+            const cell = matrixGrid.querySelector(`[data-r="${i}"][data-c="${i}"]`);
+            if (cell) cell.classList.add('is-suggested');
+          }
+        } else if (a === 'solve') {
+          // animate solve: flip each diagonal cell every 180ms
+          clearSuggested();
+          let i = 0;
+          (function step() {
+            if (i >= 6) return;
+            flipCell(i, i);
+            i++;
+            setTimeout(step, 180);
+          })();
+        }
+      });
+    });
+  }
+
+  // ---------- 6. §5 密码锁转轮 ----------
+  const comboLock = document.getElementById('combo-lock');
+  if (comboLock) {
+    const dials = comboLock.querySelectorAll('.combo-dial');
+    dials.forEach(d => {
+      const reel = d.querySelector('.combo-dial__reel');
+      // build numbers 0..9, twice for spin effect, ending at target
+      const target = parseInt(d.dataset.target, 10);
+      const seq = [];
+      // start with many random spins, end with 0..9 ending at target
+      for (let k = 0; k < 20; k++) seq.push(k % 10);
+      for (let k = 0; k <= target; k++) seq.push(k);
+      seq.forEach((n, idx) => {
+        const s = document.createElement('span');
+        s.textContent = n;
+        if (idx === seq.length - 1) s.classList.add('is-active');
+        reel.appendChild(s);
+      });
+    });
+
+    let spun = false;
+    function spinDials() {
+      if (spun) return; spun = true;
+      dials.forEach((d, idx) => {
+        const reel = d.querySelector('.combo-dial__reel');
+        const total = reel.children.length;
+        const itemH = 28;
+        // reel base: top 50%, translateY(-50%) centers reel's geometric middle on the line.
+        // To put the LAST item on the center line, shift up by (distance from reel-center to last-item-center).
+        // Reel center = total*itemH/2. Last item center = (total-0.5)*itemH.
+        // Shift = lastCenter - reelCenter = total*itemH/2 - itemH/2 = (total-1)*itemH/2
+        const offset = -((total - 1) * itemH / 2);
+        setTimeout(() => {
+          reel.style.transitionDuration = (900 + idx * 220) + 'ms';
+          reel.style.transform = `translateY(calc(-50% + ${offset}px))`;
+        }, 200 + idx * 180);
+      });
+    }
+    const comboObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) spinDials(); });
+    }, { threshold: 0.4 });
+    comboObserver.observe(comboLock);
+  }
+})();
+</script>
+</body>
+</html>

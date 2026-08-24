@@ -1,0 +1,5648 @@
+{
+  "categoryId": "english",
+  "questions": [
+    {
+      "id": "english-q001",
+      "chapterId": "u1",
+      "text": "\"ancient\" 的中文释义是？",
+      "options": [
+        "adj. 古代的；古老的",
+        "n. 行李",
+        "帮助（某人）"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q002",
+      "chapterId": "u1",
+      "text": "\"camp\" 的中文释义是？",
+      "options": [
+        "n. 奶油；护肤霜",
+        "n. 度假营；营地 v. 露营；宿营",
+        "adv. 提前；在前面"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q003",
+      "chapterId": "u1",
+      "text": "\"landscape\" 的中文释义是？",
+      "options": [
+        "n. 会面；会议",
+        "换话题；开始做（别的事）",
+        "n. 风景；景色"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q004",
+      "chapterId": "u1",
+      "text": "\"strange\" 的中文释义是？",
+      "options": [
+        "n. 翅膀；翼",
+        "adj. 奇怪的；陌生的",
+        "n. 旅馆；旅社"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q005",
+      "chapterId": "u1",
+      "text": "\"vacation\" 的中文释义是？",
+      "options": [
+        "v. 付费；交纳；偿还 n. 工资；薪水",
+        "n. 假期；度假",
+        "modal v. 可能；可以"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q006",
+      "chapterId": "u1",
+      "text": "\"fantastic\" 的中文释义是？",
+      "options": [
+        "n. 镜子",
+        "adj. 极好的；吸引人的",
+        "空闲时间"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q007",
+      "chapterId": "u1",
+      "text": "\"town\" 的中文释义是？",
+      "options": [
+        "n. 女演员",
+        "来访；拜访",
+        "n. 镇；商业区"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q008",
+      "chapterId": "u1",
+      "text": "\"breath\" 的中文释义是？",
+      "options": [
+        "n. 手势；迹象；标志 v. 签（名）；签字",
+        "n. 呼吸的空气；一口气",
+        "面对面"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q009",
+      "chapterId": "u1",
+      "text": "\"take sb's breath away\" 的中文释义是？",
+      "options": [
+        "n. 标题；题目；名称",
+        "n. 工具；手段",
+        "令人惊叹；让人叹绝"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q010",
+      "chapterId": "u1",
+      "text": "\"especially\" 的中文释义是？",
+      "options": [
+        "adv. 尤其；特别",
+        "n. 豌豆",
+        "n. 手风琴"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q011",
+      "chapterId": "u1",
+      "text": "\"chicken soup\" 的中文释义是？",
+      "options": [
+        "汽锅鸡",
+        "adj. 外围的；外表的",
+        "n. 关系；联系"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q012",
+      "chapterId": "u1",
+      "text": "\"anywhere\" 的中文释义是？",
+      "options": [
+        "n. 碗；钵；盆",
+        "adv. & pron. 在任何地方；随便哪个地方",
+        "尽最大努力"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q013",
+      "chapterId": "u1",
+      "text": "\"nothing\" 的中文释义是？",
+      "options": [
+        "n. 阳台",
+        "pron. 没有事；没有任何东西",
+        "n. 糕饼酥皮；面包皮"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q014",
+      "chapterId": "u1",
+      "text": "\"guide\" 的中文释义是？",
+      "options": [
+        "adj. 身体的；物质的",
+        "n. 大楼；街区；大块 v. 阻挡；堵塞",
+        "n. 导游；指南；手册"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q015",
+      "chapterId": "u1",
+      "text": "\"scenery\" 的中文释义是？",
+      "options": [
+        "n. 奖；奖励",
+        "n. 大楼；街区；大块 v. 阻挡；堵塞",
+        "n. 风景；景色"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q016",
+      "chapterId": "u1",
+      "text": "\"silk\" 的中文释义是？",
+      "options": [
+        "n. 食材；成分",
+        "n. 专家；行家 adj. 熟练的；内行的",
+        "n. 丝绸；（蚕）丝"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q017",
+      "chapterId": "u1",
+      "text": "\"scarf\" 的中文释义是？",
+      "options": [
+        "n. 围巾；披巾",
+        "v. 代替；取代",
+        "adj. 乐观的；积极的；良好的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q018",
+      "chapterId": "u1",
+      "text": "\"ready\" 的中文释义是？",
+      "options": [
+        "adj. 准备好的；现成的 adv. 已做完；已完成",
+        "酸辣汤",
+        "n. 会面；会议"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q019",
+      "chapterId": "u1",
+      "text": "\"ready to do sth\" 的中文释义是？",
+      "options": [
+        "马上要（做某事）； 愿意做（某事）",
+        "n. 广场；正方形 adj. 正方形的；平方的",
+        "汽锅鸡"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q020",
+      "chapterId": "u1",
+      "text": "\"somewhere\" 的中文释义是？",
+      "options": [
+        "n. 演说；发言",
+        "adj. 结尾的；结束的 n. 停业；关闭",
+        "adv. 在某处；到某处 pron. 某处；某个地方"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q021",
+      "chapterId": "u1",
+      "text": "\"myself\" 的中文释义是？",
+      "options": [
+        "adj. 乐观的；积极的；良好的",
+        "adv. 刚刚",
+        "pron. 我自己"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q022",
+      "chapterId": "u1",
+      "text": "\"nothing but\" 的中文释义是？",
+      "options": [
+        "（使）活跃起来；热身；预热",
+        "adv. & conj. 每当；在任何……的时候",
+        "只有；只是"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q023",
+      "chapterId": "u1",
+      "text": "\"hotel\" 的中文释义是？",
+      "options": [
+        "n. 小目标",
+        "n. 教授",
+        "n. 旅馆；旅社"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q024",
+      "chapterId": "u1",
+      "text": "\"comfortable\" 的中文释义是？",
+      "options": [
+        "n. 黄油",
+        "挂起；挂断电话",
+        "adj. 使人舒服的；舒适的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q025",
+      "chapterId": "u1",
+      "text": "\"bored\" 的中文释义是？",
+      "options": [
+        "adj. 厌倦的；烦闷的",
+        "n. 性格；品质",
+        "adj. 懒惰的；懒洋洋的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q026",
+      "chapterId": "u1",
+      "text": "\"sky\" 的中文释义是？",
+      "options": [
+        "v. & n. 交换",
+        "adj. 不运行的；死的",
+        "n. 天；天空"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q027",
+      "chapterId": "u1",
+      "text": "\"towards\" 的中文释义是？",
+      "options": [
+        "伸手触碰",
+        "v.混合；融合；调配 n. 混合；混杂；混合料",
+        "prep. 向；朝"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q028",
+      "chapterId": "u1",
+      "text": "\"rainbow\" 的中文释义是？",
+      "options": [
+        "n. 一勺的量；勺",
+        "立即；马上",
+        "n. 虹；彩虹"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q029",
+      "chapterId": "u1",
+      "text": "\"square\" 的中文释义是？",
+      "options": [
+        "n. 广场；正方形 adj. 正方形的；平方的",
+        "interj. 嗯（表示喜欢、同意等）",
+        "adj. 非洲的；非洲人的 n. 非洲人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q030",
+      "chapterId": "u1",
+      "text": "\"during\" 的中文释义是？",
+      "options": [
+        "adj. 开篇的；开始的 n. 开始；孔；洞",
+        "adv. 很可能；大概",
+        "prep. 在……期间"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q031",
+      "chapterId": "u1",
+      "text": "\"victory\" 的中文释义是？",
+      "options": [
+        "adj. 效率高的；有功效的",
+        "n. 段；段落",
+        "n. 胜利；成功"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q032",
+      "chapterId": "u1",
+      "text": "\"Russian\" 的中文释义是？",
+      "options": [
+        "v. 策划；打算 n. 计划；方案",
+        "n. 摄影师；拍照者",
+        "adj. 俄罗斯的；俄罗斯人的 n. 俄罗斯人；俄语"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q033",
+      "chapterId": "u1",
+      "text": "\"fight\" 的中文释义是？",
+      "options": [
+        "n. 黄油",
+        "adv. 容易地；轻易地",
+        "n. 战斗；搏斗；斗争 v. 打仗；打架"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q034",
+      "chapterId": "u1",
+      "text": "\"against\" 的中文释义是？",
+      "options": [
+        "adj. 精力充沛的；充满活力的",
+        "prep. 反对；与……相反；紧靠",
+        "v. 提醒；使想起"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q035",
+      "chapterId": "u1",
+      "text": "\"fight against sb / sth\" 的中文释义是？",
+      "options": [
+        "modal v. 可能；可以",
+        "千克；公斤",
+        "与……作战； 与……作斗争"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q036",
+      "chapterId": "u1",
+      "text": "\"artwork\" 的中文释义是？",
+      "options": [
+        "n. 平底锅；烤盘",
+        "n. 意义；含义",
+        "n. 艺术作品；插图"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q037",
+      "chapterId": "u1",
+      "text": "\"thousands of\" 的中文释义是？",
+      "options": [
+        "v. 表演；执行",
+        "数以千计的；成千上万的",
+        "n. 误解；误会"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q038",
+      "chapterId": "u1",
+      "text": "\"tear\" 的中文释义是？",
+      "options": [
+        "adj. 害羞的",
+        "n. 眼泪；泪水",
+        "与……有关系"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q039",
+      "chapterId": "u1",
+      "text": "\"remind\" 的中文释义是？",
+      "options": [
+        "n. 理解力；感觉 v. 意识到；感觉到",
+        "v. 提醒；使想起",
+        "打包"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q040",
+      "chapterId": "u1",
+      "text": "\"peace\" 的中文释义是？",
+      "options": [
+        "n. 和平；太平",
+        "不论；不要紧",
+        "v. 想念；错过"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q041",
+      "chapterId": "u1",
+      "text": "\"easily\" 的中文释义是？",
+      "options": [
+        "n. 混合物；结合体",
+        "adv. 容易地；轻易地",
+        "帮助（某人）"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q042",
+      "chapterId": "u1",
+      "text": "\"forget\" 的中文释义是？",
+      "options": [
+        "n. 教育",
+        "n. 意义；含义",
+        "v. 忘记；遗忘"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q043",
+      "chapterId": "u1",
+      "text": "\"noon\" 的中文释义是？",
+      "options": [
+        "n. 正午；中午",
+        "n. 剪纸",
+        "n. 镜子"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q044",
+      "chapterId": "u1",
+      "text": "\"sick\" 的中文释义是？",
+      "options": [
+        "v. 交流；沟通",
+        "adj. 恶心的；生病的",
+        "n. 笔记；记录；便条 v. 注意；指出"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q045",
+      "chapterId": "u1",
+      "text": "\"metro\" 的中文释义是？",
+      "options": [
+        "领某人参观",
+        "v. 发臭；闻到 n. 气味；臭味",
+        "n. 地下铁道系统"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q046",
+      "chapterId": "u1",
+      "text": "\"station\" 的中文释义是？",
+      "options": [
+        "adj. 有条理的；有组织的",
+        "亲自；亲身",
+        "n. 车站；所；局"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q047",
+      "chapterId": "u1",
+      "text": "\"palace\" 的中文释义是？",
+      "options": [
+        "n. 王宫；宫殿",
+        "去购物",
+        "n. 突发事件；紧急情况"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q048",
+      "chapterId": "u1",
+      "text": "\"accordion\" 的中文释义是？",
+      "options": [
+        "n. 健康",
+        "adv. & pron. 最小；最少",
+        "n. 手风琴"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q049",
+      "chapterId": "u1",
+      "text": "\"get together\" 的中文释义是？",
+      "options": [
+        "v. 比较；对比",
+        "人工智能",
+        "聚会；相聚"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q050",
+      "chapterId": "u1",
+      "text": "\"in the sun\" 的中文释义是？",
+      "options": [
+        "modal v. 可能；可以",
+        "在阳光下",
+        "v. 表演；执行"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q051",
+      "chapterId": "u1",
+      "text": "\"tower\" 的中文释义是？",
+      "options": [
+        "n. 呼吸的空气；一口气",
+        "n. 塔；塔楼",
+        "adv. 严肃地；认真地"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q052",
+      "chapterId": "u1",
+      "text": "\"might\" 的中文释义是？",
+      "options": [
+        "modal v. 可能；可以",
+        "v. 忘记；遗忘",
+        "adj. 最后的；最终的 n. 决赛"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q053",
+      "chapterId": "u1",
+      "text": "\"budget\" 的中文释义是？",
+      "options": [
+        "n. 科技；工艺",
+        "v. 持续；继续做",
+        "n. 预算 v. 把……编入预算；精打细算"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q054",
+      "chapterId": "u1",
+      "text": "\"passport\" 的中文释义是？",
+      "options": [
+        "n. 注意；专心；关注",
+        "n. 呼吸的空气；一口气",
+        "n. 护照"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q055",
+      "chapterId": "u1",
+      "text": "\"forgetful\" 的中文释义是？",
+      "options": [
+        "adj. 健忘的；好忘事的",
+        "马上要（做某事）； 愿意做（某事）",
+        "n. 天；天空"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q056",
+      "chapterId": "u1",
+      "text": "\"faraway\" 的中文释义是？",
+      "options": [
+        "adj. 远方的；遥远的",
+        "亲自；亲身",
+        "偶然；意外地"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q057",
+      "chapterId": "u1",
+      "text": "\"regular\" 的中文释义是？",
+      "options": [
+        "adj. 平常的；有规律的",
+        "n. 行李",
+        "adj. 准备好的；现成的 adv. 已做完；已完成"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q058",
+      "chapterId": "u1",
+      "text": "\"countryside\" 的中文释义是？",
+      "options": [
+        "n. 乡村；农村",
+        "n. 导演；主任；董事",
+        "n. 看法；意见"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q059",
+      "chapterId": "u1",
+      "text": "\"turn around\" 的中文释义是？",
+      "options": [
+        "转身；翻转",
+        "可以随便做某事",
+        "adj. 严肃的；严重的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q060",
+      "chapterId": "u1",
+      "text": "\"surprised\" 的中文释义是？",
+      "options": [
+        "v. 预料；期待",
+        "adj. 惊奇的；惊讶的",
+        "注意；关注"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q061",
+      "chapterId": "u1",
+      "text": "\"deer\" 的中文释义是？",
+      "options": [
+        "n. 饼干",
+        "n. 鹿",
+        "adj. 可能的；合理的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q062",
+      "chapterId": "u1",
+      "text": "\"probably\" 的中文释义是？",
+      "options": [
+        "n. 内衬",
+        "adv. 很可能；大概",
+        "n. 一勺的量；勺"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q063",
+      "chapterId": "u1",
+      "text": "\"look for\" 的中文释义是？",
+      "options": [
+        "n. 蛙；青蛙",
+        "寻找",
+        "v. 要紧 n. 问题"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q064",
+      "chapterId": "u2",
+      "text": "\"pack\" 的中文释义是？",
+      "options": [
+        "v. 打包；收拾",
+        "n. 注意；专心；关注",
+        "即将用尽；快用完"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q065",
+      "chapterId": "u2",
+      "text": "\"pack up\" 的中文释义是？",
+      "options": [
+        "打包",
+        "将……切成……",
+        "n. 豌豆"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q066",
+      "chapterId": "u2",
+      "text": "\"bathroom\" 的中文释义是？",
+      "options": [
+        "pron. 我自己",
+        "n. 浴室；洗手间",
+        "prep.除……之外；除了"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q067",
+      "chapterId": "u2",
+      "text": "\"sort\" 的中文释义是？",
+      "options": [
+        "注意；关注",
+        "v. 把……分类；整理 n. 种类",
+        "n. 幽默；幽默感"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q068",
+      "chapterId": "u2",
+      "text": "\"bedroom\" 的中文释义是？",
+      "options": [
+        "n. 卧室",
+        "adj. 社会的；社交的 n. 联谊会；联欢会",
+        "adj. 勤奋的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q069",
+      "chapterId": "u2",
+      "text": "\"balcony\" 的中文释义是？",
+      "options": [
+        "n. 阳台",
+        "n. 意外；（交通）事故",
+        "n. 玫瑰；蔷薇"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q070",
+      "chapterId": "u2",
+      "text": "\"hang up\" 的中文释义是？",
+      "options": [
+        "n. 机器人学",
+        "挂起；挂断电话",
+        "n. 信心；信任"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q071",
+      "chapterId": "u2",
+      "text": "\"invite\" 的中文释义是？",
+      "options": [
+        "adj. 不礼貌的；粗鲁的",
+        "v. 邀请",
+        "adj. 率直的；直接的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q072",
+      "chapterId": "u2",
+      "text": "\"living room\" 的中文释义是？",
+      "options": [
+        "n. 事实；现实",
+        "客厅",
+        "有共同之处"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q073",
+      "chapterId": "u2",
+      "text": "\"arrival\" 的中文释义是？",
+      "options": [
+        "n. 交通；运输 v.（非法）进行交易；做……买卖",
+        "n. 到达",
+        "n. 诀窍；秘密 adj. 秘密的；隐秘的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q074",
+      "chapterId": "u2",
+      "text": "\"yet\" 的中文释义是？",
+      "options": [
+        "社交媒体",
+        "adv.（用于否定句和疑问句）还 conj. 但是",
+        "n. 音乐家；乐师"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q075",
+      "chapterId": "u2",
+      "text": "\"add\" 的中文释义是？",
+      "options": [
+        "v. 添加；加",
+        "n. 冰箱",
+        "n. 女演员"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q076",
+      "chapterId": "u2",
+      "text": "\"add sth to sth\" 的中文释义是？",
+      "options": [
+        "把……加入……",
+        "接近；直到",
+        "n. 薄片；片 v. 把……切成薄片；切；割"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q077",
+      "chapterId": "u2",
+      "text": "\"go shopping\" 的中文释义是？",
+      "options": [
+        "去购物",
+        "n. 授粉",
+        "n. & v. 回答；回复"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q078",
+      "chapterId": "u2",
+      "text": "\"biscuit\" 的中文释义是？",
+      "options": [
+        "n. 蜂巢",
+        "n. 饼干",
+        "v. 想念；错过"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q079",
+      "chapterId": "u2",
+      "text": "\"borrow\" 的中文释义是？",
+      "options": [
+        "v. 借",
+        "prep. 反对；与……相反；紧靠",
+        "n. 系统"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q080",
+      "chapterId": "u2",
+      "text": "\"plan\" 的中文释义是？",
+      "options": [
+        "v. 忘记；遗忘",
+        "v. 策划；打算 n. 计划；方案",
+        "n. 挑战；质疑 v. 向（某人）挑战；对……怀疑"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q081",
+      "chapterId": "u2",
+      "text": "\"treasure\" 的中文释义是？",
+      "options": [
+        "n. 宝物；财富 v. 珍视",
+        "adj. 可能的；合理的",
+        "n. 岛"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q082",
+      "chapterId": "u2",
+      "text": "\"hunt\" 的中文释义是？",
+      "options": [
+        "远离；避免……靠近",
+        "确切地说；实际上 per",
+        "n. 搜寻；狩猎 v. 搜寻；打猎"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q083",
+      "chapterId": "u2",
+      "text": "\"treasure hunt\" 的中文释义是？",
+      "options": [
+        "将……切成……",
+        "n. 交通运输系统；旅行方式 v. 运输；运送",
+        "寻宝游戏"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q084",
+      "chapterId": "u2",
+      "text": "\"lift\" 的中文释义是？",
+      "options": [
+        "prep. 到……时；直到……为止",
+        "n. 乡村；农村",
+        "n. 搭便车；电梯 v. 举起；抬起"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q085",
+      "chapterId": "u2",
+      "text": "\"give sb a lift\" 的中文释义是？",
+      "options": [
+        "adj. 能够；有才能的",
+        "开车顺便送某人",
+        "adj. 不礼貌的；粗鲁的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q086",
+      "chapterId": "u2",
+      "text": "\"until\" 的中文释义是？",
+      "options": [
+        "v. 伸手；到达",
+        "n. 呼吸的空气；一口气",
+        "prep. 到……时；直到……为止"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q087",
+      "chapterId": "u2",
+      "text": "\"be careful with\" 的中文释义是？",
+      "options": [
+        "注意；当心",
+        "v. 提到；写到",
+        "v. 装饰；装潢"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q088",
+      "chapterId": "u2",
+      "text": "\"movie\" 的中文释义是？",
+      "options": [
+        "n. 困难；难题",
+        "n. 性格；品质",
+        "n. 电影"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q089",
+      "chapterId": "u2",
+      "text": "\"the movies\" 的中文释义是？",
+      "options": [
+        "adj. 个人的；私人的",
+        "电影院；电影产业",
+        "n. 会面；会议"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q090",
+      "chapterId": "u2",
+      "text": "\"dead\" 的中文释义是？",
+      "options": [
+        "adj. 不运行的；死的",
+        "n. 系统",
+        "v. 付费；交纳；偿还 n. 工资；薪水"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q091",
+      "chapterId": "u2",
+      "text": "\"note\" 的中文释义是？",
+      "options": [
+        "n. 笔记；记录；便条 v. 注意；指出",
+        "adj. 单独的；分开的 v. 分开；分离",
+        "v. 对……有用；使受益 n. 益处；成效"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q092",
+      "chapterId": "u2",
+      "text": "\"take notes\" 的中文释义是？",
+      "options": [
+        "做笔记",
+        "adj. 勤奋的",
+        "adj. 广受欢迎的；流行的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q093",
+      "chapterId": "u2",
+      "text": "\"clean up\" 的中文释义是？",
+      "options": [
+        "清扫",
+        "adj. 效率高的；有功效的",
+        "adj. 有条理的；有组织的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q094",
+      "chapterId": "u2",
+      "text": "\"community\" 的中文释义是？",
+      "options": [
+        "n. 洗澡；浴缸",
+        "对……感到厌倦",
+        "n. 社区；社团"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q095",
+      "chapterId": "u2",
+      "text": "\"rubbish\" 的中文释义是？",
+      "options": [
+        "查明；弄清（情况）",
+        "与……相连； 与……有关联",
+        "n. 垃圾"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q096",
+      "chapterId": "u2",
+      "text": "\"almost\" 的中文释义是？",
+      "options": [
+        "adv. 差不多；几乎",
+        "adj. 最后的；最终的 n. 决赛",
+        "n. 宝物；财富 v. 珍视"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q097",
+      "chapterId": "u2",
+      "text": "\"journey\" 的中文释义是？",
+      "options": [
+        "n. 旅行；历程 v. 旅行",
+        "n. & v. 回答；回复",
+        "v. 遮盖；包括 n. 遮盖物；封皮"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q098",
+      "chapterId": "u2",
+      "text": "\"pull\" 的中文释义是？",
+      "options": [
+        "n. 奶酪；干酪",
+        "v. & n. 拉；拖；拽",
+        "n. 人 adj. 人的；人类的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q099",
+      "chapterId": "u2",
+      "text": "\"luggage\" 的中文释义是？",
+      "options": [
+        "v. 取决于；依靠",
+        "n. 奶酪；干酪",
+        "n. 行李"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q100",
+      "chapterId": "u2",
+      "text": "\"ah\" 的中文释义是？",
+      "options": [
+        "n. 音乐会；演奏会",
+        "adj. 非洲的；非洲人的 n. 非洲人",
+        "interj. 啊（表示高兴、惊奇等）"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q101",
+      "chapterId": "u2",
+      "text": "\"share sth with sb\" 的中文释义是？",
+      "options": [
+        "面对面",
+        "把……与……分享",
+        "adj. 远方的；遥远的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q102",
+      "chapterId": "u2",
+      "text": "\"mm\" 的中文释义是？",
+      "options": [
+        "n. 王宫；宫殿",
+        "interj. 嗯（表示喜欢、同意等）",
+        "interj. 是的；对"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q103",
+      "chapterId": "u2",
+      "text": "\"familiar\" 的中文释义是？",
+      "options": [
+        "adj. 熟悉的",
+        "有共同之处",
+        "n. & v. 信任；相信"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q104",
+      "chapterId": "u2",
+      "text": "\"joke\" 的中文释义是？",
+      "options": [
+        "n. 笑话 v. 开玩笑",
+        "面对面",
+        "n. & v. 回答；回复"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q105",
+      "chapterId": "u2",
+      "text": "\"several\" 的中文释义是？",
+      "options": [
+        "n. 贫民；乞丐",
+        "adv. 认真地；仔细地；小心地",
+        "pron. 几个；一些"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q106",
+      "chapterId": "u2",
+      "text": "\"nod\" 的中文释义是？",
+      "options": [
+        "adv. & pron. 最小；最少",
+        "扑灭；把……摆好",
+        "v. & n. 点头"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q107",
+      "chapterId": "u2",
+      "text": "\"writer\" 的中文释义是？",
+      "options": [
+        "情绪智力",
+        "n. 作者",
+        "n. 食用油；石油；燃油"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q108",
+      "chapterId": "u2",
+      "text": "\"text\" 的中文释义是？",
+      "options": [
+        "v. 相信；认为有可能",
+        "n. 正文；文本 v.（用手机给某人）发短信",
+        "n. 信心；信任"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q109",
+      "chapterId": "u2",
+      "text": "\"describe\" 的中文释义是？",
+      "options": [
+        "n. 友谊；友情",
+        "打包",
+        "v. 描述；形容"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q110",
+      "chapterId": "u2",
+      "text": "\"wherever\" 的中文释义是？",
+      "options": [
+        "客厅",
+        "v. 争论；争吵",
+        "adv. & conj. 无论去哪里；在任何地方"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q111",
+      "chapterId": "u2",
+      "text": "\"matter\" 的中文释义是？",
+      "options": [
+        "n. 看法；意见",
+        "v. 要紧 n. 问题",
+        "n. 内衬"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q112",
+      "chapterId": "u2",
+      "text": "\"no matter\" 的中文释义是？",
+      "options": [
+        "不论；不要紧",
+        "清扫",
+        "v. 粘贴；将……刺入 n. 枝条；棍"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q113",
+      "chapterId": "u2",
+      "text": "\"perhaps\" 的中文释义是？",
+      "options": [
+        "adv. 也许；可能",
+        "n. 蝴蝶",
+        "n. 天；天空"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q114",
+      "chapterId": "u2",
+      "text": "\"plate\" 的中文释义是？",
+      "options": [
+        "n. 盘子；碟子",
+        "n. 科技；工艺",
+        "马上要（做某事）； 愿意做（某事）"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q115",
+      "chapterId": "u2",
+      "text": "\"freshly\" 的中文释义是？",
+      "options": [
+        "v. 粘贴；将……刺入 n. 枝条；棍",
+        "扑灭；把……摆好",
+        "adv. 刚刚"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q116",
+      "chapterId": "u2",
+      "text": "\"smell\" 的中文释义是？",
+      "options": [
+        "开始学；开始从事",
+        "n. 搭档；同伴",
+        "v. 发臭；闻到 n. 气味；臭味"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q117",
+      "chapterId": "u2",
+      "text": "\"joy\" 的中文释义是？",
+      "options": [
+        "n. 喜悦；乐趣",
+        "n. 性格；品质",
+        "v. （使）形成；组成 n. 类型；形式；表格"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q118",
+      "chapterId": "u2",
+      "text": "\"apartment\" 的中文释义是？",
+      "options": [
+        "n. 房间；公寓套房",
+        "adj. 准备好的；现成的 adv. 已做完；已完成",
+        "n. 画家；油漆匠"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q119",
+      "chapterId": "u2",
+      "text": "\"block\" 的中文释义是？",
+      "options": [
+        "n. 段；段落",
+        "n. 大楼；街区；大块 v. 阻挡；堵塞",
+        "（手机）短信息；短信"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q120",
+      "chapterId": "u2",
+      "text": "\"decorate\" 的中文释义是？",
+      "options": [
+        "打包",
+        "adj. 精力充沛的；生机勃勃的 the",
+        "v. 装饰；装潢"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q121",
+      "chapterId": "u2",
+      "text": "\"cover\" 的中文释义是？",
+      "options": [
+        "v. 遮盖；包括 n. 遮盖物；封皮",
+        "adj. 懒惰的；懒洋洋的",
+        "adj. 真诚的；诚实的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q122",
+      "chapterId": "u2",
+      "text": "\"poster\" 的中文释义是？",
+      "options": [
+        "n. 研究者；探索者",
+        "n. 海报",
+        "n. 蜂巢"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q123",
+      "chapterId": "u2",
+      "text": "\"scissors\" 的中文释义是？",
+      "options": [
+        "n. 大楼；街区；大块 v. 阻挡；堵塞",
+        "n. 剪刀",
+        "adj. 真诚的；诚实的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q124",
+      "chapterId": "u2",
+      "text": "\"glue\" 的中文释义是？",
+      "options": [
+        "对……表现出兴趣",
+        "n. 胶水 v. 粘贴",
+        "adj. 外围的；外表的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q125",
+      "chapterId": "u2",
+      "text": "\"paper-cut\" 的中文释义是？",
+      "options": [
+        "n. 剪纸",
+        "n. 奶酪；干酪",
+        "adv. 也许；可能"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q126",
+      "chapterId": "u3",
+      "text": "\"compare\" 的中文释义是？",
+      "options": [
+        "n. 俯卧撑",
+        "n. 友谊；友情",
+        "v. 比较；对比"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q127",
+      "chapterId": "u3",
+      "text": "\"shy\" 的中文释义是？",
+      "options": [
+        "adj. 害羞的",
+        "n. 照相术；摄影",
+        "关心；担心"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q128",
+      "chapterId": "u3",
+      "text": "\"lazy\" 的中文释义是？",
+      "options": [
+        "adj. 情感的；情绪的",
+        "adj. 懒惰的；懒洋洋的",
+        "远离；避免……靠近"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q129",
+      "chapterId": "u3",
+      "text": "\"loud\" 的中文释义是？",
+      "options": [
+        "根据；依照",
+        "adv.（用于否定句和疑问句）还 conj. 但是",
+        "adv. 响亮地 adj. 大声的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q130",
+      "chapterId": "u3",
+      "text": "\"outgoing\" 的中文释义是？",
+      "options": [
+        "伸手触碰",
+        "adj. 外向的",
+        "adj. 公共的；公众的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q131",
+      "chapterId": "u3",
+      "text": "\"hard-working\" 的中文释义是？",
+      "options": [
+        "给……写信",
+        "adj. 勤奋的",
+        "与某人争论"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q132",
+      "chapterId": "u3",
+      "text": "\"perform\" 的中文释义是？",
+      "options": [
+        "v. 表演；执行",
+        "n. 饼干",
+        "adv. 提前；在前面"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q133",
+      "chapterId": "u3",
+      "text": "\"alone\" 的中文释义是？",
+      "options": [
+        "v. 借",
+        "adv. & adj. 独自；单独",
+        "把……与……分享"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q134",
+      "chapterId": "u3",
+      "text": "\"solve\" 的中文释义是？",
+      "options": [
+        "adj. 厌倦的；烦闷的",
+        "n. 商界人士；企业家",
+        "v. 解决；解答"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q135",
+      "chapterId": "u3",
+      "text": "\"flute\" 的中文释义是？",
+      "options": [
+        "n. 花粉",
+        "n. 长笛",
+        "马上要（做某事）； 愿意做（某事）"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q136",
+      "chapterId": "u3",
+      "text": "\"congratulation\" 的中文释义是？",
+      "options": [
+        "n. 祝贺；恭喜 Congratulations ! 祝贺!",
+        "prep.除……之外；除了",
+        "与……作战； 与……作斗争"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q137",
+      "chapterId": "u3",
+      "text": "\"prize\" 的中文释义是？",
+      "options": [
+        "n. 智力；智慧",
+        "n. 奖；奖励",
+        "n. 意大利细面条"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q138",
+      "chapterId": "u3",
+      "text": "\"attend\" 的中文释义是？",
+      "options": [
+        "v. 及格；通过 n. 及格；通行证",
+        "v. 提供；主动提出 n. 主动提议；出价",
+        "v. 参加；出席"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q139",
+      "chapterId": "u3",
+      "text": "\"as ... as ...\" 的中文释义是？",
+      "options": [
+        "n. 观点；重点 v. 指向；瞄准",
+        "像……一样……",
+        "n. 时装业；时尚"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q140",
+      "chapterId": "u3",
+      "text": "\"besides\" 的中文释义是？",
+      "options": [
+        "adj. 挑战性的",
+        "帮助（某人）",
+        "prep. 除……之外（还） adv. 而且"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q141",
+      "chapterId": "u3",
+      "text": "\"spare\" 的中文释义是？",
+      "options": [
+        "n. 翅膀；翼",
+        "adj. 失望的；沮丧的",
+        "adj. 空闲的；备用的 v. 抽出；拨出"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q142",
+      "chapterId": "u3",
+      "text": "\"spare time\" 的中文释义是？",
+      "options": [
+        "将……切成……",
+        "太空；外层空间",
+        "空闲时间"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q143",
+      "chapterId": "u3",
+      "text": "\"pleasure\" 的中文释义是？",
+      "options": [
+        "n. 专家；行家 adj. 熟练的；内行的",
+        "n. 护照",
+        "n. 乐事；愉快；荣幸"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q144",
+      "chapterId": "u3",
+      "text": "\"have sth in common\" 的中文释义是？",
+      "options": [
+        "有共同之处",
+        "adj. 很有用的；宝贵的",
+        "v. 增强；发展；开发"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q145",
+      "chapterId": "u3",
+      "text": "\"appearance\" 的中文释义是？",
+      "options": [
+        "n. 外表；露面",
+        "n. 电影",
+        "扑灭；把……摆好"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q146",
+      "chapterId": "u3",
+      "text": "\"personality\" 的中文释义是？",
+      "options": [
+        "n. 玫瑰；蔷薇",
+        "n. 手风琴",
+        "n. 性格；品质"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q147",
+      "chapterId": "u3",
+      "text": "\"serious\" 的中文释义是？",
+      "options": [
+        "n. 学院；大学",
+        "确保；保证",
+        "adj. 严肃的；严重的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q148",
+      "chapterId": "u3",
+      "text": "\"strength\" 的中文释义是？",
+      "options": [
+        "n. 优势；力量",
+        "pron. 你自己；您自己",
+        "n. 战斗；搏斗；斗争 v. 打仗；打架"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q149",
+      "chapterId": "u3",
+      "text": "\"slim\" 的中文释义是？",
+      "options": [
+        "远离；避免……靠近",
+        "adj. 苗条的；薄的",
+        "n. 美德；营养"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q150",
+      "chapterId": "u3",
+      "text": "\"fact\" 的中文释义是？",
+      "options": [
+        "n. 事实；现实",
+        "adj. 真诚的；诚实的",
+        "n. 信心；信任"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q151",
+      "chapterId": "u3",
+      "text": "\"population\" 的中文释义是？",
+      "options": [
+        "n. 费用；价钱；代价 v. 价格为；使损失；使付出努力",
+        "v. 提供；主动提出 n. 主动提议；出价",
+        "n. 人口"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q152",
+      "chapterId": "u3",
+      "text": "\"km\" 的中文释义是？",
+      "options": [
+        "千米；公里",
+        "土豆泥",
+        "n. 翅膀；翼"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q153",
+      "chapterId": "u3",
+      "text": "\"average\" 的中文释义是？",
+      "options": [
+        "adj. 平均的；平常的 n. 平均数；平均水准",
+        "adj. 连接的；相关的",
+        "adj. 俄罗斯的；俄罗斯人的 n. 俄罗斯人；俄语"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q154",
+      "chapterId": "u3",
+      "text": "\"rainfall\" 的中文释义是？",
+      "options": [
+        "adj. 看得见的；可见的",
+        "n. 导游；指南；手册",
+        "n. 降雨量"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q155",
+      "chapterId": "u3",
+      "text": "\"per\" 的中文释义是？",
+      "options": [
+        "n. 卧室",
+        "v. 交流；沟通",
+        "prep. 每"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q156",
+      "chapterId": "u3",
+      "text": "\"pleasant\" 的中文释义是？",
+      "options": [
+        "adj. 宜人的；友好的",
+        "n. 风景；景色",
+        "n. 素质；质量；品质 adj. 优质的；高质量的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q157",
+      "chapterId": "u3",
+      "text": "\"difference\" 的中文释义是？",
+      "options": [
+        "v. 贮存；存储 n. 百货商店；商店",
+        "n. 差异",
+        "v. 争论；争吵"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q158",
+      "chapterId": "u3",
+      "text": "\"alike\" 的中文释义是？",
+      "options": [
+        "n. 导游；指南；手册",
+        "n. 到达",
+        "adj. 相像的 adv. 相似地"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q159",
+      "chapterId": "u3",
+      "text": "\"mirror\" 的中文释义是？",
+      "options": [
+        "adj. 折叠式的；可折叠的",
+        "v. 关联；连接",
+        "n. 镜子"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q160",
+      "chapterId": "u3",
+      "text": "\"interest\" 的中文释义是？",
+      "options": [
+        "adv. 在某处；到某处 pron. 某处；某个地方",
+        "n. 业余爱好；兴趣 v. 使感兴趣",
+        "n. 教授"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q161",
+      "chapterId": "u3",
+      "text": "\"novel\" 的中文释义是？",
+      "options": [
+        "来访；拜访",
+        "n. 机会；可能性 adj. 意外的；偶然的",
+        "n. 小说"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q162",
+      "chapterId": "u3",
+      "text": "\"sense\" 的中文释义是？",
+      "options": [
+        "远离；避免……靠近",
+        "n. 理解力；感觉 v. 意识到；感觉到",
+        "n. 胶水 v. 粘贴"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q163",
+      "chapterId": "u3",
+      "text": "\"humour\" 的中文释义是？",
+      "options": [
+        "与……相连； 与……有关联",
+        "n. 幽默；幽默感",
+        "把……加入……"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q164",
+      "chapterId": "u3",
+      "text": "\"thanks to\" 的中文释义是？",
+      "options": [
+        "v. 捣烂；捣碎",
+        "n. 幼苗；嫩芽 v. 开（枪）；射击",
+        "归功于；由于；因为"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q165",
+      "chapterId": "u3",
+      "text": "\"opinion\" 的中文释义是？",
+      "options": [
+        "把……加入……",
+        "adj. 苗条的；薄的",
+        "n. 看法；意见"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q166",
+      "chapterId": "u3",
+      "text": "\"make a mistake\" 的中文释义是？",
+      "options": [
+        "adj. 外向的",
+        "n. 表达方式；表达",
+        "犯错误"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q167",
+      "chapterId": "u3",
+      "text": "\"less\" 的中文释义是？",
+      "options": [
+        "adj. 较少的；更少的 adv. 较少地；更少地 pron. 较少；更少",
+        "adj. 能够；有才能的",
+        "n. 虹；彩虹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q168",
+      "chapterId": "u3",
+      "text": "\"straightforward\" 的中文释义是？",
+      "options": [
+        "v. 烘焙",
+        "adj. 身体的；物质的",
+        "adj. 坦率的；简单的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q169",
+      "chapterId": "u3",
+      "text": "\"honest\" 的中文释义是？",
+      "options": [
+        "n. 夫妻；情侣；两人",
+        "adj. 坦诚的；诚实的",
+        "adj. 较少的；更少的 adv. 较少地；更少地 pron. 较少；更少"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q170",
+      "chapterId": "u3",
+      "text": "\"direct\" 的中文释义是？",
+      "options": [
+        "adj. 精力充沛的；生机勃勃的 the",
+        "尽最大努力",
+        "adj. 率直的；直接的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q171",
+      "chapterId": "u3",
+      "text": "\"similarity\" 的中文释义是？",
+      "options": [
+        "n. 祝贺；恭喜 Congratulations ! 祝贺!",
+        "n. 相似之处",
+        "adj. 不运行的；死的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q172",
+      "chapterId": "u3",
+      "text": "\"friendship\" 的中文释义是？",
+      "options": [
+        "adv. 严肃地；认真地",
+        "adj. 自信的；肯定的",
+        "n. 友谊；友情"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q173",
+      "chapterId": "u3",
+      "text": "\"metre\" 的中文释义是？",
+      "options": [
+        "n. 蘑菇；伞菌",
+        "n. 米",
+        "n. 面粉"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q174",
+      "chapterId": "u3",
+      "text": "\"prince\" 的中文释义是？",
+      "options": [
+        "n. 岛",
+        "n. 正午；中午",
+        "n. 王子"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q175",
+      "chapterId": "u3",
+      "text": "\"character\" 的中文释义是？",
+      "options": [
+        "v. 交流；沟通",
+        "n. 肉桂皮；桂皮香料",
+        "n. 人物；个性"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q176",
+      "chapterId": "u3",
+      "text": "\"pauper\" 的中文释义是？",
+      "options": [
+        "n. 旅馆；旅社",
+        "n. 费用；价钱；代价 v. 价格为；使损失；使付出努力",
+        "n. 贫民；乞丐"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q177",
+      "chapterId": "u3",
+      "text": "\"exchange\" 的中文释义是？",
+      "options": [
+        "v. & n. 交换",
+        "对……表现出兴趣",
+        "v. 翻炒；炒；煸"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q178",
+      "chapterId": "u3",
+      "text": "\"accident\" 的中文释义是？",
+      "options": [
+        "n. 奶酪；干酪",
+        "n. 意外；（交通）事故",
+        "令人惊叹；让人叹绝"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q179",
+      "chapterId": "u3",
+      "text": "\"by accident\" 的中文释义是？",
+      "options": [
+        "偶然；意外地",
+        "v. 发臭；闻到 n. 气味；臭味",
+        "adj. 使人舒服的；舒适的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q180",
+      "chapterId": "u3",
+      "text": "\"expect\" 的中文释义是？",
+      "options": [
+        "n. 到达",
+        "n. 百分之…… adj. & adv. 每一百中",
+        "v. 预料；期待"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q181",
+      "chapterId": "u3",
+      "text": "\"silver\" 的中文释义是？",
+      "options": [
+        "切碎；剁碎",
+        "n. 自我改进；自我提高",
+        "adj. 银色的 n. 银"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q182",
+      "chapterId": "u3",
+      "text": "\"lining\" 的中文释义是？",
+      "options": [
+        "n. 内衬",
+        "n. 镇；商业区",
+        "adj. 坦率的；简单的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q183",
+      "chapterId": "u3",
+      "text": "\"silver lining\" 的中文释义是？",
+      "options": [
+        "一线光明",
+        "adj. 极小的；微小的",
+        "太空；外层空间"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q184",
+      "chapterId": "u3",
+      "text": "\"situation\" 的中文释义是？",
+      "options": [
+        "n. 情况；状况",
+        "n. 现金；金钱 v. 兑现",
+        "n. 食材；成分"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q185",
+      "chapterId": "u3",
+      "text": "\"care about\" 的中文释义是？",
+      "options": [
+        "n. 镇；商业区",
+        "n. 文学；文献",
+        "关心；担心"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q186",
+      "chapterId": "u3",
+      "text": "\"reach\" 的中文释义是？",
+      "options": [
+        "v. 伸手；到达",
+        "n. 剪纸",
+        "adv. 实际上；居然"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q187",
+      "chapterId": "u3",
+      "text": "\"reach for\" 的中文释义是？",
+      "options": [
+        "n. 演说；发言",
+        "伸手触碰",
+        "n. 一勺的量；勺"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q188",
+      "chapterId": "u3",
+      "text": "\"touch\" 的中文释义是？",
+      "options": [
+        "v. 触动；触碰",
+        "n. 工具；手段",
+        "adv. & conj. 无论去哪里；在任何地方"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q189",
+      "chapterId": "u3",
+      "text": "\"lend a hand\" 的中文释义是？",
+      "options": [
+        "n. 碗；钵；盆",
+        "帮助（某人）",
+        "n. 果馅饼；肉馅饼"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q190",
+      "chapterId": "u4",
+      "text": "\"moss\" 的中文释义是？",
+      "options": [
+        "adj. 奇怪的；陌生的",
+        "n. 苔藓",
+        "坚持；维持"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q191",
+      "chapterId": "u4",
+      "text": "\"redwood\" 的中文释义是？",
+      "options": [
+        "n. 红杉；红木",
+        "adj. 熟悉的",
+        "n. 差异"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q192",
+      "chapterId": "u4",
+      "text": "\"cheetah\" 的中文释义是？",
+      "options": [
+        "v. 出现；看来好像",
+        "v. 对……有用；使受益 n. 益处；成效",
+        "n. 猎豹"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q193",
+      "chapterId": "u4",
+      "text": "\"folding\" 的中文释义是？",
+      "options": [
+        "n. 业余爱好；兴趣 v. 使感兴趣",
+        "adj. 折叠式的；可折叠的",
+        "n. 灾难；不幸"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q194",
+      "chapterId": "u4",
+      "text": "\"folding fan\" 的中文释义是？",
+      "options": [
+        "n. 差异",
+        "折扇",
+        "n. 幽默；幽默感"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q195",
+      "chapterId": "u4",
+      "text": "\"bamboo\" 的中文释义是？",
+      "options": [
+        "n. 风景；景色",
+        "开车顺便送某人",
+        "n. 竹；竹子"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q196",
+      "chapterId": "u4",
+      "text": "\"yeah\" 的中文释义是？",
+      "options": [
+        "interj. 是的；对",
+        "n. 视频；录像系统 v. 录视频；给……录像",
+        "n. 教授"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q197",
+      "chapterId": "u4",
+      "text": "\"popular\" 的中文释义是？",
+      "options": [
+        "adj. 广受欢迎的；流行的",
+        "adj. 懒惰的；懒洋洋的",
+        "n. 手风琴"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q198",
+      "chapterId": "u4",
+      "text": "\"goodness\" 的中文释义是？",
+      "options": [
+        "n. 字行；便条；线",
+        "n. 美德；营养",
+        "n. 任务；工作"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q199",
+      "chapterId": "u4",
+      "text": "\"tool\" 的中文释义是？",
+      "options": [
+        "人工智能",
+        "n. 工具；手段",
+        "v. 付费；交纳；偿还 n. 工资；薪水"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q200",
+      "chapterId": "u4",
+      "text": "\"actually\" 的中文释义是？",
+      "options": [
+        "n. 训练；培训",
+        "adv. 实际上；居然",
+        "adj. 极好的；吸引人的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q201",
+      "chapterId": "u4",
+      "text": "\"shoot\" 的中文释义是？",
+      "options": [
+        "n. 排演；排练",
+        "n. 幼苗；嫩芽 v. 开（枪）；射击",
+        "adj. 精力充沛的；生机勃勃的 the"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q202",
+      "chapterId": "u4",
+      "text": "\"appear\" 的中文释义是？",
+      "options": [
+        "prep. 每",
+        "n. 优势；力量",
+        "v. 出现；看来好像"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q203",
+      "chapterId": "u4",
+      "text": "\"feel free\" 的中文释义是？",
+      "options": [
+        "可以随便做某事",
+        "adv. 聪明地；明智地",
+        "v. 设计；计划 n. 设计；花纹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q204",
+      "chapterId": "u4",
+      "text": "\"land\" 的中文释义是？",
+      "options": [
+        "n. 照相术；摄影",
+        "挂起；挂断电话",
+        "n. 陆地；土地 v. 降落；着陆"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q205",
+      "chapterId": "u4",
+      "text": "\"African\" 的中文释义是？",
+      "options": [
+        "n. 表达；交流",
+        "n. 字行；便条；线",
+        "adj. 非洲的；非洲人的 n. 非洲人"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q206",
+      "chapterId": "u4",
+      "text": "\"rose\" 的中文释义是？",
+      "options": [
+        "n. 鹿",
+        "n. 玫瑰；蔷薇",
+        "n. 百分之…… adj. & adv. 每一百中"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q207",
+      "chapterId": "u4",
+      "text": "\"peony\" 的中文释义是？",
+      "options": [
+        "n. 牡丹；芍药",
+        "adv. 严肃地；认真地",
+        "adj. 公共的；公众的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q208",
+      "chapterId": "u4",
+      "text": "\"lotus\" 的中文释义是？",
+      "options": [
+        "n. 手风琴",
+        "n. 莲花",
+        "n. 决定；决议"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q209",
+      "chapterId": "u4",
+      "text": "\"butterfly\" 的中文释义是？",
+      "options": [
+        "n. 蝴蝶",
+        "n. 人口",
+        "prep. 向；朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q210",
+      "chapterId": "u4",
+      "text": "\"wing\" 的中文释义是？",
+      "options": [
+        "n. 意外；（交通）事故",
+        "n. 翅膀；翼",
+        "adj. 首席的；最重要的 n. 首领；酋长"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q211",
+      "chapterId": "u4",
+      "text": "\"frog\" 的中文释义是？",
+      "options": [
+        "n. 蛙；青蛙",
+        "n. 美德；营养",
+        "去划船"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q212",
+      "chapterId": "u4",
+      "text": "\"up to\" 的中文释义是？",
+      "options": [
+        "prep. 到……时；直到……为止",
+        "接近；直到",
+        "adj. 医学的；医疗的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q213",
+      "chapterId": "u4",
+      "text": "\"weigh\" 的中文释义是？",
+      "options": [
+        "v. 有……重；称重量",
+        "n. 人口",
+        "n. 丝绸；（蚕）丝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q214",
+      "chapterId": "u4",
+      "text": "\"kg\" 的中文释义是？",
+      "options": [
+        "adj. 严肃的；严重的",
+        "千克；公斤",
+        "n. 项目；条"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q215",
+      "chapterId": "u4",
+      "text": "\"ginkgo\" 的中文释义是？",
+      "options": [
+        "adj. 个人的；私人的",
+        "n. 莲花",
+        "n. 银杏"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q216",
+      "chapterId": "u4",
+      "text": "\"believe\" 的中文释义是？",
+      "options": [
+        "v. 相信；认为有可能",
+        "n. 蝴蝶",
+        "n. 系统"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q217",
+      "chapterId": "u4",
+      "text": "\"province\" 的中文释义是？",
+      "options": [
+        "n. 作者",
+        "n. 省份",
+        "n. 专家；行家 adj. 熟练的；内行的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q218",
+      "chapterId": "u4",
+      "text": "\"take a walk\" 的中文释义是？",
+      "options": [
+        "散步",
+        "adv. 健康地",
+        "n. 表达方式；表达"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q219",
+      "chapterId": "u4",
+      "text": "\"connect\" 的中文释义是？",
+      "options": [
+        "n. 手势；迹象；标志 v. 签（名）；签字",
+        "v. & n. 拉；拖；拽",
+        "v. 关联；连接"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q220",
+      "chapterId": "u4",
+      "text": "\"connected\" 的中文释义是？",
+      "options": [
+        "客厅",
+        "注意；当心",
+        "adj. 连接的；相关的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q221",
+      "chapterId": "u4",
+      "text": "\"be connected with / to\" 的中文释义是？",
+      "options": [
+        "清扫",
+        "n. 和平；太平",
+        "与……相连； 与……有关联"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q222",
+      "chapterId": "u4",
+      "text": "\"without\" 的中文释义是？",
+      "options": [
+        "n. 误解；误会",
+        "prep. 没有；缺乏",
+        "adv. 实际上；居然"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q223",
+      "chapterId": "u4",
+      "text": "\"imagine\" 的中文释义是？",
+      "options": [
+        "即将结束；即将完成",
+        "v. 想象；猜想",
+        "偶然；意外地"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q224",
+      "chapterId": "u4",
+      "text": "\"honey\" 的中文释义是？",
+      "options": [
+        "n. 意外；（交通）事故",
+        "n. 行星",
+        "n. 蜂蜜；（爱称）亲爱的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q225",
+      "chapterId": "u4",
+      "text": "\"disappointed\" 的中文释义是？",
+      "options": [
+        "v. 保护；防护",
+        "n. 女演员",
+        "adj. 失望的；沮丧的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q226",
+      "chapterId": "u4",
+      "text": "\"connection\" 的中文释义是？",
+      "options": [
+        "n. 文学；文献",
+        "n. 联系；连接",
+        "n. 优胜者；成功者"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q227",
+      "chapterId": "u4",
+      "text": "\"pollination\" 的中文释义是？",
+      "options": [
+        "n. 授粉",
+        "v. 增强；发展；开发",
+        "interj. 嗯（表示喜欢、同意等）"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q228",
+      "chapterId": "u4",
+      "text": "\"pollen\" 的中文释义是？",
+      "options": [
+        "n. 音乐家；乐师",
+        "n. 小品文；文章",
+        "n. 花粉"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q229",
+      "chapterId": "u4",
+      "text": "\"action\" 的中文释义是？",
+      "options": [
+        "n. 行动；行为",
+        "在阳光下",
+        "v. 借"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q230",
+      "chapterId": "u4",
+      "text": "\"in fact\" 的中文释义是？",
+      "options": [
+        "确切地说；实际上 per",
+        "n. 陆地；土地 v. 降落；着陆",
+        "开车顺便送某人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q231",
+      "chapterId": "u4",
+      "text": "\"cent\" 的中文释义是？",
+      "options": [
+        "转身；翻转",
+        "n. 百分之…… adj. & adv. 每一百中",
+        "n. 甜；芬芳；愉悦"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q232",
+      "chapterId": "u4",
+      "text": "\"for this reason\" 的中文释义是？",
+      "options": [
+        "adj. 率直的；直接的",
+        "n. 米",
+        "出于这个原因"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q233",
+      "chapterId": "u4",
+      "text": "\"planet\" 的中文释义是？",
+      "options": [
+        "n. 手风琴",
+        "n. 竹；竹子",
+        "n. 行星"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q234",
+      "chapterId": "u4",
+      "text": "\"in order to\" 的中文释义是？",
+      "options": [
+        "n. 相似之处",
+        "为了；以便",
+        "即将用尽；快用完"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q235",
+      "chapterId": "u4",
+      "text": "\"store\" 的中文释义是？",
+      "options": [
+        "v. 贮存；存储 n. 百货商店；商店",
+        "adj. 不可能的",
+        "adj. 远方的；遥远的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q236",
+      "chapterId": "u4",
+      "text": "\"honeycomb\" 的中文释义是？",
+      "options": [
+        "n. 蜂巢",
+        "n. 夫妻；情侣；两人",
+        "n. 幼苗；嫩芽 v. 开（枪）；射击"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q237",
+      "chapterId": "u4",
+      "text": "\"communicate\" 的中文释义是？",
+      "options": [
+        "v. 交流；沟通",
+        "pron. 几个；一些",
+        "adv. 在某处；到某处 pron. 某处；某个地方"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q238",
+      "chapterId": "u4",
+      "text": "\"play a part\" 的中文释义是？",
+      "options": [
+        "出于这个原因",
+        "参与某事",
+        "n. 细节；详情"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q239",
+      "chapterId": "u4",
+      "text": "\"ecosystem\" 的中文释义是？",
+      "options": [
+        "n. 系统",
+        "n. & v. 研究；调查",
+        "n. 生态系统"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q240",
+      "chapterId": "u4",
+      "text": "\"protect\" 的中文释义是？",
+      "options": [
+        "v. 保护；防护",
+        "n. 生态系统",
+        "只要"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q241",
+      "chapterId": "u4",
+      "text": "\"importance\" 的中文释义是？",
+      "options": [
+        "n. 重要性",
+        "n. 胜利；成功",
+        "n. 作用；职能；角色"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q242",
+      "chapterId": "u4",
+      "text": "\"title\" 的中文释义是？",
+      "options": [
+        "n. 王子",
+        "adj. 公平的；合理的",
+        "n. 标题；题目；名称"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q243",
+      "chapterId": "u4",
+      "text": "\"human\" 的中文释义是？",
+      "options": [
+        "有……栖息； 是……的家乡",
+        "n. 人 adj. 人的；人类的",
+        "v. 增强；发展；开发"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q244",
+      "chapterId": "u4",
+      "text": "\"ant\" 的中文释义是？",
+      "options": [
+        "n. 黄油",
+        "n. 卧室",
+        "n. 蚂蚁"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q245",
+      "chapterId": "u4",
+      "text": "\"be home to sb / sth\" 的中文释义是？",
+      "options": [
+        "有……栖息； 是……的家乡",
+        "n. 长笛",
+        "查明；弄清（情况）"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q246",
+      "chapterId": "u4",
+      "text": "\"happiness\" 的中文释义是？",
+      "options": [
+        "与……相连； 与……有关联",
+        "n. 幸福；快乐",
+        "n. 排演；排练"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q247",
+      "chapterId": "u4",
+      "text": "\"disappoint\" 的中文释义是？",
+      "options": [
+        "来访；拜访",
+        "一线光明",
+        "v. 使失望；使破灭"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q248",
+      "chapterId": "u4",
+      "text": "\"mushroom\" 的中文释义是？",
+      "options": [
+        "n. 蘑菇；伞菌",
+        "n. 困难；难题",
+        "adj. 情感的；情绪的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q249",
+      "chapterId": "u4",
+      "text": "\"ton\" 的中文释义是？",
+      "options": [
+        "发生；进行",
+        "n. 吨",
+        "adj. 害羞的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q250",
+      "chapterId": "u4",
+      "text": "\"role\" 的中文释义是？",
+      "options": [
+        "n. 作用；职能；角色",
+        "n. 智力；智慧",
+        "adj. 远方的；遥远的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q251",
+      "chapterId": "u4",
+      "text": "\"play a role\" 的中文释义是？",
+      "options": [
+        "adj. 挑战性的",
+        "n. 会面；会议",
+        "在……中发挥作用； 扮演角色"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q252",
+      "chapterId": "u4",
+      "text": "\"pea\" 的中文释义是？",
+      "options": [
+        "n. 豌豆",
+        "adj. 真诚的；诚实的",
+        "n. 机会；可能性 adj. 意外的；偶然的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q253",
+      "chapterId": "u4",
+      "text": "\"climate\" 的中文释义是？",
+      "options": [
+        "n. 气候",
+        "n. 排演；排练",
+        "n. 关系；联系"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q254",
+      "chapterId": "u4",
+      "text": "\"ocean\" 的中文释义是？",
+      "options": [
+        "n. 梦想；梦 v. 做梦；梦见；梦想",
+        "n. 大海；海洋",
+        "v. 伸手；到达"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q255",
+      "chapterId": "u4",
+      "text": "\"except\" 的中文释义是？",
+      "options": [
+        "prep.除……之外；除了",
+        "v. 想象；猜想",
+        "adj. 不礼貌的；粗鲁的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q256",
+      "chapterId": "u4",
+      "text": "\"tiny\" 的中文释义是？",
+      "options": [
+        "adj. 极小的；微小的",
+        "adj. 广受欢迎的；流行的",
+        "adj. 开篇的；开始的 n. 开始；孔；洞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q257",
+      "chapterId": "u4",
+      "text": "\"lively\" 的中文释义是？",
+      "options": [
+        "v. 添加；加",
+        "adj. 精力充沛的；生机勃勃的 the",
+        "n. 鹿"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q258",
+      "chapterId": "u5",
+      "text": "\"pepper\" 的中文释义是？",
+      "options": [
+        "n. 胡椒粉；菜椒",
+        "v. 煮沸；烧开 n. 沸腾；沸点",
+        "n. 手势；迹象；标志 v. 签（名）；签字"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q259",
+      "chapterId": "u5",
+      "text": "\"cut up\" 的中文释义是？",
+      "options": [
+        "n. 幼苗；嫩芽 v. 开（枪）；射击",
+        "与……相连； 与……有关联",
+        "切碎；剁碎"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q260",
+      "chapterId": "u5",
+      "text": "\"mix\" 的中文释义是？",
+      "options": [
+        "n. 玫瑰；蔷薇",
+        "v. 翻炒；炒；煸",
+        "v.混合；融合；调配 n. 混合；混杂；混合料"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q261",
+      "chapterId": "u5",
+      "text": "\"bake\" 的中文释义是？",
+      "options": [
+        "v. 预料；期待",
+        "n. 专家；行家 adj. 熟练的；内行的",
+        "v. 烘焙"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q262",
+      "chapterId": "u5",
+      "text": "\"oven\" 的中文释义是？",
+      "options": [
+        "n. 烤箱；烤炉",
+        "注意；关注",
+        "n. 桥"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q263",
+      "chapterId": "u5",
+      "text": "\"pour sth into sth\" 的中文释义是？",
+      "options": [
+        "n. 作者",
+        "adj. 广受欢迎的；流行的",
+        "将……倒入……"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q264",
+      "chapterId": "u5",
+      "text": "\"flour\" 的中文释义是？",
+      "options": [
+        "n. 胡椒粉；菜椒",
+        "n. 优胜者；成功者",
+        "n. 面粉"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q265",
+      "chapterId": "u5",
+      "text": "\"boil\" 的中文释义是？",
+      "options": [
+        "n. 肉桂皮；桂皮香料",
+        "v. 煮沸；烧开 n. 沸腾；沸点",
+        "n. 阳台"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q266",
+      "chapterId": "u5",
+      "text": "\"butter\" 的中文释义是？",
+      "options": [
+        "n. & v. 回答；回复",
+        "n. 黄油",
+        "n. 意义；含义"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q267",
+      "chapterId": "u5",
+      "text": "\"cheese\" 的中文释义是？",
+      "options": [
+        "n. 奶酪；干酪",
+        "n. 机会；时机",
+        "注意；关注"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q268",
+      "chapterId": "u5",
+      "text": "\"cut sth in / into sth\" 的中文释义是？",
+      "options": [
+        "adj. 懒惰的；懒洋洋的",
+        "n. 科幻小说（或影片等）",
+        "将……切成……"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q269",
+      "chapterId": "u5",
+      "text": "\"tablespoon\" 的中文释义是？",
+      "options": [
+        "n. 一汤匙（的量）；餐匙；汤匙",
+        "偶然；意外地",
+        "亲自；亲身"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q270",
+      "chapterId": "u5",
+      "text": "\"mash\" 的中文释义是？",
+      "options": [
+        "n. 训练；培训",
+        "v. 捣烂；捣碎",
+        "n. 德语；德国人 adj. 德国的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q271",
+      "chapterId": "u5",
+      "text": "\"potatoes\" 的中文释义是？",
+      "options": [
+        "n. 牡丹；芍药",
+        "v. 消失；不见",
+        "土豆泥"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q272",
+      "chapterId": "u5",
+      "text": "\"stir-fry\" 的中文释义是？",
+      "options": [
+        "n. & v. 研究；调查",
+        "v. 翻炒；炒；煸",
+        "与……言归于好"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q273",
+      "chapterId": "u5",
+      "text": "\"do with\" 的中文释义是？",
+      "options": [
+        "与某人争论",
+        "处理",
+        "n. 科幻小说（或影片等）"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q274",
+      "chapterId": "u5",
+      "text": "\"bowl\" 的中文释义是？",
+      "options": [
+        "adj. 连接的；相关的",
+        "n. 手势；迹象；标志 v. 签（名）；签字",
+        "n. 碗；钵；盆"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q275",
+      "chapterId": "u5",
+      "text": "\"heat\" 的中文释义是？",
+      "options": [
+        "n. 任务；工作",
+        "n. 机会；时机",
+        "v. 加热；变热 n. 热；温度；炎热天气"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q276",
+      "chapterId": "u5",
+      "text": "\"oil\" 的中文释义是？",
+      "options": [
+        "n. 食用油；石油；燃油",
+        "interj. 啊（表示高兴、惊奇等）",
+        "adv. 提前；在前面"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q277",
+      "chapterId": "u5",
+      "text": "\"pan\" 的中文释义是？",
+      "options": [
+        "做笔记",
+        "n. 自我改进；自我提高",
+        "n. 平底锅；烤盘"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q278",
+      "chapterId": "u5",
+      "text": "\"put sth back\" 的中文释义是？",
+      "options": [
+        "将……放回",
+        "v. 邀请",
+        "v. 对……有用；使受益 n. 益处；成效"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q279",
+      "chapterId": "u5",
+      "text": "\"mix ... with ...\" 的中文释义是？",
+      "options": [
+        "（使）……和……混合",
+        "adj. 苗条的；薄的",
+        "adj. 严肃的；严重的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q280",
+      "chapterId": "u5",
+      "text": "\"simple\" 的中文释义是？",
+      "options": [
+        "adj. 简单的；朴素的",
+        "adv. 健康地",
+        "adj. 宜人的；友好的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q281",
+      "chapterId": "u5",
+      "text": "\"ingredient\" 的中文释义是？",
+      "options": [
+        "n. 研究者；探索者",
+        "注意；关注",
+        "n. 食材；成分"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q282",
+      "chapterId": "u5",
+      "text": "\"instruction\" 的中文释义是？",
+      "options": [
+        "n. 消防队员",
+        "n. 南瓜",
+        "n. 用法说明；操作指南"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q283",
+      "chapterId": "u5",
+      "text": "\"steamed fish\" 的中文释义是？",
+      "options": [
+        "n. 业余爱好；兴趣 v. 使感兴趣",
+        "清蒸鱼",
+        "n. 意大利细面条"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q284",
+      "chapterId": "u5",
+      "text": "\"sour\" 的中文释义是？",
+      "options": [
+        "领某人参观",
+        "n. 面粉",
+        "adj. 酸的；有酸味的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q285",
+      "chapterId": "u5",
+      "text": "\"hot and sour soup\" 的中文释义是？",
+      "options": [
+        "adv. & conj. 无论去哪里；在任何地方",
+        "酸辣汤",
+        "千米；公里"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q286",
+      "chapterId": "u5",
+      "text": "\"mess\" 的中文释义是？",
+      "options": [
+        "n. 用法说明；操作指南",
+        "adj. 精力充沛的；充满活力的",
+        "n. 脏乱；凌乱"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q287",
+      "chapterId": "u5",
+      "text": "\"pretty\" 的中文释义是？",
+      "options": [
+        "adj. 连接的；相关的",
+        "adj. 漂亮的；美丽的 adv. 相当；十分；非常",
+        "n. 战斗；搏斗；斗争 v. 打仗；打架"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q288",
+      "chapterId": "u5",
+      "text": "\"pancake\" 的中文释义是？",
+      "options": [
+        "n. 烙饼；薄饼",
+        "n. 视频；录像系统 v. 录视频；给……录像",
+        "行为自然；不做作"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q289",
+      "chapterId": "u5",
+      "text": "\"dream\" 的中文释义是？",
+      "options": [
+        "n. 省份",
+        "n. 小品文；文章",
+        "n. 梦想；梦 v. 做梦；梦见；梦想"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q290",
+      "chapterId": "u5",
+      "text": "\"university\" 的中文释义是？",
+      "options": [
+        "n. （综合性）大学；高等学府",
+        "n. 塔；塔楼",
+        "客厅"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q291",
+      "chapterId": "u5",
+      "text": "\"go boating\" 的中文释义是？",
+      "options": [
+        "n. 工具；手段",
+        "n. 围巾；披巾",
+        "去划船"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q292",
+      "chapterId": "u5",
+      "text": "\"memory\" 的中文释义是？",
+      "options": [
+        "确保；保证",
+        "n. 行星",
+        "n. 回忆；记忆"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q293",
+      "chapterId": "u5",
+      "text": "\"visible\" 的中文释义是？",
+      "options": [
+        "n. 浴室；洗手间",
+        "出于这个原因",
+        "adj. 看得见的；可见的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q294",
+      "chapterId": "u5",
+      "text": "\"along with sb /sth\" 的中文释义是？",
+      "options": [
+        "除……以外（还）； 与……同样地",
+        "n. 正午；中午",
+        "n. 气候"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q295",
+      "chapterId": "u5",
+      "text": "\"pumpkin\" 的中文释义是？",
+      "options": [
+        "n. 南瓜",
+        "n. 丝绸；（蚕）丝",
+        "v. 策划；打算 n. 计划；方案"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q296",
+      "chapterId": "u5",
+      "text": "\"pie\" 的中文释义是？",
+      "options": [
+        "adj. 使人舒服的；舒适的",
+        "n. 果馅饼；肉馅饼",
+        "adj. 乐观的；积极的；良好的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q297",
+      "chapterId": "u5",
+      "text": "\"warm up\" 的中文释义是？",
+      "options": [
+        "（使）活跃起来；热身；预热",
+        "adj. 极小的；微小的",
+        "n. 药物；疗法 v. 治愈；治好"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q298",
+      "chapterId": "u5",
+      "text": "\"cinnamon\" 的中文释义是？",
+      "options": [
+        "n. 肉桂皮；桂皮香料",
+        "酸辣汤",
+        "接替；接管；接收"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q299",
+      "chapterId": "u5",
+      "text": "\"fill ... with ...\" 的中文释义是？",
+      "options": [
+        "（手机）短信息；短信",
+        "（使）充满；（使）填满",
+        "n. 联系；连接"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q300",
+      "chapterId": "u5",
+      "text": "\"sweetness\" 的中文释义是？",
+      "options": [
+        "n. 甜；芬芳；愉悦",
+        "将……倒入……",
+        "n. 任务；工作"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q301",
+      "chapterId": "u5",
+      "text": "\"college\" 的中文释义是？",
+      "options": [
+        "n. 学院；大学",
+        "n. 天；天空",
+        "去划船"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q302",
+      "chapterId": "u5",
+      "text": "\"host\" 的中文释义是？",
+      "options": [
+        "n. 话题；题目；标题",
+        "n. 主人；东道主 v. 主办；主持（活动）",
+        "n. 红杉；红木"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q303",
+      "chapterId": "u5",
+      "text": "\"hostess\" 的中文释义是？",
+      "options": [
+        "n. 女主人；女房东",
+        "n. & v. 回答；回复",
+        "坚持；维持"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q304",
+      "chapterId": "u5",
+      "text": "\"recipe\" 的中文释义是？",
+      "options": [
+        "v. 未能（做到）；失败",
+        "n. 混合物；结合体",
+        "n. 食谱；烹饪法"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q305",
+      "chapterId": "u5",
+      "text": "\"cream\" 的中文释义是？",
+      "options": [
+        "v. 烘焙",
+        "n. 风景；景色",
+        "n. 奶油；护肤霜"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q306",
+      "chapterId": "u5",
+      "text": "\"crust\" 的中文释义是？",
+      "options": [
+        "n. 豌豆",
+        "n. 糕饼酥皮；面包皮",
+        "n. 句子；判决 v. 判决；宣判"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q307",
+      "chapterId": "u5",
+      "text": "\"mixture\" 的中文释义是？",
+      "options": [
+        "n. 混合物；结合体",
+        "清蒸鱼",
+        "adj. 镇静的；沉着的 v. 使平静；使镇静"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q308",
+      "chapterId": "u5",
+      "text": "\"least\" 的中文释义是？",
+      "options": [
+        "n. 妻子",
+        "n. 导演；主任；董事",
+        "adv. & pron. 最小；最少"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q309",
+      "chapterId": "u5",
+      "text": "\"at least\" 的中文释义是？",
+      "options": [
+        "至少",
+        "v. 煮沸；烧开 n. 沸腾；沸点",
+        "n. 业余爱好；兴趣 v. 使感兴趣"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q310",
+      "chapterId": "u5",
+      "text": "\"secret\" 的中文释义是？",
+      "options": [
+        "n. 小品文；文章",
+        "n. 时长；长度",
+        "n. 诀窍；秘密 adj. 秘密的；隐秘的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q311",
+      "chapterId": "u5",
+      "text": "\"according to\" 的中文释义是？",
+      "options": [
+        "n. 服务；公共服务",
+        "adv. 健康地",
+        "根据；依照"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q312",
+      "chapterId": "u5",
+      "text": "\"whenever\" 的中文释义是？",
+      "options": [
+        "adv. & conj. 每当；在任何……的时候",
+        "adj. 情感的；情绪的",
+        "adj. 苗条的；薄的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q313",
+      "chapterId": "u5",
+      "text": "\"item\" 的中文释义是？",
+      "options": [
+        "n. 项目；条",
+        "n. 甜；芬芳；愉悦",
+        "n. 猎豹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q314",
+      "chapterId": "u5",
+      "text": "\"spaghetti\" 的中文释义是？",
+      "options": [
+        "prep. 在……期间",
+        "n. 薄片；片 v. 把……切成薄片；切；割",
+        "n. 意大利细面条"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q315",
+      "chapterId": "u5",
+      "text": "\"spoon\" 的中文释义是？",
+      "options": [
+        "n. 信心；信任",
+        "n. 一勺的量；勺",
+        "v.（经过努力）达到；完成"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q316",
+      "chapterId": "u5",
+      "text": "\"slice\" 的中文释义是？",
+      "options": [
+        "n. 薄片；片 v. 把……切成薄片；切；割",
+        "n. 设计师",
+        "n. 奖；奖励"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q317",
+      "chapterId": "u5",
+      "text": "\"couple\" 的中文释义是？",
+      "options": [
+        "n. 肉桂皮；桂皮香料",
+        "n. 夫妻；情侣；两人",
+        "n. 误解；误会"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q318",
+      "chapterId": "u5",
+      "text": "\"island\" 的中文释义是？",
+      "options": [
+        "确切地说；实际上 per",
+        "n. 岛",
+        "n. 垃圾"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q319",
+      "chapterId": "u5",
+      "text": "\"wife\" 的中文释义是？",
+      "options": [
+        "n. 导演；主任；董事",
+        "n. 肉桂皮；桂皮香料",
+        "n. 妻子"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q320",
+      "chapterId": "u5",
+      "text": "\"separate\" 的中文释义是？",
+      "options": [
+        "adj. 单独的；分开的 v. 分开；分离",
+        "n. 看法；意见",
+        "n. 灾难；不幸"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q321",
+      "chapterId": "u5",
+      "text": "\"born\" 的中文释义是？",
+      "options": [
+        "v. 出生；出世 adj. 天生（有某方面才能）的",
+        "n. 镇；商业区",
+        "adv. 响亮地 adj. 大声的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q322",
+      "chapterId": "u5",
+      "text": "\"one by one\" 的中文释义是？",
+      "options": [
+        "n. 猎豹",
+        "n. 桥",
+        "逐个地；逐一地"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q323",
+      "chapterId": "u6",
+      "text": "\"yourself\" 的中文释义是？",
+      "options": [
+        "interj. 嗯（表示喜欢、同意等）",
+        "n. 阳台",
+        "pron. 你自己；您自己"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q324",
+      "chapterId": "u6",
+      "text": "\"engineer\" 的中文释义是？",
+      "options": [
+        "n. 意义；含义",
+        "n. 工程师；技师",
+        "n. 创造力"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q325",
+      "chapterId": "u6",
+      "text": "\"fashion\" 的中文释义是？",
+      "options": [
+        "n. 时装业；时尚",
+        "n. 灾难；不幸",
+        "n. 蚂蚁"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q326",
+      "chapterId": "u6",
+      "text": "\"designer\" 的中文释义是？",
+      "options": [
+        "开车顺便送某人",
+        "n. 设计师",
+        "（使）活跃起来；热身；预热"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q327",
+      "chapterId": "u6",
+      "text": "\"director\" 的中文释义是？",
+      "options": [
+        "v. 出现；看来好像",
+        "查明；弄清（情况）",
+        "n. 导演；主任；董事"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q328",
+      "chapterId": "u6",
+      "text": "\"musician\" 的中文释义是？",
+      "options": [
+        "n. 表达；交流",
+        "n. 陆地；土地 v. 降落；着陆",
+        "n. 音乐家；乐师"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q329",
+      "chapterId": "u6",
+      "text": "\"fireman\" 的中文释义是？",
+      "options": [
+        "v. 策划；打算 n. 计划；方案",
+        "n. 诀窍；秘密 adj. 秘密的；隐秘的",
+        "n. 消防队员"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q330",
+      "chapterId": "u6",
+      "text": "\"AI\" 的中文释义是？",
+      "options": [
+        "人工智能",
+        "n. 困难；难题",
+        "v. 保护；防护"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q331",
+      "chapterId": "u6",
+      "text": "\"essay\" 的中文释义是？",
+      "options": [
+        "n. 小品文；文章",
+        "n. 眼泪；泪水",
+        "n. 工程师；技师"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q332",
+      "chapterId": "u6",
+      "text": "\"classic\" 的中文释义是？",
+      "options": [
+        "n. 祝贺；恭喜 Congratulations ! 祝贺!",
+        "立即；马上",
+        "n. 经典作品；名著 adj. 最优秀的；古典的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q333",
+      "chapterId": "u6",
+      "text": "\"keep on doing sth\" 的中文释义是？",
+      "options": [
+        "adj. 情感的；情绪的",
+        "n. 社区；社团",
+        "继续做；反复做"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q334",
+      "chapterId": "u6",
+      "text": "\"make sure\" 的中文释义是？",
+      "options": [
+        "确保；保证",
+        "adv. & conj. 每当；在任何……的时候",
+        "n. 素质；质量；品质 adj. 优质的；高质量的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q335",
+      "chapterId": "u6",
+      "text": "\"try one's best\" 的中文释义是？",
+      "options": [
+        "adj. 创造性的；创作的",
+        "尽最大努力",
+        "n. 地下铁道系统"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q336",
+      "chapterId": "u6",
+      "text": "\"literature\" 的中文释义是？",
+      "options": [
+        "n. 听者",
+        "n. 文学；文献",
+        "n. 奶油；护肤霜"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q337",
+      "chapterId": "u6",
+      "text": "\"athlete\" 的中文释义是？",
+      "options": [
+        "n. 手势；迹象；标志 v. 签（名）；签字",
+        "pron. 我自己",
+        "n. 运动员"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q338",
+      "chapterId": "u6",
+      "text": "\"photographer\" 的中文释义是？",
+      "options": [
+        "adj. 首席的；最重要的 n. 首领；酋长",
+        "n. 摄影师；拍照者",
+        "与……言归于好"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q339",
+      "chapterId": "u6",
+      "text": "\"painter\" 的中文释义是？",
+      "options": [
+        "n. 画家；油漆匠",
+        "n. 战斗；搏斗；斗争 v. 打仗；打架",
+        "n. 夫妻；情侣；两人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q340",
+      "chapterId": "u6",
+      "text": "\"businessman\" 的中文释义是？",
+      "options": [
+        "n. 翅膀；翼",
+        "偶然；意外地",
+        "n. 商界人士；企业家"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q341",
+      "chapterId": "u6",
+      "text": "\"actress\" 的中文释义是？",
+      "options": [
+        "n. 围巾；披巾",
+        "adj. 医学的；医疗的",
+        "n. 女演员"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q342",
+      "chapterId": "u6",
+      "text": "\"lawyer\" 的中文释义是？",
+      "options": [
+        "n. 律师",
+        "adj. 银色的 n. 银",
+        "adj. 简单的；朴素的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q343",
+      "chapterId": "u6",
+      "text": "\"law\" 的中文释义是？",
+      "options": [
+        "v. 提供；主动提出 n. 主动提议；出价",
+        "扑灭；把……摆好",
+        "n. 法律；法规"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q344",
+      "chapterId": "u6",
+      "text": "\"bath\" 的中文释义是？",
+      "options": [
+        "n. 差异",
+        "n. 洗澡；浴缸",
+        "adv. 健康地"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q345",
+      "chapterId": "u6",
+      "text": "\"miss\" 的中文释义是？",
+      "options": [
+        "n. 事实；现实",
+        "v. 想念；错过",
+        "n. 大海；海洋"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q346",
+      "chapterId": "u6",
+      "text": "\"be tired of\" 的中文释义是？",
+      "options": [
+        "n. 日期；日子；约会 v. 确定年代；注明日期",
+        "n. 米",
+        "对……感到厌倦"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q347",
+      "chapterId": "u6",
+      "text": "\"able\" 的中文释义是？",
+      "options": [
+        "adj. 能够；有才能的",
+        "v.混合；融合；调配 n. 混合；混杂；混合料",
+        "v. （使）形成；组成 n. 类型；形式；表格"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q348",
+      "chapterId": "u6",
+      "text": "\"stick\" 的中文释义是？",
+      "options": [
+        "modal v. 将要；将会",
+        "v. 粘贴；将……刺入 n. 枝条；棍",
+        "出于这个原因"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q349",
+      "chapterId": "u6",
+      "text": "\"stick to sth\" 的中文释义是？",
+      "options": [
+        "adv. 提前；在前面",
+        "n. 眼泪；泪水",
+        "坚持；维持"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q350",
+      "chapterId": "u6",
+      "text": "\"resolution\" 的中文释义是？",
+      "options": [
+        "n. 决定；决议",
+        "n. 祝贺；恭喜 Congratulations ! 祝贺!",
+        "n. 幼苗；嫩芽 v. 开（枪）；射击"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q351",
+      "chapterId": "u6",
+      "text": "\"have to do with sb / sth\" 的中文释义是？",
+      "options": [
+        "v. 保护；防护",
+        "与……有关系",
+        "n. 塔；塔楼"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q352",
+      "chapterId": "u6",
+      "text": "\"mini-goal\" 的中文释义是？",
+      "options": [
+        "转身；翻转",
+        "n. 小目标",
+        "v. 使失望；使破灭"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q353",
+      "chapterId": "u6",
+      "text": "\"achieve\" 的中文释义是？",
+      "options": [
+        "n. 苔藓",
+        "v.（经过努力）达到；完成",
+        "v. 策划；打算 n. 计划；方案"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q354",
+      "chapterId": "u6",
+      "text": "\"physical\" 的中文释义是？",
+      "options": [
+        "n. 时长；长度",
+        "adj. 身体的；物质的",
+        "n. 商界人士；企业家"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q355",
+      "chapterId": "u6",
+      "text": "\"health\" 的中文释义是？",
+      "options": [
+        "n. 护照",
+        "n. 健康",
+        "n. 南瓜"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q356",
+      "chapterId": "u6",
+      "text": "\"healthily\" 的中文释义是？",
+      "options": [
+        "adv. 健康地",
+        "v. （使）形成；组成 n. 类型；形式；表格",
+        "n. 一勺的量；勺"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q357",
+      "chapterId": "u6",
+      "text": "\"take up\" 的中文释义是？",
+      "options": [
+        "adj. 漂亮的；美丽的 adv. 相当；十分；非常",
+        "n. 混合物；结合体",
+        "开始学；开始从事"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q358",
+      "chapterId": "u6",
+      "text": "\"photography\" 的中文释义是？",
+      "options": [
+        "清扫",
+        "n. 照相术；摄影",
+        "adj. 准备好的；现成的 adv. 已做完；已完成"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q359",
+      "chapterId": "u6",
+      "text": "\"self-improvement\" 的中文释义是？",
+      "options": [
+        "n. 自我改进；自我提高",
+        "adj. 自信的；肯定的",
+        "n. 岛"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q360",
+      "chapterId": "u6",
+      "text": "\"confident\" 的中文释义是？",
+      "options": [
+        "n. 表达；交流",
+        "n. 奶酪；干酪",
+        "adj. 自信的；肯定的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q361",
+      "chapterId": "u6",
+      "text": "\"organized\" 的中文释义是？",
+      "options": [
+        "adj. 有条理的；有组织的",
+        "n. 工具；手段",
+        "v. 要紧 n. 问题"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q362",
+      "chapterId": "u6",
+      "text": "\"wisely\" 的中文释义是？",
+      "options": [
+        "adj. 准备好的；现成的 adv. 已做完；已完成",
+        "n. 媒介；手段 adj. 中等的；适中的",
+        "adv. 聪明地；明智地"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q363",
+      "chapterId": "u6",
+      "text": "\"possible\" 的中文释义是？",
+      "options": [
+        "为……担心",
+        "adj. 空闲的；备用的 v. 抽出；拨出",
+        "adj. 可能的；合理的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q364",
+      "chapterId": "u6",
+      "text": "\"paragraph\" 的中文释义是？",
+      "options": [
+        "n. 长笛",
+        "n. 段；段落",
+        "adv. 聪明地；明智地"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q365",
+      "chapterId": "u6",
+      "text": "\"introduce\" 的中文释义是？",
+      "options": [
+        "n. 作者",
+        "v. 介绍；引见；引进",
+        "adj. 宜人的；友好的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q366",
+      "chapterId": "u6",
+      "text": "\"meaning\" 的中文释义是？",
+      "options": [
+        "n. 人 adj. 人的；人类的",
+        "prep. 除……之外（还） adv. 而且",
+        "n. 意义；含义"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q367",
+      "chapterId": "u6",
+      "text": "\"fail\" 的中文释义是？",
+      "options": [
+        "v. 未能（做到）；失败",
+        "n. 小目标",
+        "v. 出生；出世 adj. 天生（有某方面才能）的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q368",
+      "chapterId": "u6",
+      "text": "\"ahead\" 的中文释义是？",
+      "options": [
+        "n. 作者",
+        "adv. 提前；在前面",
+        "v. 伸手；到达"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q369",
+      "chapterId": "u6",
+      "text": "\"put out\" 的中文释义是？",
+      "options": [
+        "v. 表演；执行",
+        "adj. 首席的；最重要的 n. 首领；酋长",
+        "扑灭；把……摆好"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q370",
+      "chapterId": "u6",
+      "text": "\"design\" 的中文释义是？",
+      "options": [
+        "v. 设计；计划 n. 设计；花纹",
+        "adj. 广受欢迎的；流行的",
+        "归功于；由于；因为"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q371",
+      "chapterId": "u6",
+      "text": "\"bridge\" 的中文释义是？",
+      "options": [
+        "n. 甜；芬芳；愉悦",
+        "v. 策划；打算 n. 计划；方案",
+        "n. 桥"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q372",
+      "chapterId": "u6",
+      "text": "\"final\" 的中文释义是？",
+      "options": [
+        "n. 平底锅；烤盘",
+        "adj. 外围的；外表的",
+        "adj. 最后的；最终的 n. 决赛"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q373",
+      "chapterId": "u6",
+      "text": "\"confidence\" 的中文释义是？",
+      "options": [
+        "adj. 挑战性的",
+        "n. 工具；手段",
+        "n. 信心；信任"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q374",
+      "chapterId": "u6",
+      "text": "\"draw to a close\" 的中文释义是？",
+      "options": [
+        "开始学；开始从事",
+        "发生；进行",
+        "即将结束；即将完成"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q375",
+      "chapterId": "u6",
+      "text": "\"form\" 的中文释义是？",
+      "options": [
+        "interj. 啊（表示高兴、惊奇等）",
+        "接近；直到",
+        "v. （使）形成；组成 n. 类型；形式；表格"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q376",
+      "chapterId": "u6",
+      "text": "\"relationship\" 的中文释义是？",
+      "options": [
+        "n. 关系；联系",
+        "n. 听者",
+        "n. 联系；连接"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q377",
+      "chapterId": "u6",
+      "text": "\"push-up\" 的中文释义是？",
+      "options": [
+        "n. 俯卧撑",
+        "切碎；剁碎",
+        "v. 发臭；闻到 n. 气味；臭味"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q378",
+      "chapterId": "u6",
+      "text": "\"energetic\" 的中文释义是？",
+      "options": [
+        "n. 乡村；农村",
+        "adj. 精力充沛的；充满活力的",
+        "v. & n. 交换"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q379",
+      "chapterId": "u6",
+      "text": "\"last but not least\" 的中文释义是？",
+      "options": [
+        "n. 剪刀",
+        "空闲时间",
+        "最后但同等重要的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q380",
+      "chapterId": "u7",
+      "text": "\"prediction\" 的中文释义是？",
+      "options": [
+        "n. 预测；预言",
+        "n. 经典作品；名著 adj. 最优秀的；古典的",
+        "n. 标题；题目；名称"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q381",
+      "chapterId": "u7",
+      "text": "\"outer\" 的中文释义是？",
+      "options": [
+        "注意；当心",
+        "为了；以便",
+        "adj. 外围的；外表的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q382",
+      "chapterId": "u7",
+      "text": "\"outer space\" 的中文释义是？",
+      "options": [
+        "n. 优胜者；成功者",
+        "太空；外层空间",
+        "千克；公斤"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q383",
+      "chapterId": "u7",
+      "text": "\"worse\" 的中文释义是？",
+      "options": [
+        "n. 团聚；重逢；聚会",
+        "n. 蜂巢",
+        "adj. 更差的；更糟的；更坏的 adv. 更差；更糟；更坏"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q384",
+      "chapterId": "u7",
+      "text": "\"take over\" 的中文释义是？",
+      "options": [
+        "v. 交流；沟通",
+        "adv. 在某处；到某处 pron. 某处；某个地方",
+        "接替；接管；接收"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q385",
+      "chapterId": "u7",
+      "text": "\"sci-fi\" 的中文释义是？",
+      "options": [
+        "n. 科幻小说（或影片等）",
+        "v. 保护；防护",
+        "n. 宝物；财富 v. 珍视"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q386",
+      "chapterId": "u7",
+      "text": "\"ticket\" 的中文释义是？",
+      "options": [
+        "v. 提醒；使想起",
+        "n. 票；券",
+        "n. 情况；状况"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q387",
+      "chapterId": "u7",
+      "text": "\"positive\" 的中文释义是？",
+      "options": [
+        "adj. 乐观的；积极的；良好的",
+        "n. 听者",
+        "将……切成……"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q388",
+      "chapterId": "u7",
+      "text": "\"traffic\" 的中文释义是？",
+      "options": [
+        "n. 创造力",
+        "n. 交通；运输 v.（非法）进行交易；做……买卖",
+        "adv. 很可能；大概"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q389",
+      "chapterId": "u7",
+      "text": "\"technology\" 的中文释义是？",
+      "options": [
+        "adj. 银色的 n. 银",
+        "n. 科技；工艺",
+        "n. 科幻小说（或影片等）"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q390",
+      "chapterId": "u7",
+      "text": "\"video\" 的中文释义是？",
+      "options": [
+        "n. 食谱；烹饪法",
+        "n. 视频；录像系统 v. 录视频；给……录像",
+        "n. 祝贺；恭喜 Congratulations ! 祝贺!"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q391",
+      "chapterId": "u7",
+      "text": "\"transport\" 的中文释义是？",
+      "options": [
+        "adj. 准备好的；现成的 adv. 已做完；已完成",
+        "adj. 外向的",
+        "n. 交通运输系统；旅行方式 v. 运输；运送"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q392",
+      "chapterId": "u7",
+      "text": "\"system\" 的中文释义是？",
+      "options": [
+        "可以随便做某事",
+        "adj. 看得见的；可见的",
+        "n. 系统"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q393",
+      "chapterId": "u7",
+      "text": "\"efficient\" 的中文释义是？",
+      "options": [
+        "adj. 效率高的；有功效的",
+        "n. 女演员",
+        "n. 幸福；快乐"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q394",
+      "chapterId": "u7",
+      "text": "\"education\" 的中文释义是？",
+      "options": [
+        "n. 天；天空",
+        "n. 小说",
+        "n. 教育"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q395",
+      "chapterId": "u7",
+      "text": "\"length\" 的中文释义是？",
+      "options": [
+        "面对面",
+        "v. 把……分类；整理 n. 种类",
+        "n. 时长；长度"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q396",
+      "chapterId": "u7",
+      "text": "\"topic\" 的中文释义是？",
+      "options": [
+        "n. 话题；题目；标题",
+        "adj. 乐观的；积极的；良好的",
+        "n. 人物；个性"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q397",
+      "chapterId": "u7",
+      "text": "\"partner\" 的中文释义是？",
+      "options": [
+        "n. 搭档；同伴",
+        "v. 代替；取代",
+        "v. 增强；发展；开发"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q398",
+      "chapterId": "u7",
+      "text": "\"shall\" 的中文释义是？",
+      "options": [
+        "n. 友谊；友情",
+        "n. 笔记；记录；便条 v. 注意；指出",
+        "modal v. 将要；将会"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q399",
+      "chapterId": "u7",
+      "text": "\"pass\" 的中文释义是？",
+      "options": [
+        "n. 宝物；财富 v. 珍视",
+        "酸辣汤",
+        "v. 及格；通过 n. 及格；通行证"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q400",
+      "chapterId": "u7",
+      "text": "\"winner\" 的中文释义是？",
+      "options": [
+        "v. 翻炒；炒；煸",
+        "n. 优胜者；成功者",
+        "n. 教授"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q401",
+      "chapterId": "u7",
+      "text": "\"cure\" 的中文释义是？",
+      "options": [
+        "n. 假期；度假",
+        "n. 战斗；搏斗；斗争 v. 打仗；打架",
+        "n. 药物；疗法 v. 治愈；治好"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q402",
+      "chapterId": "u7",
+      "text": "\"cancer\" 的中文释义是？",
+      "options": [
+        "v. 添加；加",
+        "n. 盘子；碟子",
+        "n. 癌症"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q403",
+      "chapterId": "u7",
+      "text": "\"concert\" 的中文释义是？",
+      "options": [
+        "土豆泥",
+        "v. 设计；计划 n. 设计；花纹",
+        "n. 音乐会；演奏会"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q404",
+      "chapterId": "u7",
+      "text": "\"cash\" 的中文释义是？",
+      "options": [
+        "n. 现金；金钱 v. 兑现",
+        "pron. 我自己",
+        "n. 素质；质量；品质 adj. 优质的；高质量的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q405",
+      "chapterId": "u7",
+      "text": "\"wallet\" 的中文释义是？",
+      "options": [
+        "n. 钱包；皮夹",
+        "开始学；开始从事",
+        "n. 剪刀"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q406",
+      "chapterId": "u7",
+      "text": "\"guest\" 的中文释义是？",
+      "options": [
+        "（使）……和……混合",
+        "adj. 勤奋的",
+        "n. 客人；宾客"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q407",
+      "chapterId": "u7",
+      "text": "\"chief\" 的中文释义是？",
+      "options": [
+        "adj. 首席的；最重要的 n. 首领；酋长",
+        "n. 服务；公共服务",
+        "n. 人 adj. 人的；人类的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q408",
+      "chapterId": "u7",
+      "text": "\"researcher\" 的中文释义是？",
+      "options": [
+        "n. 研究者；探索者",
+        "adj. 害羞的",
+        "n. 表达方式；表达"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q409",
+      "chapterId": "u7",
+      "text": "\"research\" 的中文释义是？",
+      "options": [
+        "n. 花粉",
+        "n. 肉桂皮；桂皮香料",
+        "n. & v. 研究；调查"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q410",
+      "chapterId": "u7",
+      "text": "\"futurist\" 的中文释义是？",
+      "options": [
+        "n. 蜂蜜；（爱称）亲爱的",
+        "n. 未来学家",
+        "打包"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q411",
+      "chapterId": "u7",
+      "text": "\"everywhere\" 的中文释义是？",
+      "options": [
+        "adv., pron. & conj. 到处；所有地方",
+        "n. 律师",
+        "adv. & conj. 每当；在任何……的时候"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q412",
+      "chapterId": "u7",
+      "text": "\"robotics\" 的中文释义是？",
+      "options": [
+        "prep. 向；朝",
+        "n. 机器人学",
+        "v. 提供；主动提出 n. 主动提议；出价"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q413",
+      "chapterId": "u7",
+      "text": "\"industry\" 的中文释义是？",
+      "options": [
+        "adv. 实际上；居然",
+        "n. 美德；营养",
+        "n. 行业；工业"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q414",
+      "chapterId": "u7",
+      "text": "\"service\" 的中文释义是？",
+      "options": [
+        "将……倒入……",
+        "n. 服务；公共服务",
+        "v. 持续；继续做"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q415",
+      "chapterId": "u7",
+      "text": "\"disaster\" 的中文释义是？",
+      "options": [
+        "n. 面粉",
+        "adj. 真诚的；诚实的",
+        "n. 灾难；不幸"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q416",
+      "chapterId": "u7",
+      "text": "\"emergency\" 的中文释义是？",
+      "options": [
+        "adv. 响亮地 adj. 大声的",
+        "n. 摄影师；拍照者",
+        "n. 突发事件；紧急情况"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q417",
+      "chapterId": "u7",
+      "text": "\"disappear\" 的中文释义是？",
+      "options": [
+        "n. 行动；行为",
+        "v. 消失；不见",
+        "n. 艺术作品；插图"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q418",
+      "chapterId": "u7",
+      "text": "\"challenging\" 的中文释义是？",
+      "options": [
+        "v.混合；融合；调配 n. 混合；混杂；混合料",
+        "adj. 挑战性的",
+        "n. 标题；题目；名称"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q419",
+      "chapterId": "u7",
+      "text": "\"pilot\" 的中文释义是？",
+      "options": [
+        "pron. 没有事；没有任何东西",
+        "n. 设计师",
+        "n. 飞行员；领航员"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q420",
+      "chapterId": "u7",
+      "text": "\"expert\" 的中文释义是？",
+      "options": [
+        "n. 素质；质量；品质 adj. 优质的；高质量的",
+        "n. 专家；行家 adj. 熟练的；内行的",
+        "为了；以便"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q421",
+      "chapterId": "u7",
+      "text": "\"replace\" 的中文释义是？",
+      "options": [
+        "n. 垃圾",
+        "adv. 想必；必定",
+        "v. 代替；取代"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q422",
+      "chapterId": "u7",
+      "text": "\"creativity\" 的中文释义是？",
+      "options": [
+        "n. 百分之…… adj. & adv. 每一百中",
+        "n. 创造力",
+        "n. 碗；钵；盆"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q423",
+      "chapterId": "u7",
+      "text": "\"emotional\" 的中文释义是？",
+      "options": [
+        "adj. 担忧的；焦虑的；胆怯的",
+        "adj. 情感的；情绪的",
+        "adv. 也许；可能"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q424",
+      "chapterId": "u6",
+      "text": "\"intelligence\" 的中文释义是？",
+      "options": [
+        "n. 段；段落",
+        "n. 蚂蚁",
+        "n. 智力；智慧"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q425",
+      "chapterId": "u7",
+      "text": "\"emotional intelligence\" 的中文释义是？",
+      "options": [
+        "n. 桥",
+        "与某人争论",
+        "情绪智力"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q426",
+      "chapterId": "u7",
+      "text": "\"mention\" 的中文释义是？",
+      "options": [
+        "v. 提到；写到",
+        "把……与……分享",
+        "adj. 漂亮的；美丽的 adv. 相当；十分；非常"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q427",
+      "chapterId": "u7",
+      "text": "\"refrigerator\" 的中文释义是？",
+      "options": [
+        "马上要（做某事）； 愿意做（某事）",
+        "v. 添加；加",
+        "n. 冰箱"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q428",
+      "chapterId": "u7",
+      "text": "\"low\" 的中文释义是？",
+      "options": [
+        "n. 媒介；手段 adj. 中等的；适中的",
+        "adj. 折叠式的；可折叠的",
+        "adv. 向……底部；低 adj. 低的；矮的 n. 低水平；低谷"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q429",
+      "chapterId": "u7",
+      "text": "\"run low\" 的中文释义是？",
+      "options": [
+        "在……中发挥作用； 扮演角色",
+        "与……相连； 与……有关联",
+        "即将用尽；快用完"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q430",
+      "chapterId": "u7",
+      "text": "\"accept\" 的中文释义是？",
+      "options": [
+        "n. 诀窍；秘密 adj. 秘密的；隐秘的",
+        "v. 接受；相信",
+        "人工智能"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q431",
+      "chapterId": "u7",
+      "text": "\"influence\" 的中文释义是？",
+      "options": [
+        "n. 律师",
+        "人工智能",
+        "v. 影响；对……起作用 n. 影响；作用"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q432",
+      "chapterId": "u7",
+      "text": "\"creative\" 的中文释义是？",
+      "options": [
+        "adj. 创造性的；创作的",
+        "adj. 外围的；外表的",
+        "adj. 惊奇的；惊讶的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q433",
+      "chapterId": "u7",
+      "text": "\"impossible\" 的中文释义是？",
+      "options": [
+        "adj. 不可能的",
+        "adj. 率直的；直接的",
+        "n. 意义；含义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q434",
+      "chapterId": "u7",
+      "text": "\"quality\" 的中文释义是？",
+      "options": [
+        "n. 素质；质量；品质 adj. 优质的；高质量的",
+        "adj. 精力充沛的；生机勃勃的 the",
+        "根据；依照"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q435",
+      "chapterId": "u7",
+      "text": "\"develop\" 的中文释义是？",
+      "options": [
+        "v. 增强；发展；开发",
+        "adv. 尤其；特别",
+        "n. 话题；题目；标题"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q436",
+      "chapterId": "u7",
+      "text": "\"German\" 的中文释义是？",
+      "options": [
+        "adj. 效率高的；有功效的",
+        "n. 镜子",
+        "n. 德语；德国人 adj. 德国的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q437",
+      "chapterId": "u7",
+      "text": "\"valuable\" 的中文释义是？",
+      "options": [
+        "有……栖息； 是……的家乡",
+        "n. 服务；公共服务",
+        "adj. 很有用的；宝贵的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q438",
+      "chapterId": "u7",
+      "text": "\"public\" 的中文释义是？",
+      "options": [
+        "prep. 每",
+        "n. 飞行员；领航员",
+        "adj. 公共的；公众的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q439",
+      "chapterId": "u7",
+      "text": "\"medical\" 的中文释义是？",
+      "options": [
+        "adj. 医学的；医疗的",
+        "n. 性格；品质",
+        "v. 打包；收拾"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q440",
+      "chapterId": "u7",
+      "text": "\"challenge\" 的中文释义是？",
+      "options": [
+        "n. 学院；大学",
+        "adj. 精力充沛的；充满活力的",
+        "n. 挑战；质疑 v. 向（某人）挑战；对……怀疑"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q441",
+      "chapterId": "u7",
+      "text": "\"task\" 的中文释义是？",
+      "options": [
+        "v. 提醒；使想起",
+        "v. 参加；出席",
+        "n. 任务；工作"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q442",
+      "chapterId": "u7",
+      "text": "\"depend\" 的中文释义是？",
+      "options": [
+        "v. 取决于；依靠",
+        "n. 表达；交流",
+        "逐个地；逐一地"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q443",
+      "chapterId": "u7",
+      "text": "\"depend on /upon\" 的中文释义是？",
+      "options": [
+        "adj. 自信的；肯定的",
+        "取决于；依靠",
+        "n. 照相术；摄影"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q444",
+      "chapterId": "u7",
+      "text": "\"come over\" 的中文释义是？",
+      "options": [
+        "n. 理解力；感觉 v. 意识到；感觉到",
+        "adv. 健康地",
+        "来访；拜访"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q445",
+      "chapterId": "u7",
+      "text": "\"as long as\" 的中文释义是？",
+      "options": [
+        "n. 玫瑰；蔷薇",
+        "只要",
+        "情绪智力"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q446",
+      "chapterId": "u8",
+      "text": "\"communication\" 的中文释义是？",
+      "options": [
+        "n. 镜子",
+        "n. 表达；交流",
+        "n. 护照"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q447",
+      "chapterId": "u8",
+      "text": "\"face to face\" 的中文释义是？",
+      "options": [
+        "尽最大努力",
+        "发生；进行",
+        "面对面"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q448",
+      "chapterId": "u8",
+      "text": "\"text message\" 的中文释义是？",
+      "options": [
+        "n. 音乐会；演奏会",
+        "（手机）短信息；短信",
+        "v. 较喜欢"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q449",
+      "chapterId": "u8",
+      "text": "\"sign\" 的中文释义是？",
+      "options": [
+        "n. 手势；迹象；标志 v. 签（名）；签字",
+        "n. 情况；状况",
+        "n. 旅行；历程 v. 旅行"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q450",
+      "chapterId": "u8",
+      "text": "\"speaker\" 的中文释义是？",
+      "options": [
+        "n. 说话者；发言者",
+        "adj. 懒惰的；懒洋洋的",
+        "n. 气候"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q451",
+      "chapterId": "u8",
+      "text": "\"rehearsal\" 的中文释义是？",
+      "options": [
+        "n. 文学；文献",
+        "n. 排演；排练",
+        "n. 旅馆；旅社"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q452",
+      "chapterId": "u8",
+      "text": "\"show sb around\" 的中文释义是？",
+      "options": [
+        "领某人参观",
+        "n. 王子",
+        "处理"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q453",
+      "chapterId": "u8",
+      "text": "\"local\" 的中文释义是？",
+      "options": [
+        "adj. 当地的；地方的 n. 当地人；本地人 face-to-face adj. 面对面的",
+        "n. 碗；钵；盆",
+        "adj. 远方的；遥远的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q454",
+      "chapterId": "u8",
+      "text": "\"professor\" 的中文释义是？",
+      "options": [
+        "n. 业余爱好；兴趣 v. 使感兴趣",
+        "n. 回忆；记忆",
+        "n. 教授"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q455",
+      "chapterId": "u8",
+      "text": "\"speech\" 的中文释义是？",
+      "options": [
+        "n. 演说；发言",
+        "n. 陆地；土地 v. 降落；着陆",
+        "n. 烙饼；薄饼"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q456",
+      "chapterId": "u8",
+      "text": "\"argue\" 的中文释义是？",
+      "options": [
+        "n. 薄片；片 v. 把……切成薄片；切；割",
+        "n. 剪刀",
+        "v. 争论；争吵"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q457",
+      "chapterId": "u8",
+      "text": "\"make up\" 的中文释义是？",
+      "options": [
+        "与……言归于好",
+        "n. 摄影师；拍照者",
+        "领某人参观"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q458",
+      "chapterId": "u8",
+      "text": "\"in person\" 的中文释义是？",
+      "options": [
+        "n. 大海；海洋",
+        "亲自；亲身",
+        "n. 王子"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q459",
+      "chapterId": "u8",
+      "text": "\"prefer\" 的中文释义是？",
+      "options": [
+        "v. 较喜欢",
+        "adj. 相像的 adv. 相似地",
+        "像……一样……"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q460",
+      "chapterId": "u8",
+      "text": "\"calm\" 的中文释义是？",
+      "options": [
+        "n. 音乐家；乐师",
+        "adj. 镇静的；沉着的 v. 使平静；使镇静",
+        "v. 比较；对比"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q461",
+      "chapterId": "u8",
+      "text": "\"worry about\" 的中文释义是？",
+      "options": [
+        "n. 画家；油漆匠",
+        "为……担心",
+        "v. 粘贴；将……刺入 n. 枝条；棍"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q462",
+      "chapterId": "u8",
+      "text": "\"expression\" 的中文释义是？",
+      "options": [
+        "v. 持续；继续做",
+        "n. 表达方式；表达",
+        "发生；进行"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q463",
+      "chapterId": "u8",
+      "text": "\"chance\" 的中文释义是？",
+      "options": [
+        "n. 观点；重点 v. 指向；瞄准",
+        "n. 王宫；宫殿",
+        "n. 机会；可能性 adj. 意外的；偶然的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q464",
+      "chapterId": "u8",
+      "text": "\"meeting\" 的中文释义是？",
+      "options": [
+        "n. 会面；会议",
+        "n. 笔记；记录；便条 v. 注意；指出",
+        "v. 粘贴；将……刺入 n. 枝条；棍"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q465",
+      "chapterId": "u8",
+      "text": "\"difficulty\" 的中文释义是？",
+      "options": [
+        "adj. 可能的；合理的",
+        "n. 困难；难题",
+        "n. 教育"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q466",
+      "chapterId": "u8",
+      "text": "\"right away\" 的中文释义是？",
+      "options": [
+        "酸辣汤",
+        "立即；马上",
+        "n. 视频；录像系统 v. 录视频；给……录像"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q467",
+      "chapterId": "u8",
+      "text": "\"line\" 的中文释义是？",
+      "options": [
+        "n. 和平；太平",
+        "n. & v. 回答；回复",
+        "n. 字行；便条；线"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q468",
+      "chapterId": "u8",
+      "text": "\"drop sb a line\" 的中文释义是？",
+      "options": [
+        "给……写信",
+        "n. 看法；意见",
+        "n. 饼干"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q469",
+      "chapterId": "u8",
+      "text": "\"detail\" 的中文释义是？",
+      "options": [
+        "n. 优胜者；成功者",
+        "出于这个原因",
+        "n. 细节；详情"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q470",
+      "chapterId": "u8",
+      "text": "\"reunion\" 的中文释义是？",
+      "options": [
+        "继续做；反复做",
+        "n. 团聚；重逢；聚会",
+        "adv. & pron. 在任何地方；随便哪个地方"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q471",
+      "chapterId": "u8",
+      "text": "\"seriously\" 的中文释义是？",
+      "options": [
+        "v. 表演；执行",
+        "（使）充满；（使）填满",
+        "adv. 严肃地；认真地"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q472",
+      "chapterId": "u8",
+      "text": "\"training\" 的中文释义是？",
+      "options": [
+        "n. 训练；培训",
+        "n. 蛙；青蛙",
+        "n. 呼吸的空气；一口气"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q473",
+      "chapterId": "u8",
+      "text": "\"nervous\" 的中文释义是？",
+      "options": [
+        "adj. 平均的；平常的 n. 平均数；平均水准",
+        "adj. 担忧的；焦虑的；胆怯的",
+        "adj. 公共的；公众的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q474",
+      "chapterId": "u8",
+      "text": "\"stranger\" 的中文释义是？",
+      "options": [
+        "n. 导演；主任；董事",
+        "n. 陌生人",
+        "n. 学院；大学"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q475",
+      "chapterId": "u8",
+      "text": "\"tip\" 的中文释义是？",
+      "options": [
+        "n. 指点；实用的提示；尖端 v.（使）倾斜；倒出；给小费",
+        "adj. 医学的；医疗的",
+        "v. 想象；猜想"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q476",
+      "chapterId": "u8",
+      "text": "\"carefully\" 的中文释义是？",
+      "options": [
+        "n. 任务；工作",
+        "开车顺便送某人",
+        "adv. 认真地；仔细地；小心地"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q477",
+      "chapterId": "u8",
+      "text": "\"show interest in sth\" 的中文释义是？",
+      "options": [
+        "n. 灾难；不幸",
+        "n. 标题；题目；名称",
+        "对……表现出兴趣"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q478",
+      "chapterId": "u8",
+      "text": "\"listener\" 的中文释义是？",
+      "options": [
+        "n. 剪纸",
+        "v. 及格；通过 n. 及格；通行证",
+        "n. 听者"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q479",
+      "chapterId": "u8",
+      "text": "\"point\" 的中文释义是？",
+      "options": [
+        "n. 搭档；同伴",
+        "n. 观点；重点 v. 指向；瞄准",
+        "n. 人 adj. 人的；人类的"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q480",
+      "chapterId": "u8",
+      "text": "\"surely\" 的中文释义是？",
+      "options": [
+        "adv. 想必；必定",
+        "adj. 惊奇的；惊讶的",
+        "偶然；意外地"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q481",
+      "chapterId": "u8",
+      "text": "\"continue\" 的中文释义是？",
+      "options": [
+        "来访；拜访",
+        "v. 持续；继续做",
+        "n. 笑话 v. 开玩笑"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q482",
+      "chapterId": "u8",
+      "text": "\"impolite\" 的中文释义是？",
+      "options": [
+        "n. 乐事；愉快；荣幸",
+        "去划船",
+        "adj. 不礼貌的；粗鲁的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q483",
+      "chapterId": "u8",
+      "text": "\"personal\" 的中文释义是？",
+      "options": [
+        "adj. 首席的；最重要的 n. 首领；酋长",
+        "v. 把……分类；整理 n. 种类",
+        "adj. 个人的；私人的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q484",
+      "chapterId": "u8",
+      "text": "\"argue with sb\" 的中文释义是？",
+      "options": [
+        "与某人争论",
+        "n. 奖；奖励",
+        "adv. 很可能；大概"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q485",
+      "chapterId": "u8",
+      "text": "\"move on\" 的中文释义是？",
+      "options": [
+        "n. 客人；宾客",
+        "换话题；开始做（别的事）",
+        "v. 消失；不见"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q486",
+      "chapterId": "u8",
+      "text": "\"sincere\" 的中文释义是？",
+      "options": [
+        "adj. 真诚的；诚实的",
+        "adj. 外向的",
+        "去划船"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q487",
+      "chapterId": "u8",
+      "text": "\"find out\" 的中文释义是？",
+      "options": [
+        "adv. 也许；可能",
+        "查明；弄清（情况）",
+        "adv. 实际上；居然"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q488",
+      "chapterId": "u8",
+      "text": "\"pay\" 的中文释义是？",
+      "options": [
+        "v. 付费；交纳；偿还 n. 工资；薪水",
+        "可以随便做某事",
+        "adj. 准备好的；现成的 adv. 已做完；已完成"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q489",
+      "chapterId": "u8",
+      "text": "\"attention\" 的中文释义是？",
+      "options": [
+        "n. 注意；专心；关注",
+        "n. 蜂巢",
+        "adj. 效率高的；有功效的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q490",
+      "chapterId": "u8",
+      "text": "\"pay attention\" 的中文释义是？",
+      "options": [
+        "n. 蘑菇；伞菌",
+        "注意；关注",
+        "v. 保护；防护"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q491",
+      "chapterId": "u8",
+      "text": "\"be yourself\" 的中文释义是？",
+      "options": [
+        "给……写信",
+        "行为自然；不做作",
+        "与……言归于好"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q492",
+      "chapterId": "u8",
+      "text": "\"offer\" 的中文释义是？",
+      "options": [
+        "n. 音乐会；演奏会",
+        "v. 提供；主动提出 n. 主动提议；出价",
+        "n. 冰箱"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q493",
+      "chapterId": "u8",
+      "text": "\"reasonable\" 的中文释义是？",
+      "options": [
+        "adj. 公平的；合理的",
+        "v. 邀请",
+        "n. 旅馆；旅社"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q494",
+      "chapterId": "u8",
+      "text": "\"social\" 的中文释义是？",
+      "options": [
+        "n. 意外；（交通）事故",
+        "prep. 每",
+        "adj. 社会的；社交的 n. 联谊会；联欢会"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q495",
+      "chapterId": "u8",
+      "text": "\"medium\" 的中文释义是？",
+      "options": [
+        "与某人争论",
+        "n. 手风琴",
+        "n. 媒介；手段 adj. 中等的；适中的"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q496",
+      "chapterId": "u8",
+      "text": "\"social media\" 的中文释义是？",
+      "options": [
+        "社交媒体",
+        "n. 喜悦；乐趣",
+        "n. 蘑菇；伞菌"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q497",
+      "chapterId": "u8",
+      "text": "\"trust\" 的中文释义是？",
+      "options": [
+        "不论；不要紧",
+        "n. & v. 信任；相信",
+        "n. 剪纸"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q498",
+      "chapterId": "u8",
+      "text": "\"keep away from ...\" 的中文释义是？",
+      "options": [
+        "远离；避免……靠近",
+        "v. 影响；对……起作用 n. 影响；作用",
+        "n. 德语；德国人 adj. 德国的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q499",
+      "chapterId": "u8",
+      "text": "\"misunderstanding\" 的中文释义是？",
+      "options": [
+        "n. 消防队员",
+        "n. 误解；误会",
+        "注意；关注"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q500",
+      "chapterId": "u8",
+      "text": "\"event\" 的中文释义是？",
+      "options": [
+        "n. 公开活动；重要事情",
+        "adj. 勤奋的",
+        "adj. 社会的；社交的 n. 联谊会；联欢会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q501",
+      "chapterId": "u8",
+      "text": "\"take place\" 的中文释义是？",
+      "options": [
+        "adj. 挑战性的",
+        "发生；进行",
+        "n. 误解；误会"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q502",
+      "chapterId": "u8",
+      "text": "\"cost\" 的中文释义是？",
+      "options": [
+        "n. 一勺的量；勺",
+        "n. 智力；智慧",
+        "n. 费用；价钱；代价 v. 价格为；使损失；使付出努力"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q503",
+      "chapterId": "u8",
+      "text": "\"opportunity\" 的中文释义是？",
+      "options": [
+        "adj. 奇怪的；陌生的",
+        "adj. 简单的；朴素的",
+        "n. 机会；时机"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q504",
+      "chapterId": "u8",
+      "text": "\"benefit\" 的中文释义是？",
+      "options": [
+        "v. 对……有用；使受益 n. 益处；成效",
+        "n. 竹；竹子",
+        "adv., pron. & conj. 到处；所有地方"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q505",
+      "chapterId": "u8",
+      "text": "\"benefit ... from ...\" 的中文释义是？",
+      "options": [
+        "n. 性格；品质",
+        "从……获益",
+        "帮助（某人）"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q506",
+      "chapterId": "u8",
+      "text": "\"reply\" 的中文释义是？",
+      "options": [
+        "adv. 严肃地；认真地",
+        "n. 指点；实用的提示；尖端 v.（使）倾斜；倒出；给小费",
+        "n. & v. 回答；回复"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q507",
+      "chapterId": "u8",
+      "text": "\"honour\" 的中文释义是？",
+      "options": [
+        "adv. 向……底部；低 adj. 低的；矮的 n. 低水平；低谷",
+        "adj. 惊奇的；惊讶的",
+        "n. 荣幸；尊敬 v. 给……荣誉；表彰"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q508",
+      "chapterId": "u8",
+      "text": "\"sincerely\" 的中文释义是？",
+      "options": [
+        "n. 米",
+        "n. 王子",
+        "adv. 真诚地；诚实地"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q509",
+      "chapterId": "u8",
+      "text": "\"opening\" 的中文释义是？",
+      "options": [
+        "adj. 失望的；沮丧的",
+        "adj. 折叠式的；可折叠的",
+        "adj. 开篇的；开始的 n. 开始；孔；洞"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "english-q510",
+      "chapterId": "u8",
+      "text": "\"closing\" 的中文释义是？",
+      "options": [
+        "adj. 结尾的；结束的 n. 停业；关闭",
+        "n. 蛙；青蛙",
+        "n. 面粉"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q511",
+      "chapterId": "u8",
+      "text": "\"sentence\" 的中文释义是？",
+      "options": [
+        "n. 句子；判决 v. 判决；宣判",
+        "n. 一汤匙（的量）；餐匙；汤匙",
+        "n. 媒介；手段 adj. 中等的；适中的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "english-q512",
+      "chapterId": "u8",
+      "text": "\"date\" 的中文释义是？",
+      "options": [
+        "n. 关系；联系",
+        "n. 日期；日子；约会 v. 确定年代；注明日期",
+        "n. 食材；成分"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "english-q513",
+      "chapterId": "u8",
+      "text": "\"clause\" 的中文释义是？",
+      "options": [
+        "n. 设计师",
+        "v. 出现；看来好像",
+        "n. 从句；分句"
+      ],
+      "correctIndex": 2
+    }
+  ]
+}

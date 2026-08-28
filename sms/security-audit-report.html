@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>代码安全审计报告 · ms-reminder + sms-tool</title>
+<style>
+  :root{
+    --bg:#f4f6fb;
+    --bg-grad-1:#0b1220;
+    --bg-grad-2:#14213d;
+    --card:#ffffff;
+    --card-soft:#f8fafc;
+    --ink:#1e293b;
+    --ink-soft:#475569;
+    --ink-muted:#64748b;
+    --line:#e2e8f0;
+    --line-strong:#cbd5e1;
+    --accent:#1d4ed8;
+    --critical:#dc2626;
+    --critical-bg:#fef2f2;
+    --high:#ea580c;
+    --high-bg:#fff7ed;
+    --medium:#d97706;
+    --medium-bg:#fffbeb;
+    --low:#2563eb;
+    --low-bg:#eff6ff;
+    --info:#64748b;
+    --info-bg:#f1f5f9;
+    --ok:#16a34a;
+    --ok-bg:#f0fdf4;
+    --shadow:0 1px 2px rgba(15,23,42,.04),0 8px 24px -12px rgba(15,23,42,.12);
+    --shadow-lg:0 4px 12px -2px rgba(15,23,42,.08),0 24px 48px -16px rgba(15,23,42,.18);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  code,pre,.mono{font-family:"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    color:#e2e8f0;
+    padding:56px 24px 64px;
+    background:
+      radial-gradient(1200px 400px at 80% -10%, rgba(220,38,38,.25), transparent 60%),
+      radial-gradient(900px 500px at 0% 100%, rgba(29,78,216,.28), transparent 55%),
+      linear-gradient(135deg,var(--bg-grad-1),var(--bg-grad-2));
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:42px 42px;
+    mask:radial-gradient(circle at 50% 40%,#000,transparent 75%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;z-index:1}
+  .hero .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:#94a3b8;border:1px solid rgba(148,163,184,.3);
+    padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.04);
+  }
+  .hero h1{font-size:34px;line-height:1.2;margin:18px 0 6px;font-weight:800;letter-spacing:-.01em}
+  .hero .subtitle{color:#cbd5e1;font-size:15px;margin:0 0 28px;max-width:780px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:#94a3b8}
+  .hero-meta b{color:#e2e8f0;font-weight:600}
+  .hero-meta .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#475569;margin-right:8px;vertical-align:middle}
+
+  .risk-banner{
+    margin-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    background:linear-gradient(90deg,rgba(220,38,38,.18),rgba(220,38,38,.04));
+    border:1px solid rgba(220,38,38,.4);border-left:4px solid var(--critical);
+    padding:16px 22px;border-radius:12px;backdrop-filter:blur(4px);
+  }
+  .risk-banner .pulse{
+    width:14px;height:14px;border-radius:50%;background:var(--critical);
+    box-shadow:0 0 0 0 rgba(220,38,38,.7);animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(220,38,38,.6)}
+    70%{box-shadow:0 0 0 14px rgba(220,38,38,0)}
+    100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}
+  }
+  .risk-banner .label{font-size:13px;color:#fca5a5;letter-spacing:.05em}
+  .risk-banner .value{font-size:22px;font-weight:800;color:#fff}
+  .risk-banner .risk-desc{margin-left:auto;font-size:13px;color:#fca5a5;max-width:440px;line-height:1.5}
+  .risk-banner .risk-desc b{color:#fff;font-weight:700}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:1380px;margin:0 auto;padding:0 32px}
+  .layout{padding:32px 0 80px}
+  main{min-width:0}
+  section{margin-bottom:44px;scroll-margin-top:20px}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .sec-num{
+    flex-shrink:0;width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg,#1e293b,#334155);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+    box-shadow:0 4px 10px -2px rgba(30,41,59,.4);
+  }
+  .sec-head h2{font-size:22px;margin:0;font-weight:700;letter-spacing:-.01em}
+  .sec-head .sec-sub{font-size:13px;color:var(--ink-muted);font-weight:400}
+
+  /* ---------- Cards ---------- */
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:22px;transition:transform .2s,box-shadow .2s;
+    min-width:0;
+  }
+  .card:hover{box-shadow:var(--shadow-lg)}
+  .grid{display:grid;gap:16px}
+  .g-2{grid-template-columns:repeat(2,1fr)}
+  .g-3{grid-template-columns:repeat(3,1fr)}
+  .g-4{grid-template-columns:repeat(4,1fr)}
+  .clean-wide{grid-column:span 2}
+  @media(max-width:900px){.g-2,.g-3,.g-4{grid-template-columns:1fr}.clean-wide{grid-column:span 1}}
+
+  /* ---------- Stat overview ---------- */
+  .stat-card{padding:20px;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+  .stat-card .stat-label{font-size:12px;color:var(--ink-muted);letter-spacing:.04em}
+  .stat-card .stat-val{font-size:34px;font-weight:800;line-height:1;letter-spacing:-.02em}
+  .stat-card .stat-foot{font-size:12px;color:var(--ink-soft)}
+  .stat-card.crit{border-top:3px solid var(--critical)}
+  .stat-card.crit .stat-val{color:var(--critical)}
+  .stat-card.high{border-top:3px solid var(--high)}
+  .stat-card.high .stat-val{color:var(--high)}
+  .stat-card.med{border-top:3px solid var(--medium)}
+  .stat-card.med .stat-val{color:var(--medium)}
+  .stat-card.info{border-top:3px solid var(--info)}
+  .stat-card.cve{border-top:3px solid var(--ok)}
+  .stat-card.cve .stat-val{color:var(--ok)}
+
+  /* ---------- Donut ---------- */
+  .donut-card{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .donut-card svg{flex-shrink:0}
+  .donut-legend{display:flex;flex-direction:column;gap:9px;flex:1;min-width:200px}
+  .donut-legend .li{display:flex;align-items:center;gap:10px;font-size:13px}
+  .donut-legend .sw{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+  .donut-legend .li b{margin-left:auto;font-weight:700}
+
+  /* ---------- Severity badges ---------- */
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;letter-spacing:.03em}
+  .b-critical{background:var(--critical-bg);color:var(--critical);border:1px solid #fecaca}
+  .b-high{background:var(--high-bg);color:var(--high);border:1px solid #fed7aa}
+  .b-medium{background:var(--medium-bg);color:var(--medium);border:1px solid #fde68a}
+  .b-low{background:var(--low-bg);color:var(--low);border:1px solid #bfdbfe}
+  .b-info{background:var(--info-bg);color:var(--info);border:1px solid #e2e8f0}
+  .b-ok{background:var(--ok-bg);color:var(--ok);border:1px solid #bbf7d0}
+  .sev-dot{width:8px;height:8px;border-radius:50%}
+
+  /* ---------- Finding cards ---------- */
+  .finding{border-left:4px solid var(--line);position:relative}
+  .finding.crit{border-left-color:var(--critical)}
+  .finding.high{border-left-color:var(--high)}
+  .finding.med{border-left-color:var(--medium)}
+  .finding.info{border-left-color:var(--info)}
+  .finding-head{display:flex;align-items:flex-start;gap:12px;cursor:pointer;user-select:none}
+  .finding-head .fid{font-weight:800;font-size:15px;letter-spacing:-.01em}
+  .finding-head .ftitle{font-size:15px;color:var(--ink-soft);font-weight:600;flex:1}
+  .finding-head .chev{color:var(--ink-muted);transition:transform .25s;flex-shrink:0;margin-top:3px}
+  .finding.open .chev{transform:rotate(90deg)}
+  .finding-body{max-height:0;overflow:hidden;transition:max-height .35s ease;margin-top:0}
+  .finding.open .finding-body{max-height:4000px;margin-top:14px}
+  .finding-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--ink-muted);margin-bottom:14px}
+  .finding-meta b{color:var(--ink-soft);font-weight:600}
+  .finding-meta .m-item{display:flex;gap:6px}
+
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:4px 14px;font-size:13px;margin:8px 0}
+  .kv dt{color:var(--ink-muted)}
+  .kv dd{margin:0;color:var(--ink)}
+
+  .chain{list-style:none;padding:0;margin:0;counter-reset:step}
+  .chain li{
+    counter-increment:step;position:relative;padding:0 0 16px 34px;font-size:13.5px;
+  }
+  .chain li::before{
+    content:counter(step);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;
+    background:var(--card-soft);border:2px solid var(--line-strong);color:var(--ink-soft);
+    font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  .chain li::after{content:"";position:absolute;left:10px;top:24px;bottom:0;width:2px;background:var(--line)}
+  .chain li:last-child::after{display:none}
+  .chain li b{color:var(--ink)}
+  .chain .code-tag{color:var(--accent);font-size:12px}
+
+  pre.code{
+    background:#0f172a;color:#e2e8f0;border-radius:9px;padding:14px 16px;
+    font-size:12.5px;line-height:1.6;overflow:auto;margin:10px 0;border:1px solid #1e293b;
+  }
+  pre.code .c{color:#64748b}
+  pre.code .k{color:#f472b6}
+  pre.code .s{color:#86efac}
+  pre.code .n{color:#fde047}
+  pre.code .py{color:#7dd3fc}
+
+  .repro{
+    background:#1a0f0f;border:1px solid #5b2a2a;border-left:3px solid var(--critical);
+    border-radius:8px;padding:12px 14px;margin:10px 0;
+  }
+  .repro .repro-label{font-size:11px;color:#fca5a5;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+
+  /* ---------- Tables ---------- */
+  .tbl-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--card-soft);font-weight:600;color:var(--ink-soft);font-size:12px;letter-spacing:.02em;position:sticky;top:0}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--card-soft)}
+  td .mono{font-size:12px;background:var(--card-soft);padding:1px 6px;border-radius:4px;color:var(--ink-soft)}
+
+  /* ---------- Architecture diagram ---------- */
+  .arch{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:18px;align-items:stretch}
+  @media(max-width:980px){.arch{grid-template-columns:1fr}}
+  .arch-col{display:flex;flex-direction:column;gap:12px}
+  .arch-col-title{font-size:12px;font-weight:700;color:var(--ink-muted);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:6px 0}
+  .arch-node{
+    border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:var(--card);
+    font-size:12.5px;box-shadow:var(--shadow);position:relative;
+  }
+  .arch-node .nt{font-weight:700;color:var(--ink);font-size:13px}
+  .arch-node .nd{color:var(--ink-muted);font-size:11.5px;margin-top:2px}
+  .arch-node.danger{border-color:#fecaca;background:var(--critical-bg)}
+  .arch-node.danger .nt{color:var(--critical)}
+  .arch-node.warn{border-color:#fed7aa;background:var(--high-bg)}
+  .arch-node.warn .nt{color:var(--high)}
+  .arch-node.db{background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#fcd34d}
+  .arch-node.store{background:var(--card-soft);border-style:dashed}
+  .arch-gate{
+    text-align:center;font-size:11px;font-weight:700;color:var(--critical);
+    background:var(--critical-bg);border:1px dashed var(--critical);border-radius:8px;padding:6px;
+  }
+  .arch-arrow{text-align:center;color:var(--ink-muted);font-size:18px;line-height:1;margin:0}
+  .arch-flow{font-size:11px;color:var(--ink-muted);text-align:center;padding:2px 0}
+  .arch-flow .lbl{background:var(--card-soft);padding:2px 8px;border-radius:4px;border:1px solid var(--line)}
+
+.arch-svg-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#fcfdff,#f6f8fc);padding:8px}
+.arch-svg{width:100%;height:auto;display:block;min-width:700px}
+
+  /* ---------- Attack chain flow ---------- */
+  .atk{padding:20px}
+  .atk-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+  .atk-head .atk-title{font-size:16px;font-weight:700;flex:1}
+  .atk-flow{display:flex;flex-direction:column;gap:0}
+  .atk-step{
+    display:flex;align-items:flex-start;gap:14px;padding:12px 14px;border-radius:10px;
+    background:var(--card-soft);border:1px solid var(--line);position:relative;font-size:13px;
+  }
+  .atk-step + .atk-step{margin-top:0}
+  .atk-step + .atk-step::before{
+    content:"↓";position:absolute;top:-16px;left:24px;color:var(--ink-muted);font-size:14px;font-weight:700;
+  }
+  .atk-step .num{
+    flex-shrink:0;width:26px;height:26px;border-radius:7px;color:#fff;font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .atk-step.s1 .num{background:var(--critical)}
+  .atk-step.s2 .num{background:var(--critical)}
+  .atk-step.s3 .num{background:var(--high)}
+  .atk-step.s4 .num{background:var(--medium)}
+  .atk-step.s5 .num{background:#475569}
+  .atk-step .body{flex:1}
+  .atk-step .body b{display:block;margin-bottom:2px}
+  .atk-step .body .det{font-size:12px;color:var(--ink-muted)}
+  .atk-step .body .code-tag{font-size:11.5px;color:var(--accent);background:#eff6ff;padding:1px 6px;border-radius:4px;border:1px solid #bfdbfe}
+  .atk-foot{margin-top:14px;padding:11px 14px;border-radius:9px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .atk-foot.crit{background:var(--critical-bg);color:var(--critical);border:1px solid #fecaca}
+  .atk-foot.high{background:var(--high-bg);color:var(--high);border:1px solid #fed7aa}
+  .atk-foot.med{background:var(--medium-bg);color:var(--medium);border:1px solid #fde68a}
+
+  /* ---------- CVSS bar ---------- */
+  .cvss{display:flex;align-items:center;gap:10px;font-size:12px}
+  .cvss .cvss-track{flex:1;height:7px;border-radius:4px;background:var(--line);overflow:hidden;min-width:80px}
+  .cvss .cvss-fill{height:100%;border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+  .cvss .cvss-val{font-weight:700;font-size:12px;min-width:34px;text-align:right}
+
+  /* ---------- Priority roadmap ---------- */
+  .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:980px){.roadmap{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.roadmap{grid-template-columns:1fr}}
+  .prio{border-top:4px solid;padding:18px}
+  .prio.p0{border-color:var(--critical)}
+  .prio.p1{border-color:var(--high)}
+  .prio.p2{border-color:var(--medium)}
+  .prio.p3{border-color:var(--info)}
+  .prio .ptag{font-size:11px;font-weight:800;letter-spacing:.05em}
+  .prio.p0 .ptag{color:var(--critical)}
+  .prio.p1 .ptag{color:var(--high)}
+  .prio.p2 .ptag{color:var(--medium)}
+  .prio.p3 .ptag{color:var(--info)}
+  .prio .ptitle{font-size:14px;font-weight:700;margin:2px 0 4px}
+  .prio .ptime{font-size:11px;color:var(--ink-muted);margin-bottom:12px}
+  .prio ul{margin:0;padding-left:18px;font-size:12.5px}
+  .prio li{margin-bottom:7px;color:var(--ink-soft)}
+  .prio li b{color:var(--ink)}
+
+  /* ---------- Coverage matrix ---------- */
+  .cov-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  @media(max-width:780px){.cov-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:480px){.cov-grid{grid-template-columns:repeat(2,1fr)}}
+  .cov{padding:14px;text-align:center;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+  .cov .cid{font-weight:800;color:var(--ok);font-size:13px}
+  .cov .cnm{font-size:11.5px;color:var(--ink-soft);margin:4px 0 8px;font-weight:600}
+  .cov .cstat{font-size:10.5px;color:var(--ok);font-weight:700}
+  .cov .ccount{font-size:10.5px;color:var(--ink-muted);margin-top:2px}
+
+  /* ---------- Key findings ---------- */
+  .keyfind{border-left:4px solid;padding:16px 20px}
+  .keyfind.c1{border-color:var(--critical);background:var(--critical-bg)}
+  .keyfind.c2{border-color:var(--critical);background:var(--critical-bg)}
+  .keyfind.c3{border-color:var(--high);background:var(--high-bg)}
+  .keyfind .kf-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .keyfind .kf-id{font-weight:800;font-size:13px}
+  .keyfind .kf-title{font-weight:700;font-size:14px}
+  .keyfind p{margin:0;font-size:13px;color:var(--ink-soft)}
+
+  .callout{padding:14px 16px;border-radius:10px;font-size:13px;display:flex;gap:12px;align-items:flex-start}
+  .callout.warn{background:var(--high-bg);border:1px solid #fed7aa;color:#9a3412}
+  .callout.info{background:var(--low-bg);border:1px solid #bfdbfe;color:#1e40af}
+  .callout.ok{background:var(--ok-bg);border:1px solid #bbf7d0;color:#15803d}
+  .callout .ico{font-size:18px;flex-shrink:0;line-height:1.2}
+
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .tag{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--card-soft);border:1px solid var(--line);color:var(--ink-soft)}
+
+  /* ---------- Summary roadmap (inline fix) ---------- */
+  .summary-roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:12.5px}
+  .summary-roadmap .sr-item{padding:10px 12px;border-radius:8px}
+  .summary-roadmap .sr-item b{display:block;margin-bottom:4px}
+  .summary-roadmap .sr-item div{color:var(--ink-soft)}
+  .summary-roadmap .sr-p0{background:var(--critical-bg);border:1px solid #fecaca}
+  .summary-roadmap .sr-p0 b{color:var(--critical)}
+  .summary-roadmap .sr-p1{background:var(--high-bg);border:1px solid #fed7aa}
+  .summary-roadmap .sr-p1 b{color:var(--high)}
+  .summary-roadmap .sr-p2{background:var(--medium-bg);border:1px solid #fde68a}
+  .summary-roadmap .sr-p2 b{color:var(--medium)}
+  .summary-roadmap .sr-p3{background:var(--info-bg);border:1px solid #e2e8f0}
+  .summary-roadmap .sr-p3 b{color:var(--info)}
+
+  /* ---------- Animate on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  footer{padding:32px 24px;text-align:center;color:var(--ink-muted);font-size:12px;border-top:1px solid var(--line);background:var(--card)}
+  footer .ver{font-weight:600;color:var(--ink-soft)}
+
+  @media(max-width:900px){
+    .layout{padding:20px 0 60px}
+    .wrap{padding:0 20px}
+    .hero{padding:40px 18px 48px}
+    .hero h1{font-size:26px}
+    .hero .subtitle{font-size:14px}
+    .stat-card .stat-val{font-size:28px}
+    .sec-head h2{font-size:20px}
+    .summary-roadmap{grid-template-columns:repeat(2,1fr)}
+    .kv{grid-template-columns:100px 1fr}
+  }
+
+  @media(max-width:600px){
+    .layout{padding:16px 0 48px}
+    .wrap{padding:0 14px}
+    .hero{padding:32px 16px 40px}
+    .hero h1{font-size:22px;line-height:1.3}
+    .hero .subtitle{font-size:13px;margin-bottom:20px}
+    .hero-meta{font-size:12px;gap:8px 18px}
+    .risk-banner{gap:12px;padding:14px 16px}
+    .risk-banner .value{font-size:18px}
+    .risk-banner .risk-desc{margin-left:0;max-width:none;font-size:12.5px;flex-basis:100%}
+    .stat-card{padding:16px}
+    .stat-card .stat-val{font-size:26px}
+    .sec-num{width:30px;height:30px;font-size:13px}
+    .sec-head h2{font-size:18px}
+    .card{padding:18px}
+    .grid{gap:12px}
+    .summary-roadmap{grid-template-columns:1fr}
+    .donut-card{gap:16px;justify-content:center}
+    .donut-card svg{width:140px;height:140px}
+    .keyfind{padding:14px 16px}
+    .keyfind .kf-head{flex-wrap:wrap;gap:8px}
+    .finding-head{align-items:flex-start;flex-wrap:wrap;gap:8px 10px}
+    .finding-head .ftitle{flex-basis:100%;order:3;font-size:14px}
+    .finding-meta{gap:6px 14px;font-size:11.5px}
+    .finding-meta .m-item .cvss{min-width:120px}
+    .kv{grid-template-columns:80px 1fr;font-size:12.5px}
+    .chain li{font-size:12.5px;padding-left:30px}
+    pre.code{font-size:11.5px;padding:12px}
+    .arch-svg{min-width:500px}
+    .tag{font-size:10.5px}
+    .callout{padding:12px 14px;font-size:12.5px;gap:10px}
+    .callout .ico{font-size:16px}
+    .prio{padding:14px}
+    .atk{padding:16px}
+    .atk-step{padding:10px 12px;font-size:12.5px}
+    .tbl-wrap table{font-size:12px}
+    .tbl-wrap th,.tbl-wrap td{padding:8px 10px}
+  }
+
+  @media(max-width:380px){
+    .hero h1{font-size:20px}
+    .stat-card .stat-val{font-size:24px}
+    .finding-head .fid{font-size:14px}
+    .arch-svg{min-width:420px}
+  }
+
+  /* ---------- Lightbox (click-to-zoom) ---------- */
+  .zoom-hint{
+    text-align:center;font-size:12px;color:var(--ink-muted);
+    margin-top:8px;display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .zoom-hint .zh-ico{font-size:14px}
+  .arch-svg-wrap{cursor:zoom-in}
+  .lightbox{
+    position:fixed;inset:0;background:rgba(15,23,42,.92);
+    display:none;align-items:center;justify-content:center;
+    z-index:9999;padding:20px;backdrop-filter:blur(4px);
+  }
+  .lightbox.active{display:flex}
+  .lightbox-content{
+    position:relative;max-width:100%;max-height:100%;
+    background:linear-gradient(180deg,#fcfdff,#f6f8fc);
+    border-radius:12px;padding:12px;box-shadow:0 24px 80px rgba(0,0,0,.5);
+    overflow:auto;
+  }
+  .lightbox-content svg{display:block;max-width:100%;max-height:calc(100vh - 80px)}
+  .lightbox-close{
+    position:fixed;top:16px;right:20px;
+    width:40px;height:40px;border-radius:50%;
+    background:rgba(255,255,255,.12);color:#fff;border:none;
+    font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+  }
+  .lightbox-close:hover{background:rgba(255,255,255,.22)}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">⚡ Deep Security Audit · 三层分析法</span>
+    <h1>代码安全审计报告</h1>
+    <p class="subtitle">ms-reminder + sms-tool 双子系统全维度安全审查 · 含攻击链组合分析与 2025-2026 最新供应链 CVE 调研</p>
+    <div class="hero-meta">
+      <div><span class="dot"></span>审计目标 <b>/Users/home/code/sms</b></div>
+      <div><span class="dot"></span>审计日期 <b>2026-07-24</b></div>
+      <div><span class="dot"></span>报告版本 <b>v1.0</b></div>
+      <div><span class="dot"></span>审计模式 <b>Deep</b></div>
+    </div>
+    <div class="risk-banner">
+      <span class="pulse"></span>
+      <div>
+        <div class="label">总体风险评级</div>
+        <div class="value">🔴 高危 (High)</div>
+      </div>
+      <div class="risk-desc">
+        存在 <b>2 项 Critical</b>：远程未授权完全接管 + 大规模 PII 泄露，无需任何凭据，仅靠网络可达即可利用。
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="layout">
+
+  <main>
+
+  <!-- ============ 一、执行摘要 ============ -->
+  <section id="summary">
+    <div class="sec-head">
+      <div class="sec-num">1</div>
+      <div><h2>执行摘要</h2><div class="sec-sub">Audit Summary</div></div>
+    </div>
+
+    <div class="grid g-4 reveal" style="margin-bottom:16px">
+      <div class="card stat-card crit">
+        <div class="stat-label">安全发现总数</div>
+        <div class="stat-val" data-count="19">0</div>
+        <div class="stat-foot">2 Critical · 2 High · 3 Med · 12 Info</div>
+      </div>
+      <div class="card stat-card cve">
+        <div class="stat-label">供应链 CVE 评估</div>
+        <div class="stat-val" data-count="23">0</div>
+        <div class="stat-foot">覆盖 2025-2026 最新 CVE</div>
+      </div>
+      <div class="card stat-card info">
+        <div class="stat-label">确认可利用 CVE</div>
+        <div class="stat-val" data-count="0">0</div>
+        <div class="stat-foot">均经代码级核实</div>
+      </div>
+      <div class="card stat-card med">
+        <div class="stat-label">覆盖安全维度</div>
+        <div class="stat-val">10<span style="font-size:18px;color:var(--ink-muted)">/10</span></div>
+        <div class="stat-foot">D1-D10 全维度覆盖</div>
+      </div>
+    </div>
+
+    <div class="grid g-2 reveal" style="margin-bottom:16px">
+      <!-- Donut -->
+      <div class="card donut-card">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <circle cx="90" cy="90" r="70" fill="none" stroke="#e2e8f0" stroke-width="22"/>
+          <!-- 2 Critical (2/19), 2 High (2/19), 3 Med (3/19), 12 Info (12/19) -->
+          <!-- circumference = 2*pi*70 ≈ 439.82 -->
+          <circle cx="90" cy="90" r="70" fill="none" stroke="#dc2626" stroke-width="22"
+            stroke-dasharray="46.30 393.52" stroke-dashoffset="0" transform="rotate(-90 90 90)" class="ring"/>
+          <circle cx="90" cy="90" r="70" fill="none" stroke="#ea580c" stroke-width="22"
+            stroke-dasharray="46.30 393.52" stroke-dashoffset="-46.30" transform="rotate(-90 90 90)" class="ring"/>
+          <circle cx="90" cy="90" r="70" fill="none" stroke="#d97706" stroke-width="22"
+            stroke-dasharray="69.44 370.38" stroke-dashoffset="-92.60" transform="rotate(-90 90 90)" class="ring"/>
+          <circle cx="90" cy="90" r="70" fill="none" stroke="#64748b" stroke-width="22"
+            stroke-dasharray="277.79 162.03" stroke-dashoffset="-162.04" transform="rotate(-90 90 90)" class="ring"/>
+          <text x="90" y="86" text-anchor="middle" font-size="32" font-weight="800" fill="#1e293b">19</text>
+          <text x="90" y="106" text-anchor="middle" font-size="12" fill="#64748b">安全发现</text>
+        </svg>
+        <div class="donut-legend">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">严重度分布</div>
+          <div class="li"><span class="sw" style="background:#dc2626"></span>Critical<b>2</b></div>
+          <div class="li"><span class="sw" style="background:#ea580c"></span>High<b>2</b></div>
+          <div class="li"><span class="sw" style="background:#d97706"></span>Medium<b>3</b></div>
+          <div class="li"><span class="sw" style="background:#64748b"></span>Info<b>12</b></div>
+        </div>
+      </div>
+
+      <!-- Key findings -->
+      <div class="card" style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--ink-muted);letter-spacing:.04em">最关键发现</div>
+        <div class="keyfind c1">
+          <div class="kf-head"><span class="badge b-critical">C-01</span><span class="kf-title">空凭证登录（认证绕过）</span></div>
+          <p><code>auth.username/password</code> 均为空字符串且 <code>enabled=true</code>，登录用 <code>==</code> 明文比较空串，发送空用户名/密码即获管理员权限；结合 <code>0.0.0.0:5000</code> 暴露，构成远程未授权完全接管。</p>
+        </div>
+        <div class="keyfind c2">
+          <div class="kf-head"><span class="badge b-critical">C-02</span><span class="kf-title">大规模 PII 未授权泄露</span></div>
+          <p>空凭证登录后可拉取全部短信日志；<code>sms_reminder.log</code> 明文记录 <b>213 处手机号+真实姓名+部门</b>，仓库无 <code>.gitignore</code>。</p>
+        </div>
+        <div class="keyfind c3">
+          <div class="kf-head"><span class="badge b-high">H-03</span><span class="kf-title">远程触发批量短信发送</span></div>
+          <p>经 C-01 登录后 POST <code>/run</code> 可远程触发批量短信，造成资费损失与骚扰。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-bottom:16px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px">修复优先级路线</div>
+      <div class="summary-roadmap">
+        <div class="sr-item sr-p0">
+          <b>P0 · 立即（24h内）</b>
+          <div>C-01 强密码+非空校验+锁定；C-02 清理泄露日志</div>
+        </div>
+        <div class="sr-item sr-p1">
+          <b>P1 · 短期（1周内）</b>
+          <div>H-03、L-02、M-03/M-04</div>
+        </div>
+        <div class="sr-item sr-p2">
+          <b>P2 · 中期（1月内）</b>
+          <div>M-06、L-01~L-04、供应链升级</div>
+        </div>
+        <div class="sr-item sr-p3">
+          <b>P3 · 长期改进</b>
+          <div>I-01~I-05、引入 SAST + 依赖扫描 CI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 二、项目概述 ============ -->
+  <section id="overview">
+    <div class="sec-head">
+      <div class="sec-num">2</div>
+      <div><h2>项目概述</h2><div class="sec-sub">Project Overview</div></div>
+    </div>
+
+    <div class="grid g-2 reveal" style="margin-bottom:16px">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:20px">🐍</span>
+          <b style="font-size:15px">ms-reminder</b>
+          <span class="badge b-medium" style="margin-left:auto">2C · 2H · 3M · 7I</span>
+        </div>
+        <div class="kv" style="grid-template-columns:90px 1fr">
+          <dt>技术栈</dt><dd>Python 3 / Flask 2.3.3</dd>
+          <dt>关键依赖</dt><dd>dmPython 2.5.32、requests 2.31.0、apscheduler 3.10.4、sqlite3</dd>
+          <dt>规模</dt><dd>~1060 行 Python</dd>
+          <dt>业务</dt><dd>一表通任务短信提醒服务：定时扫描达梦 DB 待办任务，对接收人发送提醒短信；提供 Web 管理（登录/日志/配置/触发扫描/调度启停）</dd>
+        </div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:20px">☕</span>
+          <b style="font-size:15px">sms-tool</b>
+          <span class="badge b-info" style="margin-left:auto">5 Info</span>
+        </div>
+        <div class="kv" style="grid-template-columns:90px 1fr">
+          <dt>技术栈</dt><dd>Java 21 / Spring Boot 3.2.0</dd>
+          <dt>关键依赖</dt><dd>spring-boot-starter-web 3.2.0（Spring 6.1.1）、jackson 2.16.0、Lombok、MAS SDK（本地 jar）</dd>
+          <dt>规模</dt><dd>11 个 Java 文件</dd>
+          <dt>业务</dt><dd>移动云 MAS 短信发送工具：通过 MAS SDK 向指定手机号发送一表通报表通知短信；REST API <code>/api/sms/send</code>，日志 JSON 存储</dd>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architecture diagram -->
+    <div class="card reveal" style="margin-bottom:16px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px">
+        <span>架构与数据流</span>
+        <span class="tag">2.3</span>
+      </div>
+      <div class="arch-svg-wrap">
+        <svg viewBox="0 0 1140 760" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" class="arch-svg">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+            <marker id="arrw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+            <marker id="arrc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+          </defs>
+
+          <!-- 子系统容器 -->
+          <rect x="20" y="92" width="740" height="532" rx="12" fill="rgba(220,38,38,0.025)" stroke="#fca5a5" stroke-dasharray="6 4"/>
+          <text x="36" y="114" font-size="14" font-weight="700" fill="#dc2626">▸ ms-reminder · Python/Flask · 0.0.0.0:5000</text>
+          <rect x="780" y="92" width="340" height="450" rx="12" fill="rgba(37,99,235,0.03)" stroke="#93c5fd" stroke-dasharray="6 4"/>
+          <text x="796" y="114" font-size="14" font-weight="700" fill="#2563eb">▸ sms-tool · Java/SpringBoot · 127.0.0.1:8080</text>
+
+          <!-- 攻击者 -->
+          <rect x="420" y="16" width="280" height="46" rx="8" fill="#1e293b"/>
+          <text x="560" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">外部攻击者 / 本地进程</text>
+
+          <!-- ===== 连线 ===== -->
+          <g fill="none" stroke="#94a3b8" stroke-width="1.7">
+            <path d="M560,62 L560,130" marker-end="url(#arr)"/>
+            <path d="M700,39 L920,39 L920,130" marker-end="url(#arr)"/>
+            <path d="M560,182 L560,194" marker-end="url(#arr)"/>
+            <path d="M560,270 L560,288 L140,288 L140,304" marker-end="url(#arr)"/>
+            <path d="M560,270 L560,288 L350,288 L350,304" marker-end="url(#arr)"/>
+            <path d="M560,270 L560,304" marker-end="url(#arr)"/>
+            <path d="M140,356 L140,388" marker-end="url(#arr)"/>
+            <path d="M350,356 L350,388" marker-end="url(#arr)"/>
+            <path d="M560,356 L560,388" marker-end="url(#arr)"/>
+            <path d="M560,440 L560,456 L355,456 L355,472" marker-end="url(#arr)"/>
+            <path d="M560,440 L560,472" marker-end="url(#arr)"/>
+            <path d="M560,524 L560,540 L380,540 L380,556" stroke="#ea580c" stroke-dasharray="6 3" marker-end="url(#arrw)"/>
+            <path d="M560,524 L560,540 L640,540 L640,556" stroke="#dc2626" stroke-dasharray="6 3" marker-end="url(#arrc)"/>
+            <path d="M560,440 L680,440 L680,556" stroke="#dc2626" stroke-dasharray="6 3" marker-end="url(#arrc)"/>
+            <path d="M920,182 L920,216" marker-end="url(#arr)"/>
+            <path d="M920,268 L920,302" marker-end="url(#arr)"/>
+            <path d="M920,354 L920,388" stroke="#ea580c" stroke-dasharray="6 3" marker-end="url(#arrw)"/>
+            <path d="M1060,242 L1090,242 L1090,500 L1060,500" marker-end="url(#arr)"/>
+          </g>
+
+          <!-- 连线标签 -->
+          <g font-size="12">
+            <rect x="516" y="84" width="88" height="19" rx="3" fill="#fff" stroke="#e2e8f0"/><text x="560" y="98" text-anchor="middle" fill="#64748b">0.0.0.0 暴露</text>
+            <rect x="754" y="29" width="80" height="19" rx="3" fill="#fff" stroke="#e2e8f0"/><text x="794" y="43" text-anchor="middle" fill="#64748b">localhost</text>
+            <rect x="884" y="189" width="72" height="19" rx="3" fill="#fff" stroke="#fecaca"/><text x="920" y="203" text-anchor="middle" fill="#dc2626">无认证</text>
+            <rect x="430" y="529" width="80" height="19" rx="3" fill="#fff" stroke="#fed7aa"/><text x="470" y="543" text-anchor="middle" fill="#ea580c">HTTP 明文</text>
+            <rect x="884" y="361" width="72" height="19" rx="3" fill="#fff" stroke="#fed7aa"/><text x="920" y="375" text-anchor="middle" fill="#ea580c">HTTP 明文</text>
+          </g>
+
+          <!-- ===== ms-reminder 节点 ===== -->
+          <g>
+            <rect x="440" y="130" width="240" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="560" y="153" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">Web 路由 · app.py</text>
+            <text x="560" y="171" text-anchor="middle" font-size="13" fill="#64748b">路由入口</text>
+          </g>
+          <g>
+            <polygon points="560,194 656,232 560,270 464,232" fill="#fef2f2" stroke="#dc2626" stroke-width="1.7"/>
+            <text x="560" y="228" text-anchor="middle" font-size="14" font-weight="700" fill="#dc2626">login_required</text>
+            <text x="560" y="246" text-anchor="middle" font-size="11.5" fill="#b91c1c">空凭证可绕过</text>
+            <rect x="636" y="188" width="44" height="18" rx="4" fill="#dc2626"/><text x="658" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">C-01</text>
+          </g>
+          <g>
+            <rect x="40" y="304" width="200" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="140" y="327" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">/api/logs · /logs</text>
+            <text x="140" y="345" text-anchor="middle" font-size="13" fill="#64748b">日志查看</text>
+            <rect x="196" y="298" width="44" height="18" rx="4" fill="#dc2626"/><text x="218" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">C-02</text>
+          </g>
+          <g>
+            <rect x="250" y="304" width="200" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="350" y="327" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">/config/update</text>
+            <text x="350" y="345" text-anchor="middle" font-size="13" fill="#64748b">配置修改</text>
+          </g>
+          <g>
+            <rect x="460" y="304" width="200" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="560" y="327" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">/run · /reminder/*</text>
+            <text x="560" y="345" text-anchor="middle" font-size="13" fill="#64748b">触发扫描 / 调度</text>
+          </g>
+          <g>
+            <rect x="40" y="388" width="200" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.3"/>
+            <text x="140" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#1e40af">SQLite</text>
+            <text x="140" y="429" text-anchor="middle" font-size="13" fill="#3b82f6">sms_log.db</text>
+          </g>
+          <g>
+            <rect x="250" y="388" width="200" height="52" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.3" stroke-dasharray="5 3"/>
+            <text x="350" y="411" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">app_config.json</text>
+            <text x="350" y="429" text-anchor="middle" font-size="13" fill="#64748b">cursor.txt</text>
+          </g>
+          <g>
+            <rect x="460" y="388" width="200" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="560" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">reminder.py</text>
+            <text x="560" y="429" text-anchor="middle" font-size="13" fill="#64748b">调度 + 发送</text>
+          </g>
+          <g>
+            <rect x="250" y="472" width="210" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.3"/>
+            <text x="355" y="495" text-anchor="middle" font-size="16" font-weight="700" fill="#1e40af">达梦 DB · ZBYC_TASK</text>
+            <text x="355" y="513" text-anchor="middle" font-size="13" fill="#3b82f6">待办任务库</text>
+          </g>
+          <g>
+            <rect x="460" y="472" width="200" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="560" y="495" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">sms.py · sendMsg.py</text>
+            <text x="560" y="513" text-anchor="middle" font-size="13" fill="#64748b">短信发送</text>
+          </g>
+          <g>
+            <rect x="250" y="556" width="260" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="380" y="579" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">内网短信 API</text>
+            <text x="380" y="597" text-anchor="middle" font-size="13" fill="#64748b">10.*.*.210:8080</text>
+          </g>
+          <g>
+            <rect x="520" y="556" width="240" height="52" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+            <text x="640" y="579" text-anchor="middle" font-size="16" font-weight="700" fill="#dc2626">sms_reminder.log</text>
+            <text x="640" y="597" text-anchor="middle" font-size="13" fill="#b91c1c">明文 PII · 213 处</text>
+            <rect x="716" y="550" width="44" height="18" rx="4" fill="#dc2626"/><text x="738" y="563" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">C-02</text>
+          </g>
+
+          <!-- ===== sms-tool 节点 ===== -->
+          <g>
+            <rect x="780" y="130" width="280" height="52" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+            <text x="920" y="153" text-anchor="middle" font-size="16" font-weight="700" fill="#dc2626">SmsController</text>
+            <text x="920" y="171" text-anchor="middle" font-size="13" fill="#b91c1c">/api/sms/send · 无认证</text>
+            <rect x="1016" y="124" width="44" height="18" rx="4" fill="#dc2626"/><text x="1038" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">H-01</text>
+          </g>
+          <g>
+            <rect x="780" y="216" width="280" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="920" y="239" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">SmsService</text>
+            <text x="920" y="257" text-anchor="middle" font-size="13" fill="#64748b">buildContent 内容拼接</text>
+            <rect x="1016" y="210" width="44" height="18" rx="4" fill="#ea580c"/><text x="1038" y="223" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">H-02</text>
+          </g>
+          <g>
+            <rect x="780" y="302" width="280" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="920" y="325" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">MAS SDK Client</text>
+            <text x="920" y="343" text-anchor="middle" font-size="13" fill="#64748b">masmgc.sdk.sms</text>
+          </g>
+          <g>
+            <rect x="780" y="388" width="280" height="52" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.3"/>
+            <text x="920" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">移动云 MAS 平台</text>
+            <text x="920" y="429" text-anchor="middle" font-size="13" fill="#64748b">112.35.4.197:15000</text>
+          </g>
+          <g>
+            <rect x="780" y="474" width="280" height="52" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.3"/>
+            <text x="920" y="497" text-anchor="middle" font-size="16" font-weight="700" fill="#15803d">sms_logs.json</text>
+            <text x="920" y="515" text-anchor="middle" font-size="13" fill="#16a34a">已脱敏 ✓</text>
+          </g>
+
+          <!-- 图例 -->
+          <g transform="translate(780,576)">
+            <rect x="0" y="0" width="340" height="148" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+            <text x="16" y="25" font-size="13" font-weight="700" fill="#475569">图例</text>
+            <rect x="16" y="36" width="24" height="14" rx="2" fill="#fff" stroke="#cbd5e1"/><text x="46" y="48" font-size="12.5" fill="#475569">处理节点</text>
+            <rect x="130" y="36" width="24" height="14" rx="2" fill="#eff6ff" stroke="#93c5fd"/><text x="160" y="48" font-size="12.5" fill="#475569">数据库</text>
+            <rect x="222" y="36" width="24" height="14" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-dasharray="3 2"/><text x="252" y="48" font-size="12.5" fill="#475569">文件</text>
+            <rect x="16" y="58" width="24" height="14" rx="2" fill="#fef2f2" stroke="#dc2626"/><text x="46" y="70" font-size="12.5" fill="#475569">漏洞点</text>
+            <polygon points="142,58 154,65 142,72 130,65" fill="#fef2f2" stroke="#dc2626"/><text x="160" y="70" font-size="12.5" fill="#475569">认证关卡</text>
+            <rect x="222" y="58" width="24" height="14" rx="2" fill="#f0fdf4" stroke="#86efac"/><text x="252" y="70" font-size="12.5" fill="#475569">安全实践</text>
+            <line x1="16" y1="92" x2="40" y2="92" stroke="#94a3b8" stroke-width="1.7" marker-end="url(#arr)"/><text x="46" y="96" font-size="12.5" fill="#475569">数据流</text>
+            <line x1="130" y1="92" x2="154" y2="92" stroke="#ea580c" stroke-width="1.7" stroke-dasharray="6 3" marker-end="url(#arrw)"/><text x="160" y="96" font-size="12.5" fill="#475569">明文传输</text>
+            <line x1="222" y1="92" x2="246" y2="92" stroke="#dc2626" stroke-width="1.7" stroke-dasharray="6 3" marker-end="url(#arrc)"/><text x="252" y="96" font-size="12.5" fill="#475569">PII 泄露路径</text>
+            <text x="16" y="118" font-size="11.5" fill="#64748b">红色角标 = 关联漏洞编号（C-01 / H-01 等）</text>
+            <text x="16" y="136" font-size="11.5" fill="#64748b">菱形为认证关卡，红色节点为漏洞所在</text>
+          </g>
+        </svg>
+      </div>
+      <div class="zoom-hint"><span class="zh-ico">🔍</span> 点击图片放大查看</div>
+    </div>
+
+    <!-- Attack surface -->
+    <div class="card reveal">
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px">攻击面清单 <span class="tag">2.4</span></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>端点</th><th>子系统</th><th>绑定</th><th>认证</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">POST /login</td><td>ms-reminder</td><td><span class="badge b-critical">0.0.0.0:5000</span></td><td>无</td><td>登录（C-01 空凭证）</td></tr>
+            <tr><td class="mono">GET / /logs /config</td><td>ms-reminder</td><td>0.0.0.0:5000</td><td>login_required（可绕过）</td><td>页面查看</td></tr>
+            <tr><td class="mono">GET /api/logs /api/stats</td><td>ms-reminder</td><td>0.0.0.0:5000</td><td>login_required（可绕过）</td><td>日志/统计 JSON</td></tr>
+            <tr><td class="mono">POST /run /reminder/*</td><td>ms-reminder</td><td>0.0.0.0:5000</td><td>login_required + CSRF（可绕过）</td><td>触发短信/调度</td></tr>
+            <tr><td class="mono">POST /config/update</td><td>ms-reminder</td><td>0.0.0.0:5000</td><td>login_required + CSRF（可绕过）</td><td>修改配置</td></tr>
+            <tr><td class="mono">POST /api/sms/send</td><td>sms-tool</td><td><span class="badge b-high">127.0.0.1:8080</span></td><td><b style="color:var(--high)">无</b></td><td>发送短信（H-01）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout warn reveal" style="margin-top:12px">
+      <span class="ico">⚠</span>
+      <div><b>🟠 高危提示 · 端口暴露风险</b><br>ms-reminder 使用 <code>5000</code> 端口、sms-tool 使用 <code>8080</code> 端口，均为攻击扫描工具的<a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml" target="_blank">常用扫描目标</a>（Flask 开发默认端口 + Java Web 默认端口）。建议修改为非常用高位端口（如 <code>5xxx</code> 随机高位），大幅降低自动化扫描工具发现服务的概率。</div>
+    </div>
+  </section>
+
+  <!-- ============ 三、漏洞详情 ============ -->
+  <section id="findings">
+    <div class="sec-head">
+      <div class="sec-num">3</div>
+      <div><h2>漏洞详情</h2><div class="sec-sub">Source → Filter → Service → Sink 完整证据链</div></div>
+    </div>
+    <div class="callout info reveal" style="margin-bottom:20px">
+      <span class="ico">🔬</span>
+      <div>每个漏洞均提供 <b>Source（外部输入）→ Filter（安全控制）→ Service（业务处理）→ Sink（危险操作）</b> 完整证据链，附实际文件:行号。点击卡片标题可展开/折叠详情。</div>
+    </div>
+
+    <!-- 3.1 ms-reminder -->
+    <div id="findings-ms" style="scroll-margin-top:20px;margin-bottom:24px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <b style="font-size:16px">3.1 ms-reminder 漏洞详情</b>
+        <span class="badge b-critical">2 Critical</span>
+        <span class="badge b-high">2 High</span>
+        <span class="badge b-medium">3 Medium</span>
+        <span class="badge b-info">7 Info</span>
+      </div>
+
+      <div class="grid reveal" style="gap:14px">
+
+        <!-- C-01 -->
+        <div class="card finding crit open">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-critical">🔴 Critical</span>
+            <span class="fid">C-01</span>
+            <span class="ftitle">空凭证登录（认证绕过）</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta">
+              <div class="m-item"><b>CVSS</b><span class="cvss"><span class="cvss-track"><span class="cvss-fill" data-w="98" style="background:var(--critical)"></span></span><span class="cvss-val" style="color:var(--critical)">9.8</span></span></div>
+              <div class="m-item"><b>维度</b>D2 认证</div>
+              <div class="m-item"><b>CWE</b>CWE-1392 / CWE-287</div>
+            </div>
+            <div class="kv">
+              <dt>向量</dt><dd>AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</dd>
+            </div>
+            <div style="font-size:13px;font-weight:700;margin:14px 0 6px">证据链</div>
+            <ol class="chain">
+              <li><b>配置（Sink 侧凭据）</b> <span class="code-tag">config/app_config.json:15-19</span><br><code>auth.enabled=true</code> 但 <code>username</code>/<code>password</code> 均为空字符串。</li>
+              <li><b>配置加载</b> <span class="code-tag">config.py:47,77</span><br><code>AUTH_CONFIG = {"enabled": true, "username": "", "password": ""}</code></li>
+              <li><b>Source（外部输入）</b> <span class="code-tag">app.py:60-61</span><br>攻击者提交空或省略字段 → <code>request.form.get('username','')</code> 得到 <code>''</code>。</li>
+              <li><b>Filter（不充分）</b> <span class="code-tag">login.html:30,34</span><br><code>required</code> 仅为客户端浏览器校验，curl/Burp 直接构造 POST 即可绕过；服务端无非空校验、无失败次数限制。</li>
+              <li><b>Service + Sink（比较与登录）</b> <span class="code-tag">app.py:62-64</span><br><code>'' == '' and '' == ''</code> → <code>True</code>，设置 <code>session['logged_in']=True</code> 并重定向。</li>
+            </ol>
+            <div class="repro">
+              <div class="repro-label">▶ 复现</div>
+              <pre class="code" style="background:#0f172a;margin:0"><span class="c"># 攻击者发送空用户名/空密码即可登录，获得管理员 session</span>
+curl -i -X POST -d <span class="s">'username=&password='</span> -c cookies.txt http://&lt;目标&gt;:5000/login
+<span class="c"># 预期：HTTP 302 重定向到 /，cookies.txt 含 session</span></pre>
+            </div>
+            <div class="kv" style="margin-top:12px">
+              <dt>利用条件</dt><dd>能访问 ms-reminder 的 5000 端口（<code>app.py:306</code> <code>host='0.0.0.0'</code> 对外暴露）</dd>
+              <dt>影响</dt><dd><b style="color:var(--critical)">远程未授权获得系统完全控制权</b>，可查看所有日志、修改配置、触发短信发送</dd>
+            </div>
+          </div>
+        </div>
+
+        <!-- C-02 -->
+        <div class="card finding crit open">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-critical">🔴 Critical</span>
+            <span class="fid">C-02</span>
+            <span class="ftitle">短信日志大规模 PII 未授权泄露</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta">
+              <div class="m-item"><b>CVSS</b><span class="cvss"><span class="cvss-track"><span class="cvss-fill" data-w="75" style="background:var(--critical)"></span></span><span class="cvss-val" style="color:var(--critical)">7.5→Critical*</span></span></div>
+              <div class="m-item"><b>维度</b>D3 授权 / D8 配置</div>
+              <div class="m-item"><b>CWE</b>CWE-200 / CWE-306</div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-muted)">* 依赖 C-01；单独 7.5，组合后 Critical</div>
+            <ol class="chain" style="margin-top:12px">
+              <li><b>Source</b>：外部攻击者经 C-01 获登录态后访问 <code>/api/logs</code>、<code>/logs</code>、<code>/</code>。</li>
+              <li><b>Filter（被绕过）</b> <span class="code-tag">app.py:286-290</span><br><code>@login_required</code> 已被 C-01 绕过，<code>jsonify(sms_logs)</code> 直接返回全部日志。</li>
+              <li><b>Service（读取日志）</b> <span class="code-tag">app.py:79-93</span><br><code>SELECT * FROM sms_logs</code> 返回 <code>phone/content/indiv_name/task_dept_name</code> 等全部字段。</li>
+              <li><b>Sink（敏感数据返回 + 日志文件泄露）</b><br>日志文件 <code>sms_reminder.log</code>（2578 行）明文记录 <b>213 处 11 位手机号 + 真实姓名 + 部门 + 任务内容</b>；全仓库无 <code>.gitignore</code>。</li>
+            </ol>
+            <pre class="code"><span class="c"># logs/sms_reminder.log 实测样本（手机号已脱敏）</span>
+243: ... Virtual SMS sent to &lt;手机号&gt;: [*世奇]你好！[丹江口市**局(丹江口市**局)]...
+244: ... SMS sent successfully for task RW4203... to &lt;手机号&gt;
+246: ... Virtual SMS sent to &lt;手机号&gt;: [*坤鹏]你好！[郧西县**局]...</pre>
+            <div class="kv" style="margin-top:12px">
+              <dt>利用条件</dt><dd>能访问 5000 端口（C-01 登录）或能读取仓库文件</dd>
+              <dt>影响</dt><dd>大规模个人信息泄露，违反《个人信息保护法》《数据安全法》</dd>
+            </div>
+          </div>
+        </div>
+
+        <!-- H-03 -->
+        <div class="card finding high open">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-high">🟠 High</span>
+            <span class="fid">H-03</span>
+            <span class="ftitle">远程触发批量短信发送滥用</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta">
+              <div class="m-item"><b>CVSS</b><span class="cvss"><span class="cvss-track"><span class="cvss-fill" data-w="75" style="background:var(--high)"></span></span><span class="cvss-val" style="color:var(--high)">7.5</span></span></div>
+              <div class="m-item"><b>维度</b>D9 业务逻辑</div>
+              <div class="m-item"><b>CWE</b>CWE-306</div>
+            </div>
+            <ol class="chain">
+              <li><b>Source</b>：外部攻击者经 C-01 登录后 POST <code>/run</code>（携带登录后获取的 CSRF token）。</li>
+              <li><b>Filter（被绕过）</b> <span class="code-tag">app.py:245-247</span><br><code>@login_required</code>（C-01 绕过）+ <code>@require_csrf</code>（token 登录时已生成，登录后可读取）。</li>
+              <li><b>Service + Sink</b> <span class="code-tag">app.py:254-265 → reminder.py:76-137</span><br>调用 <code>reminder.process_reminder()</code>，扫描达梦 DB 待办任务并循环 <code>send_sms()</code> 发送短信。</li>
+            </ol>
+            <div class="kv">
+              <dt>影响</dt><dd>攻击者可远程反复触发批量短信发送，造成短信通道资源耗尽、资费损失，并对任务接收人形成骚扰</dd>
+            </div>
+          </div>
+        </div>
+
+        <!-- L-02 -->
+        <div class="card finding high open">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-high">🟠 High</span>
+            <span class="fid">L-02</span>
+            <span class="ftitle">无登录失败次数限制</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta">
+              <div class="m-item"><b>维度</b>D2 认证</div>
+              <div class="m-item"><b>CWE</b>CWE-307</div>
+            </div>
+            <p style="font-size:13px;margin:8px 0"><span class="code-tag">app.py:57-67</span> <code>login()</code> 无失败计数、无锁定、无延时。当前因 C-01 已无需爆破，但 <b>修复 C-01 后此问题将暴露</b>为暴力破解入口。</p>
+          </div>
+        </div>
+
+        <!-- M-03 -->
+        <div class="card finding med">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-medium">🟡 Medium</span>
+            <span class="fid">M-03</span>
+            <span class="ftitle">配置篡改（start_id 游标）</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta"><div class="m-item"><b>维度</b>D9 业务逻辑</div><div class="m-item"><b>CWE</b>CWE-284</div></div>
+            <p style="font-size:13px;margin:8px 0"><span class="code-tag">app.py:210-243</span>：<code>/config/update</code> 在登录（C-01 可绕过）+ CSRF 后，将用户提交的 <code>start_id</code> 直接写入 <code>cursor.txt</code> 与 <code>app_config.json</code>，无业务合法性校验。<code>reminder.py:37-43</code> 以 <code>start_id</code> 为阈值，<code>task_id &lt;= start_id</code> 则跳过。</p>
+            <div class="kv"><dt>影响</dt><dd>篡改游标 → 历史任务重复发送（骚扰+资费）或跳过待发任务（业务中断）</dd></div>
+          </div>
+        </div>
+
+        <!-- M-04 -->
+        <div class="card finding med">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-medium">🟡 Medium</span>
+            <span class="fid">M-04</span>
+            <span class="ftitle">日志明文 PII 泄露（仓库内）</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta"><div class="m-item"><b>维度</b>D8 配置/数据保护</div><div class="m-item"><b>CWE</b>CWE-532 / CWE-522</div></div>
+            <ul style="font-size:13px;margin:8px 0">
+              <li><span class="code-tag">sms.py:45</span> <code>logger.info(f"Virtual SMS sent to {phone}: ...")</code> — 明文手机号+内容</li>
+              <li><span class="code-tag">sms.py:97</span> <code>logger.info(f"SMS sent successfully to {phone}: ...")</code> — 明文手机号</li>
+              <li><span class="code-tag">reminder.py:70</span> 等多处记录手机号；实测 <code>sms_reminder.log</code> 2578 行含 213 处手机号+姓名+部门</li>
+              <li>全仓库无 <code>.gitignore</code>（根目录、ms-reminder/、sms-tool/ 均无）</li>
+            </ul>
+            <div class="callout ok" style="margin-top:10px"><span class="ico">✓</span><div>对比：<code>sms-tool</code> 的 <code>SmsService.maskMobile()</code> 对日志手机号脱敏，是正确实践，ms-reminder 应参照。</div></div>
+          </div>
+        </div>
+
+        <!-- M-06 -->
+        <div class="card finding med">
+          <div class="finding-head" onclick="toggleFind(this)">
+            <span class="badge b-medium">🟡 Medium</span>
+            <span class="fid">M-06</span>
+            <span class="ftitle">Session Cookie 安全属性缺失</span>
+            <span class="chev">▶</span>
+          </div>
+          <div class="finding-body">
+            <div class="finding-meta"><div class="m-item"><b>维度</b>D2/D8</div><div class="m-item"><b>CWE</b>CWE-614 / CWE-1275</div></div>
+            <p style="font-size:13px;margin:8px 0"><span class="code-tag">app.py:11-12</span>：未配置 <code>SESSION_COOKIE_SECURE</code>、<code>SESSION_COOKIE_SAMESITE</code>（HttpOnly Flask 默认开启，但 Secure/SameSite 缺失）。</p>
+            <div class="kv"><dt>影响</dt><dd>服务绑定 <code>0.0.0.0</code> 且为 HTTP，Secure 无法生效；SameSite 缺失降低 CSRF 防护深度</dd></div>
+          </div>
+        </div>
+
+        <!-- Info 级表格 -->
+        <div class="card" style="border-left:4px solid var(--info)">
+          <div style="font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px"><span class="badge b-info">Info 级</span> ms-reminder · 7 项</div>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>编号</th><th>项</th><th>证据</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td><b>M-01</b></td><td>明文密码存储与比较</td><td><span class="mono">app_config.json:18</span> + <span class="mono">app.py:62 ==</span></td><td>内网单机可接受；建议 bcrypt 存储 + <code>hmac.compare_digest</code></td></tr>
+                <tr><td><b>L-01</b></td><td>硬编码真实手机号</td><td><span class="mono">sendMsg.py:58 mobile="158..."</span></td><td>测试代码硬编码，建议改环境变量</td></tr>
+                <tr><td><b>L-03</b></td><td>page 参数未校验导致 500</td><td><span class="mono">app.py:164 int(...)</span></td><td><code>?page=abc</code> 触发 500；加 try-except 与范围校验</td></tr>
+                <tr><td><b>L-04</b></td><td>登录表单缺少 CSRF 保护</td><td><span class="mono">app.py:57-67</span></td><td>登录 CSRF，影响有限；建议 Flask-WTF</td></tr>
+                <tr><td><b>I-01</b></td><td>SECRET_KEY 每次重启随机</td><td><span class="mono">app.py:12 os.urandom(24)</span></td><td>安全可接受；建议持久化到环境变量</td></tr>
+                <tr><td><b>I-02</b></td><td>.DS_Store 提交（通用）</td><td>根目录/sms-tool/ 各 1 个</td><td>macOS 元数据泄露目录结构，加入 <code>.gitignore</code></td></tr>
+                <tr><td><b>I-04</b></td><td>start_scheduler.py 引用不存在函数</td><td><span class="mono">:37,44,54</span> start_backtrack_scheduler</td><td>功能 bug（非安全），脚本运行会失败</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3.2 sms-tool -->
+    <div id="findings-sms" style="scroll-margin-top:20px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <b style="font-size:16px">3.2 sms-tool 漏洞详情</b>
+        <span class="badge b-info">5 Info · 无 Medium 及以上漏洞</span>
+      </div>
+      <div class="card" style="border-left:4px solid var(--info)">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>编号</th><th>项</th><th>证据</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td><b>M-02</b></td><td>MAS 凭据默认值</td><td><span class="mono">application.yml ${SMS_MAS_USER:YBTsjj}</span></td><td>环境变量注入机制合规，仅默认值含真实凭据需清理</td></tr>
+              <tr><td><b>H-01</b></td><td>无认证短信发送接口</td><td><span class="mono">SmsController.java:21</span> /api/sms/send</td><td>仅本地可达；端口暴露则风险回升；建议认证+频率限制</td></tr>
+              <tr><td><b>H-02</b></td><td>短信内容伪造</td><td><span class="mono">SmsService.java:85-87</span> buildContent</td><td>仅本地可达；建议长度限制+敏感词过滤</td></tr>
+              <tr><td><b>I-03</b></td><td>system-scope 本地 jar 供应链不透明</td><td><span class="mono">pom.xml masmgc.sdk.sms 1.0.3-SNAPSHOT</span></td><td>本地 jar 无 CVE 跟踪，向移动云官方核实并锁正式版</td></tr>
+              <tr><td><b>I-05</b></td><td>CORS 配置略宽</td><td><span class="mono">WebConfig.java:11-16</span></td><td>origins 合规，<code>allowedHeaders("*")</code> 偏宽，建议收窄</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 四、攻击链分析 ============ -->
+  <section id="chains">
+    <div class="sec-head">
+      <div class="sec-num">4</div>
+      <div><h2>攻击链分析</h2><div class="sec-sub">Attack Chain Analysis</div></div>
+    </div>
+
+    <div class="grid reveal" style="gap:16px">
+
+      <!-- Chain A -->
+      <div class="card atk">
+        <div class="atk-head">
+          <span class="badge b-critical">🔴 Critical</span>
+          <span class="atk-title">攻击链 A · 远程未授权 PII 泄露 + 业务破坏</span>
+        </div>
+        <div class="atk-flow">
+          <div class="atk-step s1"><div class="num">1</div><div class="body"><b>扫描发现 ms-reminder (0.0.0.0:5000)</b><div class="det">外部攻击者网络可达</div></div></div>
+          <div class="atk-step s2"><div class="num">2</div><div class="body"><b>C-01 空凭证登录</b><div class="det"><span class="code-tag">POST /login username=&password=</span> → 获得管理员 session</div></div></div>
+          <div class="atk-step s3"><div class="num">3</div><div class="body"><b>C-02 PII 泄露</b><div class="det"><span class="code-tag">GET /api/logs</span> → 获取全部短信日志（手机号/姓名/部门/内容）<br><span class="code-tag">GET /logs</span> → 页面浏览</div></div></div>
+          <div class="atk-step s4"><div class="num">4</div><div class="body"><b>M-03 配置篡改</b><div class="det"><span class="code-tag">POST /config/update</span> → 修改 start_id 游标 → 重复发送历史短信 / 跳过任务</div></div></div>
+          <div class="atk-step s5"><div class="num">5</div><div class="body"><b>H-03 短信滥用</b><div class="det"><span class="code-tag">POST /run</span> → 远程触发批量短信发送（骚扰+资费）</div></div></div>
+        </div>
+        <div class="atk-foot crit">⚠ 综合风险 Critical：远程未授权完全接管 + 大规模 PII 泄露 + 业务破坏，无需任何凭据</div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px">
+        <!-- Chain B -->
+        <div class="card atk">
+          <div class="atk-head">
+            <span class="badge b-high">🟠 High</span>
+            <span class="atk-title" style="font-size:14px">攻击链 B · 本地短信轰炸+钓鱼</span>
+          </div>
+          <div class="atk-flow">
+            <div class="atk-step s1"><div class="num">1</div><div class="body"><b>访问 sms-tool (127.0.0.1:8080)</b><div class="det">本地恶意进程/用户</div></div></div>
+            <div class="atk-step s2"><div class="num">2</div><div class="body"><b>H-01 无认证发送</b><div class="det"><span class="code-tag">POST /api/sms/send</span> 循环调用 → 短信轰炸</div></div></div>
+            <div class="atk-step s3"><div class="num">3</div><div class="body"><b>H-02 内容伪造</b><div class="det">注入钓鱼内容 → 带真实签名【十堰市**局】的钓鱼短信</div></div></div>
+          </div>
+          <div class="atk-foot high">综合风险 High：本地多用户/多服务可轰炸任意号码 + 政府签名背书钓鱼</div>
+        </div>
+
+        <!-- Chain C -->
+        <div class="card atk">
+          <div class="atk-head">
+            <span class="badge b-medium">🟡 Medium</span>
+            <span class="atk-title" style="font-size:14px">攻击链 C · 凭据泄露→横向移动</span>
+          </div>
+          <div class="atk-flow">
+            <div class="atk-step s1"><div class="num">1</div><div class="body"><b>源码/制品泄露</b><div class="det">M-02 application.yml 硬编码 MAS 凭据</div></div></div>
+            <div class="atk-step s2"><div class="num">2</div><div class="body"><b>M-04 仓库日志泄露 PII</b><div class="det">明文手机号+姓名+部门</div></div></div>
+            <div class="atk-step s3"><div class="num">3</div><div class="body"><b>获取 MAS 凭据</b><div class="det">直接调用移动云 MAS 平台 → 绕过 sms-tool 完全控制短信发送</div></div></div>
+          </div>
+          <div class="atk-foot med">综合风险 Medium：凭据泄露后绕过应用层直接操作 MAS 平台</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五、供应链 CVE ============ -->
+  <section id="supply">
+    <div class="sec-head">
+      <div class="sec-num">5</div>
+      <div><h2>供应链 CVE 分析</h2><div class="sec-sub">Supply Chain · D10 · 2025-2026 最新 CVE</div></div>
+    </div>
+
+    <div class="callout warn reveal" style="margin-bottom:16px">
+      <span class="ico">⚠</span>
+      <div><b>最重要结论</b>：Spring Boot 3.2.0 已于 2026 年初结束 OSS 支持（EOL），上游不再为 3.2.x 提供安全补丁，新披露 CVE 甚至不再针对 3.2 版本评估。强烈建议升级至 <b>3.5.x（OSS 支持至 2026-06）或 4.0.x</b>。</div>
+    </div>
+
+    <div class="grid g-4 reveal" style="margin-bottom:16px">
+      <div class="card stat-card cve"><div class="stat-label">评估 CVE 总数</div><div class="stat-val" data-count="23">0</div><div class="stat-foot">Java 12 · Python 7 · 间接 4</div></div>
+      <div class="card stat-card cve"><div class="stat-label">确认可利用</div><div class="stat-val" data-count="0">0</div><div class="stat-foot">利用前提均不满足</div></div>
+      <div class="card stat-card high"><div class="stat-label">版本受影响</div><div class="stat-val" style="font-size:26px">多数</div><div class="stat-foot">但实际利用条件不满足</div></div>
+      <div class="card stat-card crit"><div class="stat-label">最紧迫治理项</div><div class="stat-val" style="font-size:20px;line-height:1.2">Spring Boot EOL</div><div class="stat-foot">3.2.0 已停止安全补丁</div></div>
+    </div>
+
+    <!-- 5.1 Java -->
+    <div class="card reveal" style="margin-bottom:14px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">5.1 Java 依赖（sms-tool）</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>编号</th><th>CVE</th><th>依赖(版本)</th><th>严重度</th><th>受影响</th><th>实际可利用</th><th>建议</th></tr></thead>
+          <tbody>
+            <tr><td><b>S-01</b></td><td class="mono">CVE-2024-22243/22259/22262</td><td>Spring 6.1.1</td><td><span class="badge b-high">High 8.1</span></td><td>是</td><td><span class="badge b-ok">否</span> 未用 UriComponentsBuilder</td><td>升级</td></tr>
+            <tr><td><b>S-02</b></td><td class="mono">CVE-2025-41249</td><td>Spring 6.1.1</td><td><span class="badge b-high">High</span></td><td>是</td><td><span class="badge b-ok">否</span> 未引入 Spring Security</td><td>升级</td></tr>
+            <tr><td><b>S-03</b></td><td class="mono">CVE-2025-41242</td><td>Spring 6.1.1</td><td><span class="badge b-high">High</span></td><td>是</td><td><span class="badge b-ok">否</span> 需 Jetty，实为 Tomcat</td><td>升级</td></tr>
+            <tr><td><b>S-04</b></td><td class="mono">CVE-2025-22235</td><td>Spring Boot 3.2.0</td><td><span class="badge b-high">High 7.3</span></td><td>是</td><td><span class="badge b-ok">否</span> 未用 Security+actuator</td><td>升级</td></tr>
+            <tr><td><b>S-05</b></td><td class="mono">CVE-2026-22733</td><td>Spring Boot actuator</td><td><span class="badge b-high">High</span></td><td>是</td><td><span class="badge b-ok">否</span> 无 actuator 依赖</td><td>N/A</td></tr>
+            <tr><td><b>S-06</b></td><td class="mono">CVE-2026-22737/22735</td><td>Spring 6.1.1</td><td><span class="badge b-medium">Med/Low</span></td><td>是</td><td><span class="badge b-ok">否</span> 未用脚本模板/SSE</td><td>升级</td></tr>
+            <tr><td><b>S-07</b></td><td class="mono">CVE-2026-22732/40976</td><td>Spring Security/Boot 4.0</td><td><span class="badge b-critical">Critical 9.1</span></td><td>否</td><td><span class="badge b-ok">不受影响</span></td><td>-</td></tr>
+            <tr><td><b>S-08</b></td><td class="mono">CVE-2026-54515</td><td>jackson 2.16.0</td><td><span class="badge b-medium">Med 5.3</span></td><td>是</td><td><span class="badge b-ok">否</span> DTO 未用 @JsonIgnoreProperties</td><td>升级至 2.18.9+</td></tr>
+            <tr><td><b>S-09</b></td><td class="mono">jackson SSRF</td><td>jackson 2.16.0</td><td><span class="badge b-medium">Med</span></td><td>是</td><td><span class="badge b-ok">否</span> 无 InetSocketAddress 字段</td><td>升级至 2.18.8+</td></tr>
+            <tr><td><b>S-10</b></td><td class="mono">CVE-2023-35116/2025-52999</td><td>jackson 2.16.0</td><td>-</td><td>否</td><td><span class="badge b-ok">不受影响</span> 2.16.0 为修复版</td><td>-</td></tr>
+            <tr><td><b>S-11</b></td><td>-</td><td>Lombok</td><td>-</td><td>否</td><td><span class="badge b-ok">无 CVE</span> 编译时注解处理器</td><td>-</td></tr>
+            <tr><td><b>S-12</b></td><td>-</td><td>masmgc.sdk.sms 1.0.3-SNAPSHOT</td><td>-</td><td>未知</td><td>本地 jar，公开库无记录</td><td>向移动云核实</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:12px;color:var(--ink-muted);margin-top:8px">jackson 2.16 分支已于 2025-04 EOL，后续无安全补丁，应升级至 2.18.x LTS。</div>
+    </div>
+
+    <!-- 5.2 Python -->
+    <div class="card reveal" style="margin-bottom:14px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">5.2 Python 依赖（ms-reminder）</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>编号</th><th>CVE</th><th>依赖(版本)</th><th>严重度</th><th>受影响</th><th>实际可利用</th><th>建议</th></tr></thead>
+          <tbody>
+            <tr><td><b>S-13</b></td><td class="mono">CVE-2026-27205</td><td>Flask 2.3.3</td><td><span class="badge b-low">Low 4.3</span></td><td>是</td><td><span class="badge b-medium">部分</span> 需缓存代理，内网直连风险低</td><td>设 Cache-Control 或升级</td></tr>
+            <tr><td><b>S-14</b></td><td class="mono">CVE-2026-25645</td><td>requests 2.31.0</td><td><span class="badge b-medium">Med 4.4</span></td><td>是</td><td><span class="badge b-ok">否</span> 未用 extract_zipped_paths</td><td>升级 2.33.0+</td></tr>
+            <tr><td><b>S-15</b></td><td class="mono">CVE-2024-35195</td><td>requests 2.31.0</td><td><span class="badge b-medium">Mod 5.0</span></td><td>是</td><td><span class="badge b-ok">否</span> 未用 Session+verify=False</td><td>升级 2.32.2+</td></tr>
+            <tr><td><b>S-16</b></td><td class="mono">CVE-2024-47081</td><td>requests 2.31.0</td><td><span class="badge b-medium">Mod 5.3</span></td><td>是</td><td><span class="badge b-ok">否</span> 无 netrc</td><td>升级 2.32.4+</td></tr>
+            <tr><td><b>S-17</b></td><td class="mono">CVE-2026-31072</td><td>apscheduler 3.10.4</td><td><span class="badge b-critical">Critical 9.8</span></td><td>否</td><td><span class="badge b-ok">不受影响</span> 双重证据：序列化器 4.0 引入 + 代码从未 import</td><td>移除无用依赖</td></tr>
+            <tr><td><b>S-18</b></td><td class="mono">CVE-2023-30861/32681</td><td>Flask/requests</td><td>-</td><td>否</td><td><span class="badge b-ok">不受影响</span> 已为修复版本</td><td>-</td></tr>
+            <tr><td><b>S-19</b></td><td>-</td><td>dmPython 2.5.32</td><td>-</td><td>未知</td><td>公开库无记录</td><td>向达梦核实</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5.3 间接 -->
+    <div class="card reveal" style="margin-bottom:14px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">5.3 间接依赖（未锁定版本）</div>
+      <div class="callout info" style="margin-bottom:10px"><span class="ico">ℹ</span><div><code>requirements.txt</code> 仅锁 4 个顶层依赖，<b>Werkzeug / urllib3 / certifi 等间接依赖完全未锁定</b>，且项目无 lockfile。</div></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>编号</th><th>CVE</th><th>间接依赖</th><th>严重度</th><th>利用条件</th><th>建议</th></tr></thead>
+          <tbody>
+            <tr><td><b>S-20</b></td><td class="mono">CVE-2024-49767 / 2023-46136</td><td>Werkzeug（未锁定）</td><td><span class="badge b-high">High 7.5</span></td><td><span class="badge b-medium">部分</span> 若 Werkzeug&lt;3.0.6 则 multipart DoS 可利用</td><td><b>锁定 ≥3.0.6 + lockfile</b></td></tr>
+            <tr><td><b>S-21</b></td><td class="mono">CVE-2024-34069</td><td>Werkzeug</td><td><span class="badge b-high">High 7.5</span></td><td><span class="badge b-ok">否</span> 需 debug 模式，本项目 debug=False</td><td>建议 ≥3.0.3</td></tr>
+            <tr><td><b>S-22</b></td><td class="mono">CVE-2024-49766/2025-66221</td><td>Werkzeug</td><td><span class="badge b-medium">Med</span></td><td><span class="badge b-ok">否</span> 仅 Windows+Python&lt;3.11</td><td>-</td></tr>
+            <tr><td><b>S-23</b></td><td class="mono">CVE-2026-44431/21441/2024-37891</td><td>urllib3（未锁定）</td><td><span class="badge b-medium">Med-High</span></td><td><span class="badge b-ok">否</span> 需 ProxyManager/流式/跨域重定向</td><td>锁定版本</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5.4 复核结论 -->
+    <div class="card reveal">
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px">5.4 复核结论</div>
+      <div class="callout ok" style="margin-bottom:14px"><span class="ico">✓</span><div><b>真实可利用的供应链漏洞：0 项确认</b>（所有版本受影响的 CVE 经代码级核实，利用前提均不满足）</div></div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px">需重点关注的治理风险</div>
+      <ol style="font-size:13px;margin:0;padding-left:20px;color:var(--ink-soft)">
+        <li><b>Spring Boot 3.2.0 已 EOL</b>（S-04~S-07 同类）— 最紧迫，升级至 3.5.x/4.0.x</li>
+        <li><b>Werkzeug 版本未锁定</b>（S-20）— 唯一可能真实可利用的 DoS，确认并锁定 ≥3.0.6</li>
+        <li><b>jackson 2.16 EOL</b>（S-08/S-09）— 升级至 2.18.x LTS</li>
+        <li><b>apscheduler 无用依赖</b>（S-17）— 从 requirements.txt 移除</li>
+        <li><b>间接依赖无 lockfile</b> — 引入 <code>uv lock</code> / pip-tools 锁定全量依赖树</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 六、无漏洞维度 ============ -->
+  <section id="clean">
+    <div class="sec-head">
+      <div class="sec-num">6</div>
+      <div><h2>无漏洞维度</h2><div class="sec-sub">Clean Dimensions · 经核实确认安全</div></div>
+    </div>
+    <div class="grid g-2 reveal">
+      <div class="card" style="border-left:4px solid var(--ok)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge b-ok">✓ D1</span><b>SQL 注入</b></div>
+        <p style="margin:0;font-size:13px;color:var(--ink-soft)"><code>db.py</code> 所有查询使用 <code>?</code> 参数化占位符；<code>reminder.py:149</code> <code>LIKE ?</code> 参数化；<code>sms.py:16-19</code> INSERT 参数化。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--ok)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge b-ok">✓ D1</span><b>SSTI / XSS</b></div>
+        <p style="margin:0;font-size:13px;color:var(--ink-soft)">Flask <code>render_template</code> 默认自动转义；4 个模板均无 <code>|safe</code> 用法；日志内容经 Jinja2 转义渲染。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--ok)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge b-ok">✓ D4</span><b>反序列化</b></div>
+        <p style="margin:0;font-size:13px;color:var(--ink-soft)">Jackson 反序列化类型固定（<code>SmsSendRequest</code>、<code>SmsLog</code>），无 <code>enableDefaultTyping</code>/多态；Python 侧无 <code>pickle.loads</code> 用户输入。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--ok)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge b-ok">✓ D5</span><b>路径遍历</b></div>
+        <p style="margin:0;font-size:13px;color:var(--ink-soft)"><code>/config/update</code> 写入路径固定（<code>cursor.txt</code>/<code>app_config.json</code>），不接受用户控制路径；<code>read_system_logs</code> 读固定路径。</p>
+      </div>
+      <div class="card clean-wide" style="border-left:4px solid var(--ok)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge b-ok">✓ D6</span><b>SSRF</b></div>
+        <p style="margin:0;font-size:13px;color:var(--ink-soft)">短信 API URL 与 MAS URL 均来自配置文件，<code>/config/update</code> 不修改 <code>sms_api.url</code>，用户无法控制请求目标 URL。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 七、修复建议 ============ -->
+  <section id="fix">
+    <div class="sec-head">
+      <div class="sec-num">7</div>
+      <div><h2>修复建议</h2><div class="sec-sub">Remediation Roadmap · P0-P3 优先级</div></div>
+    </div>
+    <div class="roadmap reveal">
+      <div class="card prio p0">
+        <div class="ptag">P0 · 立即修复</div>
+        <div class="ptitle">24 小时内</div>
+        <div class="ptime">阻止远程未授权接管</div>
+        <ul>
+          <li><b>C-01</b> 设置强用户名/密码（非空、高熵）；<code>app.py:62</code> 增加非空校验；密码改 bcrypt 存储 + <code>hmac.compare_digest</code>；增加失败计数与锁定（L-02）</li>
+          <li><b>C-02</b> 修复 C-01 后未授权访问自然收敛；立即清理 <code>sms_reminder.log</code> 已泄露 PII；按 M-04 改造脱敏；<code>/api/logs</code> 按最小权限返回</li>
+        </ul>
+      </div>
+      <div class="card prio p1">
+        <div class="ptag">P1 · 短期修复</div>
+        <div class="ptitle">1 周内</div>
+        <div class="ptime">收敛高危与中危</div>
+        <ul>
+          <li><b>H-01/H-02</b> <code>/api/sms/send</code> 增加认证+频率限制+每日配额；<code>reportName</code> 加长度限制+敏感词过滤；确认 <code>server.address=127.0.0.1</code></li>
+          <li><b>🔴 端口变更</b> ms-reminder 的 <code>5000</code> → 改为非常用高位端口（如 <code>5xxx</code> 随机值）；sms-tool 的 <code>8080</code> → 改为 <code>server.port=1xxxx</code>，降低被自动化扫描发现的概率</li>
+          <li><b>H-03</b> 修复 C-01 后收敛；<code>/run</code> 增加操作审计日志与二次确认</li>
+          <li><b>M-02</b> 移除 <code>application.yml</code> 真实凭据默认值</li>
+          <li><b>M-03</b> <code>/config/update</code> 对 <code>start_id</code> 增加格式/业务校验</li>
+          <li><b>M-04</b> 日志手机号脱敏；新增 <code>.gitignore</code></li>
+        </ul>
+      </div>
+      <div class="card prio p2">
+        <div class="ptag">P2 · 中期修复</div>
+        <div class="ptitle">1 月内</div>
+        <div class="ptime">加固与供应链升级</div>
+        <ul>
+          <li><b>M-06</b> 配置 <code>SESSION_COOKIE_SECURE</code>/<code>SAMESITE=Lax</code>（启用 HTTPS 后）</li>
+          <li><b>L-01</b> 移除硬编码手机号，改环境变量</li>
+          <li><b>L-03</b> <code>page</code> 转换加 try-except+范围校验</li>
+          <li><b>L-04</b> <code>login()</code> POST 加 <code>@require_csrf</code> 或 Flask-WTF</li>
+          <li><b>供应链</b> Spring Boot →3.5.x/4.0.x；requests→2.33.0+；jackson→2.18.9+ LTS；锁定 Werkzeug≥3.0.6；移除 apscheduler；引入 lockfile</li>
+        </ul>
+      </div>
+      <div class="card prio p3">
+        <div class="ptag">P3 · 长期改进</div>
+        <div class="ptitle">持续</div>
+        <div class="ptime">工程化与可持续</div>
+        <ul>
+          <li><b>I-01</b> <code>SECRET_KEY</code> 持久化到环境变量</li>
+          <li><b>I-02</b> <code>.gitignore</code> 加入 <code>.DS_Store</code></li>
+          <li><b>I-03</b> MAS SDK 替换正式版本，向移动云核实</li>
+          <li><b>I-04</b> 修复 <code>start_scheduler.py</code> 引用不存在函数的 bug</li>
+          <li><b>I-05</b> CORS <code>allowedHeaders</code> 收窄为实际所需头</li>
+          <li>引入 SAST（Semgrep/SpotBugs）+ 依赖扫描（pip-audit/mvn dependency-check）纳入 CI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 八、覆盖矩阵 ============ -->
+  <section id="coverage">
+    <div class="sec-head">
+      <div class="sec-num">8</div>
+      <div><h2>覆盖矩阵自检</h2><div class="sec-sub">Coverage Matrix · D1-D10 全维度覆盖</div></div>
+    </div>
+    <div class="cov-grid reveal">
+      <div class="cov"><div class="cid">D1</div><div class="cnm">注入</div><div class="cstat">✓ 覆盖</div><div class="ccount">无发现</div></div>
+      <div class="cov"><div class="cid">D2</div><div class="cnm">认证</div><div class="cstat">✓ 覆盖</div><div class="ccount">C-01 等 5 项</div></div>
+      <div class="cov"><div class="cid">D3</div><div class="cnm">授权</div><div class="cstat">✓ 覆盖</div><div class="ccount">C-02/H-01/M-03</div></div>
+      <div class="cov"><div class="cid">D4</div><div class="cnm">反序列化</div><div class="cstat">✓ 覆盖</div><div class="ccount">无发现</div></div>
+      <div class="cov"><div class="cid">D5</div><div class="cnm">文件操作</div><div class="cstat">✓ 覆盖</div><div class="ccount">无发现</div></div>
+      <div class="cov"><div class="cid">D6</div><div class="cnm">SSRF</div><div class="cstat">✓ 覆盖</div><div class="ccount">无发现</div></div>
+      <div class="cov"><div class="cid">D7</div><div class="cnm">加密</div><div class="cstat">✓ 覆盖</div><div class="ccount">M-01/M-02</div></div>
+      <div class="cov"><div class="cid">D8</div><div class="cnm">配置</div><div class="cstat">✓ 覆盖</div><div class="ccount">M-04 等 6 项</div></div>
+      <div class="cov"><div class="cid">D9</div><div class="cnm">业务逻辑</div><div class="cstat">✓ 覆盖</div><div class="ccount">H-03/M-03 等</div></div>
+      <div class="cov"><div class="cid">D10</div><div class="cnm">供应链</div><div class="cstat">✓ 覆盖</div><div class="ccount">S-01~S-23</div></div>
+    </div>
+    <div class="callout ok reveal" style="margin-top:14px"><span class="ico">✓</span><div><b>终止条件</b>：D1-D3 均已覆盖，满足进入后续阶段要求；10 维度全覆盖。</div></div>
+  </section>
+
+  <!-- ============ 九、未覆盖范围 ============ -->
+  <section id="scope">
+    <div class="sec-head">
+      <div class="sec-num">9</div>
+      <div><h2>未覆盖范围与说明</h2><div class="sec-sub">Out of Scope & Caveats</div></div>
+    </div>
+    <div class="card reveal">
+      <ol style="margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.8;padding-left:20px">
+        <li><b>运行时环境</b>：未实际部署运行，未做动态渗透；所有结论基于静态代码分析 + 配置/日志文件取证。C-01 可利用性已通过代码逻辑严格论证，但未执行实际 HTTP 请求复现。</li>
+        <li><b>达梦数据库侧</b>：未审查达梦 DB 的配置、权限、视图层安全（仅审查应用层 SQL，均为参数化）。</li>
+        <li><b>MAS SDK 内部实现</b>：<code>masmgc.sdk.sms-1.0.3-SNAPSHOT.jar</code> 为二进制 jar，未反编译审查其内部实现，仅评估接口调用层。</li>
+        <li><b>部署环境</b>：未评估生产部署的网络拓扑、反向代理、WAF 等。ms-reminder 实际风险取决于 5000 端口暴露范围；sms-tool 取决于 8080 是否严格保持 localhost。</li>
+        <li><b>dmPython / masmgc.sdk.sms</b>：公开漏洞库无记录，需向厂商官方核实。</li>
+        <li><b>CVE-2026-31072（apscheduler）</b>：NVD 与 GitHub Advisory 描述存在矛盾，本项目初步判断不受影响，建议人工二次核实。</li>
+      </ol>
+    </div>
+
+    <div class="card reveal" style="margin-top:16px;background:var(--card-soft)">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">附录 · 审计依据</div>
+      <div style="font-size:13px;color:var(--ink-soft);line-height:1.8">
+        <b>方法</b>：三层分析法（面/线/点）+ Source→Sink 污点追踪 + 攻击链组合分析<br>
+        <b>维度框架</b>：D1-D10 十维安全模型 + 三轨模型（Sink-driven / Control-driven / Config-driven）<br>
+        <b>供应链数据源</b>：NVD、Spring 官方安全公告、GitHub Advisory、Debian Security Tracker、FasterXML Jackson Releases<br>
+        <b>原则</b>：所有漏洞均附代码路径证据链；供应链 CVE 均核实实际利用条件，版本受影响但利用条件不满足的已标注。
+      </div>
+    </div>
+  </section>
+
+  </main>
+</div>
+</div>
+
+<footer>
+  <div class="ver">代码安全审计报告 · v1.0</div>
+  <div style="margin-top:4px">ms-reminder + sms-tool · Deep 模式 · 2026-07-24</div>
+  <div style="margin-top:8px;color:var(--ink-muted)">本报告由静态代码分析 + 配置/日志取证生成，所有发现均附 Source→Sink 证据链</div>
+</footer>
+
+<script>
+  // 折叠
+  function toggleFind(head){
+    const f=head.closest('.finding');
+    f.classList.toggle('open');
+  }
+
+  // 滚动淡入
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // 数字计数动画
+  const numIo=new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el=e.target;
+      const target=parseInt(el.dataset.count,10);
+      if(isNaN(target)){ numIo.unobserve(el); return; }
+      const dur=1100; const start=performance.now();
+      function tick(now){
+        const p=Math.min(1,(now-start)/dur);
+        const eased=1-Math.pow(1-p,3);
+        el.textContent=Math.round(target*eased);
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      numIo.unobserve(el);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>numIo.observe(el));
+
+  // CVSS 进度条动画
+  const barIo=new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const f=e.target;
+      requestAnimationFrame(()=>{ f.style.width=(f.dataset.w||0)+'%'; });
+      barIo.unobserve(f);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.cvss-fill').forEach(el=>barIo.observe(el));
+
+  // 环形图描边动画
+  const ringIo=new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      e.target.style.transition='stroke-dashoffset 1.4s ease';
+      // 触发重绘
+      const cur=e.target.getAttribute('stroke-dashoffset');
+      e.target.setAttribute('stroke-dashoffset',cur);
+      ringIo.unobserve(e.target);
+    });
+  },{threshold:.4});
+  document.querySelectorAll('.ring').forEach(el=>ringIo.observe(el));
+
+  // TOC 高亮
+  const links=[...document.querySelectorAll('nav.toc a')];
+  const map={};
+  links.forEach(a=>{ const id=a.getAttribute('href').slice(1); const s=document.getElementById(id); if(s) map[id]=a; });
+  const tocIo=new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(a=>a.classList.remove('active'));
+        const a=map[e.target.id];
+        if(a){
+          a.classList.add('active');
+          if(a.classList.contains('sub')){
+            // 同时高亮父项
+            const parent=Object.values(map).find(x=>x.getAttribute('href')==='#findings');
+          }
+        }
+      }
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  Object.keys(map).forEach(id=>{ const s=document.getElementById(id); if(s) tocIo.observe(s); });
+
+  // ---------- 架构图点击放大 ----------
+  const archWrap=document.querySelector('.arch-svg-wrap');
+  const archSvg=document.querySelector('.arch-svg');
+  if(archWrap&&archSvg){
+    // 创建 lightbox
+    const lb=document.createElement('div');
+    lb.className='lightbox';
+    lb.innerHTML='<button class="lightbox-close" aria-label="关闭">✕</button><div class="lightbox-content"></div>';
+    document.body.appendChild(lb);
+    const lbContent=lb.querySelector('.lightbox-content');
+
+    function openLightbox(){
+      // 克隆 SVG 到 lightbox
+      const clone=archSvg.cloneNode(true);
+      clone.removeAttribute('class');
+      clone.style.minWidth='auto';
+      clone.style.width='auto';
+      clone.style.height='90vh';
+      clone.style.maxHeight='90vh';
+      clone.style.maxWidth='95vw';
+      lbContent.innerHTML='';
+      lbContent.appendChild(clone);
+      lb.classList.add('active');
+      document.body.style.overflow='hidden';
+    }
+    function closeLightbox(){
+      lb.classList.remove('active');
+      document.body.style.overflow='';
+    }
+    archWrap.addEventListener('click',openLightbox);
+    lb.addEventListener('click',(e)=>{
+      if(e.target===lb||e.target.classList.contains('lightbox-close')){
+        closeLightbox();
+      }
+    });
+    document.addEventListener('keydown',(e)=>{
+      if(e.key==='Escape'&&lb.classList.contains('active')) closeLightbox();
+    });
+  }
+</script>
+</body>
+</html>

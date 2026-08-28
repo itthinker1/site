@@ -368,6 +368,10 @@
                 --card-tint: rgba(176, 58, 46, 0.12);
                 --card-accent: #b03a2e;
             }
+            .project[data-key="sms"] {
+                --card-tint: rgba(58, 107, 101, 0.12);
+                --card-accent: #3a6b65;
+            }
 
             /* —— 页脚 —— */
             footer {
@@ -426,6 +430,9 @@
             }
             .project.fade-in:nth-of-type(5) {
                 animation-delay: 0.58s;
+            }
+            .project.fade-in:nth-of-type(6) {
+                animation-delay: 0.68s;
             }
 
             /* —— 响应式 —— */
@@ -721,6 +728,50 @@
                             </svg>
                         </span>
                         <b>cli-game</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a
+                class="project fade-in"
+                data-key="sms"
+                href="./sms/security-audit-report.html"
+            >
+                <div class="head">
+                    <span class="num">06</span>
+                    <span class="tag">Report · Security</span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>安全审计</em> · 报告</div>
+                    <div class="desc">
+                        ms-reminder + sms-tool 代码安全审计报告，风险项与修复建议一册在手。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>sms</b>
                     </span>
                     <span class="arrow">→</span>
                 </div>

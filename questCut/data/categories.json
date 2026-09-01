@@ -23,7 +23,8 @@
         { "id": "u5", "name": "Unit 5" },
         { "id": "u6", "name": "Unit 6" },
         { "id": "u7", "name": "Unit 7" },
-        { "id": "u8", "name": "Unit 8" }
+        { "id": "u8", "name": "Unit 8" },
+        { "id": "all", "name": "全册合集" }
       ]
     },
     {

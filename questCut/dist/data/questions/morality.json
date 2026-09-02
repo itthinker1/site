@@ -1,0 +1,2754 @@
+{
+  "categoryId": "morality",
+  "questions": [
+    {
+      "id": "morality-q001",
+      "categoryId": "morality",
+      "text": "自尊的内涵不包括以下哪一项？",
+      "options": [
+        "自尊是一种良好的心理状态，是一个人德行的具体表现",
+        "自尊是对自我价值的肯定，包括自我尊重和赢得他人的尊重",
+        "自尊是对他人评价的完全接受，不加分辨地迎合他人"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q002",
+      "categoryId": "morality",
+      "text": "关于自尊的重要性，以下说法正确的是？",
+      "options": [
+        "拥有自尊，我们不断肯定自己，行己有耻，不被虚荣迷惑，持续提升自己",
+        "拥有自尊可以让我们获得所有人的喜欢",
+        "自尊的重要性主要体现在可以让人获得更高的社会地位"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q003",
+      "categoryId": "morality",
+      "text": "自尊的人的表现（特质）不包括？",
+      "options": [
+        "自尊的人能认可自己",
+        "自尊的人知廉耻、明是非",
+        "自尊的人追求外在荣耀，在意他人评价"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q004",
+      "categoryId": "morality",
+      "text": "自尊的人知廉耻、明是非，以下描述正确的是？",
+      "options": [
+        "自尊的人会对自己不恰当、不合适的行为感到惭愧和难为情，做到行己有耻",
+        "自尊的人从不在意自己的行为是否恰当",
+        "自尊的人只关注自己的感受，不关心是非对错"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q005",
+      "categoryId": "morality",
+      "text": "自尊的人不爱慕虚荣，以下理解正确的是？",
+      "options": [
+        "自尊的人不为名利所惑，不过分追求表面上的荣耀",
+        "自尊的人不需要他人的认可和尊重",
+        "自尊的人完全不在意自己的外在形象"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q006",
+      "categoryId": "morality",
+      "text": "如何维护自己的人格尊严？以下做法正确的是？",
+      "options": [
+        "我们要恪守为人之德，坚持人格独立，不做有损人格的事",
+        "面对他人的侮辱和诋毁，应当默默忍受",
+        "面对他人的议论或批评，应当立即反驳"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q007",
+      "categoryId": "morality",
+      "text": "面对他人的议论或批评，自尊的人应有的心态是？",
+      "options": [
+        "有平和、豁达的心态，做到“有则改之，无则加勉”",
+        "完全不在意他人的任何评价",
+        "立即反击，维护自己的面子"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q008",
+      "categoryId": "morality",
+      "text": "面对他人的侮辱和诋毁，正确的做法是？",
+      "options": [
+        "应当予以回击，必要时运用法律武器保护自己",
+        "默默忍受，避免冲突",
+        "以同样的方式侮辱对方"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q009",
+      "categoryId": "morality",
+      "text": "学会尊重他人的原因是什么？",
+      "options": [
+        "人都有自尊的需要，尊重他人，才可能赢得他人的尊重",
+        "尊重他人可以让自己显得有教养",
+        "尊重他人是社会强加的要求"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q010",
+      "categoryId": "morality",
+      "text": "尊重他人的做法包括？",
+      "options": [
+        "尊重他人的隐私和人格，不取笑、歧视他人，更不能侮辱他人",
+        "对他人的所有行为都表示赞同",
+        "只尊重比自己地位高的人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q011",
+      "categoryId": "morality",
+      "text": "自信的内涵是什么？",
+      "options": [
+        "自信就是相信自己，是一个人对自身能力的肯定，是一个人自身能力的彰显",
+        "自信就是认为自己什么都比别人强",
+        "自信就是完全不在意他人的看法"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q012",
+      "categoryId": "morality",
+      "text": "自信的作用不包括以下哪一项？",
+      "options": [
+        "自信让人乐观坚定",
+        "自信让人远离自负与自卑",
+        "自信让人永远不犯错误"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q013",
+      "categoryId": "morality",
+      "text": "自信可以帮助我们？",
+      "options": [
+        "直面困难，从容迎接挑战",
+        "避免所有困难",
+        "不需要努力就能成功"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q014",
+      "categoryId": "morality",
+      "text": "自负的表现是什么？",
+      "options": [
+        "过高地估计自己，自以为是，好高骛远",
+        "轻视自己，认为自己不如别人",
+        "能够实事求是地看待自己"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q015",
+      "categoryId": "morality",
+      "text": "自卑的表现是什么？",
+      "options": [
+        "轻视自己，认为自己不如别人，低估自己的能力，不敢尝试",
+        "过高地估计自己，自以为是",
+        "能够实事求是地看待自己，从容应对问题"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q016",
+      "categoryId": "morality",
+      "text": "自信的表现是什么？",
+      "options": [
+        "能够实事求是地看待自己，坦然面对真实的自己，从容应对学习和生活中的问题",
+        "过高地估计自己，好高骛远",
+        "轻视自己，不敢尝试"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q017",
+      "categoryId": "morality",
+      "text": "自信的来源不包括？",
+      "options": [
+        "源于我们在成长过程中积累的实力",
+        "源于在和他人交往中获得的肯定",
+        "源于天生的性格"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q018",
+      "categoryId": "morality",
+      "text": "自信源于从社会稳定发展、国家繁荣富强中获得的什么？",
+      "options": [
+        "安全感、成就感和自豪感",
+        "物质财富",
+        "社会地位"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q019",
+      "categoryId": "morality",
+      "text": "如何做自信的人？以下做法正确的是？",
+      "options": [
+        "找准定位，扬长避短",
+        "只关注自己的优点，忽视不足",
+        "完全模仿他人的做法"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q020",
+      "categoryId": "morality",
+      "text": "做自信的人，在专注当下、积极行动方面，以下做法正确的是？",
+      "options": [
+        "明确目标，从当下开始，心无旁骛，全力以赴，不惧失败",
+        "等待完美的时机再开始行动",
+        "同时做很多事情，分散精力"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q021",
+      "categoryId": "morality",
+      "text": "做自信的人，在勇于探索、增强底气方面，以下做法正确的是？",
+      "options": [
+        "有直面挑战的勇气，紧跟时代步伐，大胆应对新问题",
+        "只做自己擅长的事情，避免挑战",
+        "等待别人帮助解决问题"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q022",
+      "categoryId": "morality",
+      "text": "收获自信的方法不包括？",
+      "options": [
+        "关注自己的优点",
+        "给自己确定恰当的目标",
+        "给自己消极的心理暗示"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q023",
+      "categoryId": "morality",
+      "text": "自强的内涵是什么？",
+      "options": [
+        "自强是自我勉励、发愤图强，是一种奋发进取的精神状态",
+        "自强是依靠他人帮助取得成功",
+        "自强是与生俱来的品质，不需要后天培养"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q024",
+      "categoryId": "morality",
+      "text": "自强的重要性不包括以下哪一项？",
+      "options": [
+        "自强，使人自主自立",
+        "自强，使人奋发向上",
+        "自强，让人不需要与他人合作"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q025",
+      "categoryId": "morality",
+      "text": "自强不息与中华民族的关系是什么？",
+      "options": [
+        "自强不息是中华民族几千年文化传承和社会实践沉淀出的优良传统",
+        "自强不息是近代才提出的概念",
+        "自强不息只与个人有关，与民族无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q026",
+      "categoryId": "morality",
+      "text": "如何做自强不息的中国人？以下做法不正确的是？",
+      "options": [
+        "树立远大理想，把个人命运与祖国发展结合起来",
+        "求得真学问，练就真本领",
+        "只需树立理想，不需要实际努力"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q027",
+      "categoryId": "morality",
+      "text": "做自强不息的中国人，在苦干实干方面，以下理解正确的是？",
+      "options": [
+        "每一项事业，不论大小，都是靠脚踏实地一点一滴干出来的",
+        "只要有大目标，小事情可以忽略",
+        "做事只需依靠别人，不需要自己努力"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q028",
+      "categoryId": "morality",
+      "text": "青春期生理变化主要表现在哪些方面？",
+      "options": [
+        "身体外形的变化、体内机能的增强、性的发育和成熟",
+        "认知能力的提高、自我意识的增强",
+        "独立与依赖的矛盾心理"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q029",
+      "categoryId": "morality",
+      "text": "如何应对青春期的生理变化？",
+      "options": [
+        "既不因自己的生理变化而焦虑或自卑，也不嘲弄他人的生理变化",
+        "尽量隐藏自己的生理变化",
+        "过度关注自己的外表变化"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q030",
+      "categoryId": "morality",
+      "text": "青春期的心理变化不包括？",
+      "options": [
+        "认知能力得到提高",
+        "自我意识不断增强",
+        "身体外形的变化"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q031",
+      "categoryId": "morality",
+      "text": "青春期矛盾心理的表现包括？",
+      "options": [
+        "独立与依赖、闭锁与开放、勇敢与怯懦",
+        "自信与自负、自尊与自卑",
+        "积极与消极、乐观与悲观"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q032",
+      "categoryId": "morality",
+      "text": "如何积极面对青春期心理矛盾和困惑？",
+      "options": [
+        "参加集体活动，在集体的温暖中接纳和调整自己",
+        "独自承受，不向任何人求助",
+        "完全忽视心理变化"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q033",
+      "categoryId": "morality",
+      "text": "男生女生的差异主要表现在哪些方面？",
+      "options": [
+        "生理差异、性格特征、兴趣爱好、思维方式",
+        "只有生理差异",
+        "只有兴趣爱好差异"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q034",
+      "categoryId": "morality",
+      "text": "与异性交往的积极作用不包括？",
+      "options": [
+        "增进对异性的了解，消除神秘感",
+        "可以扩大交往范围，提高交往能力",
+        "可以让异性帮自己完成所有事情"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q035",
+      "categoryId": "morality",
+      "text": "如何与异性交往？",
+      "options": [
+        "与异性交往要把握好尺度，注意交往的方式、场合、时间和频率",
+        "与异性交往不需要注意分寸",
+        "青春期应该完全避免与异性交往"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q036",
+      "categoryId": "morality",
+      "text": "关于青春期朦胧情感，以下认识正确的是？",
+      "options": [
+        "真正的爱情不仅意味着热烈的情感、彼此的欣赏和尊重，而且需要责任、能力和担当",
+        "青春期萌发对异性的朦胧情感就是爱情",
+        "青春期不应该有任何对异性的好感"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q037",
+      "categoryId": "morality",
+      "text": "面对生活中可能出现的朦胧情感，正确的态度是？",
+      "options": [
+        "应该慎重对待，理智处理",
+        "立即表白追求",
+        "完全压抑自己的情感"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q038",
+      "categoryId": "morality",
+      "text": "学会自我保护的做法不包括？",
+      "options": [
+        "通过正规途径获取性知识",
+        "增强自我保护意识，提高预防和应对性骚扰、性侵害的能力",
+        "遇到危险时独自应对，不寻求帮助"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q039",
+      "categoryId": "morality",
+      "text": "自我保护中，预防和应对性骚扰、性侵害的具体做法不包括？",
+      "options": [
+        "保护身体的隐私部位",
+        "拒绝黄色笑话",
+        "对任何接触都保持无所谓的态度"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q040",
+      "categoryId": "morality",
+      "text": "情绪的含义是什么？",
+      "options": [
+        "情绪是人的内心世界的重要组成部分，是我们的主观体验",
+        "情绪只是生理反应，与心理无关",
+        "情绪只有积极和消极两种类型"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q041",
+      "categoryId": "morality",
+      "text": "基本情绪包括哪些？",
+      "options": [
+        "喜、怒、哀、惧",
+        "自豪、感激、焦虑",
+        "安全感、归属感、道德感"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q042",
+      "categoryId": "morality",
+      "text": "青少年情绪的特点不包括？",
+      "options": [
+        "情绪细腻",
+        "情绪反应强烈",
+        "情绪完全稳定不变"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q043",
+      "categoryId": "morality",
+      "text": "关于情绪的作用，以下说法正确的是？",
+      "options": [
+        "快乐、自豪、满足等积极情绪可以提高人的积极性和活动能力",
+        "消极情绪没有任何积极作用",
+        "情绪对人的行为没有影响"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q044",
+      "categoryId": "morality",
+      "text": "消极情绪在什么条件下可能有积极作用？",
+      "options": [
+        "适度的焦虑情绪可以把压力转化为动力",
+        "任何时候消极情绪都只有负面作用",
+        "消极情绪越强烈越好"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q045",
+      "categoryId": "morality",
+      "text": "影响情绪的因素不包括？",
+      "options": [
+        "外部环境",
+        "生活事件",
+        "个人的身高体重"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q046",
+      "categoryId": "morality",
+      "text": "为什么要学会管理情绪？",
+      "options": [
+        "管理好情绪，做自己情绪的主人，对我们一生的发展具有重要意义",
+        "情绪完全不可管理",
+        "管理情绪意味着压抑所有情绪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q047",
+      "categoryId": "morality",
+      "text": "如何管理好自己的情绪？以下做法不正确的是？",
+      "options": [
+        "学会认识自己的情绪",
+        "学会调节情绪",
+        "完全压抑情绪，不表达出来"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q048",
+      "categoryId": "morality",
+      "text": "调节情绪的方法不包括？",
+      "options": [
+        "注意转移法",
+        "合理宣泄法",
+        "情绪压抑法"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q049",
+      "categoryId": "morality",
+      "text": "以下属于注意转移法调节情绪的是？",
+      "options": [
+        "通过做自己平时感兴趣的事转移注意，如外出散步",
+        "运动、唱歌或绘画",
+        "运用自我安慰、积极的自我暗示"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q050",
+      "categoryId": "morality",
+      "text": "以下属于合理宣泄法调节情绪的是？",
+      "options": [
+        "运动、唱歌或绘画，向信任的人倾诉",
+        "通过做自己平时感兴趣的事转移注意",
+        "采用腹式呼吸法让自己放松"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q051",
+      "categoryId": "morality",
+      "text": "以下属于认知调节法的是？",
+      "options": [
+        "运用自我安慰、积极的自我暗示、心理换位、情感升华等方法",
+        "运动、唱歌或绘画",
+        "采用腹式呼吸法，调整呼吸频率"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q052",
+      "categoryId": "morality",
+      "text": "以下属于放松训练法的是？",
+      "options": [
+        "采用腹式呼吸法，运用呼吸放松法、肌肉放松法让自己放松",
+        "向信任的人倾诉",
+        "做自己感兴趣的事转移注意"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q053",
+      "categoryId": "morality",
+      "text": "合理表达情绪的原因是什么？",
+      "options": [
+        "人的情绪会相互感染，一个人的情绪很容易影响周围的人",
+        "表达情绪没有限制",
+        "情绪表达不需要考虑他人感受"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q054",
+      "categoryId": "morality",
+      "text": "情感的含义是什么？",
+      "options": [
+        "情感是比情绪更为深刻、稳定的内心体验，是人基本的精神需求",
+        "情感与情绪完全相同",
+        "情感只包括积极的情感"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q055",
+      "categoryId": "morality",
+      "text": "情感的作用不包括？",
+      "options": [
+        "情感反映着我们对人对事的态度、观念，影响我们的判断和选择",
+        "情感能提升我们的想象力、创造力",
+        "情感对人的行为没有任何影响"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q056",
+      "categoryId": "morality",
+      "text": "情感的作用包括？",
+      "options": [
+        "情感的发展体现我们的生命成长，使我们的情怀更宽广、博大",
+        "情感只会让人变得脆弱",
+        "情感对学习没有帮助"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q057",
+      "categoryId": "morality",
+      "text": "如何获得积极情感体验？",
+      "options": [
+        "与人交往、积极参与有意义的社会活动、用热情和行动影响周围的环境",
+        "只关注自己的感受，不与他人交往",
+        "消极等待情感的自动产生"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q058",
+      "categoryId": "morality",
+      "text": "关于消极情感，以下说法正确的是？",
+      "options": [
+        "体验消极情感未必是坏事，学会转化消极情感，可以让我们不断成长",
+        "消极情感必须完全避免",
+        "消极情感没有任何价值"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q059",
+      "categoryId": "morality",
+      "text": "如何品味美好情感？",
+      "options": [
+        "我们要在实践中提升情感境界，做好小事、管好小节",
+        "只需要关注积极情感，忽视消极情感",
+        "情感无法通过实践提升"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q060",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的重要性是什么？",
+      "options": [
+        "中华优秀传统文化包含着中华民族最根本的精神基因",
+        "中华优秀传统文化已经过时",
+        "中华优秀传统文化只对古代有意义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q061",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的特点是什么？",
+      "options": [
+        "源远流长、博大精深、历久弥新",
+        "简单朴素、单一纯粹",
+        "近代才形成、受西方影响大"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q062",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的主要内容是什么？",
+      "options": [
+        "传承核心思想理念、弘扬中华人文精神、践行中华传统美德",
+        "只学习古代经典著作",
+        "只保留传统节日习俗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q063",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的思想理念的地位和作用不包括？",
+      "options": [
+        "是解读中华民族历史发展的重要密码",
+        "潜移默化地影响着中国人的思维方式和行为方式",
+        "对现代生活没有任何参考价值"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q064",
+      "categoryId": "morality",
+      "text": "“道法自然、天人合一”的思想主张什么？",
+      "options": [
+        "尊重、顺应大自然运行的规律，与天地万物和谐共生",
+        "人类可以随意改造自然",
+        "人与自然是对立的关系"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q065",
+      "categoryId": "morality",
+      "text": "“脚踏实地、实事求是”的思想倡导什么？",
+      "options": [
+        "从每个人所处的环境、条件出发，既怀抱梦想，又关注现实，在实践中探求真知",
+        "只追求梦想，不考虑现实",
+        "只看现实，放弃梦想"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q066",
+      "categoryId": "morality",
+      "text": "“革故鼎新、与时俱进”的思想强调什么？",
+      "options": [
+        "人类的一切活动都要顺应时代发展潮流，不断创造与创新",
+        "完全抛弃传统，只追求新事物",
+        "固守旧有做法，拒绝改变"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q067",
+      "categoryId": "morality",
+      "text": "“惠民利民、安民富民”的思想主张什么？",
+      "options": [
+        "社会发展必须惠及人民，满足人民实际的利益需求，让人民过上安定富足的生活",
+        "只关注国家发展，不关注民众生活",
+        "发展经济可以不考虑人民利益"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q068",
+      "categoryId": "morality",
+      "text": "与“道法自然、天人合一”对应的名言是？",
+      "options": [
+        "“天地与我并生，而万物与我为一”",
+        "“纸上得来终觉浅，绝知此事要躬行”",
+        "“穷则变，变则通，通则久”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q069",
+      "categoryId": "morality",
+      "text": "与“脚踏实地、实事求是”对应的名言是？",
+      "options": [
+        "“纸上得来终觉浅，绝知此事要躬行”",
+        "“治国有常，而利民为本”",
+        "“天地与我并生，而万物与我为一”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q070",
+      "categoryId": "morality",
+      "text": "与“革故鼎新、与时俱进”对应的名言是？",
+      "options": [
+        "“穷则变，变则通，通则久”",
+        "“治国有常，而利民为本”",
+        "“纸上得来终觉浅，绝知此事要躬行”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q071",
+      "categoryId": "morality",
+      "text": "与“惠民利民、安民富民”对应的名言是？",
+      "options": [
+        "“治国有常，而利民为本”",
+        "“穷则变，变则通，通则久”",
+        "“天地与我并生，而万物与我为一”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q072",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的核心思想理念包括哪些？",
+      "options": [
+        "讲仁爱、重民本、守诚信、崇正义、尚和合、求大同",
+        "自由、平等、博爱、民主",
+        "仁义礼智信、温良恭俭让"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q073",
+      "categoryId": "morality",
+      "text": "“讲仁爱”的要求不包括？",
+      "options": [
+        "爱自己的亲人，爱全社会的人，爱天地万物",
+        "关爱亲人，友善待人，爱惜万物",
+        "只爱自己的家人，不关心他人"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q074",
+      "categoryId": "morality",
+      "text": "“重民本”的原因是什么？",
+      "options": [
+        "赢得人民的支持，国家才能长治久安",
+        "人民是国家的主人",
+        "民本思想已经过时"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q075",
+      "categoryId": "morality",
+      "text": "“守诚信”的要求是什么？",
+      "options": [
+        "做到真实无欺、言行一致，树立诚信意识，做诚实守信的人",
+        "在必要时可以适当说谎",
+        "诚信只对重要的事情才需要"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q076",
+      "categoryId": "morality",
+      "text": "“崇正义”的原因是什么？",
+      "options": [
+        "弘扬社会正气，崇尚社会正义，维护国家和社会公共利益，坚守民族大义",
+        "正义只与法律有关",
+        "个人利益永远高于道义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q077",
+      "categoryId": "morality",
+      "text": "“崇正义”的要求是什么？",
+      "options": [
+        "在面对个人利益选择时，应当将道义置于优先位置，让言行合乎道义",
+        "个人利益优先于一切",
+        "道义只适用于特定场合"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q078",
+      "categoryId": "morality",
+      "text": "“尚和合”的原因是什么？",
+      "options": [
+        "只有多样性的东西相互作用并努力达到平衡，事物才能生生不息，发展壮大",
+        "完全相同的东西才能产生最好的结果",
+        "和谐意味着消除所有差异"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q079",
+      "categoryId": "morality",
+      "text": "“尚和合”的要求是什么？",
+      "options": [
+        "追求和谐，强调多样性统一，正确看待差异与矛盾",
+        "消除所有差异，追求完全一致",
+        "只关注自己的利益"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q080",
+      "categoryId": "morality",
+      "text": "“求大同”的要求是什么？",
+      "options": [
+        "胸怀天下，将天下视作天下人的天下，追求美好的理想社会",
+        "只关注本国的利益",
+        "追求个人利益最大化"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q081",
+      "categoryId": "morality",
+      "text": "与“讲仁爱”对应的名言是？",
+      "options": [
+        "“民吾同胞，物吾与也”",
+        "“民惟邦本，本固邦宁”",
+        "“人而无信，不知其可也”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q082",
+      "categoryId": "morality",
+      "text": "与“重民本”对应的名言是？",
+      "options": [
+        "“民惟邦本，本固邦宁”",
+        "“大道之行也，天下为公”",
+        "“人而无信，不知其可也”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q083",
+      "categoryId": "morality",
+      "text": "与“守诚信”对应的名言是？",
+      "options": [
+        "“人而无信，不知其可也”",
+        "“民惟邦本，本固邦宁”",
+        "“大道之行也，天下为公”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q084",
+      "categoryId": "morality",
+      "text": "与“尚和合”对应的名言是？",
+      "options": [
+        "“和实生物，同则不继”",
+        "“大道之行也，天下为公”",
+        "“人而无信，不知其可也”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q085",
+      "categoryId": "morality",
+      "text": "与“求大同”对应的名言是？",
+      "options": [
+        "“大道之行也，天下为公”",
+        "“民惟邦本，本固邦宁”",
+        "“和实生物，同则不继”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q086",
+      "categoryId": "morality",
+      "text": "与“崇正义”对应的名言是？",
+      "options": [
+        "“鱼与熊掌不可得兼，舍生而取义者也”",
+        "“大道之行也，天下为公”",
+        "“民惟邦本，本固邦宁”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q087",
+      "categoryId": "morality",
+      "text": "如何弘扬中华人文精神？",
+      "options": [
+        "弘扬促进社会和谐、向上向善的思想文化",
+        "只学习古代经典著作",
+        "只关注个人修养，不关心社会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q088",
+      "categoryId": "morality",
+      "text": "弘扬促进社会和谐的思想文化，要求我们？",
+      "options": [
+        "正确运用求同存异、和而不同的方法，为促进社会和谐贡献力量",
+        "消除所有不同意见",
+        "只关注自己的利益"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q089",
+      "categoryId": "morality",
+      "text": "弘扬向上向善的思想文化，要求我们？",
+      "options": [
+        "积极进取，向着更高更远的目标努力奋进；爱人利人，择善而行",
+        "只追求个人利益",
+        "等待他人来帮助自己"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q090",
+      "categoryId": "morality",
+      "text": "中华传统美德的地位是什么？",
+      "options": [
+        "国无德不兴，人无德不立",
+        "德是可有可无的",
+        "传统美德已经过时"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q091",
+      "categoryId": "morality",
+      "text": "中华传统美德的作用不包括？",
+      "options": [
+        "体现着评判是非曲直的价值标准，潜移默化地影响着中国人的行为方式",
+        "是中华优秀传统文化的精髓，是中华民族走向未来的宝贵精神财富",
+        "是可有可无的历史遗产"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q092",
+      "categoryId": "morality",
+      "text": "中华传统美德有助于我们？",
+      "options": [
+        "明是非、辨善恶、知荣辱，解决生活中的各种困惑",
+        "获得更多物质财富",
+        "避免所有困难"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q093",
+      "categoryId": "morality",
+      "text": "如何践行中华传统美德？以下做法不正确的是？",
+      "options": [
+        "做自强不息的人",
+        "做敬业乐群的人",
+        "只关注自己的利益，不帮助他人"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q094",
+      "categoryId": "morality",
+      "text": "做自强不息的人的原因是什么？",
+      "options": [
+        "自强不息是中华民族历经磨难而不倒的精神动力",
+        "自强不息可以获得更多财富",
+        "自强不息是法律规定的义务"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q095",
+      "categoryId": "morality",
+      "text": "做敬业乐群的人的原因是什么？",
+      "options": [
+        "只有敬业乐群，才能成就事业，实现人生价值",
+        "敬业乐群可以获得更多报酬",
+        "敬业乐群是强制的社会规范"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q096",
+      "categoryId": "morality",
+      "text": "做扶危济困的人，以下做法正确的是？",
+      "options": [
+        "当他人身处困境时，我们应当主动伸出援助之手",
+        "只在对自己有利时才帮助他人",
+        "扶危济困是别人的事，与自己无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q097",
+      "categoryId": "morality",
+      "text": "做见义勇为的人，以下做法正确的是？",
+      "options": [
+        "当国家利益和社会公共利益受到侵害时，敢于挺身而出，运用智慧和力量维护",
+        "见义勇为意味着不顾一切冒险",
+        "只在有人看到时才见义勇为"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q098",
+      "categoryId": "morality",
+      "text": "做孝老爱亲的人，以下理解正确的是？",
+      "options": [
+        "“百善孝为先”，“孝”的本质是“爱”和“敬”",
+        "孝敬老人只是形式上的要求",
+        "孝敬老人只是成年人的责任"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q099",
+      "categoryId": "morality",
+      "text": "传承中华传统美德的关键在于？",
+      "options": [
+        "践行——讲道德、尊道德、守道德",
+        "背诵道德规范",
+        "只学习道德理论"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q100",
+      "categoryId": "morality",
+      "text": "中华文明的突出特性包括？",
+      "options": [
+        "连续性、创新性、统一性、包容性、和平性",
+        "排他性、封闭性、保守性",
+        "单一性、传统性、地域性"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q101",
+      "categoryId": "morality",
+      "text": "以下中华美德故事与对应品质匹配正确的是？",
+      "options": [
+        "负荆请罪——顾全大局",
+        "闻鸡起舞——谦让",
+        "孔融让梨——立志报国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q102",
+      "categoryId": "morality",
+      "text": "以下中华美德故事与对应品质匹配正确的是？",
+      "options": [
+        "精忠报国——爱国",
+        "程门立雪——孝悌",
+        "黄香温席——尊师重道"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q103",
+      "categoryId": "morality",
+      "text": "如何做到严于律己，远离违法犯罪？以下做法不正确的是？",
+      "options": [
+        "认清犯罪危害，增强法治观念",
+        "明辨是非，杜绝不良行为",
+        "认为自己年龄小，与违法犯罪无关"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q104",
+      "categoryId": "morality",
+      "text": "关于违法与犯罪的关系，以下说法正确的是？",
+      "options": [
+        "很多犯罪是从不良行为到违法行为、再到犯罪的变化轨迹",
+        "违法行为和犯罪之间没有关系",
+        "不良行为不会导致违法行为"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q105",
+      "categoryId": "morality",
+      "text": "下列属于民事违法行为的是？",
+      "options": [
+        "欠钱不还、侵犯肖像权",
+        "闯红灯、违停",
+        "故意杀人、抢劫"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q106",
+      "categoryId": "morality",
+      "text": "下列属于行政违法行为的是？",
+      "options": [
+        "交通违法如闯红灯、违停",
+        "欠钱不还",
+        "故意杀人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q107",
+      "categoryId": "morality",
+      "text": "下列属于刑事违法行为（犯罪）的是？",
+      "options": [
+        "故意杀人、抢劫",
+        "闯红灯",
+        "合同违约行为"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q108",
+      "categoryId": "morality",
+      "text": "对社会的危害程度，民事违法行为和行政违法行为属于？",
+      "options": [
+        "相对轻微",
+        "严重",
+        "没有危害"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q109",
+      "categoryId": "morality",
+      "text": "犯罪对社会的危害程度属于？",
+      "options": [
+        "严重",
+        "相对轻微",
+        "没有危害"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q110",
+      "categoryId": "morality",
+      "text": "民事违法行为承担的法律责任是？",
+      "options": [
+        "民事责任，如停止侵害、返还财产、赔偿损失等",
+        "行政处罚，如警告、罚款、行政拘留等",
+        "刑罚处罚，如有期徒刑、无期徒刑等"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q111",
+      "categoryId": "morality",
+      "text": "行政违法行为承担的法律责任是？",
+      "options": [
+        "行政责任，包括行政处分和行政处罚",
+        "民事责任，如赔偿损失",
+        "刑事责任，如主刑和附加刑"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q112",
+      "categoryId": "morality",
+      "text": "犯罪承担的法律责任是？",
+      "options": [
+        "刑事责任（刑罚处罚），包括主刑和附加刑",
+        "民事责任",
+        "行政责任"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q113",
+      "categoryId": "morality",
+      "text": "下列属于主刑的是？",
+      "options": [
+        "管制、拘役、有期徒刑、无期徒刑、死刑",
+        "罚金、剥夺政治权利、没收财产",
+        "警告、罚款、行政拘留"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q114",
+      "categoryId": "morality",
+      "text": "下列属于附加刑的是？",
+      "options": [
+        "罚金、剥夺政治权利、没收财产、驱逐出境",
+        "管制、拘役、有期徒刑",
+        "警告、记过、降级"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q115",
+      "categoryId": "morality",
+      "text": "一般违法行为与犯罪之间的联系是什么？",
+      "options": [
+        "二者没有不可逾越的鸿沟，有一般违法行为的人如不及时改正，发展下去就可能走向犯罪",
+        "二者完全没有关系",
+        "一般违法行为一定会变成犯罪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q116",
+      "categoryId": "morality",
+      "text": "法律保护财产权，以下说法正确的是？",
+      "options": [
+        "切实保护合法财产的所有权，对于保障人们的正常生活、激励人们创造和积累财富具有重要意义",
+        "财产权只对富人重要",
+        "法律不保护个人财产"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q117",
+      "categoryId": "morality",
+      "text": "关于合同，以下说法正确的是？",
+      "options": [
+        "依法成立的合同受法律保护，遵循诚信原则、依法履行合同是合同当事人的义务",
+        "合同可以随意违反",
+        "合同只对一方有约束力"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q118",
+      "categoryId": "morality",
+      "text": "知识产权的种类包括？",
+      "options": [
+        "著作权、专利权、商标权",
+        "所有权、使用权、收益权",
+        "法定继承、遗嘱继承"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q119",
+      "categoryId": "morality",
+      "text": "保护知识产权的原因是什么？",
+      "options": [
+        "保护知识产权就是尊重劳动、保护创新",
+        "知识产权不重要",
+        "知识产权没有价值"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q120",
+      "categoryId": "morality",
+      "text": "在我国，继承的方式有？",
+      "options": [
+        "法定继承和遗嘱继承两种",
+        "只有法定继承一种",
+        "只有遗嘱继承一种"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q121",
+      "categoryId": "morality",
+      "text": "关于继承方式的法律效力，以下说法正确的是？",
+      "options": [
+        "遗嘱继承优先于法定继承",
+        "法定继承优先于遗嘱继承",
+        "两种继承方式效力相同"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q122",
+      "categoryId": "morality",
+      "text": "遗嘱继承的最大优点是什么？",
+      "options": [
+        "被继承人能够充分按照自己的意愿处分财产",
+        "程序简单方便",
+        "不需要法律约束"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q123",
+      "categoryId": "morality",
+      "text": "学习民法典的原因是什么？",
+      "options": [
+        "民法典既是保护自身权益的法典，也是全体社会成员都必须遵循的规范",
+        "民法典只对法律专业人士重要",
+        "民法典与普通人无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q124",
+      "categoryId": "morality",
+      "text": "为什么要不断完善中国特色社会主义法律体系？",
+      "options": [
+        "社会生活的发展无止境，法律体系的完善也无止境",
+        "法律体系已经完美，不需要完善",
+        "完善法律体系只是形式上的要求"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q125",
+      "categoryId": "morality",
+      "text": "保证法律实施的原因是什么？",
+      "options": [
+        "法律的生命力在于实施，法律的权威也在于实施",
+        "法律制定出来就会自动生效",
+        "法律实施不重要"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q126",
+      "categoryId": "morality",
+      "text": "法律的基本作用是什么？",
+      "options": [
+        "法律是调整社会关系、判断是非曲直、处理矛盾和纠纷的标尺",
+        "法律只是惩罚工具",
+        "法律的作用仅限于保护个人利益"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q127",
+      "categoryId": "morality",
+      "text": "法律如何维护社会秩序？",
+      "options": [
+        "通过规范全体社会成员的行为，实现社会的有序运行",
+        "只通过惩罚犯罪来维持秩序",
+        "法律无法维护社会秩序"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q128",
+      "categoryId": "morality",
+      "text": "法律如何保护社会公共利益？",
+      "options": [
+        "通过设定个人权利的界限，平衡个人利益与社会公共利益",
+        "只保护个人利益",
+        "不保护社会公共利益"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q129",
+      "categoryId": "morality",
+      "text": "法律如何促进社会发展？",
+      "options": [
+        "为促进各行业各领域事业发展提供方向指引和有力保障",
+        "法律阻碍社会发展",
+        "法律与社会发展无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q130",
+      "categoryId": "morality",
+      "text": "公民应如何维护法律的权威？",
+      "options": [
+        "崇尚法律、遵守法律、捍卫法律，让法治成为社会共识和基本准则",
+        "只在对自己有利时遵守法律",
+        "法律权威不需要公民维护"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q131",
+      "categoryId": "morality",
+      "text": "青春期生理变化的影响不包括？",
+      "options": [
+        "让我们感受到旺盛的生命力，让身体充满能量",
+        "我们精力充沛、思维敏捷，对成长充满渴望",
+        "让我们变得完美无缺"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q132",
+      "categoryId": "morality",
+      "text": "在应对青春期生理变化时，以下做法正确的是？",
+      "options": [
+        "在塑造身体、仪表等外在美的同时，更要注重品德和文化修养，提升内在美",
+        "只关注外在美",
+        "完全不关注自己的外表"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q133",
+      "categoryId": "morality",
+      "text": "男生女生交往的正确做法是？",
+      "options": [
+        "我们要相互学习、互相欣赏、取长补短，让自己变得更加优秀",
+        "男生女生不应该交往",
+        "男生女生交往不需要注意分寸"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q134",
+      "categoryId": "morality",
+      "text": "获取性知识的正规途径不包括？",
+      "options": [
+        "从课堂、教材、科普读物中了解",
+        "向父母、老师等咨询",
+        "从网络上的任何来源了解"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q135",
+      "categoryId": "morality",
+      "text": "关于学会管理情绪，以下说法正确的是？",
+      "options": [
+        "情绪是可以管理的，虽然情绪有时难以驾驭，但这并不意味着我们是情绪的奴隶",
+        "情绪完全无法管理",
+        "管理情绪就是压抑情绪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q136",
+      "categoryId": "morality",
+      "text": "在学会合理表达情绪方面，正确做法是？",
+      "options": [
+        "学会选择合适的场合、用合理的方式表达情绪，注意关照他人的感受",
+        "随时随地把情绪发泄出来",
+        "永远不表达自己的情绪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q137",
+      "categoryId": "morality",
+      "text": "学会在帮助他人、奉献社会中培养积极健康的情绪，这属于？",
+      "options": [
+        "管理情绪的方法之一",
+        "与情绪管理无关",
+        "只有消极情绪才需要管理"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q138",
+      "categoryId": "morality",
+      "text": "关于自尊的需要，以下说法正确的是？",
+      "options": [
+        "每个人都有自尊的需要，当这种需要得到满足时，我们便会感到快乐",
+        "只有成年人才有自尊的需要",
+        "自尊的需要对个人发展不重要"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q139",
+      "categoryId": "morality",
+      "text": "如何不断提升自己？",
+      "options": [
+        "在学习上努力充实自己，在生活中不断历练自己",
+        "只关注学习成绩",
+        "不需要刻意提升自己"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q140",
+      "categoryId": "morality",
+      "text": "尊重他人，就要接纳他人不同的个性和处世风格，尊重他人不同的生活习惯，珍视他人的什么？",
+      "options": [
+        "劳动和付出",
+        "财富和地位",
+        "外貌和穿着"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q141",
+      "categoryId": "morality",
+      "text": "做自信的中国人，我们要怀着对未来的憧憬，坚定什么？",
+      "options": [
+        "民族自信心",
+        "个人英雄主义",
+        "崇洋媚外思想"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q142",
+      "categoryId": "morality",
+      "text": "自强不仅关系个人的成长，而且关系什么？",
+      "options": [
+        "民族的命运和国家的未来",
+        "家庭的财富",
+        "个人的名誉"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q143",
+      "categoryId": "morality",
+      "text": "做自强不息的中国人，树立远大理想要求我们？",
+      "options": [
+        "把个人命运与祖国发展结合起来，找到青春进取的方向和力量",
+        "只关注个人利益",
+        "完全放弃个人理想"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q144",
+      "categoryId": "morality",
+      "text": "影响情绪的因素包括？",
+      "options": [
+        "外部环境、生活事件、个人的性格特点、对事物的观念和看法",
+        "只有外部环境",
+        "只有个人的性格特点"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q145",
+      "categoryId": "morality",
+      "text": "情感的类型不包括？",
+      "options": [
+        "基本需要的情感如安全感、归属感",
+        "高层次社会性需要的情感如道德感、荣誉感",
+        "只有喜怒哀乐四种基本情感"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q146",
+      "categoryId": "morality",
+      "text": "关于情感的特点，以下说法正确的是？",
+      "options": [
+        "情感是复杂多样的",
+        "情感只有积极和消极两种",
+        "情感是简单单一的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q147",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化为中华民族生生不息、发展壮大提供了什么？",
+      "options": [
+        "强大精神力量",
+        "物质财富基础",
+        "军事力量保障"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q148",
+      "categoryId": "morality",
+      "text": "对待中华优秀传统文化，正确的做法是？",
+      "options": [
+        "用它来滋养精神世界，坚定文化自信，实现精神上的独立自主",
+        "完全抛弃传统文化",
+        "全盘接受不加分辨"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q149",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的核心思想理念是如何形成的？",
+      "options": [
+        "在漫长的生产生活过程中逐渐凝结为具有主导性、根本性意义的核心思想理念",
+        "由某位圣人一次性提出的",
+        "是近代才形成的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q150",
+      "categoryId": "morality",
+      "text": "“讲仁爱”的原因是什么？",
+      "options": [
+        "涵养仁爱情怀，才能实现家庭和睦、社会祥和、人与万物和谐共处",
+        "仁爱是法律的要求",
+        "仁爱可以获得回报"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q151",
+      "categoryId": "morality",
+      "text": "弘扬中华人文精神，弘扬促进社会和谐的思想文化，中华民族推崇什么？",
+      "options": [
+        "“万物并育而不相害，道并行而不相悖”",
+        "“人定胜天”",
+        "“优胜劣汰”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q152",
+      "categoryId": "morality",
+      "text": "弘扬向上向善的思想文化，体现为什么？",
+      "options": [
+        "立己达人，兼善天下",
+        "独善其身",
+        "事不关己高高挂起"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q153",
+      "categoryId": "morality",
+      "text": "弘扬向上向善的思想文化，要求我们向榜样学习，勇担使命，久久为功，争做？",
+      "options": [
+        "向上向善的好少年",
+        "学习成绩最好的学生",
+        "最有名的人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q154",
+      "categoryId": "morality",
+      "text": "中华传统美德是中华优秀传统文化的什么？",
+      "options": [
+        "精髓",
+        "全部内容",
+        "不重要的部分"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q155",
+      "categoryId": "morality",
+      "text": "做自强不息的人，面对困难和挑战，我们应当？",
+      "options": [
+        "自立自强、刚健有为，以顽强的意志和不屈的精神，不断开辟人生的新天地",
+        "放弃努力，等待帮助",
+        "回避所有困难"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q156",
+      "categoryId": "morality",
+      "text": "做敬业乐群的人，对待学习和工作，我们要？",
+      "options": [
+        "专心致志，爱岗敬业，尽职尽责",
+        "应付了事",
+        "只做自己感兴趣的事"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q157",
+      "categoryId": "morality",
+      "text": "扶危济困美德集中体现的成语不包括？",
+      "options": [
+        "“仗义疏财”“雪中送炭”",
+        "“袖手旁观”"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "morality-q158",
+      "categoryId": "morality",
+      "text": "做见义勇为的人，体现为什么名言？",
+      "options": [
+        "“见义不为，无勇也”",
+        "“己所不欲，勿施于人”",
+        "“学而不思则罔”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q159",
+      "categoryId": "morality",
+      "text": "与“老吾老以及人之老，幼吾幼以及人之幼”相关的美德是？",
+      "options": [
+        "孝老爱亲",
+        "敬业乐群",
+        "见义勇为"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q160",
+      "categoryId": "morality",
+      "text": "关于爱护身体、自我保护，以下说法正确的是？",
+      "options": [
+        "我们应当自重自爱，言谈举止不越界，注意边界和规则",
+        "自我保护不重要",
+        "只有女生需要自我保护"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q161",
+      "categoryId": "morality",
+      "text": "自我保护中，面对性骚扰、性侵害，正确做法是？",
+      "options": [
+        "敢于和善于保护自己，学会辨别并抵制性骚扰、性侵害等行为",
+        "默默忍受",
+        "以暴制暴"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q162",
+      "categoryId": "morality",
+      "text": "我国积极推进哪些重要领域立法？",
+      "options": [
+        "国家安全、科技创新、公共卫生、生物安全、生态文明、防范风险",
+        "只有经济领域",
+        "只有文化领域"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q163",
+      "categoryId": "morality",
+      "text": "公民应如何对待法律？",
+      "options": [
+        "从内心深处拥护法律，信仰法律的力量和价值",
+        "只在必要时遵守法律",
+        "法律与普通人无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q164",
+      "categoryId": "morality",
+      "text": "法律通过什么方式促进社会公平正义，保障人民安居乐业？",
+      "options": [
+        "通过调解纠纷和制裁违法犯罪",
+        "只通过制定法律条文",
+        "只通过道德教育"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q165",
+      "categoryId": "morality",
+      "text": "个人在行使权利的同时，必须履行什么？",
+      "options": [
+        "法律规定的义务，不得滥用权利损害社会公共利益",
+        "不需要履行任何义务",
+        "可以随意行使权利"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q166",
+      "categoryId": "morality",
+      "text": "关于违法行为的种类，以下说法正确的是？",
+      "options": [
+        "违法行为分为民事违法行为、行政违法行为和刑事违法行为（犯罪）",
+        "只有犯罪才是违法行为",
+        "一般违法行为不承担法律责任"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q167",
+      "categoryId": "morality",
+      "text": "行政处分的对象是？",
+      "options": [
+        "违法的公职人员",
+        "所有公民",
+        "企业法人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q168",
+      "categoryId": "morality",
+      "text": "行政处罚的方式不包括？",
+      "options": [
+        "警告、罚款、没收违法所得、行政拘留",
+        "记过、降级、撤职、开除",
+        "暂扣或者吊销许可证件"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "morality-q169",
+      "categoryId": "morality",
+      "text": "关于预防未成年人犯罪，以下说法正确的是？",
+      "options": [
+        "预防未成年人犯罪法对未成年人不良行为的干预、严重不良行为的矫治作了明确规定",
+        "未成年人不需要预防犯罪",
+        "未成年人犯罪不受任何处罚"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q170",
+      "categoryId": "morality",
+      "text": "守法公民对待法律的要求是？",
+      "options": [
+        "尊重法律，遵守法律，维护法律尊严和社会公平正义",
+        "只在必要时遵守法律",
+        "法律是别人的事，与自己无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q171",
+      "categoryId": "morality",
+      "text": "如何看待“年龄小犯罪不受处罚”的想法？",
+      "options": [
+        "这种想法是非常错误的，我们要时刻警惕违法犯罪，远离违法犯罪",
+        "这种想法是正确的",
+        "未成年人可以为所欲为"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q172",
+      "categoryId": "morality",
+      "text": "面对青春期矛盾心理，通过自我调节成为自己的“心理保健医生”，做法不包括？",
+      "options": [
+        "把自己的想法写下来",
+        "参加体育运动",
+        "封闭自己，不与任何人交流"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q173",
+      "categoryId": "morality",
+      "text": "在学习上努力充实自己，在生活中不断历练自己，这属于？",
+      "options": [
+        "学会不断提升自己",
+        "学会尊重他人",
+        "学会维护人格尊严"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q174",
+      "categoryId": "morality",
+      "text": "做自信的人，“找准定位，扬长避短”要求我们？",
+      "options": [
+        "客观认识自己、准确定位自己，充分发挥优势，认清不足，避免盲目自信",
+        "只关注自己的优势",
+        "只关注自己的不足"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q175",
+      "categoryId": "morality",
+      "text": "知耻心对自尊的人意味着什么？",
+      "options": [
+        "自尊的人会对自己不恰当、不合适的行为感到惭愧和难为情，做到行己有耻",
+        "有羞耻心是软弱的表现",
+        "自尊的人不需要羞耻心"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q176",
+      "categoryId": "morality",
+      "text": "关于“重民本”的要求，以下说法正确的是？",
+      "options": [
+        "要充分认识人民在国家中的地位和作用，爱民保民利民",
+        "只关注国家利益，不关注人民",
+        "民本思想已经过时"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q177",
+      "categoryId": "morality",
+      "text": "做自强不息的中国人，“求得真学问，练就真本领”要求我们？",
+      "options": [
+        "认真对待各门课程，勤学好问、夯实基础；关注现实问题和社会发展",
+        "只学习课本知识即可",
+        "不需要关注社会发展"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q178",
+      "categoryId": "morality",
+      "text": "关于情绪与情感的关系，以下说法正确的是？",
+      "options": [
+        "当对某些人或事物的情绪随时间的推移形成比较稳定的倾向时，我们就会产生某种情感",
+        "情绪和情感完全相同",
+        "情绪比情感更稳定"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q179",
+      "categoryId": "morality",
+      "text": "做孝老爱亲的人，“百善孝为先”，“孝”的本质是什么？",
+      "options": [
+        "“爱”和“敬”",
+        "顺从和听话",
+        "物质上的供养"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q180",
+      "categoryId": "morality",
+      "text": "做扶危济困的人的原因是什么？",
+      "options": [
+        "“助人者，人恒助之”，正是有了这种美德，我们的社会才是一个充满爱心与温情的文明社会",
+        "帮助他人可以获得回报",
+        "这是法律规定的义务"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q181",
+      "categoryId": "morality",
+      "text": "不断完善中国特色社会主义法律体系的意义不包括？",
+      "options": [
+        "有利于巩固和发展社会主义制度",
+        "保障人民当家作主",
+        "让法律体系变得复杂难懂"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q182",
+      "categoryId": "morality",
+      "text": "法律保护合同当事人的合法权益，履行的意义是什么？",
+      "options": [
+        "有利于弘扬中华传统美德、践行社会主义核心价值观，维护当事人的合法权益",
+        "只对合同一方有利",
+        "合同履行不重要"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q183",
+      "categoryId": "morality",
+      "text": "关于法律实施，要求我们怎么做？",
+      "options": [
+        "不仅要关注法律体系建设，还要从内心深处拥护法律，信仰法律的力量和价值",
+        "只需关注法律制定",
+        "法律实施与普通人无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q184",
+      "categoryId": "morality",
+      "text": "以下关于“守诚信”的名言是？",
+      "options": [
+        "“以信待人，不信思信；不信待人，信思不信”",
+        "“民惟邦本，本固邦宁”",
+        "“大道之行也，天下为公”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q185",
+      "categoryId": "morality",
+      "text": "“尚和合”中“和实生物，同则不继”的含义是？",
+      "options": [
+        "只有多样性的东西相互作用并努力达到平衡，事物才能生生不息；完全相同的东西简单相加则失去生机",
+        "追求完全相同才能发展",
+        "差异会导致矛盾，应该消除"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q186",
+      "categoryId": "morality",
+      "text": "“求大同”要求我们？",
+      "options": [
+        "热爱祖国和人民，积极为人类的发展和进步作贡献",
+        "只关心本国事务",
+        "追求个人利益最大化"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q187",
+      "categoryId": "morality",
+      "text": "情感能提升我们的什么能力？",
+      "options": [
+        "想象力、创造力",
+        "记忆力",
+        "体力"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q188",
+      "categoryId": "morality",
+      "text": "在实践中提升情感境界，我们要？",
+      "options": [
+        "做好小事、管好小节；长期实践、奉献社会",
+        "只做大事，忽略小事",
+        "不需要实践"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q189",
+      "categoryId": "morality",
+      "text": "与异性交往，要言谈得当、举止得体，这属于？",
+      "options": [
+        "与异性交往应把握的尺度",
+        "完全不需要注意的事项",
+        "只适用于成年人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q190",
+      "categoryId": "morality",
+      "text": "青春期心理变化中，自我意识不断增强意味着？",
+      "options": [
+        "更加关注自己的内心世界和他人对自己的评价",
+        "自我意识与青春期无关",
+        "自我意识在青春期减弱"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q191",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化中“四海之内皆兄弟”体现的是什么思想？",
+      "options": [
+        "促进社会和谐的思想文化",
+        "竞争至上的思想文化",
+        "个人主义思想文化"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q192",
+      "categoryId": "morality",
+      "text": "以下中华美德故事中，“程门立雪”体现的品质是？",
+      "options": [
+        "尊师重道",
+        "立志报国",
+        "孝悌"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q193",
+      "categoryId": "morality",
+      "text": "以下中华美德故事中，“闻鸡起舞”体现的品质是？",
+      "options": [
+        "立志报国",
+        "谦让",
+        "尊师重道"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q194",
+      "categoryId": "morality",
+      "text": "以下中华美德故事中，“孔融让梨”体现的品质是？",
+      "options": [
+        "谦让",
+        "爱国",
+        "尊师重道"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q195",
+      "categoryId": "morality",
+      "text": "以下中华美德故事中，“黄香温席”体现的品质是？",
+      "options": [
+        "孝悌",
+        "顾全大局",
+        "立志报国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q196",
+      "categoryId": "morality",
+      "text": "我们应当树立正确的道德观念和牢固的法律意识，遵守什么？",
+      "options": [
+        "中学生日常行为规范",
+        "只遵守法律即可",
+        "不需要遵守任何规范"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q197",
+      "categoryId": "morality",
+      "text": "触碰道德底线的事情坚决不做，违反法律的事情坚决不做，这说明？",
+      "options": [
+        "我们要树立正确的道德观念和牢固的法律意识",
+        "道德和法律不重要",
+        "青少年不受道德和法律约束"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q198",
+      "categoryId": "morality",
+      "text": "关于“崇正义”，以下说法正确的是？",
+      "options": [
+        "崇正义要求我们坚持做正确的事，做符合道义的事",
+        "崇正义只适用于古代社会",
+        "正义与个人无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q199",
+      "categoryId": "morality",
+      "text": "做孝老爱亲的人，要将爱的情感和责任？",
+      "options": [
+        "扩展到全社会",
+        "只限于自己家庭",
+        "只限于父母"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q200",
+      "categoryId": "morality",
+      "text": "自强，使人自主自立。自强的人能够“克己”“自胜”，主动发掘自身力量，依靠什么？",
+      "options": [
+        "自己的努力拼搏勇敢面对生活",
+        "他人的帮助",
+        "运气"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q201",
+      "categoryId": "morality",
+      "text": "对于拥有合法财产，以下说法正确的是？",
+      "options": [
+        "拥有合法财产是实现其他权利的物质基础",
+        "个人财产不重要",
+        "法律不保护合法财产"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q202",
+      "categoryId": "morality",
+      "text": "知识产权是什么？",
+      "options": [
+        "人们对其智力成果等依法享有的权利",
+        "只包括专利权",
+        "与普通人无关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q203",
+      "categoryId": "morality",
+      "text": "法定继承是指什么？",
+      "options": [
+        "由法律直接规定继承人的范围及继承顺序，按法律规定的遗产份额分配原则继承",
+        "按照被继承人所立的遗嘱继承",
+        "由继承人自行协商分配"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q204",
+      "categoryId": "morality",
+      "text": "遗嘱继承是指什么？",
+      "options": [
+        "继承人按照被继承人所立的合法有效的遗嘱，继承被继承人遗产",
+        "由法律直接规定继承顺序",
+        "由继承人自行协商分配"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q205",
+      "categoryId": "morality",
+      "text": "作为新时代青少年，对待民法典的正确做法是？",
+      "options": [
+        "学习、遵守、维护、宣传民法典，做民法典的主动学习者和积极践行者",
+        "民法典与青少年无关",
+        "只需要了解民法典即可"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q206",
+      "categoryId": "morality",
+      "text": "法律保护社会公共利益，社会公共利益是什么？",
+      "options": [
+        "全体社会成员的整体利益，蕴含每个人的根本利益和长远利益",
+        "少数人的利益",
+        "只指国家利益"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q207",
+      "categoryId": "morality",
+      "text": "不断完善的中国特色社会主义法律体系，强调以什么方式解决新时代社会各项事业中的矛盾和问题？",
+      "options": [
+        "法治思维和法治方式",
+        "人治方式",
+        "道德说教方式"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q208",
+      "categoryId": "morality",
+      "text": "人的情绪会相互感染，因此我们要？",
+      "options": [
+        "学会选择合适的场合、用合理的方式表达情绪，注意关照他人的感受",
+        "完全压抑自己的情绪",
+        "随意表达情绪，不考虑他人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q209",
+      "categoryId": "morality",
+      "text": "学会管理情绪，首先要？",
+      "options": [
+        "学会认识自己的情绪，明确情绪背后的真实需要和现实原因",
+        "学会压抑情绪",
+        "学会忽视情绪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q210",
+      "categoryId": "morality",
+      "text": "关于自尊，以下说法正确的是？",
+      "options": [
+        "自尊是对自我价值的肯定，包括自我尊重和赢得他人的尊重",
+        "自尊就是自傲",
+        "自尊的人不需要他人尊重"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q211",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化“源远流长、博大精深、历久弥新”指的是它的？",
+      "options": [
+        "特点",
+        "缺点",
+        "作用"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q212",
+      "categoryId": "morality",
+      "text": "自强的人，有锲而不舍的坚毅品格，积极进取，知不足而奋进，望远山而力行，不断？",
+      "options": [
+        "挑战自我、超越自我",
+        "安于现状",
+        "依赖他人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q213",
+      "categoryId": "morality",
+      "text": "做自信的人，“勇于探索，增强底气”不包括？",
+      "options": [
+        "紧跟时代步伐，大胆应对学习和生活中的新问题",
+        "在解决问题中展现实力、提升能力",
+        "回避所有新问题"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "morality-q214",
+      "categoryId": "morality",
+      "text": "关于青春期男生女生的差异，正确态度是？",
+      "options": [
+        "我们要相互学习、互相欣赏、取长补短",
+        "男生女生差异是绝对的，无法互补",
+        "忽视差异，认为男生女生完全相同"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q215",
+      "categoryId": "morality",
+      "text": "与异性合作的意义是什么？",
+      "options": [
+        "有助于完善自身，让我们共同成长",
+        "没有特别的意义",
+        "会分散注意力"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q216",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的思想理念，“苟日新，日日新，又日新”对应的是？",
+      "options": [
+        "革故鼎新、与时俱进",
+        "道法自然、天人合一",
+        "脚踏实地、实事求是"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q217",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的思想理念，“春生夏长，秋收冬藏”对应的是？",
+      "options": [
+        "道法自然、天人合一",
+        "脚踏实地、实事求是",
+        "惠民利民、安民富民"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q218",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的思想理念，“庶、富、教”的治国思想对应的是？",
+      "options": [
+        "惠民利民、安民富民",
+        "道法自然、天人合一",
+        "革故鼎新、与时俱进"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q219",
+      "categoryId": "morality",
+      "text": "情绪的特点是什么？",
+      "options": [
+        "复杂多样",
+        "简单单一",
+        "只有积极情绪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q220",
+      "categoryId": "morality",
+      "text": "以下哪种属于复杂情绪？",
+      "options": [
+        "自豪、感激、焦虑、厌恶、内疚",
+        "喜、怒、哀、惧",
+        "只有快乐和悲伤"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q221",
+      "categoryId": "morality",
+      "text": "我们不仅要关注法律体系建设，还要从内心深处拥护法律，信仰法律的什么？",
+      "options": [
+        "力量和价值",
+        "惩罚功能",
+        "形式要求"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q222",
+      "categoryId": "morality",
+      "text": "法律通过什么方式实现社会生活的制度化、法治化？",
+      "options": [
+        "以法治思维和法治方式解决新时代社会各项事业中的矛盾和问题",
+        "以人治方式",
+        "以道德说教"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q223",
+      "categoryId": "morality",
+      "text": "关于知识产权保护，我们应该怎么做？",
+      "options": [
+        "积极参与社会对知识产权的保护，尊重他人的劳动，不做侵害他人智力成果的事情",
+        "知识产权保护与个人无关",
+        "可以随意使用他人的智力成果"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q224",
+      "categoryId": "morality",
+      "text": "关于自尊的人能认可自己，以下理解正确的是？",
+      "options": [
+        "自尊的人能够看到自己的缺点和不足，也了解自己的优点和长处，肯定自己的价值",
+        "自尊的人只看到自己的优点",
+        "自尊的人完全否定自己"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q225",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的影响是？",
+      "options": [
+        "潜移默化地影响着中国人的思维方式和行为方式",
+        "对现代中国人没有影响",
+        "只在古代有影响"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q226",
+      "categoryId": "morality",
+      "text": "关于“重民本”，以下名言对应正确的是？",
+      "options": [
+        "“水能载舟，亦能覆舟”",
+        "“天地与我并生，而万物与我为一”",
+        "“穷则变，变则通，通则久”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q227",
+      "categoryId": "morality",
+      "text": "关于“尚和合”，以下名言对应正确的是？",
+      "options": [
+        "“各美其美，美人之美，美美与共”",
+        "“大道之行也，天下为公”",
+        "“人而无信，不知其可也”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q228",
+      "categoryId": "morality",
+      "text": "关于“崇正义”，以下名言对应正确的是？",
+      "options": [
+        "“君子义以为上”",
+        "“民惟邦本，本固邦宁”",
+        "“大道之行也，天下为公”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q229",
+      "categoryId": "morality",
+      "text": "关于“讲仁爱”，以下名言对应正确的是？",
+      "options": [
+        "“亲亲”“仁民”“爱物”",
+        "“民惟邦本，本固邦宁”",
+        "“人而无信，不知其可也”"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q230",
+      "categoryId": "morality",
+      "text": "中华传统美德的作用之一是？",
+      "options": [
+        "有助于提升社会道德水平，推进社会主义道德建设",
+        "只对个人有作用",
+        "对现代社会没有作用"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q231",
+      "categoryId": "morality",
+      "text": "在自我保护中，以下做法正确的是？",
+      "options": [
+        "学会辨别并抵制性骚扰、性侵害等行为，学会运用法律武器维护自己的合法权益",
+        "遇到侵害时保持沉默",
+        "自我保护不重要"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q232",
+      "categoryId": "morality",
+      "text": "积极探索，在解决问题中展现实力、提升能力，这属于做自信的人的哪个方面？",
+      "options": [
+        "勇于探索，增强底气",
+        "找准定位，扬长避短",
+        "专注当下，积极行动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q233",
+      "categoryId": "morality",
+      "text": "做自强不息的中国人，“在苦干实干中磨砺成长，砥砺前行”要求我们？",
+      "options": [
+        "在做事中不断磨炼意志、锤炼品格，学会依靠自己、对自己负责",
+        "只做轻松的事",
+        "等待别人来帮助自己"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q234",
+      "categoryId": "morality",
+      "text": "面对青春期矛盾心理，以下哪种做法是正确的？",
+      "options": [
+        "求助老师、家长和心理医生，化解烦恼，解决问题",
+        "完全封闭自己",
+        "逃避所有问题"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q235",
+      "categoryId": "morality",
+      "text": "在青春期，我们有表现自己的欲望，更加在意自己的形象，这属于？",
+      "options": [
+        "正常的青春期心理现象",
+        "不正常的心理问题",
+        "只有少数人才有的现象"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q236",
+      "categoryId": "morality",
+      "text": "关于调节情绪，运用心理换位的方法属于？",
+      "options": [
+        "认知调节法",
+        "注意转移法",
+        "合理宣泄法"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q237",
+      "categoryId": "morality",
+      "text": "关于调节情绪，腹式呼吸法属于？",
+      "options": [
+        "放松训练法",
+        "认知调节法",
+        "注意转移法"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q238",
+      "categoryId": "morality",
+      "text": "以下哪些属于积极情感？",
+      "options": [
+        "正义感、胜任感、美感",
+        "挫折感、倦怠感、厌恶感",
+        "只有快乐一种"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q239",
+      "categoryId": "morality",
+      "text": "情感反映着我们对人对事的态度、观念，影响我们的什么？",
+      "options": [
+        "判断和选择，促使我们作出行动",
+        "考试成绩",
+        "身高体重"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q240",
+      "categoryId": "morality",
+      "text": "完善中国特色社会主义法律体系，为全面建设社会主义现代化国家提供？",
+      "options": [
+        "良好法治环境",
+        "经济基础",
+        "文化支撑"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q241",
+      "categoryId": "morality",
+      "text": "有了法律而不实施、束之高阁，或者实施不力、做表面文章，那制定再多法律也？",
+      "options": [
+        "无济于事",
+        "仍然有效",
+        "自动生效"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q242",
+      "categoryId": "morality",
+      "text": "遵守法律是什么的基本素养？",
+      "options": [
+        "现代公民",
+        "古代人",
+        "只有法律工作者"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q243",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化中，“纸上得来终觉浅，绝知此事要躬行”体现的是哪种思想理念？",
+      "options": [
+        "脚踏实地、实事求是",
+        "道法自然、天人合一",
+        "革故鼎新、与时俱进"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q244",
+      "categoryId": "morality",
+      "text": "中华优秀传统文化的思想理念，“衙斋卧听萧萧竹，疑是民间疾苦声”体现的是？",
+      "options": [
+        "惠民利民、安民富民",
+        "道法自然、天人合一",
+        "革故鼎新、与时俱进"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q245",
+      "categoryId": "morality",
+      "text": "青少年情绪的特点包括情绪细腻、情绪反应强烈和？",
+      "options": [
+        "情绪波动大",
+        "情绪完全稳定",
+        "情绪单一不变"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q246",
+      "categoryId": "morality",
+      "text": "关于合同，依法成立的合同受法律保护，合同为当事人之间确立的？",
+      "options": [
+        "合法权利义务关系",
+        "不平等关系",
+        "临时关系"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q247",
+      "categoryId": "morality",
+      "text": "我们加快哪些领域立法步伐？",
+      "options": [
+        "数字经济、人工智能、大数据",
+        "只有传统产业",
+        "只有农业领域"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q248",
+      "categoryId": "morality",
+      "text": "做孝老爱亲的人，“老吾老以及人之老，幼吾幼以及人之幼”体现了什么？",
+      "options": [
+        "将爱的情感和责任扩展到全社会",
+        "只孝敬自己的父母",
+        "只关爱自己的孩子"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q249",
+      "categoryId": "morality",
+      "text": "关于自律，我们要增强自控力，严于律己，积极抵制不良心理和行为，做到？",
+      "options": [
+        "防患于未然",
+        "事后再补救",
+        "不需要自律"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "morality-q250",
+      "categoryId": "morality",
+      "text": "中华传统美德中，“恻隐之心，人皆有之”体现的是什么美德？",
+      "options": [
+        "扶危济困",
+        "孝老爱亲",
+        "敬业乐群"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

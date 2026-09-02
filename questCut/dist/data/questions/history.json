@@ -1,0 +1,2805 @@
+{
+  "categoryId": "history",
+  "questions": [
+    {
+      "id": "history-q001",
+      "text": "隋唐时期的时代特征是什么？",
+      "options": [
+        "繁荣与开放的时代",
+        "民族关系发展和社会变化",
+        "统一多民族封建国家的巩固与发展"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q002",
+      "text": "辽宋夏金元时期的时代特征是什么？",
+      "options": [
+        "繁荣与开放的时代",
+        "民族关系发展和社会变化",
+        "统一多民族封建国家的巩固与发展"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q003",
+      "text": "明清时期（至鸦片战争前）的时代特征是什么？",
+      "options": [
+        "繁荣与开放的时代",
+        "民族关系发展和社会变化",
+        "统一多民族封建国家的巩固与发展"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q004",
+      "text": "隋朝的建立时间是哪一年？",
+      "options": [
+        "581年",
+        "589年",
+        "605年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q005",
+      "text": "隋朝的建立者是谁？",
+      "options": [
+        "杨坚",
+        "杨广",
+        "李渊"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q006",
+      "text": "隋朝的都城在哪里？",
+      "options": [
+        "长安（大兴）",
+        "洛阳",
+        "开封"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q007",
+      "text": "隋朝是夺取哪个政权建立的？",
+      "options": [
+        "北周",
+        "北齐",
+        "陈"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q008",
+      "text": "隋朝统一全国的时间是哪一年？",
+      "options": [
+        "581年",
+        "589年",
+        "618年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q009",
+      "text": "隋朝灭掉哪个政权后统一了全国？",
+      "options": [
+        "陈",
+        "北周",
+        "北齐"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q010",
+      "text": "隋朝开通大运河的时间是哪一年？",
+      "options": [
+        "589年",
+        "605年",
+        "618年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q011",
+      "text": "隋朝大运河是哪位皇帝在位时开通的？",
+      "options": [
+        "隋文帝",
+        "隋炀帝",
+        "唐太宗"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q012",
+      "text": "隋朝开通大运河的主要目的是什么？",
+      "options": [
+        "加强南北交通，巩固统治",
+        "巡游江南",
+        "灌溉农田"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q013",
+      "text": "隋朝大运河以哪座城市为中心？",
+      "options": [
+        "长安",
+        "洛阳",
+        "开封"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q014",
+      "text": "隋朝大运河北端到达哪里？",
+      "options": [
+        "涿郡（今北京）",
+        "余杭（今杭州）",
+        "洛阳"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q015",
+      "text": "隋朝大运河南端到达哪里？",
+      "options": [
+        "涿郡（今北京）",
+        "余杭郡（今杭州）",
+        "洛阳"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q016",
+      "text": "隋朝大运河自北向南的第一段是什么？",
+      "options": [
+        "永济渠",
+        "通济渠",
+        "邗沟"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q017",
+      "text": "隋朝大运河四段中，位于最南端的是哪一段？",
+      "options": [
+        "邗沟",
+        "江南河",
+        "通济渠"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q018",
+      "text": "科举制正式确立的标志是什么？",
+      "options": [
+        "隋文帝分科考试",
+        "隋炀帝设置进士科",
+        "唐太宗增加考试科目"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q019",
+      "text": "科举制的选官标准是什么？",
+      "options": [
+        "门第",
+        "才能",
+        "军功"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q020",
+      "text": "隋朝灭亡的根本原因是什么？",
+      "options": [
+        "隋炀帝的暴政",
+        "农民起义",
+        "外族入侵"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q021",
+      "text": "隋朝灭亡的直接原因是什么？",
+      "options": [
+        "隋炀帝的暴政",
+        "农民起义",
+        "自然灾害"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q022",
+      "text": "隋朝灭亡的时间是哪一年？",
+      "options": [
+        "605年",
+        "618年",
+        "907年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q023",
+      "text": "隋朝的特点是什么？",
+      "options": [
+        "繁盛而短暂",
+        "积贫积弱",
+        "藩镇割据"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q024",
+      "text": "唐朝的建立时间是哪一年？",
+      "options": [
+        "589年",
+        "618年",
+        "907年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q025",
+      "text": "唐朝的建立者是谁？",
+      "options": [
+        "李渊",
+        "李世民",
+        "武则天"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q026",
+      "text": "唐朝的都城在哪里？",
+      "options": [
+        "长安",
+        "洛阳",
+        "开封"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q027",
+      "text": "唐朝的第二位皇帝是谁？",
+      "options": [
+        "唐高祖",
+        "唐太宗",
+        "唐玄宗"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q028",
+      "text": "唐太宗统治时期的盛世局面被称为什么？",
+      "options": [
+        "贞观之治",
+        "开元盛世",
+        "文景之治"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q029",
+      "text": "唐太宗时期敢于直言进谏的著名谏臣是谁？",
+      "options": [
+        "魏征",
+        "房玄龄",
+        "杜如晦"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q030",
+      "text": "唐太宗除完善科举制外，还进一步完善了什么政治制度？",
+      "options": [
+        "三省六部制",
+        "行省制度",
+        "郡县制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q031",
+      "text": "武则天改国号为什么？",
+      "options": [
+        "周",
+        "唐",
+        "武"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q032",
+      "text": "武则天的都城在哪里？",
+      "options": [
+        "长安",
+        "洛阳",
+        "开封"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q033",
+      "text": "武则天是如何完善科举制的？",
+      "options": [
+        "增加考试科目",
+        "创立殿试",
+        "设进士科"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q034",
+      "text": "评价武则天统治的八个字是什么？",
+      "options": [
+        "政启开元、治宏贞观",
+        "贞观之治",
+        "开元盛世"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q035",
+      "text": "\"开元盛世\"出现在哪位皇帝统治时期？",
+      "options": [
+        "唐太宗",
+        "武则天",
+        "唐玄宗"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q036",
+      "text": "唐朝时用于耕地的新型生产工具是什么？",
+      "options": [
+        "曲辕犁",
+        "筒车",
+        "翻车"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q037",
+      "text": "唐朝时用于灌溉的新型生产工具是什么？",
+      "options": [
+        "曲辕犁",
+        "筒车",
+        "耧车"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q038",
+      "text": "唐朝时哪种经济作物的种植有了长足发展？",
+      "options": [
+        "茶叶",
+        "棉花",
+        "甘蔗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q039",
+      "text": "被称为\"茶圣\"的是谁？",
+      "options": [
+        "陆羽",
+        "李白",
+        "杜甫"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q040",
+      "text": "《茶经》的作者是谁？",
+      "options": [
+        "陆羽",
+        "孙思邈",
+        "李时珍"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q041",
+      "text": "越窑以生产什么瓷器闻名？",
+      "options": [
+        "青瓷",
+        "白瓷",
+        "唐三彩"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q042",
+      "text": "邢窑以生产什么瓷器闻名？",
+      "options": [
+        "青瓷",
+        "白瓷",
+        "青花瓷"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q043",
+      "text": "唐朝时乡村定期集市被称为什么？",
+      "options": [
+        "草市",
+        "夜市",
+        "早市"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q044",
+      "text": "唐朝长安城的外郭城实行什么制度？",
+      "options": [
+        "坊市制度",
+        "行省制度",
+        "郡县制度"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q045",
+      "text": "唐朝长安城中，\"坊\"是什么区域？",
+      "options": [
+        "商业区",
+        "居民区",
+        "官署区"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q046",
+      "text": "唐朝长安城中，\"市\"是什么区域？",
+      "options": [
+        "商业区",
+        "居民区",
+        "宫殿区"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q047",
+      "text": "安史之乱爆发时在位的皇帝是谁？",
+      "options": [
+        "唐太宗",
+        "唐玄宗",
+        "唐肃宗"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q048",
+      "text": "安史之乱中的\"安\"指的是谁？",
+      "options": [
+        "安禄山",
+        "史思明",
+        "安庆绪"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q049",
+      "text": "安史之乱中的\"史\"指的是谁？",
+      "options": [
+        "史思明",
+        "安禄山",
+        "史朝义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q050",
+      "text": "安史之乱爆发的根本原因是什么？",
+      "options": [
+        "朝政腐败",
+        "藩镇割据",
+        "农民起义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q051",
+      "text": "唐朝后期领导农民起义的是谁？",
+      "options": [
+        "黄巢",
+        "李自成",
+        "陈胜"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q052",
+      "text": "黄巢起义军攻入长安后建立了什么政权？",
+      "options": [
+        "大齐",
+        "大顺",
+        "张楚"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q053",
+      "text": "唐朝灭亡的时间是哪一年？",
+      "options": [
+        "755年",
+        "907年",
+        "960年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q054",
+      "text": "唐朝灭亡的标志是谁建立后梁？",
+      "options": [
+        "朱温",
+        "黄巢",
+        "李渊"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q055",
+      "text": "五代中第一个朝代是什么？",
+      "options": [
+        "后梁",
+        "后唐",
+        "后晋"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q056",
+      "text": "五代中最后一个朝代是什么？",
+      "options": [
+        "后汉",
+        "后周",
+        "后晋"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q057",
+      "text": "五代十国是唐末以来什么局面的延续？",
+      "options": [
+        "藩镇割据",
+        "宦官专权",
+        "朋党之争"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q058",
+      "text": "五代十国后期，哪次改革为北宋统一打下基础？",
+      "options": [
+        "后周周世宗改革",
+        "王安石变法",
+        "张居正改革"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q059",
+      "text": "文成公主嫁给了吐蕃哪位赞普？",
+      "options": [
+        "松赞干布",
+        "尺带珠丹",
+        "骨力裴罗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q060",
+      "text": "金城公主嫁给了吐蕃哪位赞普？",
+      "options": [
+        "松赞干布",
+        "尺带珠丹",
+        "皮逻阁"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q061",
+      "text": "唐太宗实行怎样的民族政策？",
+      "options": [
+        "开明的",
+        "闭关锁国的",
+        "高压的"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q062",
+      "text": "唐太宗被西北各族尊奉为什么？",
+      "options": [
+        "天可汗",
+        "可汗",
+        "单于"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q063",
+      "text": "唐朝时为加强对西域的管辖，先后设置了什么机构？",
+      "options": [
+        "安西都护府和北庭都护府",
+        "西域都护府",
+        "伊犁将军"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q064",
+      "text": "唐玄宗册封回纥首领骨力裴罗为什么封号？",
+      "options": [
+        "怀仁可汗",
+        "渤海郡王",
+        "云南王"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q065",
+      "text": "唐玄宗册封渤海国首领大祚荣为什么封号？",
+      "options": [
+        "怀仁可汗",
+        "渤海郡王",
+        "云南王"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q066",
+      "text": "唐玄宗册封南诏首领皮逻阁为什么封号？",
+      "options": [
+        "怀仁可汗",
+        "渤海郡王",
+        "云南王"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q067",
+      "text": "隋唐时期日本派到中国的使团称为什么？",
+      "options": [
+        "遣隋使、遣唐使",
+        "使团",
+        "商团"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q068",
+      "text": "唐朝与日本文化交流中最有影响的人物是谁？",
+      "options": [
+        "鉴真",
+        "玄奘",
+        "晁衡"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q069",
+      "text": "鉴真是哪里的高僧？",
+      "options": [
+        "扬州",
+        "长安",
+        "洛阳"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q070",
+      "text": "鉴真东渡日本一共经历了几次？",
+      "options": [
+        "五次",
+        "六次",
+        "七次"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q071",
+      "text": "唐朝与天竺交往的代表人物是谁？",
+      "options": [
+        "玄奘",
+        "鉴真",
+        "法显"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q072",
+      "text": "玄奘西行时在位的唐朝皇帝是谁？",
+      "options": [
+        "唐太宗",
+        "唐玄宗",
+        "武则天"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q073",
+      "text": "玄奘从哪里出发前往天竺？",
+      "options": [
+        "长安",
+        "洛阳",
+        "扬州"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q074",
+      "text": "玄奘在天竺哪座名寺研习佛法？",
+      "options": [
+        "那烂陀寺",
+        "白马寺",
+        "少林寺"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q075",
+      "text": "根据玄奘口述成书的著作是什么？",
+      "options": [
+        "《大唐西域记》",
+        "《西游记》",
+        "《佛国记》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q076",
+      "text": "唐朝对外交流的特点是什么？",
+      "options": [
+        "对外开放，双向交流",
+        "闭关锁国",
+        "只出不进"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q077",
+      "text": "至迟在唐朝前期就已经出现的印刷技术是什么？",
+      "options": [
+        "雕版印刷术",
+        "活字印刷术",
+        "转轮排字"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q078",
+      "text": "唐朝天文学发展的代表人物是谁？",
+      "options": [
+        "僧一行",
+        "郭守敬",
+        "沈括"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q079",
+      "text": "唐朝医学发展的代表人物是谁？",
+      "options": [
+        "孙思邈",
+        "李时珍",
+        "华佗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q080",
+      "text": "孙思邈的著作是什么？",
+      "options": [
+        "《千金方》",
+        "《本草纲目》",
+        "《伤寒杂病论》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q081",
+      "text": "孙思邈被后世称为什么？",
+      "options": [
+        "药王",
+        "医圣",
+        "神医"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q082",
+      "text": "世界上第一部由国家编定颁布的药典是什么？",
+      "options": [
+        "《唐本草》",
+        "《千金方》",
+        "《本草纲目》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q083",
+      "text": "唐朝时哪位思想家抨击佛教、主张复兴儒学？",
+      "options": [
+        "韩愈",
+        "柳宗元",
+        "朱熹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q084",
+      "text": "被称为\"诗仙\"的唐朝诗人是谁？",
+      "options": [
+        "李白",
+        "杜甫",
+        "白居易"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q085",
+      "text": "李白生活在唐朝的什么时期？",
+      "options": [
+        "盛唐",
+        "唐朝由盛转衰时期",
+        "唐朝后期"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q086",
+      "text": "被称为\"诗圣\"的唐朝诗人是谁？",
+      "options": [
+        "李白",
+        "杜甫",
+        "白居易"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q087",
+      "text": "杜甫的诗被称为什么？",
+      "options": [
+        "诗史",
+        "诗仙",
+        "诗圣"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q088",
+      "text": "杜甫生活在唐朝的什么时期？",
+      "options": [
+        "盛唐",
+        "唐朝由盛转衰时期",
+        "唐朝前期"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q089",
+      "text": "唐朝后期的代表诗人是谁？",
+      "options": [
+        "白居易",
+        "李白",
+        "杜甫"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q090",
+      "text": "唐朝时著名的书法家有颜真卿和谁？",
+      "options": [
+        "柳公权",
+        "王羲之",
+        "欧阳询"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q091",
+      "text": "被称为\"画圣\"的唐朝画家是谁？",
+      "options": [
+        "吴道子",
+        "阎立本",
+        "顾恺之"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q092",
+      "text": "阎立本擅长画什么？",
+      "options": [
+        "人物画",
+        "山水画",
+        "花鸟画"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q093",
+      "text": "阎立本的代表作是什么？",
+      "options": [
+        "《步辇图》",
+        "《送子天王图》",
+        "《洛神赋图》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q094",
+      "text": "吴道子的代表作是什么？",
+      "options": [
+        "《送子天王图》",
+        "《步辇图》",
+        "《清明上河图》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q095",
+      "text": "隋唐时期雕塑艺术的代表是什么？",
+      "options": [
+        "敦煌莫高窟",
+        "云冈石窟",
+        "龙门石窟"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q096",
+      "text": "北宋的建立时间是哪一年？",
+      "options": [
+        "907年",
+        "960年",
+        "1127年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q097",
+      "text": "北宋的建立者是谁？",
+      "options": [
+        "赵匡胤",
+        "赵光义",
+        "赵构"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q098",
+      "text": "北宋的都城在哪里？",
+      "options": [
+        "开封（东京）",
+        "临安",
+        "长安"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q099",
+      "text": "北宋是夺取哪个政权建立的？",
+      "options": [
+        "后周",
+        "后梁",
+        "后唐"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q100",
+      "text": "北宋建立的相关典故是陈桥兵变和什么？",
+      "options": [
+        "黄袍加身",
+        "杯酒释兵权",
+        "澶渊之盟"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q101",
+      "text": "北宋为完成统一采取的战略方针是什么？",
+      "options": [
+        "先南后北",
+        "先北后南",
+        "东西并进"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q102",
+      "text": "哪位皇帝时结束了五代十国的分裂局面？",
+      "options": [
+        "宋太祖",
+        "宋太宗",
+        "宋神宗"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q103",
+      "text": "宋朝实行的治国方针是什么？",
+      "options": [
+        "崇文抑武",
+        "重武轻文",
+        "文武并重"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q104",
+      "text": "宋神宗时任用谁主持变法？",
+      "options": [
+        "王安石",
+        "范仲淹",
+        "司马光"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q105",
+      "text": "王安石变法的目的是什么？",
+      "options": [
+        "摆脱危机，富国强兵",
+        "统一全国",
+        "加强皇权"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q106",
+      "text": "辽是由哪个民族建立的？",
+      "options": [
+        "契丹族",
+        "党项族",
+        "女真族"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q107",
+      "text": "辽的建立者是谁？",
+      "options": [
+        "耶律阿保机",
+        "元昊",
+        "完颜阿骨打"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q108",
+      "text": "西夏是由哪个民族建立的？",
+      "options": [
+        "契丹族",
+        "党项族",
+        "女真族"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q109",
+      "text": "西夏的建立者是谁？",
+      "options": [
+        "元昊",
+        "耶律阿保机",
+        "完颜阿骨打"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q110",
+      "text": "宋辽和议又称为什么？",
+      "options": [
+        "澶渊之盟",
+        "绍兴和议",
+        "隆庆和议"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q111",
+      "text": "澶渊之盟时的北宋皇帝是谁？",
+      "options": [
+        "宋真宗",
+        "宋仁宗",
+        "宋神宗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q112",
+      "text": "澶渊之盟时的北宋宰相是谁？",
+      "options": [
+        "寇准",
+        "王安石",
+        "司马光"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q113",
+      "text": "金是由哪个民族建立的？",
+      "options": [
+        "契丹族",
+        "党项族",
+        "女真族"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q114",
+      "text": "金的建立者是谁？",
+      "options": [
+        "完颜阿骨打",
+        "耶律阿保机",
+        "元昊"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q115",
+      "text": "北宋被哪个政权所灭？",
+      "options": [
+        "金",
+        "辽",
+        "西夏"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q116",
+      "text": "北宋的灭亡史称为什么？",
+      "options": [
+        "靖康之变",
+        "澶渊之盟",
+        "安史之乱"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q117",
+      "text": "靖康之变中被掳走的两位皇帝是宋徽宗和谁？",
+      "options": [
+        "宋钦宗",
+        "宋高宗",
+        "宋神宗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q118",
+      "text": "南宋的建立时间是哪一年？",
+      "options": [
+        "960年",
+        "1115年",
+        "1127年"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q119",
+      "text": "南宋的建立者是谁？",
+      "options": [
+        "赵构",
+        "赵匡胤",
+        "赵光义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q120",
+      "text": "南宋的都城在哪里？",
+      "options": [
+        "临安（今杭州）",
+        "开封",
+        "长安"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q121",
+      "text": "南宋最著名的抗金将领是谁？",
+      "options": [
+        "岳飞",
+        "戚继光",
+        "文天祥"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q122",
+      "text": "岳飞在哪里大败金军主力？",
+      "options": [
+        "郾城",
+        "开封",
+        "临安"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q123",
+      "text": "两宋时期在政治上的特征是什么？",
+      "options": [
+        "民族政权并立",
+        "大一统",
+        "藩镇割据"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q124",
+      "text": "蒙古政权的建立者是谁？",
+      "options": [
+        "铁木真",
+        "忽必烈",
+        "耶律阿保机"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q125",
+      "text": "铁木真被尊称为什么？",
+      "options": [
+        "成吉思汗",
+        "天可汗",
+        "大汗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q126",
+      "text": "元朝的建立时间是哪一年？",
+      "options": [
+        "1206年",
+        "1271年",
+        "1279年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q127",
+      "text": "元朝的建立者是谁？",
+      "options": [
+        "忽必烈",
+        "铁木真",
+        "成吉思汗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q128",
+      "text": "元朝的都城在哪里？",
+      "options": [
+        "大都（今北京）",
+        "上京",
+        "中都"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q129",
+      "text": "元朝灭南宋的时间是哪一年？",
+      "options": [
+        "1271年",
+        "1276年",
+        "1279年"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q130",
+      "text": "元朝统一全国的时间是哪一年？",
+      "options": [
+        "1271年",
+        "1276年",
+        "1279年"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q131",
+      "text": "南宋最著名的抗元英雄是谁？",
+      "options": [
+        "文天祥",
+        "岳飞",
+        "戚继光"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q132",
+      "text": "元朝时在中央负责行政事务的机构是什么？",
+      "options": [
+        "中书省",
+        "枢密院",
+        "御史台"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q133",
+      "text": "元朝时在中央负责军政事务的机构是什么？",
+      "options": [
+        "中书省",
+        "枢密院",
+        "宣政院"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q134",
+      "text": "元朝时在中央负责监察事务的机构是什么？",
+      "options": [
+        "御史台",
+        "中书省",
+        "枢密院"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q135",
+      "text": "元朝时管理全国宗教和西藏事务的中央机构是什么？",
+      "options": [
+        "宣政院",
+        "中书省",
+        "枢密院"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q136",
+      "text": "元朝在地方实行什么制度？",
+      "options": [
+        "行省制度",
+        "郡县制",
+        "分封制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q137",
+      "text": "元朝时直属中书省管辖的地区不包括哪个？",
+      "options": [
+        "山东",
+        "河南",
+        "山西"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "history-q138",
+      "text": "元朝在边疆地区采取什么样的统治方式？",
+      "options": [
+        "因地制宜",
+        "一刀切",
+        "完全自治"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q139",
+      "text": "元朝在东南地区设置了什么机构管理台湾？",
+      "options": [
+        "澎湖巡检司",
+        "市舶司",
+        "宣政院"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q140",
+      "text": "元朝在西北地区设置了什么机构？",
+      "options": [
+        "北庭都元帅府",
+        "安西都护府",
+        "伊犁将军"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q141",
+      "text": "元朝在西藏地区设置了什么机构？",
+      "options": [
+        "宣慰使司都元帅府",
+        "驻藏大臣",
+        "噶厦"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q142",
+      "text": "元朝时开始形成我国哪个民族的前身？",
+      "options": [
+        "回族",
+        "满族",
+        "蒙古族"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q143",
+      "text": "元朝时回族的前身被称为什么？",
+      "options": [
+        "回回",
+        "回纥",
+        "回鹘"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q144",
+      "text": "宋朝时产量跃居粮食作物首位的是什么？",
+      "options": [
+        "水稻",
+        "小麦",
+        "玉米"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q145",
+      "text": "宋朝从哪个国家引进了占城稻？",
+      "options": [
+        "越南",
+        "泰国",
+        "印度"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q146",
+      "text": "谚语\"苏湖熟，天下足\"说明哪里一带成为丰饶的粮仓？",
+      "options": [
+        "长江下游和太湖流域",
+        "黄河流域",
+        "珠江流域"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q147",
+      "text": "元朝时为便利南粮北运，忽必烈令人开凿了会通河和哪两段运河？",
+      "options": [
+        "通惠河",
+        "永济渠",
+        "邗沟"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q148",
+      "text": "棉纺织业是什么时候兴起的？",
+      "options": [
+        "南宋后期",
+        "北宋前期",
+        "元朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q149",
+      "text": "南宋时哪里有较先进的棉纺织工具？",
+      "options": [
+        "海南岛",
+        "松江",
+        "苏州"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q150",
+      "text": "对棉纺织业发展做出重要贡献的人物是谁？",
+      "options": [
+        "黄道婆",
+        "李清照",
+        "武则天"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q151",
+      "text": "元朝时全国的棉纺织业中心在哪里？",
+      "options": [
+        "松江",
+        "苏州",
+        "杭州"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q152",
+      "text": "南宋时哪里成为我国的制瓷中心？",
+      "options": [
+        "江南地区",
+        "北方地区",
+        "四川地区"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q153",
+      "text": "宋朝造船业水平很高，其中位于福建省的是哪个港口？",
+      "options": [
+        "泉州",
+        "广州",
+        "明州"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q154",
+      "text": "北宋东京城内娱乐兼营商业的场所叫什么？",
+      "options": [
+        "瓦子",
+        "勾栏",
+        "草市"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q155",
+      "text": "瓦子中专供演出的圈子称为什么？",
+      "options": [
+        "勾栏",
+        "坊",
+        "市"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q156",
+      "text": "世界上最早的纸币是什么？",
+      "options": [
+        "交子",
+        "会子",
+        "钱引"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q157",
+      "text": "交子出现在什么时期？",
+      "options": [
+        "北宋前期",
+        "南宋",
+        "元朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q158",
+      "text": "交子最早出现在什么地区？",
+      "options": [
+        "四川地区",
+        "江南地区",
+        "开封"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q159",
+      "text": "经济重心南移从什么时期开始？",
+      "options": [
+        "唐中期",
+        "北宋",
+        "南宋"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q160",
+      "text": "经济重心南移到什么时期完成？",
+      "options": [
+        "唐中期",
+        "北宋",
+        "南宋"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "history-q161",
+      "text": "忽必烈时期通过丝绸之路来到中国的意大利旅行家是谁？",
+      "options": [
+        "马可·波罗",
+        "鉴真",
+        "玄奘"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q162",
+      "text": "海上丝绸之路在哪个朝代进入鼎盛时期？",
+      "options": [
+        "元朝",
+        "宋朝",
+        "唐朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q163",
+      "text": "宋元时期政府对海外贸易持什么态度？",
+      "options": [
+        "鼓励",
+        "禁止",
+        "限制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q164",
+      "text": "宋元时期设置什么机构管理海外贸易？",
+      "options": [
+        "市舶司",
+        "宣政院",
+        "澎湖巡检司"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q165",
+      "text": "活字印刷术是哪个朝代谁发明的？",
+      "options": [
+        "北宋毕昇",
+        "唐朝僧一行",
+        "元朝王祯"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q166",
+      "text": "元朝科学家王祯发明了什么排字工具？",
+      "options": [
+        "转轮排字盘",
+        "活字印刷术",
+        "雕版印刷术"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q167",
+      "text": "先秦时期用天然磁石制成的指南工具是什么？",
+      "options": [
+        "司南",
+        "罗盘",
+        "指南针"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q168",
+      "text": "宋朝用人造磁铁制成的指南工具是什么？",
+      "options": [
+        "罗盘",
+        "司南",
+        "指南车"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q169",
+      "text": "火药是什么时候发明的？",
+      "options": [
+        "唐朝",
+        "宋朝",
+        "元朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q170",
+      "text": "火药什么时候开始运用到军事领域？",
+      "options": [
+        "唐末",
+        "北宋",
+        "宋元"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q171",
+      "text": "火药什么时候广泛运用于战争？",
+      "options": [
+        "宋元",
+        "唐末",
+        "明朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q172",
+      "text": "元朝发明的新的火药武器是什么？",
+      "options": [
+        "火铳",
+        "火炮",
+        "火箭"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q173",
+      "text": "火药经由什么人传入欧洲？",
+      "options": [
+        "阿拉伯人",
+        "波斯人",
+        "印度人"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q174",
+      "text": "创制\"十二气历\"、著有《梦溪笔谈》的北宋科学家是谁？",
+      "options": [
+        "沈括",
+        "苏颂",
+        "郭守敬"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q175",
+      "text": "主持创制水运仪象台的北宋科学家是谁？",
+      "options": [
+        "苏颂",
+        "沈括",
+        "郭守敬"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q176",
+      "text": "研制出简仪、编制《授时历》的元朝科学家是谁？",
+      "options": [
+        "郭守敬",
+        "沈括",
+        "苏颂"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q177",
+      "text": "理学的集大成者是谁？",
+      "options": [
+        "朱熹",
+        "程颢",
+        "程颐"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q178",
+      "text": "朱熹的主要观点是什么？",
+      "options": [
+        "存天理、灭人欲",
+        "心即理",
+        "知行合一"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q179",
+      "text": "两宋时期豪放派词人的代表有苏轼和谁？",
+      "options": [
+        "辛弃疾",
+        "李清照",
+        "陆游"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q180",
+      "text": "两宋时期婉约派词人的代表是谁？",
+      "options": [
+        "李清照",
+        "苏轼",
+        "辛弃疾"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q181",
+      "text": "宋诗的代表人物是谁？",
+      "options": [
+        "陆游",
+        "苏轼",
+        "辛弃疾"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q182",
+      "text": "元朝最著名的杂剧家是谁？",
+      "options": [
+        "关汉卿",
+        "汤显祖",
+        "马致远"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q183",
+      "text": "关汉卿的代表作是什么？",
+      "options": [
+        "《窦娥冤》",
+        "《牡丹亭》",
+        "《西厢记》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q184",
+      "text": "《资治通鉴》的作者是谁？",
+      "options": [
+        "司马光",
+        "司马迁",
+        "班固"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q185",
+      "text": "《资治通鉴》是什么体例的史书？",
+      "options": [
+        "编年体",
+        "纪传体",
+        "纪事本末体"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q186",
+      "text": "《资治通鉴》记述了哪段时期的历史？",
+      "options": [
+        "战国到五代",
+        "黄帝到汉武帝",
+        "春秋到战国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q187",
+      "text": "明朝的建立时间是哪一年？",
+      "options": [
+        "1368年",
+        "1279年",
+        "1644年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q188",
+      "text": "明朝的建立者是谁？",
+      "options": [
+        "朱元璋",
+        "朱棣",
+        "朱允炆"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q189",
+      "text": "明朝最初的都城在哪里？",
+      "options": [
+        "应天府（今南京）",
+        "北京",
+        "长安"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q190",
+      "text": "明太祖去世后继位的皇帝是谁？",
+      "options": [
+        "建文帝",
+        "明成祖",
+        "明神宗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q191",
+      "text": "建文帝采取什么政策削弱地方势力？",
+      "options": [
+        "削藩",
+        "推恩令",
+        "分封制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q192",
+      "text": "燕王朱棣通过哪一事件夺取了帝位？",
+      "options": [
+        "靖难之役",
+        "陈桥兵变",
+        "安史之乱"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q193",
+      "text": "朱棣就是哪位皇帝？",
+      "options": [
+        "明成祖",
+        "明太祖",
+        "明神宗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q194",
+      "text": "明成祖把都城迁到了哪里？",
+      "options": [
+        "北京",
+        "南京",
+        "洛阳"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q195",
+      "text": "明太祖为强化皇权在中央采取的政治措施是什么？",
+      "options": [
+        "废丞相，六部直接向皇帝负责",
+        "设军机处",
+        "设内阁"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q196",
+      "text": "明太祖设立的特务机构是什么？",
+      "options": [
+        "锦衣卫",
+        "东厂",
+        "西厂"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q197",
+      "text": "明成祖设立的特务机构是什么？",
+      "options": [
+        "东厂",
+        "锦衣卫",
+        "西厂"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q198",
+      "text": "明朝科举考试的题目必须来自哪里？",
+      "options": [
+        "四书五经",
+        "诸子百家",
+        "唐诗宋词"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q199",
+      "text": "明朝科举考试对题目的解释必须以什么为标准？",
+      "options": [
+        "朱熹《四书章句集注》",
+        "王阳明心学",
+        "韩非子法家"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q200",
+      "text": "明朝科举考试规定的文体格式是什么？",
+      "options": [
+        "八股文",
+        "散文",
+        "诗歌"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q201",
+      "text": "明成祖为加强对东北女真等部的管理设置了什么机构？",
+      "options": [
+        "奴儿干都司",
+        "安西都护府",
+        "伊犁将军"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q202",
+      "text": "明朝与蒙古之间达成的和议叫什么？",
+      "options": [
+        "隆庆和议",
+        "澶渊之盟",
+        "绍兴和议"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q203",
+      "text": "郑和下西洋时在位的皇帝是谁？",
+      "options": [
+        "明成祖",
+        "明太祖",
+        "明神宗"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q204",
+      "text": "郑和下西洋的起止时间是哪一年到哪一年？",
+      "options": [
+        "1405-1433年",
+        "1400-1430年",
+        "1450-1480年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q205",
+      "text": "郑和下西洋一共进行了几次？",
+      "options": [
+        "7次",
+        "5次",
+        "9次"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q206",
+      "text": "郑和下西洋最远到达哪里？",
+      "options": [
+        "非洲东海岸和红海沿岸",
+        "地中海沿岸",
+        "欧洲西海岸"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q207",
+      "text": "倭寇来自哪个国家？",
+      "options": [
+        "日本",
+        "朝鲜",
+        "越南"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q208",
+      "text": "明朝最著名的抗倭将领是谁？",
+      "options": [
+        "戚继光",
+        "郑成功",
+        "岳飞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q209",
+      "text": "戚继光率军在哪里九战九捷？",
+      "options": [
+        "浙江台州",
+        "福建",
+        "广东"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q210",
+      "text": "明朝后期哪国殖民者攫取了在澳门的租住权？",
+      "options": [
+        "葡萄牙",
+        "西班牙",
+        "荷兰"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q211",
+      "text": "万历初年谁主持了改革？",
+      "options": [
+        "张居正",
+        "王安石",
+        "范仲淹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q212",
+      "text": "张居正改革在经济上的主要措施是什么？",
+      "options": [
+        "一条鞭法",
+        "青苗法",
+        "摊丁入亩"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q213",
+      "text": "被称为\"闯王\"的农民起义领袖是谁？",
+      "options": [
+        "李自成",
+        "张献忠",
+        "黄巢"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q214",
+      "text": "李自成提出的口号是什么？",
+      "options": [
+        "均田免粮",
+        "王侯将相宁有种乎",
+        "苍天已死黄天当立"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q215",
+      "text": "李自成建立的政权叫什么？",
+      "options": [
+        "大顺",
+        "大齐",
+        "张楚"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q216",
+      "text": "大顺政权建立的时间和地点分别是？",
+      "options": [
+        "1644年，西安",
+        "1644年，北京",
+        "1636年，沈阳"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q217",
+      "text": "明朝灭亡的标志是什么？",
+      "options": [
+        "1644年李自成攻入北京，崇祯帝自缢",
+        "1636年清朝建立",
+        "1616年后金建立"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q218",
+      "text": "统一女真各部的人是谁？",
+      "options": [
+        "努尔哈赤",
+        "皇太极",
+        "完颜阿骨打"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q219",
+      "text": "努尔哈赤建立的政权叫什么？",
+      "options": [
+        "大金（后金）",
+        "清",
+        "辽"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q220",
+      "text": "谁定族称为满洲？",
+      "options": [
+        "皇太极",
+        "努尔哈赤",
+        "顺治帝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q221",
+      "text": "清朝的建立时间是哪一年？",
+      "options": [
+        "1636年",
+        "1644年",
+        "1616年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q222",
+      "text": "清朝的建立者是谁？",
+      "options": [
+        "皇太极",
+        "努尔哈赤",
+        "顺治帝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q223",
+      "text": "明朝末期哪个国家侵占了台湾？",
+      "options": [
+        "荷兰",
+        "葡萄牙",
+        "西班牙"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q224",
+      "text": "谁收复了台湾？",
+      "options": [
+        "郑成功",
+        "戚继光",
+        "郑和"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q225",
+      "text": "郑成功收复台湾是在哪一年？",
+      "options": [
+        "1662年",
+        "1644年",
+        "1684年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q226",
+      "text": "清朝设置管辖台湾的机构是什么？",
+      "options": [
+        "台湾府",
+        "澎湖巡检司",
+        "福建省"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q227",
+      "text": "台湾府隶属于哪个省？",
+      "options": [
+        "福建省",
+        "台湾省",
+        "广东省"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q228",
+      "text": "设置台湾府时的清朝皇帝是谁？",
+      "options": [
+        "康熙",
+        "雍正",
+        "乾隆"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q229",
+      "text": "清朝哪位皇帝册封了达赖喇嘛？",
+      "options": [
+        "顺治",
+        "康熙",
+        "雍正"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q230",
+      "text": "清朝哪位皇帝册封了班禅？",
+      "options": [
+        "康熙",
+        "顺治",
+        "乾隆"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q231",
+      "text": "清朝哪位皇帝设置了驻藏大臣？",
+      "options": [
+        "雍正",
+        "康熙",
+        "乾隆"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q232",
+      "text": "清朝哪位皇帝设置了噶厦（西藏地方政府）？",
+      "options": [
+        "乾隆",
+        "雍正",
+        "康熙"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q233",
+      "text": "清朝在新疆设置的最高军政长官是什么？",
+      "options": [
+        "伊犁将军",
+        "安西都护",
+        "北庭都护"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q234",
+      "text": "伊犁将军是哪位皇帝时设置的？",
+      "options": [
+        "乾隆",
+        "康熙",
+        "雍正"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q235",
+      "text": "乾隆帝颁布了什么文件管辖西藏？",
+      "options": [
+        "《钦定藏内善后章程》29条",
+        "《尼布楚条约》",
+        "《唐本草》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q236",
+      "text": "清朝选定转世灵童的制度是什么？",
+      "options": [
+        "金瓶掣签",
+        "世袭制",
+        "禅让制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q237",
+      "text": "哪位皇帝平定了噶尔丹叛乱？",
+      "options": [
+        "康熙",
+        "乾隆",
+        "雍正"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q238",
+      "text": "哪位皇帝平定了大小和卓叛乱？",
+      "options": [
+        "乾隆",
+        "康熙",
+        "雍正"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q239",
+      "text": "哪一事件为统一多民族国家的巩固和发展作出了杰出贡献？",
+      "options": [
+        "土尔扈特部东归",
+        "郑和下西洋",
+        "鉴真东渡"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q240",
+      "text": "清朝在东北与沙俄进行的战争是什么？",
+      "options": [
+        "雅克萨之战",
+        "鸦片战争",
+        "甲午战争"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q241",
+      "text": "雅克萨之战时的清朝皇帝是谁？",
+      "options": [
+        "康熙",
+        "雍正",
+        "乾隆"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q242",
+      "text": "1689年中俄签订的第一个平等边界条约是什么？",
+      "options": [
+        "《尼布楚条约》",
+        "《瑷珲条约》",
+        "《北京条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q243",
+      "text": "清朝前期民族政策的特点是什么？",
+      "options": [
+        "恩威并施、刚柔并济、因地制宜",
+        "闭关锁国",
+        "高压统治"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q244",
+      "text": "康熙帝为加强君主专制设立了什么机构？",
+      "options": [
+        "南书房",
+        "军机处",
+        "内阁"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q245",
+      "text": "雍正帝为加强君主专制设立了什么机构？",
+      "options": [
+        "军机处",
+        "南书房",
+        "议政王大臣会议"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q246",
+      "text": "乾隆帝时撤销了什么机构以加强皇权？",
+      "options": [
+        "议政王大臣会议",
+        "南书房",
+        "军机处"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q247",
+      "text": "军机大臣的职责是什么？",
+      "options": [
+        "上传下达，跪受笔录",
+        "决策军国大事",
+        "监察百官"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q248",
+      "text": "康熙时期形成的什么制度使君主专制进一步强化？",
+      "options": [
+        "奏折制度",
+        "科举制度",
+        "行省制度"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q249",
+      "text": "康雍乾三朝在思想文化领域强化君主专制的主要措施是什么？",
+      "options": [
+        "文字狱",
+        "焚书坑儒",
+        "罢黜百家"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q250",
+      "text": "什么事件导致清朝元气大伤？",
+      "options": [
+        "白莲教起义",
+        "太平天国运动",
+        "义和团运动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q251",
+      "text": "清朝实行怎样的对外政策？",
+      "options": [
+        "闭关政策（严格限制对外贸易）",
+        "对外开放",
+        "朝贡贸易"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q252",
+      "text": "清政府通过哪一机构统一经营对外贸易？",
+      "options": [
+        "广州十三行",
+        "市舶司",
+        "宣政院"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q253",
+      "text": "明清时期对全国土地进行核查、征收赋税的依据是什么？",
+      "options": [
+        "鱼鳞图册",
+        "一条鞭法",
+        "摊丁入亩"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q254",
+      "text": "明朝引进的高产作物原产于哪里？",
+      "options": [
+        "美洲",
+        "非洲",
+        "欧洲"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q255",
+      "text": "明清时期全国的棉纺织业中心在哪里？",
+      "options": [
+        "松江",
+        "苏州",
+        "景德镇"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q256",
+      "text": "明清时期全国的丝织业中心在哪里？",
+      "options": [
+        "苏州",
+        "松江",
+        "杭州"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q257",
+      "text": "明清时期全国的制瓷中心在哪里？",
+      "options": [
+        "景德镇",
+        "苏州",
+        "松江"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q258",
+      "text": "明清时期具有代表性的商帮有晋商和什么？",
+      "options": [
+        "徽商",
+        "浙商",
+        "粤商"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q259",
+      "text": "雍正年间采取什么措施使大量隐匿人口得以重现？",
+      "options": [
+        "摊丁入亩",
+        "一条鞭法",
+        "两税法"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q260",
+      "text": "《本草纲目》的作者是谁？",
+      "options": [
+        "李时珍",
+        "徐光启",
+        "宋应星"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q261",
+      "text": "《农政全书》的作者是谁？",
+      "options": [
+        "徐光启",
+        "李时珍",
+        "宋应星"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q262",
+      "text": "《天工开物》的作者是谁？",
+      "options": [
+        "宋应星",
+        "李时珍",
+        "徐光启"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q263",
+      "text": "哪部著作被誉为\"中国17世纪的工艺百科全书\"？",
+      "options": [
+        "《天工开物》",
+        "《农政全书》",
+        "《本草纲目》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q264",
+      "text": "明长城的东端起点在哪里？",
+      "options": [
+        "鸭绿江边",
+        "嘉峪关",
+        "山海关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q265",
+      "text": "明长城的西端终点在哪里？",
+      "options": [
+        "嘉峪关",
+        "鸭绿江边",
+        "山海关"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q266",
+      "text": "北京城由宫城（紫禁城）、皇城、内城和什么构成？",
+      "options": [
+        "外城",
+        "郭城",
+        "罗城"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q267",
+      "text": "提出\"心即理\"\"知行合一\"\"致良知\"的思想家是谁？",
+      "options": [
+        "王守仁",
+        "朱熹",
+        "程颢"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q268",
+      "text": "反对君主专制制度、批判封建教条的明末清初思想家是谁？",
+      "options": [
+        "黄宗羲",
+        "顾炎武",
+        "王夫之"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q269",
+      "text": "提出\"天下兴亡，匹夫有责\"的思想家是谁？",
+      "options": [
+        "顾炎武",
+        "黄宗羲",
+        "王夫之"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q270",
+      "text": "具有朴素唯物主义思想，认为社会是发展进化的思想家是谁？",
+      "options": [
+        "王夫之",
+        "黄宗羲",
+        "顾炎武"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q271",
+      "text": "《三国演义》的作者是谁？",
+      "options": [
+        "罗贯中",
+        "施耐庵",
+        "吴承恩"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q272",
+      "text": "《水浒传》的作者是谁？",
+      "options": [
+        "施耐庵",
+        "罗贯中",
+        "曹雪芹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q273",
+      "text": "《西游记》的作者是谁？",
+      "options": [
+        "吴承恩",
+        "罗贯中",
+        "施耐庵"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q274",
+      "text": "《红楼梦》的作者是谁？",
+      "options": [
+        "曹雪芹",
+        "吴承恩",
+        "施耐庵"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q275",
+      "text": "明朝后期最有名的剧作家是谁？",
+      "options": [
+        "汤显祖",
+        "关汉卿",
+        "孔尚任"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q276",
+      "text": "汤显祖的代表作是什么？",
+      "options": [
+        "《牡丹亭》",
+        "《窦娥冤》",
+        "《长生殿》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q277",
+      "text": "昆曲在什么时候发展到鼎盛？",
+      "options": [
+        "清朝前期",
+        "明朝后期",
+        "元朝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q278",
+      "text": "《长生殿》的作者是谁？",
+      "options": [
+        "洪昇",
+        "孔尚任",
+        "汤显祖"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q279",
+      "text": "《桃花扇》的作者是谁？",
+      "options": [
+        "孔尚任",
+        "洪昇",
+        "关汉卿"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-q280",
+      "text": "京剧在哪个皇帝时期形成？",
+      "options": [
+        "道光年间",
+        "乾隆年间",
+        "康熙年间"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

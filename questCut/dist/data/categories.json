@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "timerSeconds": 15,
+  "categories": [
+    {
+      "id": "history",
+      "name": "历史",
+      "desc": "探索古今中外的重要事件",
+      "iconKey": "history",
+      "questionsPath": "questions/history.json"
+    },
+    {
+      "id": "english",
+      "name": "英语",
+      "desc": "积累英语词汇与短语",
+      "iconKey": "english",
+      "questionsPath": "questions/english.json",
+      "chapters": [
+        { "id": "u1", "name": "Unit 1" },
+        { "id": "u2", "name": "Unit 2" },
+        { "id": "u3", "name": "Unit 3" },
+        { "id": "u4", "name": "Unit 4" },
+        { "id": "u5", "name": "Unit 5" },
+        { "id": "u6", "name": "Unit 6" },
+        { "id": "u7", "name": "Unit 7" },
+        { "id": "u8", "name": "Unit 8" },
+        { "id": "all", "name": "全册合集" }
+      ]
+    },
+    {
+      "id": "morality",
+      "name": "道德与法治",
+      "desc": "明是非、辨善恶、知荣辱",
+      "iconKey": "morality",
+      "questionsPath": "questions/morality.json"
+    }
+  ]
+}

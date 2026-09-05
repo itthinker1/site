@@ -266,6 +266,17 @@
                 border: 1px solid var(--rule);
                 border-radius: 100px;
             }
+            .project .head-right {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .project .date {
+                font-family: var(--mono);
+                font-size: 10px;
+                color: var(--ink-fade);
+                letter-spacing: 0.04em;
+            }
 
             .project .body {
                 display: flex;
@@ -372,6 +383,10 @@
                 --card-tint: rgba(58, 107, 101, 0.12);
                 --card-accent: #3a6b65;
             }
+            .project[data-key="ipswitch"] {
+                --card-tint: rgba(91, 74, 139, 0.12);
+                --card-accent: #5b4a8b;
+            }
 
             /* —— 页脚 —— */
             footer {
@@ -434,6 +449,9 @@
             .project.fade-in:nth-of-type(6) {
                 animation-delay: 0.68s;
             }
+            .project.fade-in:nth-of-type(7) {
+                animation-delay: 0.78s;
+            }
 
             /* —— 响应式 —— */
             @media (max-width: 960px) {
@@ -474,128 +492,35 @@
             </h1>
         </section>
 
+        <!--
+            ▸ 隐写维护规则（此约定随文件携带，勿删）：
+            1. 卡片按项目新增时间「倒序」排列——最新入库的项目永远放在最前（01 号位）。
+            2. 每张卡片 .date 处标注该项目的首次入库日期（以 git log --reverse 首次触碰该目录的提交为准）。
+            3. 新增项目时的操作：新卡片插入到 01 号位，原 01→N 卡片编号顺延 +1；
+               同日入库的项目之间，按原卡片编号倒序（编号大者为后加）。
+            4. 调整顺序时只动卡片位置与 num，不要改动 data-key / 链接 / 配色。
+        -->
         <section class="projects">
-            <a
-                class="project fade-in"
-                data-key="mls-story"
-                href="./mls-story/"
-            >
-                <div class="head">
-                    <span class="num">01</span>
-                    <span class="tag">Wiki · VitePress</span>
-                </div>
-                <div class="body">
-                    <div class="title"><em>马拉松</em> · 历史文化</div>
-                    <div class="desc">
-                        VitePress 构建的马拉松历史文化
-                        Wiki，赛事、传奇与趣闻轶事。
-                    </div>
-                </div>
-                <div class="foot">
-                    <span class="domain">
-                        <span class="compat-icons">
-                            <svg
-                                class="compat-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <rect
-                                    x="5"
-                                    y="2"
-                                    width="14"
-                                    height="20"
-                                    rx="2"
-                                ></rect>
-                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                            </svg>
-                            <svg
-                                class="compat-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <rect
-                                    x="2"
-                                    y="3"
-                                    width="20"
-                                    height="14"
-                                    rx="2"
-                                ></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                        </span>
-                        <b>mls-story</b>
-                    </span>
-                    <span class="arrow">→</span>
-                </div>
-            </a>
+
 
             <a
                 class="project fade-in"
-                data-key="book"
-                href="./questCut/"
+                data-key="ipswitch"
+                href="./ipswitch/website.html"
                 target="_blank"
                 rel="noopener"
             >
                 <div class="head">
-                    <span class="num">02</span>
-                    <span class="tag">Quiz · H5</span>
-                </div>
-                <div class="body">
-                    <div class="title"><em>过关斩将</em> · 趣味答题</div>
-                    <div class="desc">
-                        移动端答题小游戏，小试牛刀、勇攀高峰、重整旗鼓三种模式。丹书铁卷，助你过关斩将。
-                    </div>
-                </div>
-                <div class="foot">
-                    <span class="domain">
-                        <span class="compat-icons">
-                            <svg
-                                class="compat-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <rect
-                                    x="5"
-                                    y="2"
-                                    width="14"
-                                    height="20"
-                                    rx="2"
-                                ></rect>
-                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                            </svg>
-                        </span>
-                        <b>questCut</b>
+                    <span class="num">01</span>
+                    <span class="head-right">
+                        <span class="date">2026-09-05</span>
+                        <span class="tag">Tool · macOS</span>
                     </span>
-                    <span class="arrow">→</span>
-                </div>
-            </a>
-
-            <a
-                class="project fade-in"
-                data-key="story"
-                href="./story-stud/"
-            >
-                <div class="head">
-                    <span class="num">03</span>
-                    <span class="tag">History · Study</span>
                 </div>
                 <div class="body">
-                    <div class="title"><em>朝代</em> · 皇帝世系</div>
+                    <div class="title"><em>IP Switch</em> · 网络切换</div>
                     <div class="desc">
-                        唐宋明清四朝帝王世系卡片，传承有序，千秋一脉，适合打印学习。
+                        macOS 网络配置一键切换工具：预设配置、菜单栏直达、CLI 自动化，特权 XPC helper 安全执行。
                     </div>
                 </div>
                 <div class="foot">
@@ -621,11 +546,108 @@
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
                         </span>
-                        <b>story-stud</b>
+                        <b>ipswitch</b>
                     </span>
                     <span class="arrow">→</span>
                 </div>
             </a>
+
+
+            <a
+                class="project fade-in"
+                data-key="sms"
+                href="./sms/security-audit-report.html"
+            >
+                <div class="head">
+                    <span class="num">02</span>
+                    <span class="head-right">
+                        <span class="date">2026-08-28</span>
+                        <span class="tag">Report · Security</span>
+                    </span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>安全审计</em> · 报告</div>
+                    <div class="desc">
+                        ms-reminder + sms-tool 代码安全审计报告，风险项与修复建议一册在手。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>sms</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+
+            <a
+                class="project fade-in"
+                data-key="cli"
+                href="./cli-game/"
+            >
+                <div class="head">
+                    <span class="num">03</span>
+                    <span class="head-right">
+                        <span class="date">2026-08-24</span>
+                        <span class="tag">Game · Guide</span>
+                    </span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>ManTra</em> · Project Limbo</div>
+                    <div class="desc">
+                        CLI 风格的完整通关攻略，写给夜深还想再开一局的玩家。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>cli-game</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
 
             <a
                 class="project fade-in"
@@ -634,7 +656,10 @@
             >
                 <div class="head">
                     <span class="num">04</span>
-                    <span class="tag">Travel · 2026</span>
+                    <span class="head-right">
+                        <span class="date">2026-08-24</span>
+                        <span class="tag">Travel · 2026</span>
+                    </span>
                 </div>
                 <div class="body">
                     <div class="title"><em>伊犁</em> · 八天环线</div>
@@ -689,19 +714,23 @@
                 </div>
             </a>
 
+
             <a
                 class="project fade-in"
-                data-key="cli"
-                href="./cli-game/"
+                data-key="story"
+                href="./story-stud/"
             >
                 <div class="head">
                     <span class="num">05</span>
-                    <span class="tag">Game · Guide</span>
+                    <span class="head-right">
+                        <span class="date">2026-08-24</span>
+                        <span class="tag">History · Study</span>
+                    </span>
                 </div>
                 <div class="body">
-                    <div class="title"><em>ManTra</em> · Project Limbo</div>
+                    <div class="title"><em>朝代</em> · 皇帝世系</div>
                     <div class="desc">
-                        CLI 风格的完整通关攻略，写给夜深还想再开一局的玩家。
+                        唐宋明清四朝帝王世系卡片，传承有序，千秋一脉，适合打印学习。
                     </div>
                 </div>
                 <div class="foot">
@@ -727,7 +756,56 @@
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
                         </span>
-                        <b>cli-game</b>
+                        <b>story-stud</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+
+            <a
+                class="project fade-in"
+                data-key="book"
+                href="./questCut/"
+                target="_blank"
+                rel="noopener"
+            >
+                <div class="head">
+                    <span class="num">06</span>
+                    <span class="head-right">
+                        <span class="date">2026-08-24</span>
+                        <span class="tag">Quiz · H5</span>
+                    </span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>过关斩将</em> · 趣味答题</div>
+                    <div class="desc">
+                        移动端答题小游戏，小试牛刀、勇攀高峰、重整旗鼓三种模式。丹书铁卷，助你过关斩将。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="5"
+                                    y="2"
+                                    width="14"
+                                    height="20"
+                                    rx="2"
+                                ></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </span>
+                        <b>questCut</b>
                     </span>
                     <span class="arrow">→</span>
                 </div>
@@ -735,22 +813,44 @@
 
             <a
                 class="project fade-in"
-                data-key="sms"
-                href="./sms/security-audit-report.html"
+                data-key="mls-story"
+                href="./mls-story/"
             >
                 <div class="head">
-                    <span class="num">06</span>
-                    <span class="tag">Report · Security</span>
+                    <span class="num">07</span>
+                    <span class="head-right">
+                        <span class="date">2026-08-24</span>
+                        <span class="tag">Wiki · VitePress</span>
+                    </span>
                 </div>
                 <div class="body">
-                    <div class="title"><em>安全审计</em> · 报告</div>
+                    <div class="title"><em>马拉松</em> · 历史文化</div>
                     <div class="desc">
-                        ms-reminder + sms-tool 代码安全审计报告，风险项与修复建议一册在手。
+                        VitePress 构建的马拉松历史文化
+                        Wiki，赛事、传奇与趣闻轶事。
                     </div>
                 </div>
                 <div class="foot">
                     <span class="domain">
                         <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="5"
+                                    y="2"
+                                    width="14"
+                                    height="20"
+                                    rx="2"
+                                ></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
                             <svg
                                 class="compat-icon"
                                 viewBox="0 0 24 24"
@@ -771,7 +871,7 @@
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
                         </span>
-                        <b>sms</b>
+                        <b>mls-story</b>
                     </span>
                     <span class="arrow">→</span>
                 </div>

@@ -4,15 +4,15 @@
   "categories": [
     {
       "id": "history",
-      "name": "历史",
-      "desc": "探索古今中外的重要事件",
+      "name": "历史（七下）",
+      "desc": "探索古今中外的重要事件（七年级下册）",
       "iconKey": "history",
       "questionsPath": "questions/history.json"
     },
     {
       "id": "english",
-      "name": "英语",
-      "desc": "积累英语词汇与短语",
+      "name": "英语（八上）",
+      "desc": "积累英语词汇与短语（八年级上册）",
       "iconKey": "english",
       "questionsPath": "questions/english.json",
       "chapters": [
@@ -29,10 +29,41 @@
     },
     {
       "id": "morality",
-      "name": "道德与法治",
-      "desc": "明是非、辨善恶、知荣辱",
+      "name": "道德与法治（七下）",
+      "desc": "明是非、辨善恶、知荣辱（七年级下册）",
       "iconKey": "morality",
       "questionsPath": "questions/morality.json"
+    },
+    {
+      "id": "history-8a",
+      "name": "历史（八上）",
+      "desc": "中国近代史必背知识点（八年级上册）",
+      "iconKey": "history-8a",
+      "questionsPath": "questions/history-8a.json",
+      "chapters": [
+        { "id": "l1", "name": "第1课 鸦片战争" },
+        { "id": "l2", "name": "第2课 第二次鸦片战争" },
+        { "id": "l3", "name": "第3课 太平天国运动" },
+        { "id": "l4", "name": "第4课 洋务运动和边疆危机" },
+        { "id": "l5", "name": "第5课 甲午中日战争与列强瓜分中国狂潮" },
+        { "id": "l6", "name": "第6课 戊戌变法" },
+        { "id": "l7", "name": "第7课 八国联军侵华与《辛丑条约》签订" },
+        { "id": "l8", "name": "第8课 中国同盟会" },
+        { "id": "l9", "name": "第9课 辛亥革命" },
+        { "id": "l10", "name": "第10课 帝制复辟与军阀割据" },
+        { "id": "l11", "name": "第11课 五四运动" },
+        { "id": "l12", "name": "第12课 中国共产党诞生" },
+        { "id": "l13", "name": "第13课 北伐战争" },
+        { "id": "l14", "name": "第14课 毛泽东开辟井冈山道路" },
+        { "id": "l15", "name": "第15课 中国工农红军长征与遵义会议" },
+        { "id": "l16", "name": "第16课 从九一八事变到西安事变" },
+        { "id": "l17", "name": "第17课 七七事变与全民族抗战" },
+        { "id": "l18", "name": "第18课 全民族抗战中的正面战场和敌后战场" },
+        { "id": "l19", "name": "第19课 抗日战争的胜利" },
+        { "id": "l20", "name": "第20课 国民党挑起内战" },
+        { "id": "l21", "name": "第21课 人民解放战争的胜利" },
+        { "id": "all", "name": "合集" }
+      ]
     }
   ]
 }

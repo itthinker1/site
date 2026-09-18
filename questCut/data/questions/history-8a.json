@@ -1,0 +1,2249 @@
+{
+  "categoryId": "history-8a",
+  "questions": [
+    {
+      "id": "history-8a-q001",
+      "chapterId": "l1",
+      "text": "鸦片战争的起止时间是？",
+      "options": [
+        "1840—1842年",
+        "1856—1860年",
+        "1894—1895年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q002",
+      "chapterId": "l1",
+      "text": "鸦片战争爆发时在位的清朝皇帝是？",
+      "options": [
+        "道光帝",
+        "咸丰帝",
+        "光绪帝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q003",
+      "chapterId": "l1",
+      "text": "鸦片战争爆发的根本原因是？",
+      "options": [
+        "英国为打开中国市场，掠夺原料，倾销商品",
+        "林则徐虎门销烟",
+        "清朝拒绝与英国通商"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q004",
+      "chapterId": "l1",
+      "text": "鸦片战争爆发的直接原因是？",
+      "options": [
+        "林则徐虎门销烟",
+        "英国军舰闯入长江",
+        "清政府闭关锁国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q005",
+      "chapterId": "l1",
+      "text": "在鸦片战争中牺牲于虎门的民族英雄是？",
+      "options": [
+        "关天培",
+        "陈化成",
+        "葛云飞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q006",
+      "chapterId": "l1",
+      "text": "鸦片战争中国战败的根本原因是？",
+      "options": [
+        "落后的封建制度不敌先进的资本主义制度",
+        "武器装备落后",
+        "清军人数不足"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q007",
+      "chapterId": "l1",
+      "text": "中国近代史上第一个丧权辱国的不平等条约是？",
+      "options": [
+        "《南京条约》",
+        "《北京条约》",
+        "《马关条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q008",
+      "chapterId": "l1",
+      "text": "《南京条约》中割让给英国的是？",
+      "options": [
+        "香港岛",
+        "九龙半岛南端",
+        "台湾全岛"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q009",
+      "chapterId": "l1",
+      "text": "鸦片战争的影响是？",
+      "options": [
+        "中国开始沦为半殖民地半封建社会，成为中国近代史的开端",
+        "中国完全沦为半殖民地半封建社会",
+        "中国进入资本主义社会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q010",
+      "chapterId": "l1",
+      "text": "近代中国社会的主要矛盾有哪些？",
+      "options": [
+        "帝国主义和中华民族的矛盾、封建主义和人民大众的矛盾",
+        "资产阶级和无产阶级的矛盾",
+        "农民阶级和地主阶级的矛盾"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q011",
+      "chapterId": "l2",
+      "text": "第二次鸦片战争的起止时间是？",
+      "options": [
+        "1856—1860年",
+        "1840—1842年",
+        "1894—1895年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q012",
+      "chapterId": "l2",
+      "text": "第二次鸦片战争爆发时在位的清朝皇帝是？",
+      "options": [
+        "咸丰帝",
+        "道光帝",
+        "光绪帝"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q013",
+      "chapterId": "l2",
+      "text": "第二次鸦片战争中，英法联军在北京犯下了怎样的侵略罪行？",
+      "options": [
+        "火烧圆明园",
+        "攻占紫禁城",
+        "签订《辛丑条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q014",
+      "chapterId": "l2",
+      "text": "1858年清政府被迫签订的条约是？",
+      "options": [
+        "《天津条约》",
+        "《北京条约》",
+        "《南京条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q015",
+      "chapterId": "l2",
+      "text": "1860年清政府被迫签订的条约是？",
+      "options": [
+        "《北京条约》",
+        "《天津条约》",
+        "《南京条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q016",
+      "chapterId": "l2",
+      "text": "第二次鸦片战争期间侵占我国北方大片领土的国家是？",
+      "options": [
+        "俄国",
+        "英国",
+        "法国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q017",
+      "chapterId": "l2",
+      "text": "俄国割占中国领土最多的条约是？",
+      "options": [
+        "《瑷珲条约》",
+        "《北京条约》",
+        "《天津条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q018",
+      "chapterId": "l2",
+      "text": "第二次鸦片战争对中国社会性质的影响是？",
+      "options": [
+        "中国的半殖民地化程度进一步加深",
+        "中国完全沦为半殖民地半封建社会",
+        "中国开始沦为半殖民地半封建社会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q019",
+      "chapterId": "l3",
+      "text": "太平天国运动的领导者是？",
+      "options": [
+        "洪秀全",
+        "曾国藩",
+        "李鸿章"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q020",
+      "chapterId": "l3",
+      "text": "太平天国运动爆发的标志是？",
+      "options": [
+        "金田起义（1851年）",
+        "定都天京（1853年）",
+        "天京事变（1856年）"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q021",
+      "chapterId": "l3",
+      "text": "标志着太平天国正式建立起与清政府对峙的政权的事件是？",
+      "options": [
+        "定都天京（1853年）",
+        "金田起义（1851年）",
+        "永安建制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q022",
+      "chapterId": "l3",
+      "text": "太平天国前期的纲领是？",
+      "options": [
+        "《天朝田亩制度》",
+        "《资政新篇》",
+        "《海国图志》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q023",
+      "chapterId": "l3",
+      "text": "太平天国后期的纲领是？",
+      "options": [
+        "《资政新篇》",
+        "《天朝田亩制度》",
+        "《变法通议》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q024",
+      "chapterId": "l3",
+      "text": "标志着太平天国由盛转衰的事件是？",
+      "options": [
+        "天京事变（1856年）",
+        "天京陷落（1864年）",
+        "金田起义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q025",
+      "chapterId": "l3",
+      "text": "太平天国运动失败的根本原因是？",
+      "options": [
+        "农民阶级的局限性",
+        "中外反动势力的联合镇压",
+        "武器装备不足"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q026",
+      "chapterId": "l4",
+      "text": "洋务运动发生在哪次战争以后？",
+      "options": [
+        "第二次鸦片战争后",
+        "鸦片战争后",
+        "甲午中日战争后"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q027",
+      "chapterId": "l4",
+      "text": "洋务运动主张向西方学习什么？",
+      "options": [
+        "技术（器物）",
+        "制度（君主立宪）",
+        "思想文化"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q028",
+      "chapterId": "l4",
+      "text": "洋务运动前期的口号是？",
+      "options": [
+        "自强",
+        "求富",
+        "维新"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q029",
+      "chapterId": "l4",
+      "text": "洋务运动后期创办的民用企业不包括？",
+      "options": [
+        "江南机器制造总局",
+        "轮船招商局",
+        "汉阳铁厂"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q030",
+      "chapterId": "l4",
+      "text": "洋务运动期间规模最大的海军是？",
+      "options": [
+        "北洋舰队",
+        "南洋舰队",
+        "福建舰队"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q031",
+      "chapterId": "l4",
+      "text": "收复新疆的民族英雄是？",
+      "options": [
+        "左宗棠",
+        "曾国藩",
+        "李鸿章"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q032",
+      "chapterId": "l4",
+      "text": "中法战争中扭转战局的战役是？",
+      "options": [
+        "镇南关大捷",
+        "平壤战役",
+        "黄海海战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q033",
+      "chapterId": "l4",
+      "text": "1885年清政府建立了什么行省？",
+      "options": [
+        "台湾行省",
+        "新疆行省",
+        "东北行省"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q034",
+      "chapterId": "l5",
+      "text": "甲午中日战争的起止时间是？",
+      "options": [
+        "1894—1895年",
+        "1840—1842年",
+        "1900—1901年"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q035",
+      "chapterId": "l5",
+      "text": "在黄海海战中牺牲的民族英雄是？",
+      "options": [
+        "邓世昌",
+        "关天培",
+        "左宝贵"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q036",
+      "chapterId": "l5",
+      "text": "甲午战败后清政府被迫签订的条约是？",
+      "options": [
+        "《马关条约》",
+        "《南京条约》",
+        "《辛丑条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q037",
+      "chapterId": "l5",
+      "text": "《马关条约》中对中国经济发展危害最大的一条是？",
+      "options": [
+        "日本可在中国通商口岸开设工厂",
+        "割让辽东半岛、台湾全岛及澎湖列岛",
+        "赔款白银2亿两"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q038",
+      "chapterId": "l5",
+      "text": "《马关条约》后列强经济侵华方式发生了怎样的变化？",
+      "options": [
+        "从商品输出转为资本输出",
+        "从资本输出转为商品输出",
+        "从军事侵略转为文化侵略"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q039",
+      "chapterId": "l5",
+      "text": "民族资本主义初步发展阶段被誉为「状元实业家」的是？",
+      "options": [
+        "张謇",
+        "左宗棠",
+        "曾国藩"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q040",
+      "chapterId": "l6",
+      "text": "拉开维新运动序幕的事件是？",
+      "options": [
+        "公车上书",
+        "戊戌变法",
+        "辛亥革命"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q041",
+      "chapterId": "l6",
+      "text": "戊戌变法的代表人物不包括？",
+      "options": [
+        "孙中山",
+        "康有为",
+        "梁启超"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q042",
+      "chapterId": "l6",
+      "text": "戊戌变法在政治上属于什么性质？",
+      "options": [
+        "资产阶级改良运动",
+        "资产阶级革命运动",
+        "地主阶级自救运动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q043",
+      "chapterId": "l6",
+      "text": "维新人士创办的影响较大的报刊有？",
+      "options": [
+        "上海《时务报》和天津《国闻报》",
+        "《民报》和《新青年》",
+        "《申报》和《大公报》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q044",
+      "chapterId": "l6",
+      "text": "戊戌变法失败的根本原因是？",
+      "options": [
+        "资产阶级的局限性（软弱妥协）",
+        "变法措施过于激进",
+        "外国势力干涉"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q045",
+      "chapterId": "l7",
+      "text": "义和团运动的口号是？",
+      "options": [
+        "扶清灭洋",
+        "驱除鞑虏，恢复中华",
+        "民主共和"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q046",
+      "chapterId": "l7",
+      "text": "八国联军侵华战争后签订的不平等条约是？",
+      "options": [
+        "《辛丑条约》",
+        "《马关条约》",
+        "《南京条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q047",
+      "chapterId": "l7",
+      "text": "《辛丑条约》中哪条内容最能体现清政府沦为「洋人的朝廷」？",
+      "options": [
+        "清政府保证严禁人民参加各种形式的反帝活动",
+        "赔款白银4.5亿两",
+        "划定北京东交民巷为使馆界"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q048",
+      "chapterId": "l7",
+      "text": "《辛丑条约》中划定哪里为使馆界且不允许中国人居住？",
+      "options": [
+        "北京东交民巷",
+        "上海租界",
+        "天津租界"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q049",
+      "chapterId": "l7",
+      "text": "《辛丑条约》的签订对中国社会性质的影响是？",
+      "options": [
+        "中国完全陷入半殖民地半封建社会的深渊",
+        "中国开始沦为半殖民地半封建社会",
+        "中国进入资本主义社会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q050",
+      "chapterId": "l7",
+      "text": "八国联军不包括以下哪个国家？",
+      "options": [
+        "西班牙",
+        "意大利",
+        "奥匈帝国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q051",
+      "chapterId": "l7",
+      "text": "在天津保卫战中牺牲的民族英雄是？",
+      "options": [
+        "聂士成",
+        "邓世昌",
+        "关天培"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q052",
+      "chapterId": "l4",
+      "text": "洋务运动的代表人物中属于中央官员的是？",
+      "options": [
+        "奕䜣",
+        "曾国藩",
+        "张之洞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q053",
+      "chapterId": "l4",
+      "text": "洋务运动的代表人物属于哪个阶级？",
+      "options": [
+        "地主阶级洋务派",
+        "资产阶级维新派",
+        "资产阶级革命派"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q054",
+      "chapterId": "l4",
+      "text": "洋务运动后期创办的民用企业中不包括？",
+      "options": [
+        "福州船政局",
+        "轮船招商局",
+        "开平煤矿"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q055",
+      "chapterId": "l4",
+      "text": "如何评价洋务运动的进步性？",
+      "options": [
+        "在客观上促进了中国民族资本主义的产生",
+        "使中国走上了富强的道路",
+        "推翻了清朝统治"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q056",
+      "chapterId": "l4",
+      "text": "先后侵略台湾的两个国家是？",
+      "options": [
+        "美国、日本",
+        "英国、法国",
+        "俄国、德国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q057",
+      "chapterId": "l4",
+      "text": "中法战争中指挥镇南关大捷的将领是？",
+      "options": [
+        "冯子材",
+        "左宗棠",
+        "刘铭传"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q058",
+      "chapterId": "l5",
+      "text": "以「三国干涉还辽」为契机，列强在中国掀起了什么？",
+      "options": [
+        "瓜分中国狂潮",
+        "门户开放政策",
+        "洋务运动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q059",
+      "chapterId": "l5",
+      "text": "美国在列强瓜分中国时提出了什么照会？",
+      "options": [
+        "门户开放照会",
+        "利益均沾照会",
+        "机会均等照会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q060",
+      "chapterId": "l5",
+      "text": "中国民族资本主义发展的特点是什么？",
+      "options": [
+        "总体落后，发展不平衡（集中在轻工业和沿海沿江大城市）",
+        "全面发展，分布均匀",
+        "以重工业为主，集中在西部地区"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q061",
+      "chapterId": "l5",
+      "text": "民族资本主义发展给我们的启示是？",
+      "options": [
+        "民族独立是经济发展的前提；经济发展需要安定的环境",
+        "经济发展不需要政治独立",
+        "外国资本入侵有利于中国经济发展"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q062",
+      "chapterId": "l6",
+      "text": "戊戌变法在政治方面的措施是？",
+      "options": [
+        "裁撤冗官冗员，允许士民上书言事",
+        "鼓励私人兴办工矿企业",
+        "废除八股文，改试策论"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q063",
+      "chapterId": "l6",
+      "text": "戊戌变法在教育方面的措施是？",
+      "options": [
+        "废除八股文，改试策论，创办京师大学堂",
+        "鼓励私人兴办工矿企业",
+        "裁减绿营，训练新式军队"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q064",
+      "chapterId": "l8",
+      "text": "中国同盟会的成立时间、地点、政治纲领、机关刊物、性质；",
+      "options": [
+        "1905年，日本东京",
+        "1894年，美国檀香山",
+        "1911年，武昌"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q065",
+      "chapterId": "l8",
+      "text": "中国同盟会的政治纲领是？",
+      "options": [
+        "驱除鞑虏，恢复中华，创立民国，平均地权",
+        "扶清灭洋",
+        "自强、求富"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q066",
+      "chapterId": "l8",
+      "text": "中国同盟会的机关刊物是？",
+      "options": [
+        "《民报》",
+        "《新青年》",
+        "《时务报》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q067",
+      "chapterId": "l8",
+      "text": "孙中山领导资产阶级革命的指导思想是？",
+      "options": [
+        "三民主义",
+        "马克思主义",
+        "维新思想"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q068",
+      "chapterId": "l8",
+      "text": "三民主义中哪一条是核心？",
+      "options": [
+        "民权主义",
+        "民族主义",
+        "民生主义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q069",
+      "chapterId": "l9",
+      "text": "辛亥革命中一举成功的起义是？",
+      "options": [
+        "武昌起义",
+        "广州起义",
+        "南昌起义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q070",
+      "chapterId": "l9",
+      "text": "武昌起义的时间是？",
+      "options": [
+        "1911年10月10日",
+        "1912年1月1日",
+        "1919年5月4日"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q071",
+      "chapterId": "l9",
+      "text": "中华民国建立的时间、地点和临时大总统是？",
+      "options": [
+        "1912年1月1日，南京，孙中山",
+        "1911年10月10日，武昌，黎元洪",
+        "1912年2月12日，北京，袁世凯"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q072",
+      "chapterId": "l9",
+      "text": "中华民国颁布的法律文件是？",
+      "options": [
+        "《中华民国临时约法》",
+        "《中华民国宪法》",
+        "《中华民国约法》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q073",
+      "chapterId": "l9",
+      "text": "辛亥革命推翻了什么制度？",
+      "options": [
+        "君主专制制度",
+        "封建制度",
+        "资本主义制度"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q074",
+      "chapterId": "l10",
+      "text": "袁世凯为复辟帝制接受了日本提出的旨在灭亡中国的什么？",
+      "options": [
+        "二十一条",
+        "《辛丑条约》",
+        "门户开放政策"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q075",
+      "chapterId": "l10",
+      "text": "护国战争爆发的原因是？",
+      "options": [
+        "反对袁世凯复辟帝制",
+        "反对清朝统治",
+        "反对军阀割据"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q076",
+      "chapterId": "l10",
+      "text": "袁世凯死后北洋军阀主要分裂为哪几部分？",
+      "options": [
+        "直、皖、奉",
+        "桂、滇、粤",
+        "晋、陕、甘"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q077",
+      "chapterId": "l11",
+      "text": "新文化运动开始的标志是？",
+      "options": [
+        "1915年陈独秀在上海创办《青年杂志》",
+        "1919年五四运动爆发",
+        "1917年胡适发表《文学改良刍议》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q078",
+      "chapterId": "l11",
+      "text": "新文化运动的主要阵地是？",
+      "options": [
+        "北京大学和《新青年》编辑部",
+        "上海和《时务报》",
+        "日本东京和《民报》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q079",
+      "chapterId": "l11",
+      "text": "深刻揭露封建礼教吃人本质的著作及作者是？",
+      "options": [
+        "《狂人日记》，鲁迅",
+        "《文学改良刍议》，胡适",
+        "《文学革命论》，陈独秀"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q080",
+      "chapterId": "l11",
+      "text": "五四运动的导火索是？",
+      "options": [
+        "1919年巴黎和会中国外交失败",
+        "1915年日本提出二十一条",
+        "1917年俄国十月革命"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q081",
+      "chapterId": "l11",
+      "text": "五四运动的口号中哪条最能体现其性质？",
+      "options": [
+        "外争主权、内除国贼",
+        "誓死力争、还我青岛",
+        "取消二十一条"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q082",
+      "chapterId": "l11",
+      "text": "五四运动前期和后期的主力分别是什么？",
+      "options": [
+        "学生到工人",
+        "工人到学生",
+        "农民到学生"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q083",
+      "chapterId": "l11",
+      "text": "五四运动的性质是？",
+      "options": [
+        "彻底反帝反封建的伟大爱国革命运动",
+        "资产阶级民主革命",
+        "社会主义革命"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q084",
+      "chapterId": "l12",
+      "text": "在中国最早系统宣传马克思主义的人是谁？",
+      "options": [
+        "李大钊",
+        "陈独秀",
+        "毛泽东"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q085",
+      "chapterId": "l12",
+      "text": "中共一大召开的时间和地点是？",
+      "options": [
+        "1921年7月，上海→浙江嘉兴南湖",
+        "1927年8月，南昌",
+        "1919年5月，北京"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q086",
+      "chapterId": "l12",
+      "text": "中共一大确定的党的中心工作是？",
+      "options": [
+        "领导和组织工人运动",
+        "领导和组织农民运动",
+        "开展武装斗争"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q087",
+      "chapterId": "l12",
+      "text": "中共一大选举的中央局书记是？",
+      "options": [
+        "陈独秀",
+        "李大钊",
+        "毛泽东"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q088",
+      "chapterId": "l12",
+      "text": "中国共产党成立的意义是？",
+      "options": [
+        "是中国历史上开天辟地的大事变，中国革命的面貌焕然一新",
+        "标志着新民主主义革命取得胜利",
+        "标志着国共合作正式建立"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q089",
+      "chapterId": "l12",
+      "text": "中国共产党的初心使命是？",
+      "options": [
+        "为中国人民谋幸福、为中华民族谋复兴",
+        "推翻资产阶级，建立无产阶级专政",
+        "实现共产主义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q090",
+      "chapterId": "l12",
+      "text": "将全国第一次工人运动高潮推向顶峰的事件是？",
+      "options": [
+        "京汉铁路工人大罢工",
+        "省港大罢工",
+        "五四运动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q091",
+      "chapterId": "l13",
+      "text": "标志着国共两党合作正式建立的会议是？",
+      "options": [
+        "国民党一大",
+        "中共一大",
+        "中共二大"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q092",
+      "chapterId": "l13",
+      "text": "黄埔军校的校长和政治部主任分别是？",
+      "options": [
+        "蒋介石、周恩来",
+        "孙中山、廖仲恺",
+        "毛泽东、朱德"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q093",
+      "chapterId": "l13",
+      "text": "北伐的主要对象不包括？",
+      "options": [
+        "袁世凯",
+        "吴佩孚",
+        "孙传芳"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q094",
+      "chapterId": "l13",
+      "text": "标志着南京国民政府在形式上统一了全国的事件是？",
+      "options": [
+        "1928年底张学良宣布东北易帜",
+        "北伐军攻克北京",
+        "国民党一大召开"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q095",
+      "chapterId": "l14",
+      "text": "南昌起义的时间和意义是？",
+      "options": [
+        "1927年8月1日，打响了武装反抗国民党反动派的第一枪",
+        "1927年9月9日，秋收起义",
+        "1928年4月，井冈山会师"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q096",
+      "chapterId": "l14",
+      "text": "八七会议上毛泽东提出的著名论断是？",
+      "options": [
+        "政权是由枪杆子中取得的",
+        "农村包围城市，武装夺取政权",
+        "星星之火，可以燎原"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q097",
+      "chapterId": "l14",
+      "text": "从组织上确立了党对军队的领导的事件是？",
+      "options": [
+        "三湾改编",
+        "古田会议",
+        "遵义会议"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q098",
+      "chapterId": "l14",
+      "text": "中国第一个农村革命根据地在哪里？",
+      "options": [
+        "井冈山",
+        "延安",
+        "瑞金"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q099",
+      "chapterId": "l14",
+      "text": "井冈山会师后军队改称为什么？军长和党代表分别是谁？",
+      "options": [
+        "中国工农红军第四军，朱德任军长、毛泽东任党代表",
+        "国民革命军，蒋介石任军长",
+        "八路军，彭德怀任军长"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q100",
+      "chapterId": "l14",
+      "text": "古田会议确立的原则是？",
+      "options": [
+        "思想建党、政治建军",
+        "农村包围城市",
+        "民主集中制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q101",
+      "chapterId": "l14",
+      "text": "毛泽东总结工农武装割据实践经验形成的思想是？",
+      "options": [
+        "农村包围城市，武装夺取政权",
+        "枪杆子里出政权",
+        "一切反动派都是纸老虎"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q102",
+      "chapterId": "l14",
+      "text": "中华苏维埃共和国临时中央政府定都在哪里？",
+      "options": [
+        "江西瑞金",
+        "陕西延安",
+        "贵州遵义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q103",
+      "chapterId": "l15",
+      "text": "红军长征的根本原因是？",
+      "options": [
+        "左的错误（根本原因）；第五次反围剿失败（直接原因）",
+        "日本侵华",
+        "国民党反动派发动内战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q104",
+      "chapterId": "l15",
+      "text": "遵义会议召开的意义是？",
+      "options": [
+        "是中国共产党历史上一个生死攸关的转折点",
+        "标志着国共合作正式建立",
+        "标志着抗日战争全面爆发"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q105",
+      "chapterId": "l15",
+      "text": "打乱了敌人追剿计划的事件是？",
+      "options": [
+        "四渡赤水",
+        "巧渡金沙江",
+        "飞夺泸定桥"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q106",
+      "chapterId": "l15",
+      "text": "长征胜利结束的标志是？",
+      "options": [
+        "红军三大主力在甘肃会宁和将台堡会师",
+        "遵义会议召开",
+        "吴起镇会师"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q107",
+      "chapterId": "l16",
+      "text": "九一八事变爆发的时间和地点是？",
+      "options": [
+        "1931年9月18日，辽宁沈阳",
+        "1937年7月7日，北平",
+        "1927年8月1日，南昌"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q108",
+      "chapterId": "l16",
+      "text": "中国人民抗日战争的起点是？",
+      "options": [
+        "九一八事变后东北军民抵抗日军侵略",
+        "七七事变",
+        "西安事变"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q109",
+      "chapterId": "l16",
+      "text": "华北危机下北平学生发起了什么运动？",
+      "options": [
+        "一二·九运动",
+        "五四运动",
+        "新文化运动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q110",
+      "chapterId": "l16",
+      "text": "西安事变的发动者是？",
+      "options": [
+        "张学良、杨虎城",
+        "冯玉祥、吉鸿昌",
+        "蒋介石、汪精卫"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q111",
+      "chapterId": "l16",
+      "text": "西安事变和平解决的意义是？",
+      "options": [
+        "揭开了国共两党由内战到联合抗日的序幕，成为时局转换的枢纽",
+        "标志着抗日战争的全面爆发",
+        "标志着国共合作的正式建立"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q112",
+      "chapterId": "l17",
+      "text": "七七事变又称什么事变？时间是？",
+      "options": [
+        "卢沟桥事变，1937年7月7日",
+        "九一八事变，1931年9月18日",
+        "西安事变，1936年12月12日"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q113",
+      "chapterId": "l17",
+      "text": "七七事变的意义是？",
+      "options": [
+        "标志着中国全民族抗战的开始",
+        "标志着抗日战争的胜利",
+        "标志着国共合作的开始"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q114",
+      "chapterId": "l17",
+      "text": "在保卫北平的战斗中牺牲的两位民族英雄是？",
+      "options": [
+        "赵登禹、佟麟阁",
+        "张自忠、左权",
+        "杨靖宇、赵尚志"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q115",
+      "chapterId": "l17",
+      "text": "抗日民族统一战线正式建立的标志是？",
+      "options": [
+        "国共合作宣言的发表",
+        "西安事变的和平解决",
+        "国民党一大的召开"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q116",
+      "chapterId": "l17",
+      "text": "淞沪会战中率部坚守四行仓库的民族英雄是？",
+      "options": [
+        "谢晋元",
+        "姚子青",
+        "张自忠"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q117",
+      "chapterId": "l17",
+      "text": "日军攻陷南京后屠杀的中国军民人数是？",
+      "options": [
+        "30万人以上",
+        "10万人以上",
+        "50万人以上"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q118",
+      "chapterId": "l18",
+      "text": "中国军队主动对日作战取得的第一个重大胜利是？",
+      "options": [
+        "平型关大捷",
+        "台儿庄大捷",
+        "百团大战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q119",
+      "chapterId": "l18",
+      "text": "抗战以来中国正面战场取得的最大胜仗是？",
+      "options": [
+        "台儿庄大捷",
+        "平型关大捷",
+        "第三次长沙会战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q120",
+      "chapterId": "l18",
+      "text": "武汉会战后抗日战争进入什么阶段？",
+      "options": [
+        "战略相持阶段",
+        "战略防御阶段",
+        "战略反攻阶段"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q121",
+      "chapterId": "l18",
+      "text": "在枣宜会战中牺牲的国民党高级将领是？",
+      "options": [
+        "张自忠",
+        "佟麟阁",
+        "赵登禹"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q122",
+      "chapterId": "l18",
+      "text": "中国军队主动出击日军的最大规模战役是？指挥者是？",
+      "options": [
+        "百团大战，彭德怀",
+        "平型关大捷，林彪",
+        "台儿庄大捷，李宗仁"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q123",
+      "chapterId": "l18",
+      "text": "在反「扫荡」作战中牺牲的八路军副参谋长是？",
+      "options": [
+        "左权",
+        "张自忠",
+        "杨靖宇"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q124",
+      "chapterId": "l18",
+      "text": "标志着国际反法西斯统一战线正式建立的文件是？",
+      "options": [
+        "《联合国家宣言》",
+        "《开罗宣言》",
+        "《波茨坦公告》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q125",
+      "chapterId": "l18",
+      "text": "规定日本窃取的中国领土应归还中国的文件是？",
+      "options": [
+        "《开罗宣言》",
+        "《联合国家宣言》",
+        "《马关条约》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q126",
+      "chapterId": "l19",
+      "text": "中国共产党在全民族抗战中的地位如何？",
+      "options": [
+        "中流砥柱",
+        "辅助力量",
+        "旁观者"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q127",
+      "chapterId": "l19",
+      "text": "为驳斥「亡国论」和「速胜论」，毛泽东发表了什么著作？",
+      "options": [
+        "《论持久战》",
+        "《新民主主义论》",
+        "《矛盾论》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q128",
+      "chapterId": "l19",
+      "text": "中共七大把什么确立为党的指导思想并写入党章？",
+      "options": [
+        "毛泽东思想",
+        "马克思主义",
+        "三民主义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q129",
+      "chapterId": "l19",
+      "text": "日本被迫宣布无条件投降的时间是？",
+      "options": [
+        "1945年8月15日",
+        "1945年9月2日",
+        "1945年9月3日"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q130",
+      "chapterId": "l19",
+      "text": "抗日战争是近代以来中国人民反抗外敌入侵第几次取得完全胜利的民族解放斗争？",
+      "options": [
+        "第一次",
+        "第二次",
+        "第三次"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q131",
+      "chapterId": "l20",
+      "text": "重庆谈判后国共双方签署了什么文件？",
+      "options": [
+        "双十协定",
+        "《停战协定》",
+        "《和平建国纲领》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q132",
+      "chapterId": "l20",
+      "text": "全面内战爆发的标志是？",
+      "options": [
+        "1946年6月国民党军队全力围攻中原解放区",
+        "1945年重庆谈判破裂",
+        "1947年国民党进攻陕北解放区"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q133",
+      "chapterId": "l20",
+      "text": "面对敌强我弱的实际情况，毛泽东提出的论断是？",
+      "options": [
+        "一切反动派都是纸老虎",
+        "枪杆子里出政权",
+        "农村包围城市"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q134",
+      "chapterId": "l20",
+      "text": "国民党军队对哪两个解放区发动了重点进攻？",
+      "options": [
+        "陕北和山东",
+        "东北和华北",
+        "华东和华中"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q135",
+      "chapterId": "l20",
+      "text": "面对国民党对陕北的重点进攻，中共中央是如何做的？",
+      "options": [
+        "主动撤出延安，转战陕北",
+        "坚守延安，决一死战",
+        "放弃陕北，转移到东北"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q136",
+      "chapterId": "l20",
+      "text": "指挥西北野战军粉碎国民党对陕北重点进攻的是？",
+      "options": [
+        "彭德怀",
+        "林彪",
+        "刘伯承"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q137",
+      "chapterId": "l21",
+      "text": "抗日战争胜利后中共在解放区颁布的土地文件是？",
+      "options": [
+        "《中国土地法大纲》",
+        "《天朝田亩制度》",
+        "《土地改革法》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q138",
+      "chapterId": "l21",
+      "text": "揭开人民解放军战略进攻序幕的事件是？",
+      "options": [
+        "1947年夏刘邓大军千里跃进大别山",
+        "1948年辽沈战役",
+        "1949年渡江战役"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q139",
+      "chapterId": "l21",
+      "text": "解放战争战略决战阶段不包括以下哪个战役？",
+      "options": [
+        "渡江战役",
+        "辽沈战役",
+        "淮海战役"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q140",
+      "chapterId": "l21",
+      "text": "率部接受和平改编的北平国民党守军总司令是？",
+      "options": [
+        "傅作义",
+        "张学良",
+        "李宗仁"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q141",
+      "chapterId": "l21",
+      "text": "「百万雄师过大江」指的是哪一战役？时间是？",
+      "options": [
+        "渡江战役，1949年4月",
+        "淮海战役，1948年11月",
+        "辽沈战役，1948年9月"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q142",
+      "chapterId": "l21",
+      "text": "中共七届二中全会决定党的工作重心如何调整？",
+      "options": [
+        "由乡村转向城市",
+        "由城市转向乡村",
+        "由军事转向经济"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q143",
+      "chapterId": "l4",
+      "text": "洋务运动的代表人物中属于中央官员的是？",
+      "options": [
+        "奕䜣",
+        "曾国藩",
+        "张之洞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q144",
+      "chapterId": "l4",
+      "text": "洋务运动的代表人物属于哪个阶级？",
+      "options": [
+        "地主阶级洋务派",
+        "资产阶级维新派",
+        "资产阶级革命派"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q145",
+      "chapterId": "l4",
+      "text": "洋务运动的进步性体现在？",
+      "options": [
+        "在客观上促进了中国民族资本主义的产生",
+        "使中国走上了富强的道路",
+        "推翻了清朝统治"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q146",
+      "chapterId": "l4",
+      "text": "先后侵略台湾的两个国家是？",
+      "options": [
+        "美国、日本",
+        "英国、法国",
+        "俄国、德国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q147",
+      "chapterId": "l4",
+      "text": "中法战争中指挥镇南关大捷的将领是？",
+      "options": [
+        "冯子材",
+        "左宗棠",
+        "刘铭传"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q148",
+      "chapterId": "l5",
+      "text": "三国干涉还辽后列强在中国掀起了什么？",
+      "options": [
+        "瓜分中国狂潮",
+        "门户开放政策",
+        "洋务运动"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q149",
+      "chapterId": "l5",
+      "text": "美国在列强瓜分中国时提出了什么照会？",
+      "options": [
+        "门户开放照会",
+        "利益均沾照会",
+        "机会均等照会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q150",
+      "chapterId": "l5",
+      "text": "中国民族资本主义发展的特点是？",
+      "options": [
+        "总体落后，发展不平衡",
+        "全面发展，分布均匀",
+        "以重工业为主，集中在西部"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q151",
+      "chapterId": "l5",
+      "text": "民族资本主义发展给我们的启示是？",
+      "options": [
+        "民族独立是经济发展的前提，经济发展需要安定的环境",
+        "经济发展不需要政治独立",
+        "外国资本入侵有利于中国经济发展"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q152",
+      "chapterId": "l6",
+      "text": "戊戌变法在政治方面的措施是？",
+      "options": [
+        "裁撤冗官冗员，允许士民上书言事",
+        "鼓励私人兴办工矿企业",
+        "废除八股文，改试策论"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q153",
+      "chapterId": "l6",
+      "text": "戊戌变法在教育方面的措施是？",
+      "options": [
+        "废除八股文，改试策论，创办京师大学堂",
+        "裁撤冗官冗员",
+        "裁减绿营，训练新式军队"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q154",
+      "chapterId": "l6",
+      "text": "戊戌变法在经济方面的措施是？",
+      "options": [
+        "鼓励私人兴办工矿企业，改革财政编制国家预算",
+        "废除八股文",
+        "裁撤冗官冗员"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q155",
+      "chapterId": "l8",
+      "text": "孙中山早年成立的第一个资产阶级革命团体是？",
+      "options": [
+        "兴中会",
+        "同盟会",
+        "光复会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q156",
+      "chapterId": "l8",
+      "text": "宣传资产阶级革命思想的著作《革命军》的作者是？",
+      "options": [
+        "邹容",
+        "章炳麟",
+        "陈天华"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q157",
+      "chapterId": "l8",
+      "text": "中国同盟会的性质是？",
+      "options": [
+        "第一个全国规模的统一的资产阶级革命政党",
+        "第一个资产阶级革命团体",
+        "第一个无产阶级政党"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q158",
+      "chapterId": "l8",
+      "text": "三民主义中的民族主义对应同盟会纲领的哪一条？",
+      "options": [
+        "驱除鞑虏，恢复中华",
+        "创立民国",
+        "平均地权"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q159",
+      "chapterId": "l8",
+      "text": "同盟会成立后影响最大的起义是？",
+      "options": [
+        "黄花岗起义",
+        "萍浏醴起义",
+        "浙皖起义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q160",
+      "chapterId": "l9",
+      "text": "辛亥革命的成果被谁窃取？",
+      "options": [
+        "袁世凯",
+        "黎元洪",
+        "段祺瑞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q161",
+      "chapterId": "l9",
+      "text": "二次革命爆发的直接原因是？",
+      "options": [
+        "宋教仁案",
+        "袁世凯称帝",
+        "张勋复辟"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q162",
+      "chapterId": "l9",
+      "text": "辛亥革命的进步性体现在？",
+      "options": [
+        "推翻了清王朝统治，宣告君主专制制度的终结",
+        "改变了中国半殖民地半封建的社会性质",
+        "完成了反帝反封建的革命任务"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q163",
+      "chapterId": "l10",
+      "text": "护国战争的主要发起者不包括？",
+      "options": [
+        "孙中山",
+        "唐继尧",
+        "蔡锷"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q164",
+      "chapterId": "l11",
+      "text": "新文化运动的代表人物不包括？",
+      "options": [
+        "康有为",
+        "陈独秀",
+        "胡适"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q165",
+      "chapterId": "l11",
+      "text": "新文化运动的主要内容不包括？",
+      "options": [
+        "主张维新变法",
+        "抨击旧道德和旧文化",
+        "提倡民主和科学"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q166",
+      "chapterId": "l11",
+      "text": "倡导白话文和新文学的两篇代表文章是？",
+      "options": [
+        "胡适《文学改良刍议》和陈独秀《文学革命论》",
+        "鲁迅《狂人日记》和胡适《文学改良刍议》",
+        "陈独秀《文学革命论》和鲁迅《狂人日记》"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q167",
+      "chapterId": "l11",
+      "text": "新文化运动的意义是？",
+      "options": [
+        "动摇了封建道德礼教的统治地位，掀起思想解放的潮流",
+        "完成了反帝反封建的革命任务",
+        "建立了民主共和国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q168",
+      "chapterId": "l11",
+      "text": "五四运动的结果是？",
+      "options": [
+        "北洋政府释放被捕学生，中国代表没有在和约上签字",
+        "推翻了北洋政府",
+        "建立了中华民国"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q169",
+      "chapterId": "l11",
+      "text": "五四运动的历史意义不包括？",
+      "options": [
+        "推翻了北洋军阀的统治",
+        "促进了马克思主义在中国的传播",
+        "为中国共产党的成立做了思想上干部上的准备"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q170",
+      "chapterId": "l12",
+      "text": "中国共产党成立的思想基础是？",
+      "options": [
+        "马克思主义的广泛传播",
+        "工人阶级队伍的壮大",
+        "共产党早期组织的建立"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q171",
+      "chapterId": "l12",
+      "text": "中共二大召开的意义是？",
+      "options": [
+        "第一次提出了明确的反帝反封建的民主革命纲领",
+        "宣告中国共产党成立",
+        "确立毛泽东思想为党的指导思想"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q172",
+      "chapterId": "l12",
+      "text": "中共成立后设立什么机构集中领导全国工人运动？",
+      "options": [
+        "中国劳动组合书记部",
+        "中华全国总工会",
+        "工人运动委员会"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q173",
+      "chapterId": "l13",
+      "text": "北伐战争中被称为铁军的先锋部队是？",
+      "options": [
+        "叶挺领导的第四军独立团",
+        "蒋介石领导的第一军",
+        "冯玉祥领导的国民军"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q174",
+      "chapterId": "l13",
+      "text": "北伐军总司令是？",
+      "options": [
+        "蒋介石",
+        "孙中山",
+        "毛泽东"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q175",
+      "chapterId": "l13",
+      "text": "国民党反动集团背叛革命的表现是？",
+      "options": [
+        "蒋介石发动四一二反革命政变，汪精卫召开分共会议",
+        "袁世凯复辟帝制",
+        "张勋复辟"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q176",
+      "chapterId": "l14",
+      "text": "会后毛泽东在湘赣边界发动了什么起义？",
+      "options": [
+        "秋收起义",
+        "南昌起义",
+        "广州起义"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q177",
+      "chapterId": "l14",
+      "text": "面积最大的农村革命根据地是？",
+      "options": [
+        "中央革命根据地",
+        "井冈山根据地",
+        "鄂豫皖根据地"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q178",
+      "chapterId": "l16",
+      "text": "1932年日本扶植谁在长春建立了伪满洲国？",
+      "options": [
+        "溥仪",
+        "袁世凯",
+        "段祺瑞"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q179",
+      "chapterId": "l16",
+      "text": "在江桥与日军血战的东北军将领是？",
+      "options": [
+        "马占山",
+        "张学良",
+        "杨靖宇"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q180",
+      "chapterId": "l16",
+      "text": "中共派谁在东北组织游击队开展抗日游击战争？",
+      "options": [
+        "杨靖宇、赵尚志",
+        "林彪、罗荣桓",
+        "彭德怀、左权"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q181",
+      "chapterId": "l16",
+      "text": "中国军队在长城一线哪场战斗中杀伤大量日军？",
+      "options": [
+        "喜峰口战斗",
+        "平型关大捷",
+        "台儿庄大捷"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q182",
+      "chapterId": "l16",
+      "text": "率部在察哈尔与日军作战的国民党爱国将领是？",
+      "options": [
+        "冯玉祥、吉鸿昌",
+        "张学良、杨虎城",
+        "李宗仁、张自忠"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q183",
+      "chapterId": "l16",
+      "text": "中共在哪次会议上确定建立抗日民族统一战线的方针？",
+      "options": [
+        "瓦窑堡会议",
+        "遵义会议",
+        "洛川会议"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q184",
+      "chapterId": "l16",
+      "text": "1936年冬在绥远抗日取得百灵庙大捷的国民党将领是？",
+      "options": [
+        "傅作义",
+        "冯玉祥",
+        "张学良"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q185",
+      "chapterId": "l17",
+      "text": "日本发动全面侵华后共产党改编的八路军总指挥是？",
+      "options": [
+        "朱德",
+        "彭德怀",
+        "叶挺"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q186",
+      "chapterId": "l17",
+      "text": "淞沪会战的起止时间是？",
+      "options": [
+        "1937年8月—11月",
+        "1937年7月—1938年1月",
+        "1938年3月—5月"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q187",
+      "chapterId": "l17",
+      "text": "淞沪会战的意义是？",
+      "options": [
+        "打破了日本3个月灭亡中国的迷梦",
+        "取得了抗战以来的最大胜利",
+        "标志着抗日战争进入相持阶段"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q188",
+      "chapterId": "l18",
+      "text": "最终获得胜利在国内外产生积极影响的会战是？",
+      "options": [
+        "第三次长沙会战",
+        "淞沪会战",
+        "武汉会战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q189",
+      "chapterId": "l18",
+      "text": "哪场战役中国民党军队一溃千里丢失大片土地？",
+      "options": [
+        "豫湘桂战役",
+        "淞沪会战",
+        "第三次长沙会战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q190",
+      "chapterId": "l18",
+      "text": "敌后战场的指挥中枢在哪里？",
+      "options": [
+        "延安",
+        "重庆",
+        "南京"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q191",
+      "chapterId": "l18",
+      "text": "以下哪场不是根据地军民的伏击战胜利？",
+      "options": [
+        "平型关大捷",
+        "神头岭伏击战",
+        "响堂铺伏击战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q192",
+      "chapterId": "l18",
+      "text": "国民党顽固派制造的最大反共摩擦是？",
+      "options": [
+        "皖南事变",
+        "四一二反革命政变",
+        "中山舰事件"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q193",
+      "chapterId": "l18",
+      "text": "中国远征军入缅作战取得的胜利是？",
+      "options": [
+        "仁安羌战役",
+        "平型关大捷",
+        "台儿庄大捷"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q194",
+      "chapterId": "l18",
+      "text": "在缅北殉国的中国远征军将领是？",
+      "options": [
+        "戴安澜",
+        "张自忠",
+        "左权"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q195",
+      "chapterId": "l18",
+      "text": "中国战场在世界反法西斯战争中的地位是？",
+      "options": [
+        "东方主战场",
+        "辅助战场",
+        "次要战场"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q196",
+      "chapterId": "l19",
+      "text": "中共在抗日根据地实行什么样的土地政策？",
+      "options": [
+        "地主减租减息、农民交租交息",
+        "耕者有其田",
+        "土地公有制"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q197",
+      "chapterId": "l19",
+      "text": "抗日战争胜利的决定性因素是？",
+      "options": [
+        "中共在全民族抗战中发挥了中流砥柱的作用",
+        "美国向日本投掷原子弹",
+        "苏联出兵东北"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q198",
+      "chapterId": "l20",
+      "text": "国民党全面进攻达到最高峰的标志是？",
+      "options": [
+        "1946年10月国民党军队占领张家口",
+        "1946年6月围攻中原解放区",
+        "1947年占领延安"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q199",
+      "chapterId": "l20",
+      "text": "国民党对山东解放区重点进攻是如何被粉碎的？",
+      "options": [
+        "华东野战军在孟良崮战役中取得胜利",
+        "东北野战军发动辽沈战役",
+        "西北野战军取得青化砭战役胜利"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q200",
+      "chapterId": "l21",
+      "text": "解放区土地改革的意义是？",
+      "options": [
+        "使农村阶级关系和土地占有状况发生根本性改变",
+        "使中国走上了社会主义道路",
+        "标志着新民主主义革命的胜利"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q201",
+      "chapterId": "l21",
+      "text": "三大战役胜利的总体意义是？",
+      "options": [
+        "国民党军队主力基本被消灭，大大加速了全国胜利",
+        "结束了国民党在大陆的统治",
+        "标志着新民主主义革命的完全胜利"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q202",
+      "chapterId": "l21",
+      "text": "中共取得人民解放战争胜利的原因不包括？",
+      "options": [
+        "国民党军队人数不足",
+        "中共得民心",
+        "人民解放军的英勇作战"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q203",
+      "chapterId": "l21",
+      "text": "新民主主义革命时期国共关系的变化是？",
+      "options": [
+        "合作—对峙—再合作—再对峙",
+        "一直合作",
+        "一直对峙"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "history-8a-q204",
+      "chapterId": "l21",
+      "text": "新民主主义革命胜利的意义是？",
+      "options": [
+        "结束了中国半殖民地半封建社会的地位，实现了民族独立和人民解放",
+        "中国进入社会主义社会",
+        "仅仅是军事上的胜利"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

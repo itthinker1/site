@@ -242,20 +242,6 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            .project .num {
-                font-family: var(--serif);
-                font-size: 22px;
-                font-weight: 400;
-                font-style: italic;
-                color: var(--ink-fade);
-                line-height: 1;
-                letter-spacing: -0.02em;
-                transition: color 0.4s ease;
-            }
-            .project:hover .num {
-                color: var(--card-accent, var(--accent));
-            }
-
             .project .tag {
                 font-family: var(--mono);
                 font-size: 9.5px;
@@ -498,11 +484,11 @@
 
         <!--
             ▸ 隐写维护规则（此约定随文件携带，勿删）：
-            1. 卡片按项目新增时间「倒序」排列——最新入库的项目永远放在最前（01 号位）。
+            1. 卡片按项目新增时间「倒序」排列——最新入库的项目永远放在最前。
             2. 每张卡片 .date 处标注该项目的首次入库日期（以 git log --reverse 首次触碰该目录的提交为准）。
-            3. 新增项目时的操作：新卡片插入到 01 号位，原 01→N 卡片编号顺延 +1；
-               同日入库的项目之间，按原卡片编号倒序（编号大者为后加）。
-            4. 调整顺序时只动卡片位置与 num，不要改动 data-key / 链接 / 配色。
+            3. 新增项目时的操作：新卡片插入到最前；
+               同日入库的项目之间，后加的放更前。
+            4. 卡片不显示序号；调整顺序时只动卡片位置，不要改动 data-key / 链接 / 配色。
         -->
         <section class="projects">
 
@@ -513,7 +499,6 @@
                 href="./style/"
             >
                 <div class="head">
-                    <span class="num">01</span>
                     <span class="head-right">
                         <span class="date">2026-10-01</span>
                         <span class="tag">Design · Collection</span>
@@ -563,7 +548,6 @@
                 rel="noopener"
             >
                 <div class="head">
-                    <span class="num">02</span>
                     <span class="head-right">
                         <span class="date">2026-09-05</span>
                         <span class="tag">Tool · macOS</span>
@@ -611,7 +595,6 @@
                 href="./sms/security-audit-report.html"
             >
                 <div class="head">
-                    <span class="num">03</span>
                     <span class="head-right">
                         <span class="date">2026-08-28</span>
                         <span class="tag">Report · Security</span>
@@ -659,7 +642,6 @@
                 href="./cli-game/"
             >
                 <div class="head">
-                    <span class="num">04</span>
                     <span class="head-right">
                         <span class="date">2026-08-24</span>
                         <span class="tag">Game · Guide</span>
@@ -707,7 +689,6 @@
                 href="./yili/"
             >
                 <div class="head">
-                    <span class="num">05</span>
                     <span class="head-right">
                         <span class="date">2026-08-24</span>
                         <span class="tag">Travel · 2026</span>
@@ -773,7 +754,6 @@
                 href="./story-stud/"
             >
                 <div class="head">
-                    <span class="num">06</span>
                     <span class="head-right">
                         <span class="date">2026-08-24</span>
                         <span class="tag">History · Study</span>
@@ -823,7 +803,6 @@
                 rel="noopener"
             >
                 <div class="head">
-                    <span class="num">07</span>
                     <span class="head-right">
                         <span class="date">2026-08-24</span>
                         <span class="tag">Quiz · H5</span>
@@ -869,7 +848,6 @@
                 href="./mls-story/"
             >
                 <div class="head">
-                    <span class="num">08</span>
                     <span class="head-right">
                         <span class="date">2026-08-24</span>
                         <span class="tag">Wiki · VitePress</span>

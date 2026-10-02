@@ -98,30 +98,7 @@
 
   .contents {
     padding: 52px 0 60px;
-    /* 纯淡入：吸顶元素上避免残留 transform，防止干扰 sticky 定位 */
     animation: fade-in 0.8s ease 0.16s both;
-    /* 滚动时目录整体悬浮吸顶 */
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--paper);
-    transition: padding 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  /* 吸顶态：隐藏标签、收薄留白、加底部分隔线与投影 */
-  .contents.stuck {
-    padding-top: 12px;
-    padding-bottom: 14px;
-    box-shadow: 0 1px 0 var(--hairline-faint), 0 18px 30px -22px rgba(23, 20, 15, 0.45);
-  }
-
-  .contents.stuck .contents-head {
-    display: none;
-  }
-
-  .contents.stuck .toc-card {
-    padding-top: 14px;
-    padding-bottom: 14px;
   }
 
   .contents-head {
@@ -144,9 +121,7 @@
   }
 
   .contents-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
+    display: block;
   }
 
   .contents-row li {
@@ -156,66 +131,65 @@
   .toc-card {
     display: flex;
     align-items: baseline;
-    gap: 18px;
-    padding: 24px 24px;
+    gap: 16px;
+    padding: 14px 4px;
     text-decoration: none;
     color: var(--ink);
-    background: rgba(23, 20, 15, 0.03);
-    border: 1px solid transparent;
-    transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
-    position: relative;
+    border-bottom: 1px solid var(--hairline-faint);
+    transition: color 0.22s ease;
+  }
+
+  .contents-row li:first-child .toc-card {
+    border-top: 1px solid var(--hairline-faint);
+  }
+
+  .toc-card::after {
+    content: "→";
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    transition: color 0.22s ease, transform 0.22s ease;
   }
 
   .toc-card:hover,
   .toc-card.active {
-    background: var(--seal);
-    color: var(--paper);
-    border-color: var(--seal);
+    color: var(--seal);
+  }
+
+  .toc-card:hover::after,
+  .toc-card.active::after {
+    color: var(--seal);
+    transform: translateX(2px);
   }
 
   .toc-no {
-    font-family: var(--font-serif);
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 1;
-    color: var(--seal);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
     flex: none;
     transition: color 0.22s ease;
   }
 
   .toc-card:hover .toc-no,
   .toc-card.active .toc-no {
-    color: var(--paper);
+    color: var(--seal);
   }
 
   .toc-title {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     letter-spacing: 0.04em;
-    line-height: 1.5;
-    flex: 1;
-  }
-
-  .toc-meta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--ink-soft);
-    flex: none;
-    transition: color 0.22s ease;
-  }
-
-  .toc-card:hover .toc-meta,
-  .toc-card.active .toc-meta {
-    color: rgba(242, 237, 227, 0.66);
+    line-height: 1.6;
   }
 
   /* ---------- 风格章节 ---------- */
 
   .style {
     padding: 72px 0 88px;
-    /* 吸顶目录高度 + 呼吸空间，锚点跳转时标题不被遮挡 */
-    scroll-margin-top: 110px;
+    /* 锚点跳转时的呼吸空间 */
+    scroll-margin-top: 32px;
   }
 
   .style + .style {
@@ -437,23 +411,9 @@
   }
 
   @media (max-width: 900px) {
-    /* 移动端：吸顶目录改为单行横滑，不占过多竖向空间 */
-    .contents-row {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 10px 0;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .contents-row::-webkit-scrollbar { display: none; }
-    .contents-row li { flex: 0 0 auto; }
-    .contents-row .toc-card { white-space: nowrap; padding: 12px 16px; gap: 12px; }
-    .contents-row .toc-no { font-size: 22px; }
-    .contents-row .toc-title { font-size: 14px; }
-    .contents-row .toc-meta { display: none; }
-    .contents.stuck .toc-card { padding-top: 12px; padding-bottom: 12px; }
-    .style { scroll-margin-top: 104px; }
+    /* 移动端：目录保持单列简单行 */
+    .toc-card { padding: 12px 2px; }
+    .toc-title { font-size: 14px; }
   }
 
   @media (max-width: 640px) {
@@ -470,7 +430,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .top-rule, .masthead, .contents { animation: none; }
-    .plate .frame, .contents, .toc-card, .toc-no, .toc-meta, .style-tags li { transition: none; }
+    .plate .frame, .contents, .toc-card, .toc-no, .style-tags li { transition: none; }
   }
 </style>
 </head>
@@ -501,17 +461,14 @@
       <li><a class="toc-card" href="#style-01" data-target="style-01">
         <span class="toc-no">01</span>
         <span class="toc-title">扁平手绘风</span>
-        <span class="toc-meta">2 图</span>
       </a></li>
       <li><a class="toc-card" href="#style-02" data-target="style-02">
         <span class="toc-no">02</span>
         <span class="toc-title">卡片式布局拟物轻毛玻璃风</span>
-        <span class="toc-meta">1 图</span>
       </a></li>
       <li><a class="toc-card" href="#style-03" data-target="style-03">
         <span class="toc-no">03</span>
         <span class="toc-title">现代扁平化科技插画风格</span>
-        <span class="toc-meta">1 图</span>
       </a></li>
     </ol>
   </nav>
@@ -702,39 +659,12 @@
     });
   }
 
-  /* ---------- 目录锚点跳转（自行计算目标位置，规避浏览器平滑滚动
-     在 sticky 元素存在时不遵守 scroll-margin 的缺陷） ---------- */
-
-  tocCards.forEach(function (card) {
-    card.addEventListener("click", function (event) {
-      var target = document.getElementById(card.getAttribute("data-target"));
-      if (!target) return;
-      event.preventDefault();
-      var margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-      var top = target.getBoundingClientRect().top + window.scrollY - margin;
-      window.scrollTo({ top: top, behavior: "smooth" });
-      if (history.replaceState) {
-        history.replaceState(null, "", card.getAttribute("href"));
-      }
-    });
-  });
-
-  /* ---------- 目录吸顶态（贴顶时隐藏标签、加分隔线与投影） ---------- */
-
-  var contentsNav = document.querySelector(".contents");
-
-  function syncStuck() {
-    if (contentsNav) {
-      contentsNav.classList.toggle("stuck", contentsNav.getBoundingClientRect().top <= 0);
-    }
-  }
+  /* 锚点跳转交给浏览器原生行为（html 已启用 smooth scroll + scroll-margin-top） */
 
   window.addEventListener("scroll", function () {
     syncToc();
-    syncStuck();
   }, { passive: true });
   syncToc();
-  syncStuck();
 })();
 </script>
 </body>

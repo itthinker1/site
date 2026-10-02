@@ -256,44 +256,47 @@
 
   /* ---------- 展开详情 ---------- */
 
-  .detail {
-    margin-top: 44px;
-    border-top: 1px solid var(--hairline-faint);
-  }
-
+  /* 内联按钮：紧接简介正文，不另起段落 */
   .detail-toggle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 0;
-    list-style: none;
-    cursor: pointer;
+    display: inline;
+    margin-left: 8px;
+    padding: 0;
+    border: 0;
+    background: none;
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.24em;
-    color: var(--ink);
-    transition: color 0.2s ease;
-    user-select: none;
+    letter-spacing: 0.18em;
+    color: var(--seal);
+    cursor: pointer;
+    white-space: nowrap;
   }
 
-  .detail-toggle::-webkit-details-marker { display: none; }
-  .detail-toggle:hover { color: var(--seal); }
+  .detail-toggle:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 
   .detail-toggle .d-arrow {
+    display: inline-block;
     font-size: 10px;
     transition: transform 0.25s ease;
   }
 
-  .detail[open] .detail-toggle .d-arrow { transform: rotate(180deg); }
+  .detail-toggle[aria-expanded="true"] .d-arrow { transform: rotate(180deg); }
 
   .detail-toggle .d-close { display: none; }
-  .detail[open] .detail-toggle .d-open { display: none; }
-  .detail[open] .detail-toggle .d-close { display: inline; }
+  .detail-toggle[aria-expanded="true"] .d-open { display: none; }
+  .detail-toggle[aria-expanded="true"] .d-close { display: inline; }
 
+  /* 展开内容：另起块，左侧印章红竖线（引文式标记） */
   .detail-body {
-    padding: 4px 0 16px;
+    margin-top: 26px;
+    padding: 2px 0 12px 26px;
+    border-left: 3px solid var(--seal);
     animation: fade-in 0.4s ease both;
   }
+
+  .detail-body[hidden] { display: none; }
 
   .detail-body h3 {
     margin: 44px 0 16px;
@@ -472,6 +475,50 @@
     flex-wrap: wrap;
   }
 
+  /* ---------- 返回顶部 ---------- */
+
+  .to-top {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 60;                       /* 低于灯箱（100） */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition:
+      opacity 0.28s ease,
+      transform 0.28s ease,
+      visibility 0.28s,
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .to-top:hover {
+    background: var(--seal);
+    border-color: var(--seal);
+    color: var(--paper);
+  }
+
+  .to-top-arrow { font-size: 12px; }
+
   /* ---------- 灯箱 ---------- */
 
   .lightbox {
@@ -576,6 +623,8 @@
     .masthead { padding: 40px 0 36px; }
     .gallery { grid-template-columns: 1fr; gap: 28px; }
     .style { padding: 52px 0 64px; }
+    .detail-body { padding-left: 16px; }
+    .detail-body pre { padding: 14px 14px; }
     .lb-prev { left: 12px; }
     .lb-next { right: 12px; }
     .lb-close { top: 16px; right: 16px; }
@@ -585,7 +634,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .top-rule, .masthead, .contents { animation: none; }
-    .plate .frame, .contents, .toc-card, .toc-no, .style-tags li { transition: none; }
+    .plate .frame, .contents, .toc-card, .toc-no, .style-tags li, .to-top { transition: none; }
   }
 </style>
 </head>
@@ -638,15 +687,88 @@
       <span class="style-no">01</span>
       <h2>扁平手绘风</h2>
     </div>
-    <p class="style-desc">
-      扁平化手绘插画风格的知识科普幻灯片，极简线稿插画，轻微手绘水彩色块。
-    </p>
     <ul class="style-tags">
-      <li>扁平化</li>
-      <li>极简线稿</li>
+      <li>衬线大标题</li>
       <li>手绘水彩</li>
+      <li>极简线稿</li>
+      <li>蓝橙双色</li>
       <li>知识科普</li>
     </ul>
+
+    <p class="style-desc">
+      扁平化手绘插画风格的知识科普幻灯片，极简线稿插画，轻微手绘水彩色块。
+      <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-01"><span class="d-open">展开详情</span><span class="d-close">收起详情</span> <span class="d-arrow">▾</span></button>
+    </p>
+
+    <div class="detail-body" id="detail-01" hidden>
+
+      <h3>设计语言总结</h3>
+      <p>两张图出自同一套视觉系统：<strong>「编辑感衬线大标题 + 手绘水彩色块 + 极简线稿插画」</strong>，整体像一本现代科技杂志的知识卡片。</p>
+
+      <h4>1. 版式与构图</h4>
+      <ul>
+        <li><strong>标题置顶左对齐</strong>，字号极大，占据画面上方约 1/5。</li>
+        <li><strong>左右对称的二分栏结构</strong>：每栏由「英文小标签 → 中文大字主张 → 插画」自上而下排列，信息层级清晰。</li>
+        <li>大量留白，背景为<strong>极浅的暖白/米白色</strong>（接近 <code>#FAF9F6</code>），带非常轻微的纸张质感。</li>
+        <li>底部预留字幕区和小注释文字。</li>
+      </ul>
+
+      <h4>2. 字体</h4>
+      <ul>
+        <li><strong>中文大标题</strong>：粗黑的宋体/明体（衬线），笔画对比强，有书籍封面般的力量感。</li>
+        <li><strong>英文小标签</strong>（PPT Master、OpenAI Presentations、可编辑 PPTX）：细的无衬线体，深灰蓝色，字号小，起「分类说明」作用。</li>
+        <li><strong>字体搭配逻辑</strong>：衬线承担「观点」，无衬线承担「标签」。</li>
+      </ul>
+
+      <h4>3. 色彩系统</h4>
+      <ul>
+        <li><strong>主色</strong>：深墨蓝黑（<code>#1B2433</code> 左右），用于标题和线稿描边。</li>
+        <li><strong>双色强调</strong>：<strong>蓝色</strong>（<code>#4A90D9</code> / 浅蓝 <code>#E3EEFB</code>）与<strong>橙色</strong>（<code>#E8703F</code> / 浅橘 <code>#FCE9DC</code>）形成冷暖对照，分别对应左右两栏。</li>
+        <li><strong>用色手法</strong>：只给标题里的<strong>关键词</strong>（「结构」「元素」「改」「互动」）换成强调色，其余保持黑色，起到视觉锚点作用。</li>
+        <li>中性灰用于次要线条、占位文字条和图表柱子。</li>
+      </ul>
+
+      <h4>4. 插画风格</h4>
+      <ul>
+        <li><strong>扁平线稿 + 轻微手绘感</strong>：深色细描边，圆角矩形，几何化的物体（文档、窗口、图表、山与太阳的图片占位符、鼠标光标）。</li>
+        <li>背景用<strong>不规则的水彩晕染色块</strong>（blob）托底，左蓝右橘，边缘柔软不规则，有淡淡的颗粒/渗透质感。</li>
+        <li><strong>UI 隐喻</strong>：用浏览器窗口、编辑框（虚线框 + 四角方块控制点）、鼠标箭头、点击火花线、柱状图、编号圆点来表达「可编辑」「可交互」的概念。</li>
+        <li>带有轻微的<strong>投影/纸张叠放</strong>效果，增加层次但不厚重。</li>
+      </ul>
+
+      <h4>5. 整体气质</h4>
+      <p>轻盈、专业、友好、偏教学科普；科技概念被转译成「可触摸的 UI 小物件」，适合知识类短视频、产品对比、教程讲解。</p>
+
+      <hr>
+
+      <h3>生图提示词</h3>
+
+      <h4>中文版（通用模板）</h4>
+      <pre><code>扁平化手绘插画风格的知识科普幻灯片，16:9 横版。背景为极浅的暖白色纸张质感（#FAF9F6），大量留白。
+画面上方左对齐一行超大号粗体宋体中文标题，深墨蓝黑色（#1B2433），标题中的关键词用强调色高亮。
+下方分为左右两栏：每栏顶部是一行细无衬线体的小号英文/中文标签（深灰蓝色），其下是一行较大的粗宋体中文主张，关键词分别用蓝色（#4A90D9）和橙色（#E8703F）强调。
+每栏下方是一幅极简线稿插画：深色细描边、圆角矩形、几何化物体（文档列表、浏览器窗口、虚线编辑框带四角控制点、柱状图、山与太阳的图片占位符、鼠标光标与点击火花线、编号圆点），配以少量蓝色或橙色填充。
+插画背后各有一块柔和的不规则水彩晕染色块：左侧浅蓝（#E3EEFB），右侧浅橘（#FCE9DC），边缘自然，带轻微颗粒质感。
+整体风格：现代科技杂志感、干净、专业、友好、轻盈，无渐变炫光，无3D，无复杂阴影，仅有轻微纸张叠放投影。
+主题内容：【在此填写你的主题】</code></pre>
+
+      <h4>English version</h4>
+      <pre><code>A flat hand-drawn explainer slide, 16:9 landscape. Warm off-white paper-textured background (#FAF9F6) with generous whitespace.
+Top-left: a huge, bold Chinese serif (Songti/Ming style) headline in deep ink navy (#1B2433), with one key word highlighted in an accent color.
+Below, a two-column symmetrical layout. Each column has: a small thin sans-serif label in slate gray-blue, then a large bold serif statement with the key word colored — blue (#4A90D9) on the left, orange (#E8703F) on the right.
+Under each statement, a minimalist line-art illustration: thin dark outlines, rounded rectangles, geometric UI metaphors (stacked documents with numbered dots, browser window, dashed text-box with corner handles, bar chart, mountain-and-sun image placeholder, mouse cursor with click sparks), with sparing blue or orange fills.
+Behind each illustration, a soft irregular watercolor blob — pale blue (#E3EEFB) on the left, pale peach (#FCE9DC) on the right — with organic edges and subtle grain.
+Style: modern tech-magazine feel, clean, friendly, professional, airy. No gradients, no 3D, no heavy shadows; only a faint paper-stack drop shadow.
+Topic: [insert your topic here]</code></pre>
+
+      <h4>使用小技巧</h4>
+      <ul>
+        <li><strong>文字渲染</strong>：生图模型常把中文写错，建议在提示词里把标题原文用引号明确写出（如：标题为「三种路线，三种用法」），或先生成无文字底图再用 PPT / Figma 叠加文字。</li>
+        <li><strong>保持系列一致</strong>：固定色值、字体描述和「水彩色块 + 线稿」这几个关键词，每页只替换标题和插画元素描述。</li>
+        <li><strong>换色系</strong>：只需把蓝/橙替换为另一组冷暖对照色（如青绿/珊瑚红），整套风格依然成立。</li>
+      </ul>
+    </div>
+
 
     <div class="gallery" data-style="扁平手绘风">
       <figure class="plate" tabindex="0" role="button" aria-label="放大查看示例 01">
@@ -659,83 +781,6 @@
       </figure>
     </div>
 
-    <!-- 展开详情：设计语言总结 + 生图提示词 -->
-    <details class="detail">
-      <summary class="detail-toggle">
-        <span class="d-open">展开详情</span>
-        <span class="d-close">收起详情</span>
-        <span class="d-arrow">▾</span>
-      </summary>
-      <div class="detail-body">
-
-        <h3>设计语言总结</h3>
-        <p>两张图出自同一套视觉系统：<strong>「编辑感衬线大标题 + 手绘水彩色块 + 极简线稿插画」</strong>，整体像一本现代科技杂志的知识卡片。</p>
-
-        <h4>1. 版式与构图</h4>
-        <ul>
-          <li><strong>标题置顶左对齐</strong>，字号极大，占据画面上方约 1/5。</li>
-          <li><strong>左右对称的二分栏结构</strong>：每栏由「英文小标签 → 中文大字主张 → 插画」自上而下排列，信息层级清晰。</li>
-          <li>大量留白，背景为<strong>极浅的暖白/米白色</strong>（接近 <code>#FAF9F6</code>），带非常轻微的纸张质感。</li>
-          <li>底部预留字幕区和小注释文字。</li>
-        </ul>
-
-        <h4>2. 字体</h4>
-        <ul>
-          <li><strong>中文大标题</strong>：粗黑的宋体/明体（衬线），笔画对比强，有书籍封面般的力量感。</li>
-          <li><strong>英文小标签</strong>（PPT Master、OpenAI Presentations、可编辑 PPTX）：细的无衬线体，深灰蓝色，字号小，起「分类说明」作用。</li>
-          <li><strong>字体搭配逻辑</strong>：衬线承担「观点」，无衬线承担「标签」。</li>
-        </ul>
-
-        <h4>3. 色彩系统</h4>
-        <ul>
-          <li><strong>主色</strong>：深墨蓝黑（<code>#1B2433</code> 左右），用于标题和线稿描边。</li>
-          <li><strong>双色强调</strong>：<strong>蓝色</strong>（<code>#4A90D9</code> / 浅蓝 <code>#E3EEFB</code>）与<strong>橙色</strong>（<code>#E8703F</code> / 浅橘 <code>#FCE9DC</code>）形成冷暖对照，分别对应左右两栏。</li>
-          <li><strong>用色手法</strong>：只给标题里的<strong>关键词</strong>（「结构」「元素」「改」「互动」）换成强调色，其余保持黑色，起到视觉锚点作用。</li>
-          <li>中性灰用于次要线条、占位文字条和图表柱子。</li>
-        </ul>
-
-        <h4>4. 插画风格</h4>
-        <ul>
-          <li><strong>扁平线稿 + 轻微手绘感</strong>：深色细描边，圆角矩形，几何化的物体（文档、窗口、图表、山与太阳的图片占位符、鼠标光标）。</li>
-          <li>背景用<strong>不规则的水彩晕染色块</strong>（blob）托底，左蓝右橘，边缘柔软不规则，有淡淡的颗粒/渗透质感。</li>
-          <li><strong>UI 隐喻</strong>：用浏览器窗口、编辑框（虚线框 + 四角方块控制点）、鼠标箭头、点击火花线、柱状图、编号圆点来表达「可编辑」「可交互」的概念。</li>
-          <li>带有轻微的<strong>投影/纸张叠放</strong>效果，增加层次但不厚重。</li>
-        </ul>
-
-        <h4>5. 整体气质</h4>
-        <p>轻盈、专业、友好、偏教学科普；科技概念被转译成「可触摸的 UI 小物件」，适合知识类短视频、产品对比、教程讲解。</p>
-
-        <hr>
-
-        <h3>生图提示词</h3>
-
-        <h4>中文版（通用模板）</h4>
-        <pre><code>扁平化手绘插画风格的知识科普幻灯片，16:9 横版。背景为极浅的暖白色纸张质感（#FAF9F6），大量留白。
-画面上方左对齐一行超大号粗体宋体中文标题，深墨蓝黑色（#1B2433），标题中的关键词用强调色高亮。
-下方分为左右两栏：每栏顶部是一行细无衬线体的小号英文/中文标签（深灰蓝色），其下是一行较大的粗宋体中文主张，关键词分别用蓝色（#4A90D9）和橙色（#E8703F）强调。
-每栏下方是一幅极简线稿插画：深色细描边、圆角矩形、几何化物体（文档列表、浏览器窗口、虚线编辑框带四角控制点、柱状图、山与太阳的图片占位符、鼠标光标与点击火花线、编号圆点），配以少量蓝色或橙色填充。
-插画背后各有一块柔和的不规则水彩晕染色块：左侧浅蓝（#E3EEFB），右侧浅橘（#FCE9DC），边缘自然，带轻微颗粒质感。
-整体风格：现代科技杂志感、干净、专业、友好、轻盈，无渐变炫光，无3D，无复杂阴影，仅有轻微纸张叠放投影。
-主题内容：【在此填写你的主题】</code></pre>
-
-        <h4>English version</h4>
-        <pre><code>A flat hand-drawn explainer slide, 16:9 landscape. Warm off-white paper-textured background (#FAF9F6) with generous whitespace.
-Top-left: a huge, bold Chinese serif (Songti/Ming style) headline in deep ink navy (#1B2433), with one key word highlighted in an accent color.
-Below, a two-column symmetrical layout. Each column has: a small thin sans-serif label in slate gray-blue, then a large bold serif statement with the key word colored — blue (#4A90D9) on the left, orange (#E8703F) on the right.
-Under each statement, a minimalist line-art illustration: thin dark outlines, rounded rectangles, geometric UI metaphors (stacked documents with numbered dots, browser window, dashed text-box with corner handles, bar chart, mountain-and-sun image placeholder, mouse cursor with click sparks), with sparing blue or orange fills.
-Behind each illustration, a soft irregular watercolor blob — pale blue (#E3EEFB) on the left, pale peach (#FCE9DC) on the right — with organic edges and subtle grain.
-Style: modern tech-magazine feel, clean, friendly, professional, airy. No gradients, no 3D, no heavy shadows; only a faint paper-stack drop shadow.
-Topic: [insert your topic here]</code></pre>
-
-        <h4>使用小技巧</h4>
-        <ul>
-          <li><strong>文字渲染</strong>：生图模型常把中文写错，建议在提示词里把标题原文用引号明确写出（如：标题为「三种路线，三种用法」），或先生成无文字底图再用 PPT / Figma 叠加文字。</li>
-          <li><strong>保持系列一致</strong>：固定色值、字体描述和「水彩色块 + 线稿」这几个关键词，每页只替换标题和插画元素描述。</li>
-          <li><strong>换色系</strong>：只需把蓝/橙替换为另一组冷暖对照色（如青绿/珊瑚红），整套风格依然成立。</li>
-        </ul>
-
-      </div>
-    </details>
   </section>
 
   <!-- ===== 风格 02 ===== -->
@@ -744,100 +789,89 @@ Topic: [insert your topic here]</code></pre>
       <span class="style-no">02</span>
       <h2>卡片式布局拟物轻毛玻璃风</h2>
     </div>
-    <p class="style-desc">
-      卡片式布局 + 3D 软质拟物 + 轻毛玻璃，Apple / Notion / Linear 式的现代产品页，明亮、友好、专业，模块化重复，清晰的信息层级，高清细腻，无杂乱装饰。
-    </p>
     <ul class="style-tags">
-      <li>卡片式布局</li>
+      <li>三栏卡片</li>
       <li>3D 软质拟物</li>
       <li>轻毛玻璃</li>
-      <li>现代产品页</li>
+      <li>蓝绿紫三色</li>
+      <li>SaaS 产品页</li>
     </ul>
 
-    <div class="gallery" data-style="卡片式布局拟物轻毛玻璃风">
-      <figure class="plate" tabindex="0" role="button" aria-label="放大查看示例 01">
-        <div class="frame"><img src="images/3.jpg" alt="卡片式布局拟物轻毛玻璃风示例 01" loading="lazy"></div>
-        <figcaption><span class="plate-label">图 01</span><span>3210 × 1682 · JPG</span></figcaption>
-      </figure>
-    </div>
+    <p class="style-desc">
+      卡片式布局 + 3D 软质拟物 + 轻毛玻璃，Apple / Notion / Linear 式的现代产品页，明亮、友好、专业，模块化重复，清晰的信息层级，高清细腻，无杂乱装饰。
+      <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-02"><span class="d-open">展开详情</span><span class="d-close">收起详情</span> <span class="d-arrow">▾</span></button>
+    </p>
 
-    <!-- 展开详情：设计语言总结 + 生图提示词 -->
-    <details class="detail">
-      <summary class="detail-toggle">
-        <span class="d-open">展开详情</span>
-        <span class="d-close">收起详情</span>
-        <span class="d-arrow">▾</span>
-      </summary>
-      <div class="detail-body">
+    <div class="detail-body" id="detail-02" hidden>
 
-        <h3>设计语言总结</h3>
-        <p>这张图和前两张是<strong>完全不同的视觉体系</strong>：前两张是「衬线大标题 + 手绘水彩 + 线稿」，这张则是<strong>「3D 软质图标 + 三栏彩色卡片 + 现代 SaaS 产品页」</strong>风格，像一张产品功能对比图。</p>
+      <h3>设计语言总结</h3>
+      <p>这张图和前两张是<strong>完全不同的视觉体系</strong>：前两张是「衬线大标题 + 手绘水彩 + 线稿」，这张则是<strong>「3D 软质图标 + 三栏彩色卡片 + 现代 SaaS 产品页」</strong>风格，像一张产品功能对比图。</p>
 
-        <h4>1. 版式与构图</h4>
-        <ul>
-          <li><strong>三栏等宽并列</strong>，每栏是一张大圆角卡片，卡片之间留有均匀间距。</li>
-          <li>每栏结构完全一致，自上而下为：<strong>3D 主视觉图标 → 英文大字标题 → 胶囊标签 → 白色信息块（适合）→ 米黄色信息块（特点）</strong>。</li>
-          <li>严格的<strong>模块化重复</strong>，三栏只换颜色、图标和文案，方便横向对比。</li>
-          <li>整体居中对称，信息密度适中，留白充足。</li>
-        </ul>
+      <h4>1. 版式与构图</h4>
+      <ul>
+        <li><strong>三栏等宽并列</strong>，每栏是一张大圆角卡片，卡片之间留有均匀间距。</li>
+        <li>每栏结构完全一致，自上而下为：<strong>3D 主视觉图标 → 英文大字标题 → 胶囊标签 → 白色信息块（适合）→ 米黄色信息块（特点）</strong>。</li>
+        <li>严格的<strong>模块化重复</strong>，三栏只换颜色、图标和文案，方便横向对比。</li>
+        <li>整体居中对称，信息密度适中，留白充足。</li>
+      </ul>
 
-        <h4>2. 色彩系统</h4>
-        <p>每栏一个主题色，形成三色分区，且同一栏内所有元素同色系：</p>
-        <div class="detail-table">
-          <table>
-            <thead>
-              <tr><th>栏目</th><th>主色</th><th>标题色</th><th>卡片底色</th><th>胶囊标签</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Chat</td><td>蓝/靛蓝</td><td>深靛蓝 <code>#2B3A9E</code></td><td>极浅蓝白渐变</td><td>浅蓝底 + 深蓝字</td></tr>
-              <tr><td>Work</td><td>绿</td><td>深森林绿 <code>#1E4D2B</code></td><td>极浅薄荷渐变</td><td>浅绿底 + 深绿字</td></tr>
-              <tr><td>Codex</td><td>紫</td><td>深紫 <code>#3B1E8F</code></td><td>极浅薰衣草渐变</td><td>浅紫底 + 深紫字</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <ul>
-          <li>「特点」模块统一用<strong>淡米黄底 + 金棕色标题 + 金黄星标</strong>，与三栏主色形成跨栏的统一点缀。</li>
-          <li>正文为深灰黑色，保证可读性。</li>
-        </ul>
+      <h4>2. 色彩系统</h4>
+      <p>每栏一个主题色，形成三色分区，且同一栏内所有元素同色系：</p>
+      <div class="detail-table">
+        <table>
+          <thead>
+            <tr><th>栏目</th><th>主色</th><th>标题色</th><th>卡片底色</th><th>胶囊标签</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Chat</td><td>蓝/靛蓝</td><td>深靛蓝 <code>#2B3A9E</code></td><td>极浅蓝白渐变</td><td>浅蓝底 + 深蓝字</td></tr>
+            <tr><td>Work</td><td>绿</td><td>深森林绿 <code>#1E4D2B</code></td><td>极浅薄荷渐变</td><td>浅绿底 + 深绿字</td></tr>
+            <tr><td>Codex</td><td>紫</td><td>深紫 <code>#3B1E8F</code></td><td>极浅薰衣草渐变</td><td>浅紫底 + 深紫字</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>「特点」模块统一用<strong>淡米黄底 + 金棕色标题 + 金黄星标</strong>，与三栏主色形成跨栏的统一点缀。</li>
+        <li>正文为深灰黑色，保证可读性。</li>
+      </ul>
 
-        <h4>3. 字体</h4>
-        <ul>
-          <li><strong>英文大标题</strong>：超粗圆润的无衬线体（类似 Nunito Black / Poppins ExtraBold），字号极大，颜色为各栏的深色调，有轻微的立体厚重感。</li>
-          <li><strong>胶囊标签与小标题</strong>：中文粗黑体 + 英文无衬线，加粗，居中。</li>
-          <li><strong>正文</strong>：常规字重的中文黑体，左对齐，行距舒适。</li>
-          <li>「适合:」「特点:」小标题用加粗并染成对应主题色（蓝/绿/紫或金棕）。</li>
-        </ul>
+      <h4>3. 字体</h4>
+      <ul>
+        <li><strong>英文大标题</strong>：超粗圆润的无衬线体（类似 Nunito Black / Poppins ExtraBold），字号极大，颜色为各栏的深色调，有轻微的立体厚重感。</li>
+        <li><strong>胶囊标签与小标题</strong>：中文粗黑体 + 英文无衬线，加粗，居中。</li>
+        <li><strong>正文</strong>：常规字重的中文黑体，左对齐，行距舒适。</li>
+        <li>「适合:」「特点:」小标题用加粗并染成对应主题色（蓝/绿/紫或金棕）。</li>
+      </ul>
 
-        <h4>4. 图标与插画风格</h4>
-        <ul>
-          <li><strong>3D 软质/黏土质感（Soft 3D / Claymorphism）</strong>：圆润膨胀的形体、柔和高光、轻微内阴影、温柔的环境光。</li>
-          <li>主视觉图标与主题强绑定：对话气泡（Chat）、表格 + 文档 + 演示文稿三件套（Work）、终端窗口 + Git 图标（Codex）。</li>
-          <li>图标下方有<strong>同色系的柔光晕</strong>，像漂浮在空中。</li>
-          <li>信息块左侧配有<strong>圆形底座的小号扁平图标</strong>（气泡、文档、代码括号、星星），风格比主视觉简化。</li>
-        </ul>
+      <h4>4. 图标与插画风格</h4>
+      <ul>
+        <li><strong>3D 软质/黏土质感（Soft 3D / Claymorphism）</strong>：圆润膨胀的形体、柔和高光、轻微内阴影、温柔的环境光。</li>
+        <li>主视觉图标与主题强绑定：对话气泡（Chat）、表格 + 文档 + 演示文稿三件套（Work）、终端窗口 + Git 图标（Codex）。</li>
+        <li>图标下方有<strong>同色系的柔光晕</strong>，像漂浮在空中。</li>
+        <li>信息块左侧配有<strong>圆形底座的小号扁平图标</strong>（气泡、文档、代码括号、星星），风格比主视觉简化。</li>
+      </ul>
 
-        <h4>5. 卡片与质感</h4>
-        <ul>
-          <li>超大圆角（约 40–60px），细边框（与主题色同色的淡描边），外围有极柔和的大范围投影。</li>
-          <li>卡片内部是<strong>极浅的纵向渐变</strong>（顶部略带主题色，向下渐白）。</li>
-          <li>内部信息块是<strong>半透明白色圆角矩形</strong>，类似毛玻璃（Glassmorphism）。</li>
-          <li>整体氛围：<strong>干净、明亮、友好、专业</strong>，类似 Notion / Linear / Apple 产品发布页的亲和风格。</li>
-        </ul>
+      <h4>5. 卡片与质感</h4>
+      <ul>
+        <li>超大圆角（约 40–60px），细边框（与主题色同色的淡描边），外围有极柔和的大范围投影。</li>
+        <li>卡片内部是<strong>极浅的纵向渐变</strong>（顶部略带主题色，向下渐白）。</li>
+        <li>内部信息块是<strong>半透明白色圆角矩形</strong>，类似毛玻璃（Glassmorphism）。</li>
+        <li>整体氛围：<strong>干净、明亮、友好、专业</strong>，类似 Notion / Linear / Apple 产品发布页的亲和风格。</li>
+      </ul>
 
-        <hr>
+      <hr>
 
-        <h3>生图提示词</h3>
+      <h3>生图提示词</h3>
 
-        <h4>中文版（通用模板）</h4>
-        <pre><code>现代 SaaS 产品对比信息图，16:9 横版，三栏等宽并列的大圆角卡片布局，整体明亮干净，白色背景，柔和阴影。
+      <h4>中文版（通用模板）</h4>
+      <pre><code>现代 SaaS 产品对比信息图，16:9 横版，三栏等宽并列的大圆角卡片布局，整体明亮干净，白色背景，柔和阴影。
 
 每张卡片超大圆角、细描边、内部为极浅的纵向渐变（顶部带一点主题色，向下渐变为白色），卡片之间间距均匀。三张卡片分别使用蓝色、绿色、紫色三套主题色，同一张卡片内所有元素保持同色系。
 
 每张卡片自上而下的结构完全一致：
 1. 顶部：一个 3D 软质黏土质感（Soft 3D / Claymorphism）的主视觉图标，圆润膨胀、柔和高光、轻微内阴影，下方有同色系柔光晕，像漂浮在空中。
-   - 左栏（蓝色）：两个重叠的对话气泡，前面的气泡为靛蓝色并带三个白色圆点
-   - 中栏（绿色）：表格、文档、演示文稿三个文件图标错落叠放，分别为绿色、浅蓝色、橙色
-   - 右栏（紫色）：深色终端窗口（带红黄绿三个圆点，内有彩色代码行）和一个橙红色 Git 图标方块
+ - 左栏（蓝色）：两个重叠的对话气泡，前面的气泡为靛蓝色并带三个白色圆点
+ - 中栏（绿色）：表格、文档、演示文稿三个文件图标错落叠放，分别为绿色、浅蓝色、橙色
+ - 右栏（紫色）：深色终端窗口（带红黄绿三个圆点，内有彩色代码行）和一个橙红色 Git 图标方块
 2. 图标下方：超大号超粗圆润无衬线英文标题（类似 Nunito Black / Poppins ExtraBold），颜色为该栏的深色调（深靛蓝 / 深森林绿 / 深紫），带轻微立体厚重感。
 3. 标题下方：一个居中的胶囊形标签，浅色底（浅蓝 / 浅绿 / 浅紫）+ 同色系深色粗体文字。
 4. 下方第一个信息块：半透明白色圆角矩形（毛玻璃质感），左侧是圆形底座的小图标，右侧是主题色加粗小标题「适合:」，下面是常规字重的深灰色多行正文。
@@ -847,16 +881,16 @@ Topic: [insert your topic here]</code></pre>
 
 文案内容：【在此填写三栏的标题、标签、适合、特点】</code></pre>
 
-        <h4>English version</h4>
-        <pre><code>A modern SaaS product-comparison infographic, 16:9 landscape, three equal-width columns of large rounded cards on a clean white background with soft, wide, diffuse shadows.
+      <h4>English version</h4>
+      <pre><code>A modern SaaS product-comparison infographic, 16:9 landscape, three equal-width columns of large rounded cards on a clean white background with soft, wide, diffuse shadows.
 
 Each card has very large corner radius, a thin border in its theme color, and a subtle vertical gradient (faintly tinted at the top, fading to white). Three theme colors: blue, green, purple. Every element within one card stays within that card's color family.
 
 All three cards share an identical structure, top to bottom:
 1. A soft 3D / claymorphism hero icon — puffy, rounded, gentle highlights, soft inner shadow, floating above a soft glow in the same hue.
-   - Left (blue): two overlapping chat bubbles, the front one indigo with three white dots
-   - Middle (green): three document icons fanned out — a green spreadsheet, a light-blue text document, an orange presentation
-   - Right (purple): a dark terminal window with red/yellow/green dots and colorful code lines, plus an orange-red Git icon tile
+ - Left (blue): two overlapping chat bubbles, the front one indigo with three white dots
+ - Middle (green): three document icons fanned out — a green spreadsheet, a light-blue text document, an orange presentation
+ - Right (purple): a dark terminal window with red/yellow/green dots and colorful code lines, plus an orange-red Git icon tile
 2. Below it: a huge, ultra-bold, rounded sans-serif English title (Nunito Black / Poppins ExtraBold style) in a deep shade of the theme color (deep indigo / forest green / deep violet), with a slight thick 3D feel.
 3. A centered pill-shaped label under the title: pale tinted background with bold same-hue dark text.
 4. First info block: a translucent frosted-glass white rounded rectangle. A small flat icon in a circular pad on the left; on the right a bold theme-colored heading, then regular-weight dark-gray body text in 2–3 lines.
@@ -866,17 +900,24 @@ Style: Apple / Notion / Linear-like modern product page — bright, friendly, pr
 
 Content: [insert the titles, labels, "suitable for", and "features" text for each column]</code></pre>
 
-        <h4>使用小技巧</h4>
-        <ul>
-          <li><strong>中文文字容易出错</strong>：建议把每一栏的文案原文用引号写进提示词，或先生成「无文字底图」，再用 Figma / PPT 叠加文字，准确率最高。</li>
-          <li><strong>保持三栏一致</strong>：反复强调「identical structure」「modular」「same layout」，只让颜色与图标不同。</li>
-          <li><strong>换成两栏或四栏</strong>：把「三栏」改成对应数量，并为新增栏目指定新主题色（如橙色、粉色），其余描述不变。</li>
-          <li><strong>想要更扁平</strong>：把 soft 3D / claymorphism 换成 flat vector icon with subtle gradient，其余不变。</li>
-          <li><strong>与前两张的对比</strong>：如果你要把这张和之前的手绘水彩风格放进同一套 PPT，建议二选一统一风格，两者混用会显得割裂。</li>
-        </ul>
+      <h4>使用小技巧</h4>
+      <ul>
+        <li><strong>中文文字容易出错</strong>：建议把每一栏的文案原文用引号写进提示词，或先生成「无文字底图」，再用 Figma / PPT 叠加文字，准确率最高。</li>
+        <li><strong>保持三栏一致</strong>：反复强调「identical structure」「modular」「same layout」，只让颜色与图标不同。</li>
+        <li><strong>换成两栏或四栏</strong>：把「三栏」改成对应数量，并为新增栏目指定新主题色（如橙色、粉色），其余描述不变。</li>
+        <li><strong>想要更扁平</strong>：把 soft 3D / claymorphism 换成 flat vector icon with subtle gradient，其余不变。</li>
+        <li><strong>与前两张的对比</strong>：如果你要把这张和之前的手绘水彩风格放进同一套 PPT，建议二选一统一风格，两者混用会显得割裂。</li>
+      </ul>
+    </div>
 
-      </div>
-    </details>
+
+    <div class="gallery" data-style="卡片式布局拟物轻毛玻璃风">
+      <figure class="plate" tabindex="0" role="button" aria-label="放大查看示例 01">
+        <div class="frame"><img src="images/3.jpg" alt="卡片式布局拟物轻毛玻璃风示例 01" loading="lazy"></div>
+        <figcaption><span class="plate-label">图 01</span><span>3210 × 1682 · JPG</span></figcaption>
+      </figure>
+    </div>
+
   </section>
 
   <!-- ===== 风格 03 ===== -->
@@ -885,15 +926,76 @@ Content: [insert the titles, labels, "suitable for", and "features" text for eac
       <span class="style-no">03</span>
       <h2>现代扁平化科技插画风格</h2>
     </div>
-    <p class="style-desc">
-      科技蓝信息图，分章节、图文并茂的知识海报，常见于公众号、小红书、技术科普。
-    </p>
     <ul class="style-tags">
-      <li>科技蓝</li>
-      <li>信息图</li>
-      <li>知识海报</li>
+      <li>竖版长图</li>
+      <li>科技蓝渐变</li>
+      <li>半扁平矢量</li>
+      <li>数据可视化</li>
       <li>技术科普</li>
     </ul>
+
+    <p class="style-desc">
+      科技蓝信息图，分章节、图文并茂的知识海报，常见于公众号、小红书、技术科普。
+      <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-03"><span class="d-open">展开详情</span><span class="d-close">收起详情</span> <span class="d-arrow">▾</span></button>
+    </p>
+
+    <div class="detail-body" id="detail-03" hidden>
+
+      <h3>风格识别</h3>
+      <p><strong>科普信息图长图（Infographic）+ 科技蓝渐变 + 扁平/轻 3D 插画 + 模块化卡片</strong></p>
+
+      <h4>一句话叫法</h4>
+      <p><strong>「科技蓝信息图长图风」</strong>，即竖版、分章节、图文并茂的知识海报，常见于公众号、小红书、技术科普。</p>
+
+      <h4>风格拆解</h4>
+      <ul>
+        <li><strong>整体版式</strong>：竖版长图，自上而下按 ① ② ③ ④ ⑤ 编号分章，每章一个白色圆角卡片，阅读路径清晰。</li>
+        <li><strong>配色</strong>：深蓝到浅青的纵向渐变背景（顶部深海蓝，底部浅天蓝），卡片为白色，强调色用蓝、绿（IPv4）对比，体现「科技、网络、可信」。</li>
+        <li><strong>头部</strong>：深色星空/网络节点背景 + 发光的数字地球，标题是超大白色粗黑体，下方带青色副标题和两侧装饰线。</li>
+        <li><strong>标题标签</strong>：每章用深蓝圆角胶囊，内含白色编号圆点和白字小标题。</li>
+        <li><strong>图标</strong>：扁平矢量为主，带轻微渐变和高光（地球、路由器、盾牌、笔记本），偏「半扁平 / 轻 3D」，比上一张黏土风更克制、更写实。</li>
+        <li><strong>数据展示</strong>：大号等宽数字对比（IPv6 vs IPv4）、花括号标注、VS 圆形徽标、斜纹分栏表格，信息密度高。</li>
+        <li><strong>底部</strong>：扁平城市天际线 + 风车、汽车、高铁、医院等物联网场景，呼应结论。</li>
+      </ul>
+
+      <h4>与前面几张的区别</h4>
+      <div class="detail-table">
+        <table>
+          <thead>
+            <tr><th>图</th><th>风格</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1、2</td><td>衬线大标题 + 手绘水彩 + 线稿</td></tr>
+            <tr><td>3</td><td>3D 黏土拟物 + 彩色三栏卡片</td></tr>
+            <tr><td>4</td><td>科技蓝渐变 + 半扁平图标 + 信息图长图</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr>
+
+      <h3>提示词</h3>
+
+      <h4>中文版</h4>
+      <pre><code>竖版科普信息图长图（9:16），主题「【填写主题】」。深蓝到浅天蓝的纵向渐变背景，顶部为深色星空与发光网络节点，右上角有发光的数字地球。标题为超大白色粗黑体，下方青色副标题，两侧带细装饰线。
+正文分为 5 个编号章节，每章是一个白色圆角卡片，章节标题为深蓝圆角胶囊（白色编号圆点 + 白字）。内容包含：定义与对比示例（大号等宽数字、VS 圆形徽标、花括号标注）、四宫格核心优势（每格一个半扁平矢量图标，带轻微渐变和高光）、对比表格（绿色与蓝色表头区分两个对象，左侧带小图标）、三栏技术方案、底部总结横幅。
+底部是扁平风城市天际线与物联网场景（风车、太阳能板、汽车、高铁、医院、摄像头）。
+风格：科技蓝、半扁平矢量插画、模块化卡片、信息密度高但层级清晰、干净专业、高清。
+文案：【填写内容】</code></pre>
+
+      <h4>English version</h4>
+      <pre><code>Vertical (9:16) Chinese tech-explainer infographic about [topic]. Deep-navy to light-sky-blue vertical gradient background; dark starry header with glowing network nodes and a glowing digital globe at top right. Huge white bold sans-serif title, cyan subtitle with thin decorative lines.
+Five numbered sections, each a white rounded card with a deep-blue pill heading (white number dot + white text). Include: a definition with large monospace number comparison (VS badge, bracket annotations), a 4-up feature grid with semi-flat vector icons (subtle gradients and highlights), a comparison table with green vs blue headers and small left icons, a three-column solutions row, and a summary banner.
+Footer: flat-style city skyline with IoT scenes (wind turbines, solar panels, car, bullet train, hospital, camera).
+Style: tech blue, semi-flat vector illustration, modular cards, high information density with clear hierarchy, clean, professional, crisp.
+Content: [insert text]</code></pre>
+
+      <h4>使用小技巧</h4>
+      <ul>
+        <li>这类长图文字量大，生图模型容易错字，建议先生成无文字底图，再用 Figma / PPT 叠加文案。</li>
+      </ul>
+    </div>
+
 
     <div class="gallery" data-style="现代扁平化科技插画风格">
       <figure class="plate" tabindex="0" role="button" aria-label="放大查看示例 01">
@@ -902,71 +1004,6 @@ Content: [insert the titles, labels, "suitable for", and "features" text for eac
       </figure>
     </div>
 
-    <!-- 展开详情：风格识别 + 生图提示词 -->
-    <details class="detail">
-      <summary class="detail-toggle">
-        <span class="d-open">展开详情</span>
-        <span class="d-close">收起详情</span>
-        <span class="d-arrow">▾</span>
-      </summary>
-      <div class="detail-body">
-
-        <h3>风格识别</h3>
-        <p><strong>科普信息图长图（Infographic）+ 科技蓝渐变 + 扁平/轻 3D 插画 + 模块化卡片</strong></p>
-
-        <h4>一句话叫法</h4>
-        <p><strong>「科技蓝信息图长图风」</strong>，即竖版、分章节、图文并茂的知识海报，常见于公众号、小红书、技术科普。</p>
-
-        <h4>风格拆解</h4>
-        <ul>
-          <li><strong>整体版式</strong>：竖版长图，自上而下按 ① ② ③ ④ ⑤ 编号分章，每章一个白色圆角卡片，阅读路径清晰。</li>
-          <li><strong>配色</strong>：深蓝到浅青的纵向渐变背景（顶部深海蓝，底部浅天蓝），卡片为白色，强调色用蓝、绿（IPv4）对比，体现「科技、网络、可信」。</li>
-          <li><strong>头部</strong>：深色星空/网络节点背景 + 发光的数字地球，标题是超大白色粗黑体，下方带青色副标题和两侧装饰线。</li>
-          <li><strong>标题标签</strong>：每章用深蓝圆角胶囊，内含白色编号圆点和白字小标题。</li>
-          <li><strong>图标</strong>：扁平矢量为主，带轻微渐变和高光（地球、路由器、盾牌、笔记本），偏「半扁平 / 轻 3D」，比上一张黏土风更克制、更写实。</li>
-          <li><strong>数据展示</strong>：大号等宽数字对比（IPv6 vs IPv4）、花括号标注、VS 圆形徽标、斜纹分栏表格，信息密度高。</li>
-          <li><strong>底部</strong>：扁平城市天际线 + 风车、汽车、高铁、医院等物联网场景，呼应结论。</li>
-        </ul>
-
-        <h4>与前面几张的区别</h4>
-        <div class="detail-table">
-          <table>
-            <thead>
-              <tr><th>图</th><th>风格</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1、2</td><td>衬线大标题 + 手绘水彩 + 线稿</td></tr>
-              <tr><td>3</td><td>3D 黏土拟物 + 彩色三栏卡片</td></tr>
-              <tr><td>4</td><td>科技蓝渐变 + 半扁平图标 + 信息图长图</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <hr>
-
-        <h3>提示词</h3>
-
-        <h4>中文版</h4>
-        <pre><code>竖版科普信息图长图（9:16），主题「【填写主题】」。深蓝到浅天蓝的纵向渐变背景，顶部为深色星空与发光网络节点，右上角有发光的数字地球。标题为超大白色粗黑体，下方青色副标题，两侧带细装饰线。
-正文分为 5 个编号章节，每章是一个白色圆角卡片，章节标题为深蓝圆角胶囊（白色编号圆点 + 白字）。内容包含：定义与对比示例（大号等宽数字、VS 圆形徽标、花括号标注）、四宫格核心优势（每格一个半扁平矢量图标，带轻微渐变和高光）、对比表格（绿色与蓝色表头区分两个对象，左侧带小图标）、三栏技术方案、底部总结横幅。
-底部是扁平风城市天际线与物联网场景（风车、太阳能板、汽车、高铁、医院、摄像头）。
-风格：科技蓝、半扁平矢量插画、模块化卡片、信息密度高但层级清晰、干净专业、高清。
-文案：【填写内容】</code></pre>
-
-        <h4>English version</h4>
-        <pre><code>Vertical (9:16) Chinese tech-explainer infographic about [topic]. Deep-navy to light-sky-blue vertical gradient background; dark starry header with glowing network nodes and a glowing digital globe at top right. Huge white bold sans-serif title, cyan subtitle with thin decorative lines.
-Five numbered sections, each a white rounded card with a deep-blue pill heading (white number dot + white text). Include: a definition with large monospace number comparison (VS badge, bracket annotations), a 4-up feature grid with semi-flat vector icons (subtle gradients and highlights), a comparison table with green vs blue headers and small left icons, a three-column solutions row, and a summary banner.
-Footer: flat-style city skyline with IoT scenes (wind turbines, solar panels, car, bullet train, hospital, camera).
-Style: tech blue, semi-flat vector illustration, modular cards, high information density with clear hierarchy, clean, professional, crisp.
-Content: [insert text]</code></pre>
-
-        <h4>使用小技巧</h4>
-        <ul>
-          <li>这类长图文字量大，生图模型容易错字，建议先生成无文字底图，再用 Figma / PPT 叠加文案。</li>
-        </ul>
-
-      </div>
-    </details>
   </section>
 
   <footer class="colophon">
@@ -975,6 +1012,12 @@ Content: [insert text]</code></pre>
   </footer>
 
 </div>
+
+<!-- 返回顶部（滚动一段距离后出现） -->
+<button class="to-top" id="to-top" type="button" aria-label="返回顶部">
+  <span class="to-top-arrow" aria-hidden="true">↑</span>
+  <span>返回顶部</span>
+</button>
 
 <!-- 灯箱（点击例图放大查看） -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="例图放大查看">
@@ -1075,12 +1118,41 @@ Content: [insert text]</code></pre>
     });
   }
 
+  /* ---------- 展开详情（简介段落内的内联按钮，控制下方内容块） ---------- */
+
+  document.querySelectorAll(".detail-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var body = document.getElementById(btn.getAttribute("aria-controls"));
+      if (!body) return;
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+      body.hidden = expanded;
+    });
+  });
+
+  /* ---------- 返回顶部（滚过一屏后出现） ---------- */
+
+  var toTop = document.getElementById("to-top");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function syncToTop() {
+    if (toTop) toTop.classList.toggle("is-visible", window.scrollY > 600);
+  }
+
+  if (toTop) {
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
+    });
+  }
+
   /* 锚点跳转交给浏览器原生行为（html 已启用 smooth scroll + scroll-margin-top） */
 
   window.addEventListener("scroll", function () {
     syncToc();
+    syncToTop();
   }, { passive: true });
   syncToc();
+  syncToTop();
 })();
 </script>
 </body>

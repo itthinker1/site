@@ -345,6 +345,14 @@
             }
 
             /* —— 每个项目独立调性 —— */
+            .project[data-key="nacobase"] {
+                --card-tint: rgba(22, 52, 92, 0.12);
+                --card-accent: #16345c;
+            }
+            .project[data-key="tts-demo"] {
+                --card-tint: rgba(22, 93, 255, 0.1);
+                --card-accent: #165dff;
+            }
             .project[data-key="style"] {
                 --card-tint: rgba(201, 59, 38, 0.1);
                 --card-accent: #c93b26;
@@ -442,6 +450,15 @@
             .project.fade-in:nth-of-type(7) {
                 animation-delay: 0.78s;
             }
+            .project.fade-in:nth-of-type(8) {
+                animation-delay: 0.88s;
+            }
+            .project.fade-in:nth-of-type(9) {
+                animation-delay: 0.98s;
+            }
+            .project.fade-in:nth-of-type(10) {
+                animation-delay: 1.08s;
+            }
 
             /* —— 响应式 —— */
             @media (max-width: 960px) {
@@ -495,6 +512,53 @@
 
             <a
                 class="project fade-in"
+                data-key="nacobase"
+                href="./nacobase/"
+            >
+                <div class="head">
+                    <span class="head-right">
+                        <span class="date">2026-11-06</span>
+                        <span class="tag">Report · Research</span>
+                    </span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>低代码选型</em> · 调研报告</div>
+                    <div class="desc">
+                        NocoBase、Joget DX 等企业级低代码平台横向对比：需求分析、架构扩展、成本与综合评分，附 POC 验证计划。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>nacobase</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+
+            <a
+                class="project fade-in"
                 data-key="style"
                 href="./style/"
             >
@@ -534,6 +598,53 @@
                             </svg>
                         </span>
                         <b>style</b>
+                    </span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+
+            <a
+                class="project fade-in"
+                data-key="tts-demo"
+                href="./tts-demo/"
+            >
+                <div class="head">
+                    <span class="head-right">
+                        <span class="date">2026-09-16</span>
+                        <span class="tag">Demo · Speech</span>
+                    </span>
+                </div>
+                <div class="body">
+                    <div class="title"><em>TTS 试听</em> · 火山引擎</div>
+                    <div class="desc">
+                        火山引擎 V3 双向流式语音合成试听 Demo，参数实时调节，多音色与情绪效果对比。
+                    </div>
+                </div>
+                <div class="foot">
+                    <span class="domain">
+                        <span class="compat-icons">
+                            <svg
+                                class="compat-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <b>tts-demo</b>
                     </span>
                     <span class="arrow">→</span>
                 </div>

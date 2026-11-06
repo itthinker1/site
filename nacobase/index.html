@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企业级低代码平台选型调研报告</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --paper: #ffffff;
+    --ink: #1c2430;
+    --ink-2: #55606e;
+    --ink-3: #98a0ac;
+    --navy: #16345c;
+    --navy-deep: #0e2543;
+    --bronze: #b3854d;
+    --bronze-soft: #f6efe3;
+    --line: #e7e2d8;
+    --line-2: #f0ede6;
+    --nb: #2b4acb;
+    --jg: #c07f22;
+    --ok: #1a7f4b;
+    --warn: #b07a1a;
+    --bad: #c03b2b;
+    --ok-bg: #e9f5ee;
+    --warn-soft: #faf2e0;
+    --bad-soft: #faeeeb;
+    --code-bg: #f4f1ea;
+    --radius: 12px;
+    --serif: Georgia, "Times New Roman", "Songti SC", "STSong", "Noto Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    --shadow: 0 1px 2px rgba(28,36,48,.05), 0 18px 44px -18px rgba(28,36,48,.16);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  a { color: var(--nb); text-decoration: none; word-break: break-all; border-bottom: 1px solid rgba(43,74,203,.28); }
+  a:hover { border-bottom-color: var(--nb); }
+
+  /* ===== 刊头 ===== */
+  .masthead {
+    background:
+      radial-gradient(1100px 480px at 88% -10%, rgba(179,133,77,.20), transparent 60%),
+      radial-gradient(800px 480px at -5% 115%, rgba(43,74,203,.16), transparent 55%),
+      linear-gradient(155deg, #132b4d 0%, var(--navy-deep) 58%, #0a1c33 100%);
+    color: #f3ede1;
+    padding: 76px 48px 60px;
+    position: relative;
+  }
+  .masthead::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+    background: linear-gradient(90deg, var(--bronze), #d9b98a 45%, var(--bronze));
+  }
+  .mast-inner { max-width: 1180px; margin: 0 auto; }
+  .kicker {
+    margin: 0 0 18px; font-size: 11.5px; letter-spacing: .32em;
+    color: #c9a876; font-weight: 650; text-transform: uppercase;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 46px; line-height: 1.22; font-weight: 700;
+    margin: 0 0 22px; letter-spacing: .01em; color: #faf6ec;
+  }
+  .mast-rule { width: 72px; height: 3px; background: var(--bronze); margin: 0 0 22px; }
+  .mast-sub { margin: 0 0 30px; font-size: 15px; color: #cdc6b6; max-width: 760px; }
+  .mast-stats { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 26px; }
+  .mstat {
+    border: 1px solid rgba(243,237,225,.22); border-radius: 10px;
+    padding: 12px 20px; min-width: 128px;
+    background: rgba(255,255,255,.05);
+  }
+  .mstat b { display: block; font-family: var(--serif); font-size: 30px; line-height: 1.1; color: #faf6ec; font-variant-numeric: tabular-nums; }
+  .mstat span { font-size: 12px; color: #b6ad9b; }
+  .mast-note {
+    margin: 0; font-size: 12.5px; color: #a99f8d; max-width: 820px;
+    border-left: 2px solid rgba(179,133,77,.55); padding-left: 14px; line-height: 1.7;
+  }
+
+  /* ===== 提示词按钮与展开区 ===== */
+  .prompt-toggle {
+    position: absolute; top: 30px; right: 48px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 20px 9px 18px;
+    font-family: var(--sans); font-size: 13.5px; font-weight: 650; letter-spacing: .08em;
+    color: #ecd9b8; background: rgba(255,255,255,.06);
+    border: 1px solid rgba(201,168,118,.55); border-radius: 999px;
+    cursor: pointer; transition: background .25s, border-color .25s, transform .25s;
+  }
+  .prompt-toggle:hover { background: rgba(201,168,118,.18); border-color: #c9a876; }
+  .prompt-toggle .pt-arrow { display: inline-block; font-size: 11px; transition: transform .3s; }
+  .prompt-toggle.open .pt-arrow { transform: rotate(180deg); }
+  .prompt-panel {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows .5s cubic-bezier(.2,.7,.3,1);
+    background: var(--line-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .prompt-panel.open { grid-template-rows: 1fr; }
+  .prompt-panel-clip { overflow: hidden; min-height: 0; }
+  .prompt-panel-inner { max-width: 1180px; margin: 0 auto; padding: 34px 48px 44px; }
+  .prompt-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+  }
+  .prompt-card-head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    padding: 16px 28px; border-bottom: 1px solid var(--line-2);
+    background: linear-gradient(90deg, var(--bronze-soft), #fbf8f1);
+  }
+  .prompt-card-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--navy); }
+  .prompt-card-hint { font-size: 12.5px; color: var(--ink-3); }
+  .prompt-body { padding: 10px 28px 30px; font-size: 14px; line-height: 1.85; color: var(--ink-2); overflow-wrap: break-word; }
+  .prompt-body h1 { font-family: var(--serif); font-size: 24px; color: var(--navy); margin: 26px 0 12px; }
+  .prompt-body h2 {
+    font-family: var(--serif); font-size: 19px; color: var(--navy);
+    margin: 34px 0 12px; padding-top: 18px; border-top: 1px solid var(--line-2);
+  }
+  .prompt-body h3 { font-size: 15.5px; color: var(--ink); margin: 22px 0 8px; }
+  .prompt-body p { margin: 8px 0; }
+  .prompt-body ul, .prompt-body ol { margin: 8px 0; padding-left: 1.5em; }
+  .prompt-body li { margin: 3px 0; }
+  .prompt-body strong { color: var(--ink); }
+  .prompt-body table {
+    width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px;
+  }
+  .prompt-body th, .prompt-body td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top;
+  }
+  .prompt-body th { background: var(--bronze-soft); color: var(--navy); font-weight: 650; white-space: nowrap; }
+  .prompt-body tr:nth-child(even) td { background: #fbf9f4; }
+  .prompt-body pre {
+    white-space: pre-wrap; word-break: break-word; font-family: var(--sans);
+    font-size: 13.5px; line-height: 1.8; margin: 0;
+  }
+
+  /* ===== 布局 ===== */
+  .layout { display: flex; align-items: flex-start; max-width: 1280px; margin: 0 auto; }
+  .sidebar {
+    position: sticky; top: 0;
+    width: 252px; flex: 0 0 252px;
+    height: 100vh; overflow-y: auto;
+    padding: 40px 20px 48px 8px;
+  }
+  .sidebar .brand {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .22em;
+    color: var(--bronze); text-transform: uppercase;
+    margin: 0 10px 6px;
+  }
+  .sidebar .brand-sub {
+    font-family: var(--serif); font-size: 17px; color: var(--navy);
+    margin: 0 10px 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .toc { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+  .toc a {
+    display: flex; align-items: baseline; gap: 9px;
+    padding: 6.5px 10px; border-radius: 8px;
+    color: var(--ink-2); font-size: 13.5px; line-height: 1.45;
+    border-left: 2px solid transparent;
+  }
+  .toc a:hover { background: #efece4; text-decoration: none; color: var(--ink); border-bottom: none; }
+  .toc a.active { color: var(--navy); background: #ece7db; border-left-color: var(--bronze); font-weight: 600; }
+  .toc .num { font-family: var(--serif); font-style: italic; color: var(--ink-3); font-size: 12.5px; min-width: 18px; }
+  .toc a.active .num { color: var(--bronze); }
+
+  main { flex: 1; min-width: 0; padding: 48px 48px 120px 24px; }
+  .doc { max-width: 900px; margin: 0 auto; overflow-wrap: break-word; }
+
+  /* ===== 章节 ===== */
+  section.chapter { margin-bottom: 68px; scroll-margin-top: 24px; }
+  .chapter > h2 {
+    font-family: var(--serif); font-size: 27px; font-weight: 700; color: var(--navy);
+    margin: 0 0 8px; padding-bottom: 14px; line-height: 1.3;
+    display: flex; align-items: baseline; gap: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .chapter > h2 .no {
+    font-style: italic; font-size: 20px; color: var(--bronze); font-weight: 500;
+    white-space: nowrap; font-variant-numeric: tabular-nums;
+  }
+  .chapter > .lead { color: var(--ink-2); margin: 10px 0 22px; font-size: 15.5px; }
+  h3 {
+    font-family: var(--serif); font-size: 18.5px; color: var(--navy);
+    margin: 34px 0 14px; padding-left: 13px; border-left: 3px solid var(--bronze);
+    line-height: 1.4;
+  }
+  h4 { font-size: 15px; margin: 22px 0 10px; color: var(--ink); }
+  p { margin: 10px 0; }
+  ul, ol { padding-left: 22px; margin: 10px 0; }
+  li { margin: 5px 0; }
+  li::marker { color: var(--bronze); }
+  strong { font-weight: 650; }
+
+  /* ===== 卡片与面板 ===== */
+  .panel {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px 24px; margin: 18px 0;
+    box-shadow: var(--shadow);
+  }
+  .cards { display: grid; gap: 16px; margin: 18px 0; }
+  .cards.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cards.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px 20px 18px;
+    box-shadow: var(--shadow);
+    min-width: 0; overflow-wrap: break-word;
+  }
+  .card .kpi {
+    font-family: var(--serif); font-size: 36px; font-weight: 700; line-height: 1.1;
+    font-variant-numeric: tabular-nums; color: var(--navy);
+  }
+  .card .kpi small { font-size: 15px; color: var(--ink-3); font-weight: 500; font-family: var(--sans); }
+  .card .lbl { font-size: 12.5px; color: var(--ink-3); margin-top: 5px; }
+  .card h4 { margin: 0 0 8px; font-size: 15.5px; }
+  .card p { margin: 5px 0; font-size: 13.5px; color: var(--ink-2); }
+  .card.pick-nb { border-top: 3px solid var(--nb); }
+  .card.pick-jg { border-top: 3px solid var(--jg); }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; line-height: 1;
+    letter-spacing: .08em; padding: 5px 9px; border-radius: 4px; margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .tag.nb { color: #fff; background: var(--nb); }
+  .tag.jg { color: #fff; background: var(--jg); }
+
+  /* ===== 表格 ===== */
+  .table-wrap {
+    overflow-x: auto; margin: 16px 0;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--paper); box-shadow: var(--shadow);
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+  thead th {
+    background: #f7f4ee; font-weight: 650; color: var(--navy);
+    border-bottom: 1px solid var(--line); white-space: nowrap;
+    font-size: 12.5px; letter-spacing: .05em;
+  }
+  tbody tr:nth-child(even) { background: #fbf9f5; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #f4f0e7; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.hl td { background: #eef2fb; font-weight: 600; }
+  tr.hl:hover td { background: #e7edfa; }
+
+  /* 状态标记 */
+  .s { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font-weight: 600; }
+  .s::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px; }
+  .s.ok { color: var(--ok); } .s.ok::before { background: var(--ok); }
+  .s.warn { color: var(--warn); } .s.warn::before { background: var(--warn); }
+  .s.bad { color: var(--bad); } .s.bad::before { background: var(--bad); }
+  .pill {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em;
+    padding: 4px 10px; border-radius: 4px; white-space: nowrap;
+  }
+  .pill.pass { color: var(--ok); background: var(--ok-bg); border: 1px solid #cde8d8; }
+  .pill.fail { color: var(--bad); background: var(--bad-soft); border: 1px solid #f0d5cf; }
+  .pill.watch { color: var(--warn); background: var(--warn-soft); border: 1px solid #eedfc0; }
+
+  /* ===== 折叠详情 ===== */
+  details.fold {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--paper); margin: 16px 0; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  details.fold > summary {
+    cursor: pointer; list-style: none;
+    padding: 14px 20px; font-size: 13.5px; font-weight: 650; color: var(--navy);
+    display: flex; align-items: center; gap: 10px;
+    background: linear-gradient(180deg, #fbf9f5, #f7f4ee); user-select: none;
+    letter-spacing: .02em;
+  }
+  details.fold > summary::-webkit-details-marker { display: none; }
+  details.fold > summary::before {
+    content: ""; width: 7px; height: 7px; flex: 0 0 7px;
+    border-right: 1.8px solid var(--bronze); border-bottom: 1.8px solid var(--bronze);
+    transform: rotate(-45deg); transition: transform .18s ease; margin-top: -2px;
+  }
+  details.fold[open] > summary::before { transform: rotate(45deg); margin-top: 2px; }
+  details.fold > summary:hover { background: #f1ecdf; }
+  details.fold > summary .cnt { color: var(--ink-3); font-weight: 500; font-size: 12px; margin-left: auto; }
+  details.fold > .fold-body { padding: 8px 22px 20px; border-top: 1px solid var(--line-2); }
+  details.fold > .fold-body > .table-wrap:first-child { margin-top: 14px; }
+  details.fold .table-wrap, details.fold .panel { box-shadow: none; }
+
+  /* ===== 图表 ===== */
+  .chart-box {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px 22px 10px; margin: 18px 0;
+    box-shadow: var(--shadow);
+  }
+  .chart-box .chart-title { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--navy); margin: 0 0 3px; }
+  .chart-box .chart-sub { font-size: 12.5px; color: var(--ink-3); margin: 0 0 8px; }
+  .chart { width: 100%; height: 340px; }
+  .chart.tall { height: 400px; }
+
+  /* ===== SVG 图 ===== */
+  .svg-box {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 24px; margin: 18px 0; overflow-x: auto;
+    box-shadow: var(--shadow);
+  }
+  .svg-box svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+  /* ===== 代码块 ===== */
+  pre {
+    background: #f3f0e9; border: 1px solid var(--line);
+    border-radius: 8px; padding: 15px 18px; overflow-x: auto;
+    font-size: 12.8px; line-height: 1.65; margin: 12px 0;
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    color: #3d4552;
+  }
+  code { font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .92em; background: #f1ede4; padding: 1px 5px; border-radius: 4px; }
+  pre code { background: none; padding: 0; }
+
+  .callout {
+    border-radius: var(--radius); padding: 16px 20px; margin: 16px 0; font-size: 13.5px;
+    border: 1px solid;
+  }
+  .callout.warn { background: var(--warn-soft); border-color: #e9d9b8; color: #6b4a08; }
+  .callout.info { background: #edf1fa; border-color: #d4ddf0; color: #25385e; }
+
+  .src { font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+
+  footer.doc-footer {
+    margin-top: 72px; padding-top: 22px; border-top: 1px solid var(--line);
+    color: var(--ink-3); font-size: 12.5px; letter-spacing: .02em;
+  }
+
+  /* ===== 入场动效 ===== */
+  @media (prefers-reduced-motion: no-preference) {
+    .mast-inner > * { animation: rise .7s cubic-bezier(.2,.7,.3,1) both; }
+    .mast-inner > *:nth-child(2) { animation-delay: .06s; }
+    .mast-inner > *:nth-child(3) { animation-delay: .12s; }
+    .mast-inner > *:nth-child(4) { animation-delay: .18s; }
+    .mast-inner > *:nth-child(5) { animation-delay: .24s; }
+    .mast-inner > *:nth-child(6) { animation-delay: .3s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 980px) {
+    .layout { flex-direction: column; align-items: stretch; }
+    .sidebar {
+      position: static; width: 100%; flex: none; height: auto;
+      padding: 20px 16px; border-bottom: 1px solid var(--line);
+    }
+    .toc { flex-direction: row; flex-wrap: wrap; gap: 5px; }
+    .toc a { border-left: none; border: 1px solid var(--line); background: var(--paper); }
+    main { padding: 28px 16px 80px; }
+    .masthead { padding: 52px 22px 44px; }
+    .masthead h1 { font-size: 32px; }
+    .prompt-toggle { top: 18px; right: 22px; padding: 7px 14px 7px 13px; font-size: 12.5px; }
+    .prompt-panel-inner { padding: 22px 16px 30px; }
+    .prompt-card-head, .prompt-body { padding-left: 18px; padding-right: 18px; }
+    .cards.cols-3, .cards.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 620px) {
+    .cards.cols-2, .cards.cols-3, .cards.cols-4 { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  @media print {
+    .sidebar { display: none; }
+    main { padding: 0; }
+    .masthead { background: var(--navy-deep) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    details.fold { break-inside: avoid; }
+    details.fold:not([open]) > .fold-body { display: block; }
+    details.fold > summary::before { display: none; }
+    .panel, .card, .table-wrap, .chart-box, .svg-box, details.fold { box-shadow: none; }
+  }
+</style>
+
+</head>
+<body>
+<header class="masthead">
+    <button class="prompt-toggle" id="promptToggle" aria-expanded="false" aria-controls="promptPanel">提示词 <span class="pt-arrow">▾</span></button>
+    <div class="mast-inner">
+      <p class="kicker">Enterprise Low-Code Platform Selection</p>
+      <h1>企业级低代码平台<br>选型调研报告</h1>
+      <div class="mast-rule"></div>
+      <p class="mast-sub">调研时间 2026 年 11 月 6 日　·　官方文档与源码联网核查 ＋ 多代理对抗验证 ＋ 深度补充调研</p>
+      <div class="mast-stats">
+        <div class="mstat"><b>10</b><span>候选产品</span></div>
+        <div class="mstat"><b>12</b><span>核验代理</span></div>
+        <div class="mstat"><b>22</b><span>已确认主张（含深度调研，否决 3 条）</span></div>
+        <div class="mstat"><b>2</b><span>入围 POC 产品</span></div>
+      </div>
+      <p class="mast-note">核验强度：共发起 8 款产品硬性筛选核验 ＋ 2 款入围产品 12 项深度缺口补充调研。所有关键结论附官方来源链接，无证据项明确标注「待验证」。</p>
+    </div>
+  </header>
+
+  <!-- ============ 提示词展开区 ============ -->
+  <section class="prompt-panel" id="promptPanel">
+    <div class="prompt-panel-clip">
+      <div class="prompt-panel-inner">
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <span class="prompt-card-title">调研提示词全文</span>
+            <span class="prompt-card-hint">本报告依据以下提示词调研生成</span>
+          </div>
+          <div class="prompt-body" id="promptBody"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/markdown" id="promptSrc">
+# 企业级低代码平台选型调研与对比分析
+
+## 一、调研目标
+
+我正在进行企业级低代码平台选型，希望寻找一款适合构建企业内部管理系统、业务应用及流程应用的平台。
+
+目前关注到 **NocoBase**，其产品理念“数据驱动、AI 增强、代码兜底”与我的技术思路比较契合：
+
+- **数据驱动**：以数据模型为核心组织业务，支持灵活的数据建模、关联关系、数据操作及业务规则配置。
+- **AI 增强**：能够利用 AI 降低应用搭建、数据处理和业务配置的门槛，提高开发效率。
+- **代码兜底**：当低代码能力无法满足复杂需求时，允许通过代码、插件或自定义组件扩展，而不是被平台能力限制。
+
+我希望以 NocoBase 为重要参照对象，系统调研市场上是否存在理念相近、功能更完整、架构更合理或综合表现更好的产品。
+
+**本次调研不是简单寻找功能最多的低代码工具，而是寻找一款兼顾业务配置效率、复杂业务流程支持能力、开放扩展能力和长期可持续性的低代码开发平台。**
+
+请独立判断 NocoBase 是否值得作为首选，不要预设其一定是最佳方案。
+
+## 二、核心需求与筛选条件
+
+以下需求按重要程度划分。核心能力是硬性筛选条件，其他能力作为比较和加分项。
+
+### 1. 核心业务能力（必须满足）
+
+| 能力 | 具体要求 | 重要程度 |
+|---|---|---|
+| 审批流 | 支持可视化流程设计、人工审批、条件分支、并行审批、会签、或签、转办、加签、撤回、驳回等常见审批能力 | 必须 |
+| 多用户 | 支持用户、角色、用户组及细粒度权限控制 | 必须 |
+| 多组织机构 | 支持组织机构树、部门层级、岗位、跨部门协作及基于组织架构的数据权限 | 必须 |
+| 触发器 | 支持基于数据新增、修改、删除、定时任务、外部事件、Webhook 等机制触发业务动作 | 必须 |
+| 外部数据源 | 支持连接外部数据库、REST API 等数据源，能够读取、写入和同步外部业务数据 | 必须 |
+| 插件开发 | 提供正式、稳定、可维护的插件扩展机制，遵循非侵入式设计原则 | 必须 |
+| 数据建模 | 支持可视化数据模型设计、自定义数据表、字段、数据类型、关联关系及数据约束 | 必须 |
+
+需要特别注意：
+
+**审批流与自动化工作流不能混为一谈。**
+
+需要分别考察：
+- 人工审批流程：以人员任务、审批节点、审批意见、流程状态和组织权限为核心。
+- 自动化工作流：以事件触发、条件判断、数据处理、外部系统调用和任务编排为核心。
+
+一个产品即使具有自动化工作流，也不代表其具备成熟的企业审批能力。
+
+### 2. 插件与代码扩展能力（重点考察）
+
+我比较看重平台的开放性，希望平台不只是一个封闭的可视化配置工具。
+
+这里所说的“非侵入式插件开发”，主要指：
+
+- 不需要直接修改平台核心源码。
+- 插件具有独立的开发、安装、启用、停用、升级和卸载机制。
+- 通过稳定的 API、SDK、事件机制、生命周期钩子或扩展接口接入平台。
+- 可以扩展数据模型、业务逻辑、工作流节点、页面组件、操作按钮、数据源连接器等能力。
+- 平台升级时，尽可能不影响自定义插件。
+- 支持独立开发、测试、部署和版本管理。
+- 能够通过代码实现平台原生功能难以完成的复杂业务需求。
+
+需要重点区分：
+1. 真正的插件体系。
+2. 自定义代码片段或脚本。
+3. 自定义组件。
+4. 通过修改平台源码实现的二次开发。
+
+这几种方式的技术价值和维护成本有很大区别，不能简单归为“支持扩展”。
+
+### 3. 数据建模与数据管理能力（重点考察）
+
+重点关注：
+
+- 是否具有独立、完善的数据模型管理体系。
+- 是否支持自定义实体、字段、主键、索引和字段约束。
+- 是否支持一对一、一对多、多对多等关联关系。
+- 是否支持数据模型之间的关联查询和复杂数据操作。
+- 是否支持数据模型与页面、表单、流程之间的关联。
+- 是否支持外部数据源与内部数据模型协同工作。
+- 是否支持数据模型通过 API 对外提供服务。
+- 是否支持模型变更、迁移、版本管理等生命周期管理能力。
+
+需要判断其数据模型究竟是平台核心，还是仅仅建立在数据库表之上的可视化配置层。
+
+### 4. 平台管理与企业级能力
+
+考察：
+
+- 用户、角色、部门、组织机构管理。
+- 多组织机构及跨部门权限管理。
+- 菜单、页面、按钮、字段和数据级权限。
+- 数据隔离及组织级数据权限。
+- 审计日志、操作记录和流程追踪。
+- API 管理、身份认证及第三方系统集成。
+- 多环境部署、配置迁移、备份恢复。
+- 并发能力、性能、可用性和可扩展性。
+- 私有化部署和数据自主可控能力。
+
+特别注意区分：
+- 多组织架构：一个组织内部具有多个部门、子公司或业务单元。
+- 多租户：多个独立客户或组织共用平台基础设施，但业务数据和权限相互隔离。
+
+两者不是同一个概念，需要分别考察。
+
+### 5. AI 能力
+
+AI 能力是重要加分项，但不是核心筛选门槛。
+
+重点考察：
+
+- AI 辅助生成数据模型。
+- AI 辅助创建页面、表单及业务应用。
+- AI 辅助设计工作流和审批流程。
+- AI 辅助编写业务逻辑、脚本和插件。
+- 是否支持接入外部大模型或自定义模型。
+- 是否提供面向开发者的 AI Agent、工具调用或 MCP 等扩展能力。
+- AI 功能是否真正融入开发流程，而不是简单增加一个聊天窗口。
+
+需要区分原生能力、第三方集成能力和需要自行开发的能力。
+
+## 三、产品范围与候选对象
+
+请以 NocoBase 为基准，同时主动搜索和发现其他候选产品。
+
+不要局限于国内产品，也不要只研究开源项目。需要覆盖国内外具有代表性的低代码平台。
+
+可以从以下方向寻找候选对象：
+
+1. 数据模型驱动型低代码平台。
+2. 企业级应用开发平台。
+3. 工作流及 BPM 平台。
+4. 开源低代码平台。
+5. 支持插件及代码扩展的内部系统开发平台。
+6. 商业化成熟、支持私有化部署的低代码平台。
+
+可以将以下产品作为初始搜索线索，但不要局限于此，也不要因为列入清单就认为它们一定符合要求：
+
+- NocoBase
+- Joget
+- Budibase
+- Appsmith
+- ToolJet
+- Directus
+- Baserow
+- Corteza
+- 国内具有代表性的低代码平台及企业应用开发平台
+
+需要注意：这些产品可能属于不同细分领域，不能简单地把数据库管理工具、内部工具搭建平台、BPM 流程引擎和综合低代码平台视为同一类产品。
+
+请先建立产品分类，再进行有针对性的比较。
+
+## 四、商业模式与授权要求
+
+我可以接受商业付费产品，但希望优先关注具有社区版或免费体验版本的产品。
+
+重点考察：
+
+| 维度 | 调研内容 |
+|---|---|
+| 社区版 | 是否有社区版，是否可以免费自部署 |
+| 开源程度 | 是否真正开源，是否开放完整核心代码 |
+| 开源许可证 | MIT、Apache 2.0、AGPL、GPL 或商业许可证等 |
+| 商业版本 | 是否具有专业版、企业版或其他付费版本 |
+| 功能差异 | 社区版和商业版的功能差异，哪些核心能力受到限制 |
+| 商业价格 | 订阅价格、授权方式、用户数限制、实例限制等 |
+| 私有化部署 | 是否支持本地服务器、私有云或完全离线部署 |
+| 二次开发 | 社区版是否开放插件开发和代码扩展能力 |
+| 商业持续性 | 公司背景、产品活跃度、更新频率及生态成熟度 |
+
+需要特别关注：
+
+- 社区版是否真正具备产品核心价值，还是仅提供功能受限的试用体验。
+- 是否可以先用社区版进行充分验证，再平滑升级到商业版。
+- 是否存在关键功能只能通过高价企业版获得的情况。
+- 商业授权是否限制插件开发、修改、部署或再分发。
+- 产品是否具有较强的供应商锁定风险。
+
+价格必须以官方最新信息为准。如果价格需要联系销售获取，应明确标记为“需询价”，不要估算成官方报价。
+
+## 五、重点调研方向
+
+请围绕以下问题进行深入研究：
+
+### 1. NocoBase 深度分析
+
+把 NocoBase 作为基准产品，研究：
+
+- 产品定位及核心设计理念。
+- 整体技术架构和核心技术栈。
+- 数据模型设计机制。
+- 审批流和自动化工作流能力。
+- 组织机构、用户及权限管理能力。
+- 外部数据源和触发器机制。
+- 插件架构、插件 SDK 及扩展机制。
+- 前后端扩展能力。
+- AI 能力及未来发展方向。
+- 社区版与商业版的功能差异。
+- 开源许可证、商业模式和生态成熟度。
+- 主要优势、短板及潜在技术风险。
+
+特别判断其“数据驱动、AI 增强、代码兜底”的理念是否真正体现在架构和开发体验中，而不仅仅是产品宣传语。
+
+### 2. 同类产品横向比较
+
+对筛选出的候选产品，从以下角度进行横向比较：
+
+| 对比维度 | 核心评价内容 |
+|---|---|
+| 产品定位 | 是否属于综合低代码平台，适用场景是什么 |
+| 数据建模 | 数据模型是否强大、灵活，是否具有数据驱动特征 |
+| 审批流 | 是否具有成熟的人工审批能力 |
+| 自动化 | 触发器、自动化工作流及外部事件处理能力 |
+| 组织权限 | 多用户、多组织及细粒度权限管理 |
+| 外部集成 | 数据库、API、Webhook 和第三方服务集成 |
+| 插件体系 | 插件机制是否完整、开放和非侵入式 |
+| 代码扩展 | 是否支持自定义代码、组件和复杂业务逻辑 |
+| AI 能力 | AI 原生能力及模型接入能力 |
+| 社区生态 | 社区活跃程度、文档质量、开发者生态 |
+| 商业模式 | 社区版、商业版、价格及授权限制 |
+| 部署运维 | 私有化部署、升级、备份、迁移及运维复杂度 |
+| 长期维护 | 项目活跃度、厂商背景、技术路线及锁定风险 |
+
+不能仅凭产品官网的功能宣传判断能力。需要深入产品文档、开发者文档、源码、插件示例、许可证及实际案例。
+
+### 3. 架构与技术路线比较
+
+这是本次选型研究的重点之一。
+
+请分析各候选产品在以下方面的技术路线：
+
+- 数据模型驱动还是页面驱动。
+- 元数据驱动还是直接代码驱动。
+- 工作流引擎与数据模型的耦合程度。
+- 插件机制是否真正模块化。
+- 前端组件与后端业务逻辑是否能够分别扩展。
+- 平台核心是否可以通过稳定接口扩展。
+- 是否支持从低代码配置逐步过渡到专业代码开发。
+- 平台升级是否容易影响定制化功能。
+
+重点识别那些表面上支持低代码，但实际上高度依赖平台内置组件、配置格式或私有运行时的产品。
+
+### 4. 复杂业务场景验证
+
+请设想一个典型企业内部管理系统，验证各产品是否可以完整实现：
+
+**场景：多组织机构业务审批系统**
+
+系统包含：
+- 总部、分公司、部门等多级组织机构。
+- 不同部门的业务人员、部门负责人和总部管理人员。
+- 不同角色具有不同的数据查看及操作权限。
+- 用户提交业务申请。
+- 根据组织、金额、业务类型等条件进入不同审批流程。
+- 支持多级审批、并行审批、会签、转办和驳回。
+- 审批完成后触发自动化任务。
+- 自动化任务调用外部 API 或第三方系统。
+- 从外部数据库读取业务数据。
+- 根据业务需求增加自定义字段及关联数据模型。
+- 后期开发自定义插件，增加新的业务节点、页面组件和业务处理逻辑。
+
+请分析每个候选产品：
+1. 哪些能力可以通过原生配置实现？
+2. 哪些能力需要购买商业版？
+3. 哪些能力需要编写插件或代码？
+4. 哪些能力需要自行集成外部系统？
+5. 哪些能力难以实现，或者实现成本很高？
+
+不要只写“支持”或“不支持”，要说明实现路径和限制。
+
+## 六、调研方法与信息来源
+
+请开展实际联网调研，优先使用以下资料：
+
+1. 官方产品网站及官方文档。
+2. 官方开发者文档及插件开发文档。
+3. 官方 GitHub / GitCode 等代码仓库。
+4. 官方许可证及商业版本说明。
+5. 官方价格页面及产品更新日志。
+6. 有代表性的技术文章、用户案例及开发者讨论。
+
+信息来源优先级：
+- 官方文档和源码：用于验证功能、架构和技术实现。
+- 官方价格及授权文件：用于验证商业模式和许可证。
+- 用户实践及社区讨论：用于识别实际使用问题、部署难度及功能短板。
+
+调研过程中需要注意：
+
+- 以本次调研时能够确认的最新版本和最新公开资料为准。
+- 重要功能必须尽可能提供官方文档或源码证据。
+- 关键结论提供可直接访问的来源链接。
+- 对无法从官方资料确认的功能明确标记“待验证”。
+- 区分原生支持、商业版支持、插件扩展、第三方集成和二次开发。
+- 不要将产品宣传中的概念等同于已经实现的技术能力。
+- 不要虚构价格、版本、功能或许可证信息。
+- 对于存在争议或信息不一致的内容，说明不同来源及判断依据。
+
+## 七、评估体系与评分方法
+
+请建立统一的评价体系，对候选产品进行量化评分。
+
+建议采用 100 分制，初始权重如下：
+
+| 评估项目 | 权重 |
+|---|---:|
+| 数据建模与数据管理 | 15 |
+| 审批流及流程引擎 | 20 |
+| 用户、组织机构与权限 | 15 |
+| 触发器、自动化及外部数据集成 | 15 |
+| 插件架构与代码扩展能力 | 20 |
+| AI 能力 | 5 |
+| 社区生态与商业可持续性 | 5 |
+| 部署、运维及长期维护成本 | 5 |
+| **总计** | **100** |
+
+评分要求：
+
+1. 必须功能优先于加分功能。
+2. 核心能力缺失的产品，即使其他方面得分较高，也不能直接列为推荐产品。
+3. 对每项评分给出简短、具体的依据。
+4. 没有可靠证据的项目应标注“待验证”，不能凭印象打分。
+5. 同时提供硬性筛选结果与综合评分，避免总分掩盖关键短板。
+6. 如认为权重不合理，可以提出调整建议，但必须说明原因。
+
+## 八、最终报告结构
+
+请最终形成一份中文、结构完整、具有决策价值的详细调研报告。
+
+### 第一部分：执行摘要
+- 本次调研的核心结论。
+- 最值得关注的 3～5 款产品。
+- 哪些产品值得优先试用。
+- NocoBase 在候选产品中的实际竞争力。
+- 是否存在明显优于 NocoBase 的替代方案。
+- 最终推荐及推荐理由。
+
+### 第二部分：需求分析
+- 核心需求及优先级。
+- 必须满足的硬性条件。
+- 加分项及非必要能力。
+- 需求之间可能存在的冲突和取舍。
+
+### 第三部分：产品分类与候选名单
+- 市场上的主要产品类型。
+- 各类产品的定位和边界。
+- 候选产品筛选过程。
+- 淘汰产品及淘汰原因。
+
+### 第四部分：NocoBase 深度分析
+- 产品架构与设计理念。
+- 核心功能。
+- 插件扩展机制。
+- AI 能力。
+- 社区版与商业版。
+- 优势、局限和风险。
+
+### 第五部分：核心候选产品逐一分析
+对每款入围产品进行独立分析，避免只用表格描述。
+
+### 第六部分：横向功能对比
+使用对比表格，详细比较核心功能、插件体系、数据建模、工作流、商业模式和部署能力。
+
+### 第七部分：技术架构与扩展机制对比
+重点比较数据模型驱动程度、插件架构、API 扩展、代码兜底能力及升级兼容性。
+
+### 第八部分：复杂业务场景验证
+分析各平台实现多组织机构业务审批系统的实际路径、限制和开发成本。
+
+### 第九部分：商业模式与成本分析
+比较社区版、商业版、授权方式、价格、部署成本及长期维护成本。
+
+### 第十部分：综合评分与排名
+提供评分表、评分依据、硬性条件筛选结果和推荐梯队。
+
+### 第十一部分：选型建议
+至少给出以下几种不同视角的结论：
+- 综合能力最强的产品。
+- 最符合“数据驱动、AI 增强、代码兜底”理念的产品。
+- 审批流和组织管理能力最强的产品。
+- 插件扩展和二次开发能力最强的产品。
+- 社区版最值得深入研究的产品。
+- 性价比最高的产品。
+- 最适合长期私有化部署和自主维护的产品。
+
+最后明确给出：
+1. 首选产品。
+2. 第二选择。
+3. 适合进一步观察的产品。
+4. 不建议选择的产品及理由。
+
+### 第十二部分：POC 验证计划
+为首选和第二选择分别设计一套可执行的概念验证（POC）方案，明确：
+
+- 环境准备及部署方式。
+- 必须验证的功能。
+- 关键操作步骤。
+- 预期结果。
+- 验收标准。
+- 可能遇到的技术难点。
+- 需要重点验证的插件开发及升级兼容性问题。
+
+尽可能让 POC 围绕前述“多组织机构业务审批系统”展开，而不是简单演示产品自带的示例应用。
+
+## 九、最终研究原则
+
+请始终遵循以下原则：
+
+1. **独立客观**：不要以 NocoBase 为标准答案，也不要为了证明某款产品优秀而选择性引用资料。
+2. **技术优先**：重点关注架构、扩展能力和实际开发体验，而不只是 UI 效果。
+3. **重视长期价值**：考虑产品的开源程度、许可证、生态、升级兼容性和供应商锁定风险。
+4. **区分真实能力**：清楚区分原生能力、付费能力、插件能力和自行开发能力。
+5. **证据充分**：关键判断有可靠来源支撑，重要结论提供链接。
+6. **避免泛泛而谈**：不接受只罗列功能名称、营销宣传或简单打分的报告。
+7. **明确不确定性**：无法确认的信息如实标注，不得将推测写成事实。
+8. **形成决策建议**：最终报告应当帮助我真正缩小选型范围，并知道下一步应该试用、验证什么。
+
+请使用中文撰写，采用专业技术调研报告的风格。内容要详细、深入，但注意层次清晰，优先用表格呈现横向比较，并提供必要的技术解释和官方资料链接。
+  </script>
+
+  <div class="layout">
+
+  <!-- ============ 侧边目录 ============ -->
+  <nav class="sidebar">
+    <p class="brand">Low-Code Selection · 2026</p>
+    <p class="brand-sub">低代码平台选型调研</p>
+    <ul class="toc" id="toc">
+      <li><a href="#ch1"><span class="num">01</span>执行摘要</a></li>
+      <li><a href="#ch2"><span class="num">02</span>需求分析</a></li>
+      <li><a href="#ch3"><span class="num">03</span>产品分类与候选名单</a></li>
+      <li><a href="#ch4"><span class="num">04</span>NocoBase 深度分析</a></li>
+      <li><a href="#ch5"><span class="num">05</span>Joget DX 深度分析</a></li>
+      <li><a href="#ch6"><span class="num">06</span>横向功能对比</a></li>
+      <li><a href="#ch7"><span class="num">07</span>技术架构与扩展机制</a></li>
+      <li><a href="#ch8"><span class="num">08</span>复杂业务场景验证</a></li>
+      <li><a href="#ch9"><span class="num">09</span>商业模式与成本分析</a></li>
+      <li><a href="#ch10"><span class="num">10</span>综合评分与排名</a></li>
+      <li><a href="#ch11"><span class="num">11</span>选型建议</a></li>
+      <li><a href="#ch12"><span class="num">12</span>POC 验证计划</a></li>
+      <li><a href="#ch13"><span class="num">13</span>调研方法说明</a></li>
+    </ul>
+  </nav>
+
+  <main>
+  <div class="doc">
+
+    <!-- ============ 头部 ============ -->
+
+    <!-- ============ 01 执行摘要 ============ -->
+    <section class="chapter" id="ch1">
+      <h2><span class="no">01</span>执行摘要</h2>
+
+      <div class="cards cols-2">
+        <div class="card pick-nb">
+          <span class="tag nb">首选 POC</span>
+          <h4>NocoBase Professional</h4>
+          <div class="kpi">85<small> / 100 分</small></div>
+          <p>重视数据建模 + 插件扩展 + AI 增强，接受 $8K 商业授权和审批付费墙。</p>
+        </div>
+        <div class="card pick-jg">
+          <span class="tag jg">第二 POC</span>
+          <h4>Joget DX Community</h4>
+          <div class="kpi">76<small> / 100 分</small></div>
+          <p>审批与数据量优先、零预算，接受 GPLv3 传染和表单驱动架构。</p>
+        </div>
+      </div>
+
+      <h3>核心结论</h3>
+      <ol>
+        <li><strong>NocoBase 的「数据驱动 + 代码兜底」在架构层面被证实为先真实事实</strong>，非营销口号。微内核 + 全业务插件化 + 独立 npm 包 + 正式生命周期 API + 数据模型与 UI 解耦——这是本次调研中扩展性与数据建模最可验证的候选。但「AI 增强」的全面性需在 POC 中实测。</li>
+        <li><strong>最大的决策变量是审批付费墙</strong>。NocoBase 3 社区版仅含单人审批，你的硬性审批需求（会签/或签/条件路由/转办/加签）全部落在 Professional Edition（$8,000 一次性终身许可）。Joget 社区版（GPLv3）免费、不限用户、原生 BPM，是唯一在审批层面有硬证据的替代方案。</li>
+        <li><strong>其他 8 款候选产品无一通过四项硬性指标的同时筛选</strong>。淘汰的核心原因高度集中：审批缺失（ToolJet、Baserow、Directus）、插件不满足（简道云、Appsmith）、社区版不实用（明道云 30 人上限）、或者项目活跃度存疑（Corteza 2025 全年无 release）。</li>
+      </ol>
+
+      <div class="panel">
+        <h4 style="margin-top:0">NocoBase 的实际竞争力</h4>
+        <p style="margin-bottom:0">NocoBase 在数据建模（15/15 维度完全满足）、插件架构（19/20，本次调研最强）、以及 AI 能力（4/5，社区版免费且成熟）三个方面建立了明确优势。唯一短板是审批需要商业授权。如果你的组织对开源许可证宽松度（Apache-2.0）、架构扩展性和「低代码退路到代码」有较高要求，NocoBase 是当前证据支持下最契合的产品。</p>
+      </div>
+
+      <h3>推荐的最终决策路径</h3>
+      <div class="svg-box">
+        <svg viewBox="0 0 880 168" width="880" height="168" role="img" aria-label="最终决策路径：四步走">
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#98a0ac"></path>
+            </marker>
+          </defs>
+          <!-- step 1 -->
+          <rect x="8" y="30" width="190" height="96" rx="10" fill="#e9eef9" stroke="#c2cfee"></rect>
+          <text x="103" y="56" text-anchor="middle" font-size="12" fill="#2b4acb" font-weight="700">STEP 1</text>
+          <text x="103" y="78" text-anchor="middle" font-size="13" fill="#1c2430" font-weight="650">NocoBase 社区版验证</text>
+          <text x="103" y="98" text-anchor="middle" font-size="11" fill="#55606e">数据建模 / 插件开发 /</text>
+          <text x="103" y="113" text-anchor="middle" font-size="11" fill="#55606e">组织架构 / AI 能力</text>
+          <line x1="202" y1="78" x2="226" y2="78" stroke="#98a0ac" stroke-width="1.6" marker-end="url(#arr)"></line>
+          <!-- step 2 -->
+          <rect x="230" y="30" width="190" height="96" rx="10" fill="#e9eef9" stroke="#c2cfee"></rect>
+          <text x="325" y="56" text-anchor="middle" font-size="12" fill="#2b4acb" font-weight="700">STEP 2</text>
+          <text x="325" y="78" text-anchor="middle" font-size="13" fill="#1c2430" font-weight="650">采购 Professional 验证审批</text>
+          <text x="325" y="98" text-anchor="middle" font-size="11" fill="#55606e">会签 / 条件路由 /</text>
+          <text x="325" y="113" text-anchor="middle" font-size="11" fill="#55606e">转办 / 加签配置体验</text>
+          <line x1="424" y1="78" x2="448" y2="78" stroke="#98a0ac" stroke-width="1.6" marker-end="url(#arr)"></line>
+          <!-- step 3 -->
+          <rect x="452" y="30" width="190" height="96" rx="10" fill="#f7ecda" stroke="#e7d1a9"></rect>
+          <text x="547" y="56" text-anchor="middle" font-size="12" fill="#c07f22" font-weight="700">STEP 3（并行）</text>
+          <text x="547" y="78" text-anchor="middle" font-size="13" fill="#1c2430" font-weight="650">Joget 社区版对照</text>
+          <text x="547" y="98" text-anchor="middle" font-size="11" fill="#55606e">审批体验 / 组织数据权限 /</text>
+          <text x="547" y="113" text-anchor="middle" font-size="11" fill="#55606e">表单驱动建模效率</text>
+          <line x1="646" y1="78" x2="670" y2="78" stroke="#98a0ac" stroke-width="1.6" marker-end="url(#arr)"></line>
+          <!-- step 4 -->
+          <rect x="674" y="30" width="198" height="96" rx="10" fill="#e9f5ee" stroke="#c2e2cf"></rect>
+          <text x="773" y="56" text-anchor="middle" font-size="12" fill="#1a7f4b" font-weight="700">STEP 4</text>
+          <text x="773" y="78" text-anchor="middle" font-size="13" fill="#1c2430" font-weight="650">根据 POC 数据最终决策</text>
+          <text x="773" y="98" text-anchor="middle" font-size="11" fill="#55606e">而非在调研阶段</text>
+          <text x="773" y="113" text-anchor="middle" font-size="11" fill="#55606e">直接决定</text>
+        </svg>
+      </div>
+      <ol>
+        <li><strong>先用 NocoBase 社区版验证</strong>：数据建模、插件开发流程、Departments 组织架构、AI 员工与 AI Builder。</li>
+        <li><strong>采购 Professional 后验证审批</strong>：确认会签、条件路由、转办、加签在实际业务中的配置体验。</li>
+        <li><strong>同时搭建 Joget 社区版作为对照</strong>：重点对比审批体验、组织架构数据权限粒度和表单驱动模式下的建模效率差异。</li>
+        <li><strong>根据 POC 数据做最终选择</strong>，而非在调研阶段直接决定。</li>
+      </ol>
+    </section>
+
+    <!-- ============ 02 需求分析 ============ -->
+    <section class="chapter" id="ch2">
+      <h2><span class="no">02</span>需求分析</h2>
+      <p class="lead">八项核心需求中，审批流与插件扩展权重最高（各 20 分），构成选型的两道硬门槛。</p>
+
+      <div class="chart-box">
+        <p class="chart-title">核心需求权重分布</p>
+        <p class="chart-sub">加权权重合计 100 分；审批流与插件扩展并列为最高权重</p>
+        <div id="chartWeights" class="chart"></div>
+      </div>
+
+      <h3>核心需求回顾</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>能力</th><th>硬性门槛</th><th class="num">加权权重</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>人工审批流</td><td>会签/或签/并行/多级/转办/加签/撤回/驳回</td><td class="num">20</td></tr>
+            <tr><td>2</td><td>插件与代码扩展</td><td>非侵入式、独立包、生命周期 API</td><td class="num">20</td></tr>
+            <tr><td>3</td><td>数据建模</td><td>实体/字段/关联/索引/约束/迁移/API 服务</td><td class="num">15</td></tr>
+            <tr><td>4</td><td>多组织与权限</td><td>部门树/岗位/跨部门/组织级数据权限</td><td class="num">15</td></tr>
+            <tr><td>5</td><td>触发器/自动化/外部集成</td><td>定时/数据变更/Webhook/外部数据库/API</td><td class="num">15</td></tr>
+            <tr><td>6</td><td>AI 能力</td><td>AI 生成模型/页面/工作流/脚本，多模型接入</td><td class="num">5</td></tr>
+            <tr><td>7</td><td>社区生态与可持续性</td><td>社区活跃度、文档、许可证、厂商背景</td><td class="num">5</td></tr>
+            <tr><td>8</td><td>部署运维与长期成本</td><td>私有化部署、升级兼容性、运维复杂度</td><td class="num">5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>已知需求冲突</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>冲突对</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td><b>审批成熟 vs 插件开放</b></td><td>审批最强的产品（明道云、简道云）是闭源商业软件，插件体系不足</td></tr>
+            <tr><td><b>开源宽松 vs 审批免费</b></td><td>Joget 社区版审批免费但 GPLv3 传染；NocoBase 许可证宽松但审批收费</td></tr>
+            <tr><td><b>数据模型驱动 vs BPM 成熟</b></td><td>NocoBase 架构理念先进但审批需付费；Joget 审批免费但架构是表单驱动</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 03 产品分类与候选名单 ============ -->
+    <section class="chapter" id="ch3">
+      <h2><span class="no">03</span>产品分类与候选名单</h2>
+      <p class="lead">10 款候选经四项硬性指标同时筛选，仅 NocoBase 与 Joget 入围，其余 8 款淘汰原因高度集中在「审批缺失」。</p>
+
+      <h3>市场产品类型</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>类型</th><th>代表产品</th><th>核心特点</th></tr></thead>
+          <tbody>
+            <tr><td>数据模型驱动型低代码</td><td><b>NocoBase</b></td><td>微内核 + 全插件化，数据模型为第一公民</td></tr>
+            <tr><td>BPM 工作流平台</td><td><b>Joget DX</b>、Corteza</td><td>表单驱动，流程引擎为第一公民</td></tr>
+            <tr><td>内部工具搭建平台</td><td>Appsmith、ToolJet、Budibase</td><td>可视化组件 + 自动化编排，无人工审批引擎</td></tr>
+            <tr><td>数据后端 / Headless CMS</td><td>Directus、Baserow</td><td>数据模型 + API + 扩展，无审批引擎</td></tr>
+            <tr><td>商业零代码平台</td><td>明道云、简道云</td><td>审批成熟、闭源、私有化成本高</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>候选筛选结果</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>产品</th><th>人工审批流</th><th>多组织</th><th>非侵入式插件</th><th>许可证/社区版</th><th>结论</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td><b>NocoBase</b></td><td><span class="s warn">需专业版</span></td><td><span class="s ok">部门树免费</span></td><td><span class="s ok">SDK 级</span></td><td>Apache-2.0（含补充条款）</td><td><span class="pill pass">入围</span></td></tr>
+            <tr class="hl"><td><b>Joget</b></td><td><span class="s ok">社区版原生</span></td><td><span class="s ok">完整行政模型</span></td><td><span class="s ok">OSGi 动态加载</span></td><td>GPLv3 免费不限用户</td><td><span class="pill pass">入围</span></td></tr>
+            <tr><td>明道云</td><td><span class="s ok">成熟</span></td><td><span class="s warn">无自动权限</span></td><td><span class="s warn">仅视图+节点</span></td><td>社区版限 30 人</td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>简道云</td><td><span class="s ok">成熟</span></td><td><span class="s warn">无岗位</span></td><td><span class="s bad">仅函数</span></td><td>闭源</td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>Appsmith</td><td><span class="s warn">仅或签</span></td><td><span class="s bad">扁平组</span></td><td><span class="s bad">无插件包</span></td><td>Apache-2.0</td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>Budibase</td><td><span class="s warn">弱</span></td><td><span class="s bad">无部门树</span></td><td><span class="s warn">无 SDK</span></td><td>GPLv3</td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>ToolJet</td><td><span class="s bad">无审批</span></td><td><span class="s bad">扁平</span></td><td><span class="s warn">仅数据源</span></td><td>AGPL-3.0</td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>Directus</td><td><span class="s bad">无审批</span></td><td><span class="s warn">需自建</span></td><td><span class="s ok">较强</span></td><td><span class="s warn">MSCL source-available</span></td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>Baserow</td><td><span class="s bad">无审批</span></td><td><span class="s warn">Teams</span></td><td><span class="s warn">alpha 插件</span></td><td>MIT 核心</td><td><span class="pill fail">不通过</span></td></tr>
+            <tr><td>Corteza</td><td><span class="s bad">无 user task</span></td><td><span class="s warn">User Groups</span></td><td><span class="s bad">模块单体</span></td><td>Apache-2.0</td><td><span class="pill fail">不通过</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details class="fold">
+        <summary>查看详情：8 款产品淘汰原因速览<span class="cnt">7 条</span></summary>
+        <div class="fold-body">
+          <ul>
+            <li><b>ToolJet、Baserow</b>：无人工审批引擎（Workflows 全自动化节点，无 human task）</li>
+            <li><b>Directus</b>：无审批（Flows 仅 event/webhook/schedule），v12 许可证转 MSCL source-available 禁止竞品使用</li>
+            <li><b>Appsmith、Budibase</b>：审批弱（无会签/转办/加签），组织无部门树</li>
+            <li><b>简道云</b>：审批强但闭源，无插件体系，无法私有化自部署社区版</li>
+            <li><b>明道云</b>：审批最强（会签全员/一人/按比例、转审、前后加签），但插件仅视图+节点、社区版 30 人不可增补</li>
+            <li><b>Corteza</b>：Apache-2.0 全开源但 Workflow 仅 prompt 节点无 user task，2025 全年无 release，corteza-ext 已停滞</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ 04 NocoBase 深度分析 ============ -->
+    <section class="chapter" id="ch4">
+      <h2><span class="no">04</span>NocoBase 深度分析</h2>
+      <p class="lead">数据模型驱动型低代码平台：微内核 + 全业务插件化，本次调研中插件架构证据最充分的候选。</p>
+
+      <div class="cards cols-3">
+        <div class="card"><div class="kpi" style="color:var(--nb)">14<small>/15</small></div><div class="lbl">数据建模</div></div>
+        <div class="card"><div class="kpi" style="color:var(--nb)">16<small>/20</small></div><div class="lbl">审批流（社区版仅单人审批）</div></div>
+        <div class="card"><div class="kpi" style="color:var(--nb)">13<small>/15</small></div><div class="lbl">组织与权限</div></div>
+        <div class="card"><div class="kpi" style="color:var(--nb)">13<small>/15</small></div><div class="lbl">触发器与外部集成</div></div>
+        <div class="card"><div class="kpi" style="color:var(--nb)">19<small>/20</small></div><div class="lbl">插件扩展机制（本次最强）</div></div>
+        <div class="card"><div class="kpi" style="color:var(--nb)">4<small>/5</small></div><div class="lbl">AI 能力（社区版免费）</div></div>
+      </div>
+
+      <h3>产品架构与设计理念</h3>
+      <p>NocoBase 采用<strong>微内核架构</strong>——核心仅负责插件生命周期调度、依赖管理与基础能力封装（数据库适配器、认证引擎、ACL 引擎、资源路由、队列等），用户、权限、组织、工作流、数据源、审批等全部业务功能以插件形式实现。这使得「代码兜底」落在可替换的插件层而非核心层，开发者不需要修改平台核心源码即可扩展业务能力。</p>
+      <p><strong>技术栈</strong>：TypeScript 全栈、Node.js 服务端 + React 前端、Sequelize ORM，数据库方言支持 SQLite / PostgreSQL / MySQL / SQL Server / Oracle（后两者仍为 0.1.0-beta.x）。</p>
+      <p><strong>「数据驱动」体现</strong>：官方 README 明确表述 "Data-model driven, with data decoupled from UI. Business data stays in standard relational structures, separate from the UI"。数据模型是独立概念层，同一个 Collection 可绑定多个页面、表单、流程。</p>
+      <p class="src">证据：<a href="https://github.com/nocobase/nocobase">github.com/nocobase/nocobase</a> ｜ <a href="https://nocode.docs.nocobase.com/plugin-development">nocode.docs.nocobase.com/plugin-development</a> ｜ <a href="https://www.nocobase.com/core">nocobase.com/core</a></p>
+
+      <details class="fold">
+        <summary>查看详情：数据建模逐项核验（评分 14/15）<span class="cnt">8 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>能力</th><th>已核验结论</th></tr></thead>
+              <tbody>
+                <tr><td>自定义实体/字段/类型</td><td><span class="s ok">满足</span> 可视化 Collection 配置，支持 50+ 字段类型（含复合类型）</td></tr>
+                <tr><td>关联关系</td><td><span class="s ok">满足</span> 一对一、一对多、多对多、belongsTo、hasMany、belongsToMany</td></tr>
+                <tr><td>主键/索引/约束</td><td><span class="s ok">满足</span> Sequelize 建模层支持唯一索引、默认值、必填等约束</td></tr>
+                <tr><td>模型与页面/表单/流程关联</td><td><span class="s ok">满足</span> 同一 Collection 可绑定任意页面区块和工作流</td></tr>
+                <tr><td>外部数据源协同</td><td><span class="s ok">满足</span> data-source-manager 插件支持多种数据源</td></tr>
+                <tr><td>模型 API 服务</td><td><span class="s ok">满足</span> 自动生成 REST API，资源路由</td></tr>
+                <tr><td>迁移与版本管理</td><td><span class="s ok">满足</span> Sequelize migration 机制</td></tr>
+                <tr><td>数据库方言</td><td><span class="s warn">部分</span> SQLite/PostgreSQL/MySQL 生产可用；Oracle/MSSQL 为 beta（0.1.0-beta.x）</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">来源：<a href="https://www.nocobase.com/core">nocobase.com/core</a> ｜ <a href="https://docs.nocobase.com/core/reference/compatibility">docs.nocobase.com/core/reference/compatibility</a></p>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>查看详情：审批流逐项核验（评分 16/20，12 项能力 + 付费墙限制）<span class="cnt">12 项</span></summary>
+        <div class="fold-body">
+          <p>全部审批能力经核验为 <b>Approval 插件原生提供</b>：</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>审批能力</th><th>结论</th><th>证据</th></tr></thead>
+              <tbody>
+                <tr><td>会签（全部同意）</td><td><span class="s ok">协商模式「会签」</span></td><td>docs.nocobase.com/cn/workflow/nodes/approval</td></tr>
+                <tr><td>或签（任一同意）</td><td><span class="s ok">协商模式「或签」</span></td><td>同上</td></tr>
+                <tr><td>投票（按比例）</td><td><span class="s ok">协商模式「投票」</span></td><td>同上</td></tr>
+                <tr><td>并行审批</td><td><span class="s ok">处理顺序「并行」</span></td><td>同上</td></tr>
+                <tr><td>顺序审批</td><td><span class="s ok">处理顺序「顺序」</span></td><td>同上</td></tr>
+                <tr><td>多级串行</td><td><span class="s ok">串联多个审批节点</span></td><td>同上</td></tr>
+                <tr><td>动态审批人（按部门/角色/上级）</td><td><span class="s ok">用户表查询条件筛选</span></td><td>同上</td></tr>
+                <tr><td>转办（转签）</td><td><span class="s ok">原生按钮 + REST API</span></td><td>nocode.docs.nocobase.com/workflow/triggers/approval</td></tr>
+                <tr><td>前/后加签</td><td><span class="s ok">HTTP API order=-1/1</span></td><td>同上</td></tr>
+                <tr><td>撤回</td><td><span class="s ok">POST ...:withdraw</span></td><td>同上</td></tr>
+                <tr><td>驳回</td><td><span class="s ok">原生按钮 + API status:-1</span></td><td>同上</td></tr>
+                <tr><td>退回指定节点</td><td><span class="s ok">v1.9.0+ 独立 Return API</span></td><td>同上</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn"><b>⚠️ 关键限制</b>：NocoBase 3 社区版仅含「基础审批（单人审批+历史）」。<b>高级审批（条件路由、会签、加签、转签、退回）全部归 Professional Edition</b>（$8,000 一次性终身许可）。来源：<a href="https://www.nocobase.com/pricing">nocobase.com/pricing</a></div>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>查看详情：组织与权限（13/15）、触发器与外部集成（13/15）、AI 能力（4/5）<span class="cnt">3 组</span></summary>
+        <div class="fold-body">
+          <h4>组织与权限 — 评分 13/15</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>能力</th><th>结论</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>部门树</td><td><span class="s ok">满足</span></td><td>多级部门树（adjacency-list），前端防环；2025-04 转为免费内置</td></tr>
+                <tr><td>多部门任职</td><td><span class="s ok">满足</span></td><td>一个用户可属多部门，唯一主部门（docs.nocobase.com/users-permissions/departments）</td></tr>
+                <tr><td>多角色切换</td><td><span class="s ok">满足</span></td><td>用户可切换角色操作资源</td></tr>
+                <tr><td>细粒度权限</td><td><span class="s ok">满足</span></td><td>菜单/页面/按钮/字段/数据级，单插件级配置</td></tr>
+                <tr><td>人与 AI Agent 一致权限</td><td><span class="s ok">满足</span></td><td>Core 页明确声称</td></tr>
+                <tr><td>多租户/多应用</td><td><span class="s bad">仅企业版</span></td><td>多应用 + 多空间（<a href="https://docs.nocobase.com/cn/multi-app/">docs.nocobase.com/cn/multi-app/</a>）</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>触发器与外部集成 — 评分 13/15</h4>
+          <ul>
+            <li>工作流引擎：支持数据新增/修改/删除触发、定时任务（Cron）、Webhook、审批事件</li>
+            <li>外部数据源：data-source-manager 插件体系，支持 REST API 和外部数据库</li>
+            <li>Oracle/MSSQL 数据源为 beta 版本</li>
+          </ul>
+          <h4>AI 能力 — 评分 4/5</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>能力</th><th>结论</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>AI 数据建模</td><td><span class="s ok">满足</span></td><td>AI Builder 一句话建表/字段/关联（docs.nocobase.com/cn/ai-builder）</td></tr>
+                <tr><td>AI 页面/界面</td><td><span class="s ok">满足</span></td><td>AI Builder 建页面/区块</td></tr>
+                <tr><td>AI 工作流</td><td><span class="s ok">满足</span></td><td>AI Builder 编排工作流（自动建触发器+节点链）</td></tr>
+                <tr><td>AI 插件开发</td><td><span class="s ok">满足</span></td><td>AI Plugin Development 全流程（<a href="https://docs.nocobase.com/ai/quick-start">docs.nocobase.com/ai/quick-start</a>）</td></tr>
+                <tr><td>AI 审批流程（专门）</td><td><span class="s warn">待验证</span></td><td>工作流生成含审批子类型但无独立文档</td></tr>
+                <tr><td>多模型接入</td><td><span class="s ok">满足</span></td><td>OpenAI/Claude/DeepSeek/Qwen/Kimi/Ollama（<a href="https://docs.nocobase.com/cn/ai-employees/features/llm-service">docs.nocobase.com/cn/ai-employees/features/llm-service</a>）</td></tr>
+                <tr><td>AI Agent/Tool</td><td><span class="s ok">满足</span></td><td>自有 Tool/Skill 体系，插件可扩展（<a href="https://docs.nocobase.com/ai-employees/dev/ai-employee">docs.nocobase.com/ai-employees/dev/ai-employee</a>）</td></tr>
+                <tr><td>MCP 协议</td><td><span class="s warn">待验证</span></td><td>未发现官方文档</td></tr>
+                <tr><td>社区版可用</td><td><span class="s ok">满足</span></td><td>AI 员工、AI Builder、LLM 服务社区版免费</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <h3>插件扩展机制 — 评分 19/20</h3>
+      <p>NocoBase 在插件架构上是<strong>本次调研中证据最充分、体系最完整的候选</strong>：</p>
+      <ul>
+        <li><b>独立 npm 包</b>：客户端插件继承 <code>@nocobase/client-v2</code> Plugin 基类</li>
+        <li><b>正式生命周期</b>：<code>afterAdd() → beforeLoad() → load()</code> 固定执行顺序，每步有源码级证据</li>
+        <li><b>扩展范围</b>：数据模型、业务逻辑、工作流节点、页面组件、操作按钮、数据源连接器、ACL、迁移、i18n、定时任务</li>
+        <li><b>插件管理</b>：CLI 安装/卸载、浏览器管理器启用/禁用、版本升级</li>
+        <li><b>SDK 级接口</b>：官方插件开发文档详述客户端与服务端扩展 API</li>
+      </ul>
+      <p><b>唯一减分项</b>（-1）：v2→v3 第三方插件跨大版本迁移的官方专项指南未发布（v3 仍 Beta），升级兼容性需在 POC 中验证。</p>
+      <p class="src">来源：<a href="https://nocode.docs.nocobase.com/plugin-development">nocode.docs.nocobase.com/plugin-development</a> ｜ <a href="https://docs.nocobase.com/plugin-development/client/plugin">docs.nocobase.com/plugin-development/client/plugin</a></p>
+
+      <h3>商业模式</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>档位</th><th>价格</th><th>审批能力</th><th>多租户</th></tr></thead>
+          <tbody>
+            <tr><td>Community</td><td><b>$0</b></td><td>基础单人审批</td><td><span class="s bad">无</span></td></tr>
+            <tr class="hl"><td>Professional</td><td><b>$8,000</b> 一次性</td><td><span class="s ok">高级审批</span></td><td><span class="s bad">无</span></td></tr>
+            <tr><td>Enterprise</td><td><b>需询价</b></td><td><span class="s ok">高级审批</span></td><td><span class="s ok">多应用/多空间</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><b>许可证</b>：Apache-2.0 + 补充条款（禁止竞品低代码 SaaS/PaaS，品牌信息保留，上层应用销售需 Professional+ 授权）</li>
+        <li><b>私有化</b>：全档位自托管；air-gapped 仅 Enterprise</li>
+      </ul>
+      <p class="src">来源：<a href="https://www.nocobase.com/pricing">nocobase.com/pricing</a> ｜ <a href="https://github.com/nocobase/nocobase/blob/main/LICENSE.txt">LICENSE.txt</a> ｜ <a href="https://www.nocobase.com/blog/pricing-adjustment-202602">pricing-adjustment-202602</a></p>
+
+      <h3>优势、局限与风险</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>优势</th><th>局限</th><th>风险</th></tr></thead>
+          <tbody>
+            <tr><td>架构理念最契合（数据驱动+代码兜底）</td><td>审批需要 $8K 商业授权</td><td>v2→v3 架构重构，第三方插件迁移指南未发布</td></tr>
+            <tr><td>插件架构本次调研最强（SDK 级）</td><td>会签/或签/条件路由归专业版</td><td>Oracle/MSSQL 仍为 beta</td></tr>
+            <tr><td>AI 社区版免费且完整</td><td>多租户仅企业版</td><td>许可证补充条款有竞品 SaaS 限制</td></tr>
+            <tr><td>departments 前身商业现免费</td><td></td><td>中国社区生态较弱</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 05 Joget DX 深度分析 ============ -->
+    <section class="chapter" id="ch5">
+      <h2><span class="no">05</span>Joget DX 深度分析</h2>
+      <p class="lead">表单驱动的 BPM 低代码平台：审批社区版免费且成熟，行政架构模型最完整，但无独立数据模型层。</p>
+
+      <div class="cards cols-3">
+        <div class="card"><div class="kpi" style="color:var(--jg)">8<small>/15</small></div><div class="lbl">数据建模（表单驱动）</div></div>
+        <div class="card"><div class="kpi" style="color:var(--jg)">18<small>/20</small></div><div class="lbl">审批流（社区版免费）</div></div>
+        <div class="card"><div class="kpi" style="color:var(--jg)">14<small>/15</small></div><div class="lbl">组织与权限（最完整）</div></div>
+        <div class="card"><div class="kpi" style="color:var(--jg)">10<small>/15</small></div><div class="lbl">触发器与外部集成</div></div>
+        <div class="card"><div class="kpi" style="color:var(--jg)">16<small>/20</small></div><div class="lbl">插件架构（OSGi）</div></div>
+        <div class="card"><div class="kpi" style="color:var(--jg)">2<small>/5</small></div><div class="lbl">AI 能力（仅企业版）</div></div>
+      </div>
+
+      <h3>产品定位</h3>
+      <p>Joget DX 是<strong>表单驱动的 BPM 低代码平台</strong>，定位为 Salesforce 的企业级开源替代（Joget Inc. 2014 年成立，在美国/马来西亚/上海/印尼/迪拜设有办公点）。其流程引擎为自研 joget-workflow（基于 XPDL 序列化格式），通过 Process Builder 实现拖拽式工作流设计。</p>
+
+      <details class="fold">
+        <summary>查看详情：数据建模逐项核验（评分 8/15，表单驱动的本质差异）<span class="cnt">5 项</span></summary>
+        <div class="fold-body">
+          <p><b>本质差异</b>：Joget 是表单驱动，非数据模型驱动。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>维度</th><th>结论</th></tr></thead>
+              <tbody>
+                <tr><td>数据模型层</td><td><span class="s bad">无</span> 无独立数据模型层——表单即数据表（<code>app_fd_&lt;tableName&gt;</code>），列名为 <code>c_&lt;fieldId&gt;</code></td></tr>
+                <tr><td>关联关系</td><td><span class="s warn">部分</span> 一对多通过 SubForm/Form Grid 实现，多对多需关联表 + 自定义 Binder</td></tr>
+                <tr><td>索引/约束</td><td><span class="s bad">无</span> Form Builder 无索引/约束配置 GUI，需直连数据库操作</td></tr>
+                <tr><td>外部数据源</td><td><span class="s warn">受限</span> JDBC Datalist Binder 为企业版专属</td></tr>
+                <tr><td>API 服务</td><td><span class="s ok">满足</span> REST API 自动暴露</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">来源：<a href="https://kb.joget.org/jw/community/display/DX8/Form+Builder">kb.joget.org — Form Builder</a></p>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>查看详情：审批流逐项核验（评分 18/20，社区版免费成熟 BPM）<span class="cnt">12 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>审批能力</th><th>结论</th><th>实现方式</th></tr></thead>
+              <tbody>
+                <tr><td>或签</td><td><span class="s ok">原生（指定数量同意）</span></td><td>Process Enhancement Plugin</td></tr>
+                <tr><td>会签</td><td><span class="s ok">原生（全部同意）</span></td><td>同上，Multi Approval: All Assignee Approved</td></tr>
+                <tr><td>并行审批</td><td><span class="s ok">原生</span></td><td>Route 节点 AND-split</td></tr>
+                <tr><td>多级串行</td><td><span class="s ok">原生</span></td><td>串联多个 Activity</td></tr>
+                <tr><td>按部门/岗位/上级指派</td><td><span class="s ok">原生 Org Chart 路由</span></td><td>Map Participants: Performer's HOD / Department / Grade</td></tr>
+                <tr><td>发起人自选</td><td><span class="s ok">原生</span></td><td>User Options Binder</td></tr>
+                <tr><td>转办（Reassign）</td><td><span class="s ok">支持</span></td><td>Process Enhancement Plugin</td></tr>
+                <tr><td>撤回（Withdraw）</td><td><span class="s ok">支持</span></td><td>Process Enhancement Plugin</td></tr>
+                <tr><td>驳回</td><td><span class="s warn">待验证</span></td><td>有 Reject 按钮，精确回到指定节点待验证</td></tr>
+                <tr><td>Deadline / SLA</td><td><span class="s ok">原生</span></td><td>SLA 报表仅企业版（Deadlines and Escalations）</td></tr>
+                <tr><td>加签</td><td><span class="s warn">待验证</span></td><td>文档未见独立加签功能</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">来源：<a href="https://kb.joget.org/jw/community/display/marketplace/Process+Enhancement+Plugin">Process Enhancement Plugin</a> ｜ <a href="https://dev.joget.org/community/display/DX7/Map+Participants+to+Users">Map Participants to Users</a></p>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>查看详情：组织与权限（14/15）、插件架构（16/20）、AI 能力（2/5）<span class="cnt">3 组</span></summary>
+        <div class="fold-body">
+          <h4>组织与权限 — 评分 14/15（完整的原生行政架构）</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>层级</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>Organization</td><td>顶级组织单元</td></tr>
+                <tr><td>Department</td><td>支持子部门（sub-departments），多级树</td></tr>
+                <tr><td>Grade</td><td>职级，一个用户一个 Grade</td></tr>
+                <tr><td>Employment</td><td>雇佣关系（jobTitle、isHod、reportTo）</td></tr>
+                <tr><td>Group</td><td>跨组织权限分组</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Hash Variable 可访问：<code>#currentUser.department.hod.username#</code>、<code>#currentUser.employee.isHod#</code>、<code>#currentUser.organization.id#</code> 等，实现基于行政架构的审批路由和数据过滤。</p>
+          <p class="src">来源：<a href="https://confluence.joget.org/community/display/DX8/Organization%2C+Department%2C+Grade">Organization, Department, Grade</a> ｜ <a href="https://dev.joget.org/community/display/DX7/Hash+Variable">Hash Variable</a></p>
+          <h4>插件架构 — 评分 16/20</h4>
+          <ul>
+            <li><b>加载机制</b>：OSGi（Apache Felix）动态加载，JAR 放置即注册</li>
+            <li><b>开发工具</b>：Maven archetype 脚手架（<code>wflow-plugin-archetype</code>）</li>
+            <li><b>扩展覆盖</b>：Form Element / Form Binder / Process Participant / Process Tool / Datalist Binder / Datalist Formatter / Userview Menu / Userview Theme</li>
+            <li><b>Marketplace</b>：600+ 产品，~20+ 插件类型分类</li>
+            <li><b>减分项</b>（-4）：大版本升级（DX 8→9）不保证插件兼容（需重新编译），GPLv3 传染性对闭源分发有法律限制</li>
+          </ul>
+          <p class="src">来源：<a href="https://kb.joget.org/jw/web/userview/jdocs/docs/DX8/guideline-for-developing-a-plugin">插件开发指南</a> ｜ <a href="https://github.com/jogetworkflow/jw-community">github.com/jogetworkflow/jw-community</a></p>
+          <h4>AI 能力 — 评分 2/5</h4>
+          <p>AI Designer（自然语言生成应用）、AI Agent Builder（自主 Agent）、AI Assistant 均为<b>企业版专属</b>，社区版不可用。社区版 AI 能力为零。来源：<a href="https://www.joget.org/product/features">joget.org/product/features</a></p>
+        </div>
+      </details>
+
+      <h3>商业模式</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>版本</th><th>许可证</th><th>价格</th><th>用户数</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Community</td><td>GPLv3</td><td><b>免费</b></td><td>不限</td></tr>
+            <tr><td>Enterprise (On-Premises)</td><td>商业 EULA</td><td><b>需询价</b></td><td>按许可</td></tr>
+            <tr><td>Cloud Single Instance</td><td>商业</td><td>最高 $13/用户/月</td><td>最少 100 用户</td></tr>
+            <tr><td>Cloud Cluster</td><td>商业</td><td>最高 $17/用户/月</td><td>最少 100 用户</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">来源：<a href="https://www.joget.org/product/features">joget.org/product/features</a> ｜ <a href="https://ondemand.cloud.joget.com">ondemand.cloud.joget.com</a></p>
+
+      <h3>优势、局限与风险</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>优势</th><th>局限</th><th>风险</th></tr></thead>
+          <tbody>
+            <tr><td>审批社区版免费且成熟（BPM 引擎 20 年积累）</td><td>表单驱动，无独立数据模型层</td><td>GPLv3 传染性对闭源分发有法律限制</td></tr>
+            <tr><td>行政架构模型最完整（Org/Dept/Grade/Employment）</td><td>大版本插件不保证兼容</td><td>社区规模较小（619 stars）</td></tr>
+            <tr><td>600+ Marketplace，400+ 企业客户</td><td>JDBC 外部数据库仅企业版</td><td>主要受单一公司驱动</td></tr>
+            <tr><td>双线活跃（DX 8.x + 9.x），20 年项目</td><td>AI 能力仅企业版</td><td>Java 技术栈运维成本较高</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 06 横向功能对比 ============ -->
+    <section class="chapter" id="ch6">
+      <h2><span class="no">06</span>横向功能对比</h2>
+      <p class="lead">35 项维度逐项对比：NocoBase 胜在数据建模、插件生态与 AI；Joget 胜在审批免费、行政架构与职级汇报线。</p>
+
+      <details class="fold" open>
+        <summary>查看详情：完整 35 项横向对比表<span class="cnt">默认展开，可点击收起</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>维度</th><th>NocoBase</th><th>Joget DX</th></tr></thead>
+              <tbody>
+                <tr><td><b>产品定位</b></td><td>数据模型驱动低代码平台</td><td>表单驱动 BPM 低代码平台</td></tr>
+                <tr><td><b>数据建模</b></td><td><span class="s ok">独立数据模型层</span>，Sequelize ORM，5 方言</td><td><span class="s warn">表单即数据表</span>，无独立模型层</td></tr>
+                <tr><td><b>关联关系</b></td><td><span class="s ok">声明式 ORM</span>（1:1/1:N/M:N）</td><td><span class="s warn">SubForm + 自定义 Binder</span> 手工配置</td></tr>
+                <tr><td><b>索引/约束</b></td><td><span class="s ok">Sequelize 建模支持</span></td><td><span class="s bad">需直连数据库操作</span></td></tr>
+                <tr><td><b>审批-会签</b></td><td><span class="s ok">Professional（$8K）</span></td><td><span class="s ok">Process Enhancement Plugin（免费）</span></td></tr>
+                <tr><td><b>审批-或签</b></td><td><span class="s ok">Professional</span></td><td><span class="s ok">Process Enhancement Plugin</span></td></tr>
+                <tr><td><b>审批-并行</b></td><td><span class="s ok">Professional</span></td><td><span class="s ok">Route AND-split（原生）</span></td></tr>
+                <tr><td><b>审批-转办</b></td><td><span class="s ok">Professional</span></td><td><span class="s ok">Process Enhancement Plugin</span></td></tr>
+                <tr><td><b>审批-加签</b></td><td><span class="s ok">Professional</span></td><td><span class="s warn">待验证</span></td></tr>
+                <tr><td><b>审批-撤回</b></td><td><span class="s ok">Professional</span></td><td><span class="s ok">Process Enhancement Plugin</span></td></tr>
+                <tr><td><b>审批-退回指定节点</b></td><td><span class="s ok">Professional（Return API）</span></td><td><span class="s warn">待验证</span></td></tr>
+                <tr><td><b>组织-部门树</b></td><td><span class="s ok">免费内置</span></td><td><span class="s ok">原生支持子部门</span></td></tr>
+                <tr><td><b>组织-岗位/职级</b></td><td><span class="s warn">需自行建模为字段</span></td><td><span class="s ok">Grade / Employment 原生实体</span></td></tr>
+                <tr><td><b>组织-汇报线</b></td><td><span class="s warn">需自行建模</span></td><td><span class="s ok">reportTo 原生属性</span></td></tr>
+                <tr><td><b>行级数据权限</b></td><td><span class="s ok">声明式权限策略</span></td><td><span class="s warn">Datalist Hash Variable 过滤（手工）</span></td></tr>
+                <tr><td><b>多租户</b></td><td><span class="s bad">仅企业版</span></td><td><span class="s bad">仅 Cloud/Enterprise</span></td></tr>
+                <tr><td><b>外部数据库</b></td><td><span class="s ok">data-source-manager</span></td><td><span class="s warn">JDBC Binder 仅企业版</span></td></tr>
+                <tr><td><b>Webhook</b></td><td><span class="s ok">原生</span></td><td><span class="s ok">JSON API Tool</span></td></tr>
+                <tr><td><b>插件-包管理</b></td><td><span class="s ok">npm（独立包）</span></td><td><span class="s ok">Maven JAR（OSGi）</span></td></tr>
+                <tr><td><b>插件-生命周期</b></td><td><span class="s ok">afterAdd→beforeLoad→load</span></td><td><span class="s ok">Felix install/uninstall/update</span></td></tr>
+                <tr><td><b>插件-数据模型扩展</b></td><td><span class="s ok">Collection 可扩展</span></td><td><span class="s bad">表单驱动，非模型扩展</span></td></tr>
+                <tr><td><b>插件-工作流节点扩展</b></td><td><span class="s ok">自定义节点</span></td><td><span class="s ok">Process Tool / Participant</span></td></tr>
+                <tr><td><b>插件-升级兼容</b></td><td><span class="s warn">v2→v3 待验证</span></td><td><span class="s warn">DX 8→9 需重新编译</span></td></tr>
+                <tr><td><b>AI-数据建模</b></td><td><span class="s ok">社区版</span></td><td><span class="s bad">AI 仅企业版</span></td></tr>
+                <tr><td><b>AI-页面/工作流</b></td><td><span class="s ok">社区版</span></td><td><span class="s bad">AI 仅企业版</span></td></tr>
+                <tr><td><b>AI-多模型接入</b></td><td><span class="s ok">OpenAI/Claude/DeepSeek 等</span></td><td><span class="s bad">AI 仅企业版</span></td></tr>
+                <tr><td><b>许可证</b></td><td>Apache-2.0 + 补充条款</td><td>GPLv3</td></tr>
+                <tr><td><b>竞品 SaaS 限制</b></td><td><span class="s warn">有（补充条款 5.4）</span></td><td><span class="s bad">GPLv3 传染（灰色地带）</span></td></tr>
+                <tr><td><b>社区版审批</b></td><td><span class="s bad">仅单人审批</span></td><td><span class="s ok">成熟 BPM</span></td></tr>
+                <tr><td><b>社区版用户数</b></td><td>不限</td><td>不限</td></tr>
+                <tr><td><b>私有化</b></td><td><span class="s ok">全档位</span></td><td><span class="s ok">社区版免费自托管</span></td></tr>
+                <tr><td><b>项目活跃度</b></td><td><span class="s ok">高频迭代</span></td><td><span class="s ok">DX 8.x + 9.x 双线活跃</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ 07 技术架构与扩展机制对比 ============ -->
+    <section class="chapter" id="ch7">
+      <h2><span class="no">07</span>技术架构与扩展机制对比</h2>
+
+      <div class="svg-box">
+        <svg viewBox="0 0 880 330" width="880" height="330" role="img" aria-label="NocoBase 微内核架构与 Joget 表单驱动架构对比">
+          <!-- NocoBase 侧 -->
+          <text x="220" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#2b4acb">NocoBase：数据模型驱动 · 微内核</text>
+          <rect x="40" y="44" width="360" height="52" rx="9" fill="#e9eef9" stroke="#c2cfee"></rect>
+          <text x="220" y="66" text-anchor="middle" font-size="12.5" font-weight="650" fill="#1c2430">业务插件层（全部可替换）</text>
+          <text x="220" y="84" text-anchor="middle" font-size="11" fill="#55606e">用户 / 权限 / 组织 / 工作流 / 数据源 / 审批</text>
+          <rect x="40" y="108" width="360" height="46" rx="9" fill="#f2f5fc" stroke="#ccd7f2"></rect>
+          <text x="220" y="128" text-anchor="middle" font-size="12.5" font-weight="650" fill="#1c2430">微内核（生命周期调度 / 依赖管理）</text>
+          <text x="220" y="145" text-anchor="middle" font-size="11" fill="#55606e">DB 适配器 · 认证引擎 · ACL · 资源路由 · 队列</text>
+          <rect x="40" y="166" width="360" height="46" rx="9" fill="#ffffff" stroke="#2b4acb" stroke-dasharray="5 4"></rect>
+          <text x="220" y="185" text-anchor="middle" font-size="12.5" font-weight="650" fill="#2b4acb">数据模型层（Collection）独立于 UI</text>
+          <text x="220" y="202" text-anchor="middle" font-size="11" fill="#55606e">同一 Collection 可绑定多页面 / 表单 / 流程</text>
+          <rect x="40" y="224" width="360" height="42" rx="9" fill="#f6f4ef" stroke="#e5e7eb"></rect>
+          <text x="220" y="242" text-anchor="middle" font-size="11.5" fill="#55606e">插件扩展：独立 npm 包 · TypeScript 全栈</text>
+          <text x="220" y="258" text-anchor="middle" font-size="11" fill="#55606e">生命周期：afterAdd → beforeLoad → load</text>
+          <text x="220" y="300" text-anchor="middle" font-size="11.5" fill="#1a7f4b" font-weight="650">✓ 代码兜底落在插件层，不改核心源码</text>
+
+          <!-- 分隔线 -->
+          <line x1="440" y1="20" x2="440" y2="312" stroke="#e5e7eb" stroke-width="1.5"></line>
+
+          <!-- Joget 侧 -->
+          <text x="660" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#c07f22">Joget DX：表单驱动 · BPM 引擎</text>
+          <rect x="480" y="44" width="360" height="52" rx="9" fill="#f7ecda" stroke="#e7d1a9"></rect>
+          <text x="660" y="66" text-anchor="middle" font-size="12.5" font-weight="650" fill="#1c2430">流程引擎核心（自研 joget-workflow）</text>
+          <text x="660" y="84" text-anchor="middle" font-size="11" fill="#55606e">XPDL 序列化 · Process Builder 拖拽设计</text>
+          <rect x="480" y="108" width="360" height="46" rx="9" fill="#fbf4e6" stroke="#e7d1a9"></rect>
+          <text x="660" y="128" text-anchor="middle" font-size="12.5" font-weight="650" fill="#1c2430">表单即数据表（强耦合）</text>
+          <text x="660" y="145" text-anchor="middle" font-size="11" fill="#55606e">app_fd_&lt;tableName&gt; · 列名 c_&lt;fieldId&gt;</text>
+          <rect x="480" y="166" width="360" height="46" rx="9" fill="#ffffff" stroke="#c07f22" stroke-dasharray="5 4"></rect>
+          <text x="660" y="185" text-anchor="middle" font-size="12.5" font-weight="650" fill="#c07f22">行政架构一等公民</text>
+          <text x="660" y="202" text-anchor="middle" font-size="11" fill="#55606e">Organization / Department / Grade / Employment / HOD</text>
+          <rect x="480" y="224" width="360" height="42" rx="9" fill="#f6f4ef" stroke="#e5e7eb"></rect>
+          <text x="660" y="242" text-anchor="middle" font-size="11.5" fill="#55606e">插件扩展：Maven JAR · OSGi（Apache Felix）</text>
+          <text x="660" y="258" text-anchor="middle" font-size="11" fill="#55606e">JAR 放置即注册 · 600+ Marketplace</text>
+          <text x="660" y="300" text-anchor="middle" font-size="11.5" fill="#c07f22" font-weight="650">⚠ 数据模型耦合于 UI 层 · GPLv3 传染</text>
+        </svg>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>架构维度</th><th>NocoBase</th><th>Joget DX</th></tr></thead>
+          <tbody>
+            <tr><td><b>架构范式</b></td><td>数据模型驱动</td><td>表单驱动</td></tr>
+            <tr><td><b>元数据驱动</b></td><td><span class="s ok">Collection/Field 元数据独立于 UI</span></td><td><span class="s warn">表单即数据元数据，耦合于 UI 层</span></td></tr>
+            <tr><td><b>工作流与数据模型耦合</b></td><td><span class="s warn">Approval 插件可绑定任意 Collection，中度耦合</span></td><td><span class="s warn">流程节点与表单强绑定，高度耦合（表单驱动）</span></td></tr>
+            <tr><td><b>插件模块化</b></td><td><span class="s ok">每个插件独立 npm 包，类型完整</span></td><td><span class="s ok">OSGi bundle，JAR 即插即用</span></td></tr>
+            <tr><td><b>前端/后端分别扩展</b></td><td><span class="s ok">客户端 Plugin 基类 + 服务端 Plugin 基类</span></td><td><span class="s ok">Form Element + Process Tool 分别有独立 SPI</span></td></tr>
+            <tr><td><b>平台核心稳定接口</b></td><td><span class="s ok">Application/PluginManager/ACL 等核心暴露 API</span></td><td><span class="s ok">PluginManager（OSGi Felix）+ REST API</span></td></tr>
+            <tr><td><b>低代码→代码渐进</b></td><td><span class="s ok">插件开发平滑过渡（同一 TypeScript 栈）</span></td><td><span class="s ok">BeanShell + Plugin + REST（Java 栈）</span></td></tr>
+            <tr><td><b>升级定制化风险</b></td><td><span class="s warn">v2→v3 架构重构、第三方迁移未发布</span></td><td><span class="s warn">DX 自动生成数据结构、版本升级表结构可能变化</span></td></tr>
+            <tr><td><b>供应商锁定风险</b></td><td><span class="s warn">中低</span>：Apache-2.0 宽松但补充条款有竞品限制；插件体系开放、数据可导出</td><td><span class="s warn">中高</span>：表单驱动定制化深度绑定平台 UI 层；GPLv3 限制分发；迁移成本较高</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>关键判断</h3>
+      <ol>
+        <li><strong>NocoBase 的数据模型与 UI 解耦是架构层面的护城河</strong>——这使得同一条数据可以驱动多个页面、表单、流程，也使得插件可以通过扩展 Collection 而非修改页面来影响全局行为。Joget 的表单驱动模式在这个维度是架构级劣势。</li>
+        <li><strong>Joget 的组织架构模型更完整</strong>——Organization/Department/Grade/Employment/HOD/reportTo 是平台一等公民对象，而 NocoBase 的 Departments 仅是部门树。对「多组织机构」这个硬性需求，Joget 有原生优势。</li>
+        <li><strong>两者在插件扩展的「非侵入性」上都满足要求</strong>，但路径不同：NocoBase 走 npm 生态 + TypeScript 全栈；Joget 走 Maven + OSGi + Java。前者对现代 Web 开发者更友好。</li>
+      </ol>
+    </section>
+
+    <!-- ============ 08 复杂业务场景验证 ============ -->
+    <section class="chapter" id="ch8">
+      <h2><span class="no">08</span>复杂业务场景验证</h2>
+      <p class="lead">验证场景：<strong>多组织机构业务审批系统</strong>。两款产品的实现路径与实现成本对比如下。</p>
+
+      <details class="fold">
+        <summary>查看详情：NocoBase 实现路径（9 项需求逐项落地方式）<span class="cnt">9 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>需求</th><th>实现路径</th><th>限制</th></tr></thead>
+              <tbody>
+                <tr><td>多级组织</td><td>Departments 插件（免费）配置总部→分公司→部门树</td><td>无原生命令/岗位实体</td></tr>
+                <tr><td>角色数据权限</td><td>配置角色 + ACL + 基于部门的数据权限规则</td><td></td></tr>
+                <tr><td>业务申请表单</td><td>可视化创建 Collection + 表单区块</td><td></td></tr>
+                <tr><td>按组织+金额分支</td><td>审批节点条件路由（Professional）+ 审批人与部门联动</td><td>条件路由需 Professional</td></tr>
+                <tr><td>会签/并行</td><td>Approval 节点协商模式+处理顺序</td><td>需 Professional</td></tr>
+                <tr><td>审批后自动化</td><td>审批通过→Workflow 节点→HTTP request 调外部 API</td><td></td></tr>
+                <tr><td>外部数据读取</td><td>data-source-manager 连接外部数据库</td><td>Oracle/MSSQL beta</td></tr>
+                <tr><td>自定义字段</td><td>编辑 Collection 添加字段</td><td></td></tr>
+                <tr><td>自定义插件</td><td><code>npm create @nocobase/plugin</code> 脚手架开发</td><td>v2→v3 迁移待验证</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>查看详情：Joget DX 实现路径（10 项需求逐项落地方式）<span class="cnt">10 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>需求</th><th>实现路径</th><th>限制</th></tr></thead>
+              <tbody>
+                <tr><td>多级组织</td><td>Organization &gt; Department（子部门）&gt; Grade 原生配置</td><td></td></tr>
+                <tr><td>角色数据权限</td><td>Datalist 过滤条件 <code>#currentUser.department.id#</code> + Hash Variable</td><td>行级权限需手工配置，无集中策略管理</td></tr>
+                <tr><td>业务申请表单</td><td>Form Builder 拖拽构建</td><td>模型不独立于表单</td></tr>
+                <tr><td>按组织+金额分支</td><td>Route XOR-split + Process Enhancement Plugin</td><td></td></tr>
+                <tr><td>会签/并行</td><td>Process Enhancement Plugin + Route AND-split</td><td></td></tr>
+                <tr><td>审批后自动化</td><td>Process Tool 或 Bean Shell 调用外部 API</td><td></td></tr>
+                <tr><td>外部数据读取</td><td>JDBC Datalist Binder（仅企业版）</td><td>社区版只能用 REST API Tool</td></tr>
+                <tr><td>自定义字段</td><td>Form Builder 添加字段</td><td>跨表单数据一致性需自行保障</td></tr>
+                <tr><td>自定义插件</td><td>Maven archetype 脚手架 + OSGi 插件</td><td>DX 大版本需重新编译</td></tr>
+                <tr><td>加签</td><td><span class="s warn">待验证</span></td><td>文档未见加签功能</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <h3>实现成本对比</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>维度</th><th>NocoBase</th><th>Joget</th></tr></thead>
+          <tbody>
+            <tr><td><b>纯配置可实现的比例</b></td><td>~70%（审批配置 + 建模 + 组织树 + 权限）</td><td>~75%（审批流程 + 表单 + 组织架构 + 权限）</td></tr>
+            <tr><td><b>需专业版/企业版</b></td><td>审批 Professional $8K</td><td>JDBC 数据源企业版（价格需询价）</td></tr>
+            <tr><td><b>需插件开发</b></td><td>自定义业务节点、特殊页面组件</td><td>自定义 Process Tool、特殊 Form Element</td></tr>
+            <tr><td><b>难以实现或成本高</b></td><td>加签 POC 需实测配置体验</td><td>加签待验证、数据模型跨表单一致性需手工管理</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 09 商业模式与成本分析 ============ -->
+    <section class="chapter" id="ch9">
+      <h2><span class="no">09</span>商业模式与成本分析</h2>
+
+      <div class="chart-box">
+        <p class="chart-title">3 年总拥有成本（TCO）估算 · 50 用户</p>
+        <p class="chart-sub">NocoBase 约 $60,200 vs Joget 约 $61,200 —— 差距在许可费与运维人力之间互相抵消</p>
+        <div id="chartCost" class="chart"></div>
+      </div>
+
+      <details class="fold">
+        <summary>查看详情：成本估算明细表（3 年 TCO，50 用户）<span class="cnt">含估算口径说明</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>项目</th><th>NocoBase</th><th>Joget DX</th></tr></thead>
+              <tbody>
+                <tr><td><b>社区版许可</b></td><td>$0（Apache-2.0 含补充条款）</td><td>$0（GPLv3）</td></tr>
+                <tr><td><b>满足审批需求的最低许可</b></td><td>Professional $8,000（一次性）</td><td>$0（社区版即可）</td></tr>
+                <tr><td><b>服务器</b></td><td>约 $2,400/年 × 3 = $7,200</td><td>约 $2,400/年 × 3 = $7,200</td></tr>
+                <tr><td><b>运维人力</b></td><td>约 $15,000/年 × 3 = $45,000</td><td>约 $18,000/年 × 3 = $54,000（Java 运维成本略高）</td></tr>
+                <tr><td><b>插件开发</b></td><td>TypeScript 全栈，学习曲线低</td><td>Java + Maven + OSGi，学习曲线中等</td></tr>
+                <tr class="hl"><td><b>3 年估算总成本</b></td><td><b>约 $60,200</b></td><td><b>约 $61,200</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">注：以上为估算框架。Joget Enterprise 如需 JDBC 外部数据库能力，价格需询价，未计入。NocoBase Enterprise 如需多租户/air-gapped，也需询价。</p>
+        </div>
+      </details>
+
+      <h3>供应商锁定风险评估</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>风险维度</th><th>NocoBase</th><th>Joget DX</th></tr></thead>
+          <tbody>
+            <tr><td><b>数据可导出</b></td><td><span class="s ok">标准 SQL 数据库，数据自主可控</span></td><td><span class="s ok">标准 SQL 数据库</span></td></tr>
+            <tr><td><b>应用可迁移</b></td><td><span class="s warn">元数据在 NocoBase 专属结构中，迁移成本中</span></td><td><span class="s warn">XPDL 流程定义 + 表单配置为 Joget 专有格式</span></td></tr>
+            <tr><td><b>代码可复用</b></td><td><span class="s ok">TypeScript 插件与平台解耦，迁移到其他 Node.js 项目</span></td><td><span class="s warn">Java OSGi 插件与 Joget Plugin SPI 强耦合</span></td></tr>
+            <tr><td><b>许可证传染</b></td><td><span class="s ok">Apache-2.0 无 copyleft</span>，补充条款限制竞品 SaaS</td><td><span class="s bad">GPLv3 强传染</span>，闭源分发需商业许可</td></tr>
+            <tr><td><b>厂商依赖度</b></td><td>中等（开源社区 + 商业公司双轨道）</td><td>较高（Joget Inc. 为主要开发方）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 10 综合评分与排名 ============ -->
+    <section class="chapter" id="ch10">
+      <h2><span class="no">10</span>综合评分与排名</h2>
+
+      <div class="cards cols-4">
+        <div class="card pick-nb"><div class="kpi" style="color:var(--nb)">85</div><div class="lbl">NocoBase 总分 / 100</div></div>
+        <div class="card pick-jg"><div class="kpi" style="color:var(--jg)">76</div><div class="lbl">Joget DX 总分 / 100</div></div>
+        <div class="card"><div class="kpi">19<small>/20</small></div><div class="lbl">NocoBase 插件架构（全场最高单项）</div></div>
+        <div class="card"><div class="kpi">18<small>/20</small></div><div class="lbl">Joget 审批流（社区版免费）</div></div>
+      </div>
+
+      <div class="chart-box">
+        <p class="chart-title">八维评分雷达图</p>
+        <p class="chart-sub">各维度外圈 = 该项权重满分；NocoBase 在数据建模/插件/AI 占优，Joget 在审批/组织权限占优</p>
+        <div id="chartRadar" class="chart tall"></div>
+      </div>
+
+      <div class="chart-box">
+        <p class="chart-title">分维度得分对比（得分 / 权重）</p>
+        <p class="chart-sub">柱顶数值为实际得分；各组满分即该维度权重</p>
+        <div id="chartBars" class="chart tall"></div>
+      </div>
+
+      <h3>评分表（100 分制）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>评估项目</th><th class="num">权重</th><th class="num">NocoBase</th><th class="num">Joget DX</th></tr></thead>
+          <tbody>
+            <tr><td>数据建模与数据管理</td><td class="num">15</td><td class="num"><b>14</b></td><td class="num"><b>8</b></td></tr>
+            <tr><td>审批流及流程引擎</td><td class="num">20</td><td class="num"><b>16</b></td><td class="num"><b>18</b></td></tr>
+            <tr><td>用户、组织机构与权限</td><td class="num">15</td><td class="num"><b>13</b></td><td class="num"><b>14</b></td></tr>
+            <tr><td>触发器、自动化及外部数据集成</td><td class="num">15</td><td class="num"><b>13</b></td><td class="num"><b>10</b></td></tr>
+            <tr><td>插件架构与代码扩展能力</td><td class="num">20</td><td class="num"><b>19</b></td><td class="num"><b>16</b></td></tr>
+            <tr><td>AI 能力</td><td class="num">5</td><td class="num"><b>4</b></td><td class="num"><b>2</b></td></tr>
+            <tr><td>社区生态与商业可持续性</td><td class="num">5</td><td class="num"><b>3</b></td><td class="num"><b>4</b></td></tr>
+            <tr><td>部署、运维及长期维护成本</td><td class="num">5</td><td class="num"><b>3</b></td><td class="num"><b>4</b></td></tr>
+            <tr class="hl"><td>总计</td><td class="num">100</td><td class="num">85</td><td class="num">76</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details class="fold">
+        <summary>查看详情：评分依据速查（各维度加减分理由）<span class="cnt">8 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>项目</th><th>NocoBase 评分依据</th><th>Joget 评分依据</th></tr></thead>
+              <tbody>
+                <tr><td>数据建模</td><td>+全满足；-1 Oracle/MSSQL beta</td><td>-7 表单驱动无独立模型层、索引/约束无 GUI、关联需手工</td></tr>
+                <tr><td>审批流</td><td>+会签/或签/并行/多级全原生；-4 全归专业版 $8K</td><td>+社区版免费成熟 BPM、Org Chart 路由；-2 加签待验证、驳回回退待验证</td></tr>
+                <tr><td>组织权限</td><td>+部门树免费、多角色、人机一致；-2 多租户仅企业</td><td>+完整行政模型（Org/Dept/Grade/Employment/HOD）；-1 行级权限手工</td></tr>
+                <tr><td>触发器/集成</td><td>+Workflow 完善、数据源管理器；-2 Oracle/MSSQL beta</td><td>+Process Tool/Deadline/SLA；-5 JDBC 仅企业版</td></tr>
+                <tr><td>插件架构</td><td>+SDK 级、独立 npm、生命周期 API；-1 v2→v3 迁移待验证</td><td>+OSGi 动态加载、四域全覆盖；-4 大版本不保证兼容、GPLv3 传染</td></tr>
+                <tr><td>AI</td><td>+社区版免费、多模型接入；-1 审批生成/MCP 待证实</td><td>-3 AI 全归企业版</td></tr>
+                <tr><td>社区生态</td><td>+GitHub 活跃、文档好；-2 中国社区弱</td><td>+600 Marketplace、400+ 企业客户；-1 社区规模小</td></tr>
+                <tr><td>部署运维</td><td>+Docker 简单；-2 v3 beta、升级兼容未证实</td><td>+不限用户、双线活跃、20 年项目；-1 Java 运维</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <h3>硬性条件逐项通过情况</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>硬性条件</th><th>NocoBase</th><th>Joget DX</th></tr></thead>
+          <tbody>
+            <tr><td>审批流（会签/或签/并行/多级）</td><td><span class="s ok">Professional</span></td><td><span class="s ok">社区版</span></td></tr>
+            <tr><td>多用户/角色/用户组</td><td><span class="s ok">免费</span></td><td><span class="s ok">免费</span></td></tr>
+            <tr><td>多组织机构</td><td><span class="s ok">免费</span></td><td><span class="s ok">免费</span></td></tr>
+            <tr><td>触发器</td><td><span class="s ok">免费</span></td><td><span class="s ok">免费</span></td></tr>
+            <tr><td>外部数据源</td><td><span class="s ok">免费（Oracle/MSSQL beta）</span></td><td><span class="s warn">JDBC 仅企业版</span></td></tr>
+            <tr><td>非侵入式插件</td><td><span class="s ok">通过（最强）</span></td><td><span class="s ok">通过</span></td></tr>
+            <tr><td>数据建模（可视化+关联+迁移）</td><td><span class="s ok">通过（最强）</span></td><td><span class="s warn">表单驱动</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>推荐梯队</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>梯队</th><th>产品</th><th>推荐条件</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td><span class="pill pass">第一梯队</span></td><td><b>NocoBase (Professional)</b></td><td>接受 $8K 商业授权，重视架构扩展性和 AI 增强</td></tr>
+            <tr class="hl"><td><span class="pill pass">第二梯队</span></td><td><b>Joget DX (Community)</b></td><td>审批优先级最高，零预算，接受 GPLv3 和表单驱动</td></tr>
+            <tr><td><span class="pill watch">观察名单</span></td><td>明道云</td><td>如果插件要求放宽、社区版 30 人不构成瓶颈</td></tr>
+            <tr><td><span class="pill watch">观察名单</span></td><td>简道云</td><td>如果接受 SaaS 模式 + 函数级扩展，放弃开源/自部署</td></tr>
+            <tr><td><span class="pill fail">不建议</span></td><td>Appsmith、ToolJet、Budibase</td><td>审批硬缺口，与场景错配</td></tr>
+            <tr><td><span class="pill fail">不建议</span></td><td>Directus、Baserow</td><td>无审批引擎</td></tr>
+            <tr><td><span class="pill fail">不建议</span></td><td>Corteza</td><td>审批硬伤 + 活跃度风险</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 11 选型建议 ============ -->
+    <section class="chapter" id="ch11">
+      <h2><span class="no">11</span>选型建议</h2>
+
+      <div class="cards cols-2">
+        <div class="card pick-nb">
+          <span class="tag nb">NocoBase 胜出项</span>
+          <h4>综合能力最强：NocoBase Professional（85 分）</h4>
+          <p>在数据建模、插件架构、AI 三个高权重维度全面领先，审批能力经证实完整且仅受付费墙阻挡。</p>
+          <h4>最符合「数据驱动、AI 增强、代码兜底」理念</h4>
+          <p>数据模型驱动 + UI 解耦是架构级优势（非 UI 层的贴片），AI 员工与 AI Builder 社区版免费且可扩展，插件体系非侵入式。需承认：审批（测试核心）需要付费。</p>
+          <h4>插件扩展和二次开发能力最强</h4>
+          <p>独立 npm 包 + TypeScript 全栈 + 生命周期 API + 前后端全覆盖——本次调研中唯一接近「低代码到代码渐进式开发」理想的产品。</p>
+          <h4>最适合长期私有化部署和自主维护</h4>
+          <p>Apache-2.0（宽松）+ 自托管 + TypeScript 全栈（运维门槛低）+ 数据模型与 UI 解耦（可独立扩展）。Joget 的 GPLv3 对长期闭源场景有法律不确定性。</p>
+        </div>
+        <div class="card pick-jg">
+          <span class="tag jg">Joget 胜出项</span>
+          <h4>审批流和组织管理能力最强</h4>
+          <p>原生 BPM 引擎深耕 20 年，Organization/Department/Grade/Employment/HOD/reportTo 完整行政模型是平台一等公民。且审批免费、不限用户。</p>
+          <h4>社区版最值得深入研究</h4>
+          <p>审批成熟、组织完整、无用户数限制、600+ Marketplace、20 年持续迭代。主要权衡是 GPLv3 传染和表单驱动架构。</p>
+          <h4>性价比最高（取决于优先级）</h4>
+          <p>审批优先 + 零预算 → <b>Joget Community（$0）</b><br>架构开放 + AI → <b>NocoBase Professional（$8K 一次性）</b></p>
+        </div>
+      </div>
+
+      <h3>最终推荐</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>类别</th><th>产品</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td><b>首选</b></td><td><b>NocoBase Professional</b></td><td>架构理念最契合、插件最强、AI 最开放、许可证最宽松。审批付费是唯一取舍点。</td></tr>
+            <tr><td><b>第二选择</b></td><td><b>Joget DX Community</b></td><td>审批与预算优先时的最佳替代。表单驱动是架构级妥协。</td></tr>
+            <tr><td><b>进一步观察</b></td><td>明道云</td><td>若后续放宽插件/开源约束，其审批是已知产品中最成熟的。</td></tr>
+            <tr><td><b>不建议选择</b></td><td>Appsmith / ToolJet / Budibase / Directus / Baserow / Corteza</td><td>审批硬缺口或活跃度风险（详见第三部分淘汰原因）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 12 POC 验证计划 ============ -->
+    <section class="chapter" id="ch12">
+      <h2><span class="no">12</span>POC 验证计划</h2>
+      <p class="lead">两份 POC 可并行进行（不同 Docker 实例），预计 1–2 周完成所有验证项。</p>
+
+      <h3>NocoBase Professional POC</h3>
+      <h4>环境准备</h4>
+      <pre><code># Docker 一键部署（推荐用于 POC）
+docker run -d --name nocobase -p 13000:80 nocobase/nocobase:latest
+# 或使用 create-nocobase-app 创建自定义插件开发项目
+npx create-nocobase-app my-poc --quickstart -e postgres</code></pre>
+      <ul>
+        <li>数据库：PostgreSQL 14+（生产建议）</li>
+        <li>商业插件激活：购买 Professional License 后在插件管理器上传激活</li>
+      </ul>
+
+      <details class="fold">
+        <summary>查看详情：NocoBase 必须验证的 10 项功能（按优先级）<span class="cnt">10 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>验证项</th><th>关键操作</th><th>预期结果</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><b>会签审批</b></td><td>创建审批流程 → 配置审批节点协商模式为「会签」→ 指定 3 人 → 发起</td><td>3 人全部通过后流程继续，任一未通过则保持待审批</td></tr>
+                <tr><td>2</td><td><b>或签审批</b></td><td>同上，协商模式为「或签」</td><td>任一人通过即进入下一节点</td></tr>
+                <tr><td>3</td><td><b>条件路由</b></td><td>在审批触发器中配置条件分支（按金额&gt;10,000 走总经理审批，否则走部门负责人）</td><td>不同条件进入不同审批链路</td></tr>
+                <tr><td>4</td><td><b>转办与加签</b></td><td>审批记录操作：转签→选人 / 前加签→选人→提交</td><td>审批人变更且有审计痕迹</td></tr>
+                <tr><td>5</td><td><b>部门审批路由</b></td><td>审批节点审批人配置「动态查询条件」，按发起人部门筛选出该部门负责人</td><td>不同部门用户发起后自动路由到对应部门负责人</td></tr>
+                <tr><td>6</td><td><b>审批后自动化</b></td><td>审批通过→添加 Workflow 后续节点→HTTP 请求调用外部 API (httpbin.org/post)</td><td>审批完成后自动发送 HTTP 请求，外部系统收到数据</td></tr>
+                <tr><td>7</td><td><b>外部数据源</b></td><td>data-source-manager 连接外部 MySQL 数据库 → 在 Collection 中引用外部表 → 在审批表单中展示</td><td>外部数据可读取且可参与审批条件</td></tr>
+                <tr><td>8</td><td><b>自定义插件</b></td><td>创建插件脚手架 → 添加自定义 Collection 和页面组件 → 安装 → 在审批表单中使用</td><td>插件独立安装、启用、升级、卸载，不修改核心源码</td></tr>
+                <tr><td>9</td><td><b>AI Builder</b></td><td>一句话「创建一个费用报销审批应用，含报销单表、审批流程、报销列表」</td><td>AI 生成数据模型+流程+页面，人工可微调</td></tr>
+                <tr><td>10</td><td><b>多部门权限</b></td><td>创建财务部和人事部及其成员 → 设置不同角色权限 → 分别登录验证数据可见性</td><td>财务部只能看财务数据，人事部只能看人事数据</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>验收标准</h4>
+          <ul>
+            <li>以上 10 项全部通过</li>
+            <li>审批流程从创建到测试完成的时间 ≤ 2 小时/场景</li>
+            <li>自定义插件从脚手架到安装使用 ≤ 4 小时</li>
+            <li>AI Builder 生成的模型和流程可通过手动微调达到生产可用</li>
+          </ul>
+          <h4>可能的技术难点</h4>
+          <ul>
+            <li>v3 版本的商业插件激活流程（v3 仍 Beta）</li>
+            <li>AI Builder 生成质量可能需多轮对话调整</li>
+            <li>Oracle/MSSQL 外部数据源为 beta，建议 POC 用已稳定的 PostgreSQL/MySQL</li>
+          </ul>
+          <h4>重点验证的升级兼容性</h4>
+          <ol>
+            <li>在 POC 期间安装一个第三方或自定义插件</li>
+            <li>升级 NocoBase 到下一个次版本（如 v3.1→v3.2）</li>
+            <li>验证插件是否无需修改仍正常加载</li>
+            <li>记录升级过程中的 plugin migration 执行情况</li>
+          </ol>
+        </div>
+      </details>
+
+      <h3>Joget DX Community POC</h3>
+      <h4>环境准备</h4>
+      <pre><code># 下载 Community Edition 安装包
+# https://www.joget.org/download
+# 安装要求：Java 17+、Tomcat 或 Docker
+docker run -d --name joget -p 8080:8080 jogetworkflow/joget-community:latest</code></pre>
+      <ul>
+        <li>数据库：MySQL 8.0+ 或 PostgreSQL</li>
+        <li>无需激活</li>
+      </ul>
+
+      <details class="fold">
+        <summary>查看详情：Joget 必须验证的 10 项功能<span class="cnt">10 项</span></summary>
+        <div class="fold-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>验证项</th><th>关键操作</th><th>预期结果</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><b>会签审批</b></td><td>安装 Process Enhancement Plugin → 配置 Activity Multi Approval: All Assignee Approved</td><td>所有人同意后流程继续</td></tr>
+                <tr><td>2</td><td><b>并行审批</b></td><td>Route 节点 AND-split → 两个并行 Activity → 各自完成后汇聚</td><td>两个审批同时进行，完成后方汇聚</td></tr>
+                <tr><td>3</td><td><b>Org Chart 路由</b></td><td>Process Participant: Map to Performer's HOD</td><td>自动找到发起人的部门负责人</td></tr>
+                <tr><td>4</td><td><b>转办（Reassign）</b></td><td>审批页面点击 Reassign → 选择新审批人</td><td>审批人变更且有审计</td></tr>
+                <tr><td>5</td><td><b>撤回（Withdraw）</b></td><td>发起人点击 Withdraw</td><td>流程取消且有记录</td></tr>
+                <tr><td>6</td><td><b>组织架构配置</b></td><td>创建 Organization → Department（含子部门）→ Grade → Employee → 指定 HOD</td><td>组织树在 Hash Variable 中可查询</td></tr>
+                <tr><td>7</td><td><b>行级数据权限</b></td><td>Datalist 过滤器 <code>department = #currentUser.department.id#</code></td><td>用户只看本部门数据</td></tr>
+                <tr><td>8</td><td><b>审批后自动化</b></td><td>Process Tool → BeanShell / API Tool 调用外部系统</td><td>审批完成后自动触发外部调用</td></tr>
+                <tr><td>9</td><td><b>外部数据读取</b></td><td>REST API Form Options Binder 加载外部系统的下拉选项</td><td>表单下拉列表来自外部 API</td></tr>
+                <tr><td>10</td><td><b>自定义插件</b></td><td>Maven archetype 创建 Process Tool 插件 → 打包 JAR → Manage Plugins 上传安装</td><td>插件独立安装、启用、卸载</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>验收标准</h4>
+          <ul>
+            <li>以上 10 项全部通过</li>
+            <li>审批流程从创建到测试完成 ≤ 3 小时/场景</li>
+            <li>组织架构配置 + 行级权限验证 ≤ 2 小时</li>
+            <li>自定义 Process Tool 插件从脚手架到安装使用 ≤ 8 小时</li>
+          </ul>
+          <h4>可能的技术难点</h4>
+          <ul>
+            <li>Process Enhancement Plugin 虽是免费但文档标注 "designed for DX Enterprise &amp; Professional"，实际功能在社区版是否受限需实测</li>
+            <li>JDBC 外部数据库为企业版，POC 只能用 REST API 替代</li>
+            <li>加签功能待验证（文档未见），可能需要 BeanShell 自定义</li>
+            <li>Java/OSGi 开发环境搭建对不熟悉 Java 栈的团队有学习成本</li>
+          </ul>
+          <h4>重点验证</h4>
+          <ol>
+            <li>Joget 大版本升级（如 DX 8→9）插件兼容性——如有 DX 8 和 9 环境，验证同一插件是否需要重新编译</li>
+            <li>数据跨表单一致性问题——在多个审批场景中验证数据是否保持一致</li>
+            <li>GPLv3 传染性在插件场景的实际影响——咨询法律意见</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ 13 调研方法说明 ============ -->
+    <section class="chapter" id="ch13">
+      <h2><span class="no">13</span>调研方法说明</h2>
+      <div class="panel">
+        <p style="margin-top:0">本报告基于以下方法体系：</p>
+        <ol style="margin-bottom:8px">
+          <li><b>多代理联网核查</b>：每个候选产品独立派发调研代理，强制使用官方来源（官网、官方文档、GitHub 仓库、LICENSE 文件、定价页），禁止编造功能、版本、价格、许可证。</li>
+          <li><b>3 票对抗验证</b>：每条关键论断由 3 个独立验证代理进行对抗性核验（尝试反驳），需 ≥2 票支持方确认，1-2 票或 0-3 票的论断被否决或降级。</li>
+          <li><b>深度缺口补充</b>：对入围产品 6 项已知缺口进行二次联网深挖，确保审批细节、许可证条款、价格、升级兼容性等决策关键信息有官方来源证据。</li>
+        </ol>
+        <p style="margin-bottom:0">所有关键结论附官方来源链接（可直接访问验证）。无官方证据的项明确标注「待验证」，未编造价格、版本、功能或任何未经证实的信息。</p>
+      </div>
+      <div class="callout info">
+        <b>下一步</b>：建议按第十二部分 POC 计划启动验证。两份 POC 可并行进行（不同 Docker 实例），预计 1-2 周可完成所有验证项。POC 期间如遇关键问题，可随时更新这份报告。
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      企业级低代码平台选型调研报告 · 2026-11-06 · 本页面由 Markdown 报告转换生成，全部内容与原文档一致
+    </footer>
+
+  </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  var NB = "#2b4acb", JG = "#c07f22", NAVY = "#16345c", BRONZE = "#b3854d";
+  var INK = "#1c2430", INK2 = "#55606e", INK3 = "#98a0ac", GRID = "#ece8de";
+  var SANS = '-apple-system, "SF Pro Text", "PingFang SC", "Noto Sans SC", sans-serif';
+  var charts = [];
+
+  function mk(id, option) {
+    var el = document.getElementById(id);
+    if (!el || typeof echarts === "undefined") return;
+    var c = echarts.init(el);
+    c.setOption(Object.assign({ textStyle: { fontFamily: SANS } }, option));
+    charts.push(c);
+  }
+  function vGrad(c1, c2) {
+    return new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: c1 }, { offset: 1, color: c2 }]);
+  }
+  function hGrad(c1, c2) {
+    return new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: c1 }, { offset: 1, color: c2 }]);
+  }
+
+  /* ---- 需求权重环形图 ---- */
+  mk("chartWeights", {
+    color: [NAVY, NB, BRONZE, "#5b7bb4", "#8fa3c8", "#c9a876", "#7a6a53", "#d8cfc0"],
+    tooltip: { trigger: "item", formatter: "{b}<br/>权重：{c} 分（{d}%）" },
+    legend: { bottom: 0, itemWidth: 10, itemHeight: 10, icon: "rect", textStyle: { fontSize: 12, color: INK2 } },
+    title: { text: "100", subtext: "权重总分", left: "center", top: "34%",
+      textStyle: { fontFamily: 'Georgia, "Songti SC", serif', fontSize: 34, color: NAVY, fontWeight: 700 },
+      subtextStyle: { fontSize: 12, color: INK3 } },
+    series: [{
+      type: "pie", radius: ["46%", "70%"], center: ["50%", "42%"],
+      avoidLabelOverlap: true,
+      itemStyle: { borderColor: "#fff", borderWidth: 3, borderRadius: 3 },
+      label: { formatter: "{b}  {c}", fontSize: 12, color: INK },
+      labelLine: { lineStyle: { color: "#cfc8ba" } },
+      data: [
+        { value: 20, name: "人工审批流" },
+        { value: 20, name: "插件与代码扩展" },
+        { value: 15, name: "数据建模" },
+        { value: 15, name: "多组织与权限" },
+        { value: 15, name: "触发器/自动化/集成" },
+        { value: 5, name: "AI 能力" },
+        { value: 5, name: "社区生态" },
+        { value: 5, name: "部署运维成本" }
+      ]
+    }]
+  });
+
+  /* ---- 八维雷达图 ---- */
+  var dims = ["数据建模", "审批流", "组织权限", "触发器集成", "插件架构", "AI 能力", "社区生态", "部署运维"];
+  var maxs = [15, 20, 15, 15, 20, 5, 5, 5];
+  mk("chartRadar", {
+    color: [NB, JG],
+    tooltip: { trigger: "item" },
+    legend: { bottom: 0, data: ["NocoBase", "Joget DX"], icon: "roundRect", itemWidth: 14, itemHeight: 5,
+      textStyle: { fontSize: 13, color: INK } },
+    radar: {
+      center: ["50%", "50%"], radius: "62%",
+      indicator: dims.map(function (d, i) { return { name: d + "（满分 " + maxs[i] + "）", max: maxs[i] }; }),
+      axisName: { color: INK2, fontSize: 12 },
+      splitArea: { areaStyle: { color: ["#fdfcfa", "#f5f2ea"] } },
+      splitLine: { lineStyle: { color: GRID } },
+      axisLine: { lineStyle: { color: GRID } }
+    },
+    series: [{
+      type: "radar",
+      data: [
+        { value: [14, 16, 13, 13, 19, 4, 3, 3], name: "NocoBase", areaStyle: { opacity: 0.16 }, lineStyle: { width: 2.5 }, symbolSize: 5 },
+        { value: [8, 18, 14, 10, 16, 2, 4, 4], name: "Joget DX", areaStyle: { opacity: 0.13 }, lineStyle: { width: 2.5 }, symbolSize: 5 }
+      ]
+    }]
+  });
+
+  /* ---- 分维度柱状图 ---- */
+  mk("chartBars", {
+    tooltip: {
+      trigger: "axis", axisPointer: { type: "shadow", shadowStyle: { color: "rgba(22,52,92,.05)" } },
+      formatter: function (ps) {
+        var i = ps[0].dataIndex, s = dims[i] + "（权重 " + maxs[i] + " 分）<br/>";
+        ps.forEach(function (p) { s += p.marker + " " + p.seriesName + "：" + p.value + " 分<br/>"; });
+        return s;
+      }
+    },
+    legend: { bottom: 0, icon: "roundRect", itemWidth: 14, itemHeight: 5, textStyle: { fontSize: 13, color: INK } },
+    grid: { left: 10, right: 16, top: 30, bottom: 36, containLabel: true },
+    xAxis: { type: "category", data: dims, axisLabel: { fontSize: 12, color: INK2, interval: 0 },
+      axisLine: { lineStyle: { color: "#d8d2c4" } }, axisTick: { show: false } },
+    yAxis: { type: "value", max: 20, splitLine: { lineStyle: { color: GRID } }, axisLabel: { color: INK3 } },
+    series: [
+      { name: "NocoBase", type: "bar", barWidth: 20,
+        itemStyle: { borderRadius: [3, 3, 0, 0], color: vGrad("#4a68e0", NB) },
+        label: { show: true, position: "top", fontSize: 11, color: NB, fontWeight: 600 },
+        data: [14, 16, 13, 13, 19, 4, 3, 3] },
+      { name: "Joget DX", type: "bar", barWidth: 20,
+        itemStyle: { borderRadius: [3, 3, 0, 0], color: vGrad("#dda44e", JG) },
+        label: { show: true, position: "top", fontSize: 11, color: JG, fontWeight: 600 },
+        data: [8, 18, 14, 10, 16, 2, 4, 4] }
+    ]
+  });
+
+  /* ---- 3 年 TCO 堆叠条形图 ---- */
+  mk("chartCost", {
+    tooltip: {
+      trigger: "axis", axisPointer: { type: "shadow", shadowStyle: { color: "rgba(22,52,92,.05)" } },
+      valueFormatter: function (v) { return "$" + Number(v).toLocaleString(); }
+    },
+    legend: { bottom: 0, icon: "roundRect", itemWidth: 14, itemHeight: 5, textStyle: { fontSize: 13, color: INK } },
+    grid: { left: 10, right: 96, top: 24, bottom: 36, containLabel: true },
+    xAxis: { type: "value", splitLine: { lineStyle: { color: GRID } },
+      axisLabel: { formatter: function (v) { return "$" + v / 1000 + "k"; }, color: INK3 } },
+    yAxis: { type: "category", data: ["Joget DX", "NocoBase"],
+      axisLabel: { fontSize: 13.5, color: INK, fontWeight: 600 }, axisLine: { show: false }, axisTick: { show: false } },
+    series: [
+      { name: "审批许可（最低满足档）", type: "bar", stack: "t", barWidth: 40,
+        itemStyle: { color: hGrad("#4a68e0", NB), borderRadius: [4, 0, 0, 4] }, data: [0, 8000] },
+      { name: "服务器（3 年）", type: "bar", stack: "t", itemStyle: { color: "#c8c0b0" }, data: [7200, 7200] },
+      { name: "运维人力（3 年）", type: "bar", stack: "t",
+        itemStyle: { color: hGrad("#d3a35c", BRONZE), borderRadius: [0, 4, 4, 0] },
+        label: { show: true, position: "right", fontWeight: 700, color: NAVY, fontFamily: 'Georgia, "Songti SC", serif', fontSize: 15,
+          formatter: function (p) { return "≈ $" + (p.dataIndex === 0 ? "61,200" : "60,200"); } },
+        data: [54000, 45000] }
+    ]
+  });
+
+  window.addEventListener("resize", function () {
+    charts.forEach(function (c) { c.resize(); });
+  });
+
+  /* ---- 目录滚动高亮 ---- */
+  var links = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) { a.classList.remove("active"); });
+        var a = map[e.target.id];
+        if (a) a.classList.add("active");
+      }
+    });
+  }, { rootMargin: "-15% 0px -75% 0px" });
+  document.querySelectorAll("section.chapter").forEach(function (s) { obs.observe(s); });
+})();
+</script>
+
+<script>
+/* ---- 提示词展开区 ---- */
+(function () {
+  var btn = document.getElementById("promptToggle");
+  var panel = document.getElementById("promptPanel");
+  var src = document.getElementById("promptSrc");
+  var body = document.getElementById("promptBody");
+  if (!btn || !panel || !src || !body) return;
+  var md = src.textContent.replace(/^\s*\n/, "").replace(/\n\s*$/, "");
+  if (window.marked) {
+    body.innerHTML = marked.parse(md);
+  } else {
+    var pre = document.createElement("pre");
+    pre.textContent = md;
+    body.appendChild(pre);
+  }
+  btn.addEventListener("click", function () {
+    var open = panel.classList.toggle("open");
+    btn.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+</script>
+
+</body>
+</html>

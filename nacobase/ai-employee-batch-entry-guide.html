@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 员工批量数据录入方案 · NocoBase 2.2.41</title>
+<meta name="description" content="让 AI 负责理解与结构化，由确定性工作流完成批量落库。NocoBase AI 员工批量数据录入实施手册。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js" defer></script>
+<style>
+  :root{
+    --bg:#ffffff;--soft:#f8fafc;--soft2:#f1f5f9;--ink:#0f172a;--muted:#64748b;--muted2:#94a3b8;
+    --line:#e2e8f0;--line2:#eef2f7;
+    --indigo:#1d4ed8;--indigo2:#2563eb;--indigo-soft:#eff6ff;--indigo-line:#bfdbfe;
+    --cyan:#0d9488;--cyan-soft:#f0fdfa;
+    --green:#16a34a;--green-soft:#f0fdf4;--green-line:#bbf7d0;
+    --amber:#f59e0b;--amber-soft:#fffbeb;--amber-line:#fde68a;
+    --red:#ef4444;--red-soft:#fef2f2;--red-line:#fecaca;
+    --dark:#0f172a;
+    --ai-avatar:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20320%22%20fill%3D%22none%22%20shape-rendering%3D%22auto%22%3E%3Cmetadata%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%20xmlns%3Axsi%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema-instance%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Adcterms%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%22%3E%3Crdf%3ARDF%3E%3Crdf%3ADescription%3E%3Cdc%3Atitle%3ENocoBase%20AI%20employee%20avatars%3C%2Fdc%3Atitle%3E%3Cdc%3Arights%3ERemix%20of%20%E2%80%9ENocoBase%20AI%20employee%20avatars%E2%80%9D%20by%20%E2%80%9EUnknown%E2%80%9D%3C%2Fdc%3Arights%3E%3C%2Frdf%3ADescription%3E%3C%2Frdf%3ARDF%3E%3C%2Fmetadata%3E%3Cmask%20id%3D%22viewboxMask%22%3E%3Crect%20width%3D%22320%22%20height%3D%22320%22%20rx%3D%220%22%20ry%3D%220%22%20x%3D%220%22%20y%3D%220%22%20fill%3D%22%23fff%22%20%2F%3E%3C%2Fmask%3E%3Cg%20mask%3D%22url(%23viewboxMask)%22%3E%3Cmask%20id%3D%22baseGreen-a%22%20style%3D%22mask-type%3Aluminance%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22320%22%3E%3Cpath%20d%3D%22M320%20160C320%2071.634%20248.366%200%20160%200S0%2071.634%200%20160s71.634%20160%20160%20160%20160-71.634%20160-160%22%20fill%3D%22white%22%2F%3E%3C%2Fmask%3E%3Cg%20mask%3D%22url(%23baseGreen-a)%22%3E%3Cpath%20d%3D%22M320%20160C320%2071.634%20248.366%200%20160%200S0%2071.634%200%20160s71.634%20160%20160%20160%20160-71.634%20160-160%22%20fill%3D%22%23C0E4A3%22%2F%3E%3Cpath%20d%3D%22M133.733%20203.066c0-9.6-.326-56.951-.31-57.751-26.356%203.884-25.823-46.25.844-33.982%205.866%203.733%2022.4%200%2020.8-30.934%2028.8%2030.934%2062.236-5.145%2065.104%2024.254%203.915%2040.144-.024%2082.156-24.972%2082.159a46.7%2046.7%200%200%201-8.132-.813v17.067c0%2010.667%2019.2%2016%2019.2%2016s-33.166%2031.253-46.934%2031.08c-13.769-.172-44.8-31.08-44.8-31.08s19.2-5.333%2019.2-16%22%20fill%3D%22%23517933%22%2F%3E%3Cpath%20d%3D%22M187.062%20185.994a105%20105%200%200%201-36.927-16.106s9.203%2022.5%2036.892%2026.769z%22%20fill%3D%22black%22%2F%3E%3Cpath%20d%3D%22M258.529%20251.066c7.739%2017.196%2011.734%2069.333%2011.734%2069.333H50.529s3.995-52.137%2011.733-69.333c6.78-15.065%2051.456-32.362%2064.548-37.334%207.559%208.457%2018.392%2013.867%2033.586%2013.867s26.027-5.41%2033.586-13.867c13.092%204.972%2057.767%2022.269%2064.547%2037.334%22%20fill%3D%22%23517933%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M115.546%20148.572c-6.668-16.162-33.393-49.078-10.356-69.56%207.743-38.04%2050.525-33.829%2079.078-25.05%2019.191%205.9%2033.684%2017.556%2036.781%208.778%2019.358%2016.272%209.664%2032.187-3.097%2036.754-11.582%204.146-31.167%208.291-64.469%204.39-5.949-.698-4.703%2017.662-7.882%2019.646-4.768%202.978-8.47-15.745-21.544-10.123s-5.316%2031.69%208.719%2031.69c4.839%200%207.259%2013.408-5.808%2019.748-9.486%204.697-7.088-5.771-11.422-16.273%22%20fill%3D%22black%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M187.97%20210.998c-.005.008.324.182.852%201.094.553.955%201.056%202.262%201.483%203.681.421%201.394.732%202.778.939%203.822.103.52.179.949.228%201.244l.055.335.012.082.003.018v.002l2.729-.397%202.729-.397-.002-.014-.005-.032-.017-.112q-.022-.144-.065-.401a47%2047%200%200%200-.258-1.404%2047%2047%200%200%200-1.068-4.343c-.479-1.596-1.129-3.366-1.992-4.856-.791-1.367-2.123-3.138-4.238-3.673-1.311-.331-3.763-.524-6.436-.604a102%20102%200%200%200-9.299.155c-3.17.205-6.373.589-8.848%201.258-1.218.329-2.457.777-3.452%201.434-.964.637-2.231%201.846-2.239%203.754v.013q0-.011-.002.011c-.002.043-.008.17-.027.4a28%2028%200%200%201-.115%201.086%2031%2031%200%200%201-.468%202.791%2031%2031%200%200%201-.43-2.763%2031%2031%200%200%201-.103-1.091c-.022-.286-.027-.43-.028-.448v-.001c-.01-1.901-1.266-3.109-2.231-3.748-.994-.657-2.23-1.104-3.443-1.431-2.467-.665-5.658-1.045-8.819-1.246a104%20104%200%200%200-9.287-.153c-2.691.079-5.129.266-6.442.571-2.165.501-3.529%202.268-4.339%203.658-.875%201.501-1.52%203.286-1.99%204.89a45%2045%200%200%200-1.032%204.371%2046%2046%200%200%200-.303%201.819l-.008.055-.007.058-.005.032-.001.011v.003l-.001.001%202.734.361%202.734.36v-.002l.003-.017.011-.083.05-.336c.047-.296.117-.725.214-1.246.196-1.048.493-2.434.902-3.828.416-1.421.911-2.719%201.461-3.662.526-.901.855-1.061.851-1.068.736-.163%202.647-.345%205.328-.423a98%2098%200%200%201%208.777.143c3.041.194%205.8.545%207.735%201.068.782.21%201.308.418%201.627.584a37%2037%200%200%200%20.695%204.936c.264%201.222.655%202.621%201.253%203.776.489.945%201.714%202.869%204.063%202.869%202.333%200%203.569-1.903%204.068-2.842.611-1.151%201.019-2.546%201.299-3.77.433-1.888.668-3.862.754-4.966.322-.169.855-.381%201.649-.595%201.947-.526%204.72-.882%207.767-1.079a97%2097%200%200%201%208.779-.146c2.674.08%204.535.269%205.216.431m-28.517%207.847a.2.2%200%200%200-.048-.06c.031.046.047.063.048.06m-1.959-.077a.2.2%200%200%200-.048.059c0%20.003.016-.013.048-.059m.023%2078.209a1.1%201.1%200%200%201%20.235-1.185%201.083%201.083%200%200%201%201.831.98%201.09%201.09%200%200%201-1.063.875%201.06%201.06%200%200%201-.603-.183%201.1%201.1%200%200%201-.4-.487m0-22.2a1.09%201.09%200%200%201%201.003-1.503%201.09%201.09%200%200%201%20.901.483q.06.089.1.188a1.07%201.07%200%200%201%20.062.628%201.087%201.087%200%200%201-1.478.793%201.08%201.08%200%200%201-.588-.589m0-22.199a1.09%201.09%200%200%201%20.235-1.185%201.1%201.1%200%200%201%20.768-.317%201.1%201.1%200%200%201%20.602.183%201.06%201.06%200%200%201%20.399.487%201.07%201.07%200%200%201%20.062.628%201.084%201.084%200%200%201-2.066.204m1.003-.416c4.43%2043.52%204.171%2042.662%203.683%2041.932.28%204.773.747%203.644.747%202.467-3.256%204.439-2.128%203.971-1.298%203.139-4.866%201.04-4.009%201.3-3.132%201.3-3.758-1.93-3.19-1.236-2.462-.748-2.055-3.697-1.967-2.804-1.632-1.993.341-4.217-.081-3.426-.252-2.565%202.621-3.317%201.832-2.894%201.213-2.273%204.019-1.298%203.128-1.387%202.268-1.215%204.061%201.157%203.37.588%202.56.252m1.988-20.563a4.446%204.446%200%200%201-.551%205.606%204.426%204.426%200%200%201-7.226-1.44%204.44%204.44%200%200%201%203.229-6.054%204.42%204.42%200%200%201%204.548%201.888m0-22.2a4.44%204.44%200%200%201-.551%205.606%204.423%204.423%200%200%201-7.226-1.44%204.45%204.45%200%200%201%20.961-4.838%204.42%204.42%200%200%201%204.828-.963c.81.336%201.501.906%201.988%201.635%22%20fill%3D%22black%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M211.956%20138.347c8.359.739%2015.726-5.539%2016.453-14.021.728-8.483-5.457-15.958-13.816-16.697s-15.726%205.538-16.454%2014.021c-.728%208.482%205.458%2015.958%2013.817%2016.697m-.22%202.56c9.752.862%2018.347-6.462%2019.196-16.358s-6.367-18.618-16.119-19.48-18.347%206.462-19.196%2016.358%206.367%2018.618%2016.119%2019.48m-42.524-.536c8.359.739%2015.726-5.538%2016.454-14.021.728-8.482-5.458-15.958-13.817-16.697s-15.725%205.539-16.453%2014.021c-.729%208.483%205.457%2015.958%2013.816%2016.697m-.22%202.56c9.753.862%2018.347-6.462%2019.196-16.358s-6.367-18.618-16.119-19.48-18.346%206.462-19.196%2016.358c-.849%209.896%206.367%2018.618%2016.119%2019.48%22%20fill%3D%22white%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M188.011%20120.709a6.27%206.27%200%200%201%204.62-1.481%206.3%206.3%200%200%201%204.298%202.269%206.48%206.48%200%200%201%201.458%204.688l-2.522-.223a3.9%203.9%200%200%200-.875-2.813%203.8%203.8%200%200%200-2.579-1.361%203.76%203.76%200%200%200-2.772.889%203.87%203.87%200%200%200-1.341%202.617l-2.523-.223a6.46%206.46%200%200%201%202.236-4.362M135%20125.438l19.221-1.847.239%202.558-19.221%201.848z%22%20fill%3D%22white%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M207.484%20167.339c.345.622.09%201.391-.568%201.716-13.046%206.45-22.07.858-25.027-3.044-.432-.571-.292-1.365.312-1.774.604-.408%201.445-.276%201.877.295%202.255%202.975%209.85%208.075%2021.59%202.271.658-.325%201.472-.085%201.816.536%22%20fill%3D%22white%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+    --display:"Space Grotesk","Inter",-apple-system,"PingFang SC","Noto Sans SC",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.04);
+    --shadow-md:0 1px 2px rgba(15,23,42,.04),0 12px 32px -12px rgba(15,23,42,.12);
+    --shadow-lg:0 24px 60px -24px rgba(15,23,42,.28);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+  a{color:var(--indigo);text-decoration:none}
+  h1,h2,h3,h4{text-wrap:balance}
+  ::selection{background:#bfdbfe;color:#172554}
+  .i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+  .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:70;pointer-events:none}
+  .progress span{display:block;height:100%;width:100%;background:var(--indigo);transform:scaleX(0);transform-origin:0 50%}
+
+  /* ===== 顶部导航 ===== */
+  .nav{position:sticky;top:0;z-index:50;height:64px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1200px;height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap}
+  .logo i{width:28px;height:28px;border-radius:9px;display:block;background:var(--indigo);box-shadow:0 6px 14px -6px rgba(29,78,216,.7);position:relative}
+  .logo i::after{content:"N";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:14px;font-weight:700;line-height:1}
+  .nav-title{padding-left:14px;border-left:1px solid var(--line);font-size:12.5px;color:var(--muted);white-space:nowrap}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:var(--soft);border:1px solid var(--line);font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .chip i{width:6px;height:6px;border-radius:50%;background:var(--green);display:block}
+  .menu-btn{display:none;align-items:center;gap:7px;height:36px;padding:0 13px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:var(--sans);font-size:12.5px;font-weight:600;cursor:pointer}
+  .menu-btn:hover{border-color:var(--indigo-line);background:var(--indigo-soft);color:var(--indigo)}
+
+  /* ===== 封面 ===== */
+  .hero{position:relative;padding:70px 0 46px;background:var(--soft);border-bottom:1px solid var(--line)}
+  .hero-inner{position:relative;max-width:1120px;margin:0 auto;padding:0 24px;text-align:center}
+  .pill{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--indigo-soft);color:var(--indigo);font-size:12px;font-weight:600}
+  .pill i{width:6px;height:6px;border-radius:50%;background:var(--indigo);display:block}
+  h1{margin:20px auto 16px;max-width:900px;font-family:var(--display);font-size:clamp(40px,5.8vw,62px);line-height:1.1;letter-spacing:-.038em;font-weight:700}
+  h1 span{color:var(--cyan)}
+  .hero-sub{margin:0 auto 28px;max-width:690px;color:var(--muted);font-size:17.5px;line-height:1.8}
+  .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 22px;border-radius:12px;font-size:14px;font-weight:600;transition:.18s}
+  .btn .i{width:16px;height:16px}
+  .btn.primary{background:var(--indigo);color:#fff;box-shadow:0 10px 24px -10px rgba(29,78,216,.7)}
+  .btn.primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px -12px rgba(29,78,216,.75)}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:#cbd5e1;background:var(--soft)}
+
+  .mock{position:relative;margin:44px auto 0;max-width:940px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 34px 80px -34px rgba(15,23,42,.4);overflow:hidden;text-align:left}
+  .mock-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
+  .mock-bar i{width:10px;height:10px;border-radius:50%;display:block;background:#e2e8f0}
+  .mock-bar i:nth-child(1){background:#fca5a5}
+  .mock-bar i:nth-child(2){background:#fcd34d}
+  .mock-bar i:nth-child(3){background:#86efac}
+  .mock-url{margin-left:10px;flex:1;height:24px;border-radius:7px;background:#fff;border:1px solid var(--line);font-size:11px;color:var(--muted2);display:flex;align-items:center;padding:0 10px;font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mock-body{display:grid;grid-template-columns:1.05fr .95fr;gap:0;min-height:380px}
+  .mock-chat{
+    display:flex;flex-direction:column;min-height:0;
+    margin:14px;border:1px solid var(--line);border-radius:14px;
+    background:#ededed;overflow:hidden;box-shadow:var(--shadow-sm);
+  }
+  .chat-head{position:relative;display:flex;align-items:center;height:44px;padding:0 12px;background:#ededed;border-bottom:1px solid #e5e5e5}
+  .chat-back{display:flex;align-items:center;color:#111}
+  .chat-back svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .chat-name{position:absolute;left:50%;transform:translateX(-50%);font-size:13px;font-weight:600;color:#111;white-space:nowrap}
+  .chat-more{margin-left:auto;display:flex;align-items:center;color:#111}
+  .chat-more svg{width:20px;height:20px;fill:currentColor}
+  .chat-body{flex:1;display:flex;flex-direction:column;gap:14px;padding:14px}
+  .msg{display:flex;align-items:flex-start;gap:8px}
+  .msg.user{justify-content:flex-end}
+  .msg-avatar{width:28px;height:28px;border-radius:50%;flex:0 0 28px;display:block;background:var(--ai-avatar) center/cover no-repeat}
+  .user-avatar{background:#dbe3ee;display:flex;align-items:center;justify-content:center}
+  .user-avatar svg{width:17px;height:17px;display:block}
+  .msg .bubble{max-width:76%}
+  .msg.user .bubble{max-width:72%}
+  .bubble{position:relative;padding:9px 11px;border-radius:5px;font-size:12px;line-height:1.5}
+  .bubble.user{background:#95ec69;color:#111;margin-left:auto}
+  .bubble.user::after{content:"";position:absolute;right:-5px;bottom:8px;width:0;height:0;border-left:6px solid #95ec69;border-top:4px solid transparent;border-bottom:4px solid transparent}
+  .bubble.ai{background:#fff;border:1px solid #e5e5e5;color:#111}
+  .bubble.ai::after{content:"";position:absolute;left:-5px;bottom:8px;width:0;height:0;border-right:6px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent}
+  .bubble b{color:var(--indigo);font-weight:600;white-space:nowrap}
+  .chat-input{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#f7f7f7;border-top:1px solid #e5e5e5}
+  .ci-ico{width:26px;height:26px;flex:0 0 26px;display:flex;align-items:center;justify-content:center;color:#333}
+  .ci-ico svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .ci-field{flex:1;min-width:0;background:#fff;border-radius:5px;padding:7px 10px;font-size:11px;color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mock-table{padding:22px;display:flex;flex-direction:column;min-height:0}
+  .mock-table .row{display:grid;grid-template-columns:1.2fr .8fr .5fr;gap:8px;padding:9px 10px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+  .mock-table .row.head{font-weight:600;color:var(--ink);background:var(--soft);border-radius:7px;border-bottom:none;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+  .toast{margin:auto 0 0;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:9px;background:var(--green-soft);color:#047857;font-size:11.5px;font-weight:600;border:1px solid var(--green-line)}
+  .toast i{width:14px;height:14px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-style:normal}
+
+  .stats{max-width:900px;margin:34px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:28px;border-top:1px solid var(--line)}
+  .stat{text-align:center}
+  .stat b{display:block;font-family:var(--display);font-size:30px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .stat span{font-size:12px;color:var(--muted)}
+
+  /* ===== 文档布局 ===== */
+  .docs{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:232px minmax(0,1fr);gap:56px;align-items:start}
+  .side{position:sticky;top:84px;max-height:calc(100vh - 104px);overflow-y:auto;padding:40px 0 40px;scrollbar-width:thin}
+  .side-label{margin:0 0 10px;padding:0 12px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2)}
+  .toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+  .toc a{display:flex;align-items:baseline;gap:10px;padding:7px 12px;border-radius:9px;color:var(--muted);font-size:13.5px;line-height:1.45;transition:.16s}
+  .toc a:hover{background:var(--soft);color:var(--ink)}
+  .toc a.active{background:var(--indigo-soft);color:var(--indigo);font-weight:600}
+  .toc .n{font-family:var(--display);font-size:11px;color:var(--muted2);min-width:18px}
+  .toc a.active .n{color:var(--indigo)}
+  .side-card{margin-top:24px;padding:15px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:12px;line-height:1.8;color:var(--muted)}
+  .side-card b{display:block;color:var(--ink);font-size:11px;letter-spacing:.04em}
+  .side-card .sep{height:1px;background:var(--line);margin:10px 0}
+
+  .content{min-width:0;width:100%;max-width:840px;padding:40px 0 110px}
+  .chapter{padding:52px 0 10px;border-top:1px solid var(--line);scroll-margin-top:84px}
+  .chapter:first-child{border-top:none;padding-top:6px}
+  .ch-head{max-width:730px;margin-bottom:30px}
+  .ch-head h2{margin:12px 0 10px;font-family:var(--display);font-size:clamp(28px,3.4vw,38px);line-height:1.2;letter-spacing:-.03em;color:var(--cyan)}
+  .lead{margin:0;color:var(--muted);font-size:16.5px;line-height:1.8}
+  h3{margin:36px 0 14px;font-size:21px;line-height:1.4;letter-spacing:-.01em}
+  h4{margin:24px 0 8px;font-size:16.5px;line-height:1.45}
+  p{margin:12px 0}
+  ul,ol{margin:12px 0;padding-left:22px}
+  li{margin:6px 0}
+  li::marker{color:var(--indigo)}
+  strong{font-weight:600}
+  .mono{font-family:var(--mono)}
+  p code,li code,td code,h4 code,.note code{
+    font-family:var(--mono);font-size:.86em;background:#eef2f7;color:#1e293b;
+    padding:1.5px 6px;border-radius:6px;border:1px solid #e2e8f0;word-break:break-word;
+  }
+
+  .grid{display:grid;gap:16px;margin:22px 0}
+  .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-color .2s;min-width:0}
+  .card:hover{transform:translateY(-3px);border-color:#cbd5e1;box-shadow:var(--shadow-md)}
+  .card h4{margin:12px 0 6px;font-size:16px}
+  .card p{margin:0;font-size:13.5px;line-height:1.7;color:var(--muted)}
+  .ico{width:42px;height:42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center}
+  .ico .i{width:21px;height:21px}
+  .ico.a{background:var(--indigo-soft);color:var(--indigo)}
+  .ico.b{background:var(--cyan-soft);color:#0e7490}
+  .ico.c{background:var(--green-soft);color:#047857}
+  .ico.d{background:var(--amber-soft);color:#b45309}
+  .ico.e{background:var(--red-soft);color:#b91c1c}
+
+  .table-card{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow-x:auto;box-shadow:var(--shadow-sm);-webkit-overflow-scrolling:touch}
+  .table-card table{min-width:560px}
+  table{width:100%;border-collapse:collapse;font-size:13.8px}
+  thead th{text-align:left;padding:12px 18px;background:var(--soft);border-bottom:1px solid var(--line);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;white-space:nowrap}
+  td{padding:13px 18px;border-bottom:1px solid var(--line2);vertical-align:top;line-height:1.65;color:#334155}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#fbfcfe}
+  td b{color:var(--ink);font-weight:600}
+  .yes{color:#047857;font-weight:700}
+  .no{color:#b91c1c;font-weight:700}
+
+  .tag{display:inline-block;margin-bottom:8px;padding:3px 9px;border-radius:6px;background:var(--indigo-soft);color:var(--indigo);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+  .tag.gray{background:var(--soft2);color:var(--muted)}
+  .tag.green{background:var(--green-soft);color:#047857}
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .pros-cons h5{margin:0 0 6px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2)}
+  .pros-cons ul{list-style:none;margin:0;padding:0}
+  .pros-cons li{position:relative;padding-left:18px;margin:5px 0;font-size:12.6px;line-height:1.6;color:var(--muted)}
+  .pros-cons li::before{position:absolute;left:0;top:0;font-weight:700;font-size:12px}
+  .pros-cons .pros li::before{content:"✓";color:var(--green)}
+  .pros-cons .cons li::before{content:"✕";color:var(--red)}
+  .mini-figure{margin:12px 0 4px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:6px}
+  .mini-figure svg{display:block;width:100%;height:auto}
+  .card.pick-a{border-top:3px solid var(--indigo)}
+  .card.pick-b{border-top:3px solid var(--cyan)}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .card-top .tag{margin-bottom:0}
+  .card.pick-a .mini-figure{background:var(--indigo-soft);border-color:var(--indigo-line)}
+  .card.pick-b .mini-figure{background:var(--cyan-soft);border-color:#99f6e4}
+  .tag.teal{background:var(--cyan-soft);color:#0f766e}
+
+  .figure{margin:28px 0;background:var(--soft2);border:1px solid var(--line);border-radius:20px;padding:18px;overflow-x:auto}
+  .figure svg{display:block;width:100%;height:auto;min-width:520px}
+  .figure.compact svg{min-width:0}
+  figcaption{display:flex;align-items:baseline;gap:8px;margin-top:10px;font-size:12px;line-height:1.6;color:var(--muted)}
+  figcaption b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);white-space:nowrap}
+
+  .note{display:flex;gap:14px;align-items:flex-start;margin:22px 0;padding:17px 19px;border-radius:14px;border:1px solid;font-size:14px;line-height:1.75}
+  .note .n-ico{flex:0 0 28px;width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+  .note .n-ico .i{width:15px;height:15px}
+  .note.info{background:var(--indigo-soft);border-color:var(--indigo-line);color:#1e3a8a}
+  .note.info .n-ico{background:var(--indigo);color:#fff}
+  .note.warn{background:var(--amber-soft);border-color:var(--amber-line);color:#78350f}
+  .note.warn .n-ico{background:var(--amber);color:#fff}
+  .note.ok{background:var(--green-soft);border-color:var(--green-line);color:#065f46}
+  .note.ok .n-ico{background:var(--green);color:#fff}
+  .note.danger{background:var(--red-soft);border-color:var(--red-line);color:#7f1d1d}
+  .note.danger .n-ico{background:var(--red);color:#fff}
+  .note > div > :first-child{margin-top:0}
+  .note > div > :last-child{margin-bottom:0}
+
+  .quote{margin:30px 0;padding:20px 24px;border-radius:16px;background:var(--indigo-soft);border:1px solid var(--indigo-line);font-size:20px;line-height:1.6;font-weight:600;letter-spacing:-.01em;color:#172554}
+
+  .code{margin:20px 0;background:var(--dark);border-radius:16px;overflow:hidden;box-shadow:0 24px 50px -26px rgba(15,23,42,.65)}
+  .code-head{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid #1e293b;background:#111c30}
+  .code-dots{display:flex;gap:6px}
+  .code-dots i{width:9px;height:9px;border-radius:50%;display:block}
+  .code-dots i:nth-child(1){background:#f87171}
+  .code-dots i:nth-child(2){background:#fbbf24}
+  .code-dots i:nth-child(3){background:#4ade80}
+  .code-label{margin-left:4px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8}
+  .copy{margin-left:auto;padding:4px 10px;border-radius:7px;border:1px solid #334155;background:#1e293b;color:#cbd5e1;font-family:var(--mono);font-size:10px;letter-spacing:.06em;cursor:pointer;transition:.18s}
+  .copy:hover{border-color:var(--indigo2);color:#fff}
+  .copy.ok{background:#064e3b;border-color:#16a34a;color:#6ee7b7}
+  .code pre{margin:0;padding:18px 20px;overflow-x:auto;font-family:var(--mono);font-size:12.7px;line-height:1.75;color:#e2e8f0;tab-size:2}
+  .code code{background:none;padding:0;font-size:inherit;font-family:inherit;color:inherit}
+  .token.comment,.token.prolog,.token.doctype,.token.cdata{color:#64748b;font-style:italic}
+  .token.punctuation{color:#94a3b8}
+  .token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol{color:#7dd3fc}
+  .token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#86efac}
+  .token.operator,.token.entity,.token.url,.token.variable{color:#fca5a5}
+  .token.atrule,.token.attr-value,.token.keyword{color:#fbbf24}
+  .token.function,.token.class-name{color:#fde68a}
+  .token.regex,.token.important{color:#fdba74}
+
+  .chain{list-style:none;margin:24px 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;counter-reset:ch}
+  .chain li{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 12px;font-size:12px;line-height:1.5;box-shadow:var(--shadow-sm)}
+  .chain li::before{counter-increment:ch;content:counter(ch,decimal-leading-zero);display:block;margin-bottom:6px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--indigo)}
+  .chain li b{display:block;font-size:12.5px;margin-bottom:2px}
+  .chain li span{color:var(--muted)}
+  .chain li:not(:last-child)::after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);z-index:1;font-size:12px;color:var(--muted2)}
+
+  .steps{margin:30px 0}
+  .step{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;padding:0 0 34px}
+  .step:last-child{padding-bottom:0}
+  .step:not(:last-child)::before{content:"";position:absolute;left:21px;top:48px;bottom:2px;width:2px;background:var(--line)}
+  .step-n{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--indigo);color:#fff;font-family:var(--display);font-size:16px;font-weight:700;box-shadow:0 8px 18px -8px rgba(29,78,216,.7)}
+  .step-body{min-width:0;padding-top:2px}
+  .step-body h3{margin:2px 0 8px;font-size:20px}
+  .step-body h4{margin:22px 0 8px;font-family:var(--mono);font-size:13px;color:var(--indigo)}
+  .step-body p{font-size:14.5px}
+
+  .pit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
+  .pit{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px 19px 15px;box-shadow:var(--shadow-sm);transition:.2s}
+  .pit:hover{border-color:#cbd5e1;transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .pit .pn{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--indigo)}
+  .pit h4{margin:5px 0 9px;font-size:15px}
+  .pit .row{display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;margin:4px 0;font-size:12.6px;line-height:1.6}
+  .pit .lbl{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;padding-top:3px}
+  .pit .sym .lbl{color:var(--red)}
+  .pit .fix .lbl{color:var(--green)}
+  .pit .sym span:last-child{color:#7f1d1d}
+  .pit .fix span:last-child{color:#065f46}
+
+  .timeline{position:relative;margin:26px 0;padding-left:28px;border-left:2px solid var(--line)}
+  .tl{position:relative;margin-bottom:30px}
+  .tl:last-child{margin-bottom:0}
+  .tl::before{content:"";position:absolute;left:-37px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--indigo)}
+  .tl h4{margin:0 0 8px;font-size:17px}
+  .tl p{font-size:14px}
+
+  .sec-layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:26px;align-items:start;margin:24px 0}
+  .sec-art{background:var(--soft2);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow-sm)}
+  .sec-art svg{display:block;width:100%;height:auto}
+  .sec-list{display:grid;gap:10px}
+  .sec-item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 16px;font-size:13.5px;line-height:1.7;box-shadow:var(--shadow-sm)}
+  .sec-item .sl{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--indigo-soft);color:var(--indigo);font-family:var(--mono);font-size:11px;font-weight:700}
+  .sec-item b{display:block;margin-bottom:2px;color:var(--ink)}
+
+  .check{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px}
+  .check li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 16px;font-size:14px;box-shadow:var(--shadow-sm)}
+  .check .ck{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:var(--green-soft);color:#047857;border:1px solid var(--green-line)}
+  .check .ck .i{width:14px;height:14px;stroke-width:2.6}
+
+  .intro-split{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:28px;align-items:center;margin:20px 0 6px}
+  .intro-split .art{background:var(--soft2);border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:var(--shadow-sm)}
+  .intro-split .art svg{display:block;width:100%;height:auto}
+
+  .foot{border-top:1px solid var(--line);background:var(--soft);padding:36px 0}
+  .foot-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--muted)}
+  .foot-brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;color:var(--ink)}
+  .foot-brand i{width:22px;height:22px;border-radius:7px;background:var(--indigo);display:block;position:relative}
+  .foot-brand i::after{content:"N";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:11px;font-weight:700;line-height:1}
+  .foot-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-align:right;line-height:1.9}
+
+  .to-top{position:fixed;right:24px;bottom:24px;z-index:40;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s}
+  .to-top.show{opacity:1;pointer-events:auto;transform:none}
+  .to-top:hover{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+
+  .mobile-menu{position:fixed;inset:0;z-index:60;background:#fff;transform:translateY(-100%);transition:transform .3s cubic-bezier(.2,.7,.3,1);overflow-y:auto;padding:24px 24px 48px}
+  .mobile-menu.open{transform:none}
+  .mm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .mm-head span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2)}
+  .mm-close{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:15px;cursor:pointer}
+  .mm-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+  .mm-links li{list-style:none;margin:0}
+  .mm-links a{display:flex;align-items:baseline;gap:12px;padding:11px 10px;border-radius:10px;color:var(--ink);font-size:16px;border-bottom:1px solid var(--line2)}
+  .mm-links a:hover{background:var(--soft)}
+  .mm-links .n{font-family:var(--display);font-size:11px;color:var(--indigo);min-width:20px}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero-inner > *{animation:rise .65s cubic-bezier(.2,.7,.3,1) both}
+    .hero-inner > *:nth-child(2){animation-delay:.05s}
+    .hero-inner > *:nth-child(3){animation-delay:.1s}
+    .hero-inner > *:nth-child(4){animation-delay:.15s}
+    .hero-inner > *:nth-child(5){animation-delay:.2s}
+    .hero-inner > *:nth-child(6){animation-delay:.25s}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+
+  @media (max-width:1024px){
+    .docs{grid-template-columns:minmax(0,1fr);gap:0}
+    .side{display:none}
+    .menu-btn{display:inline-flex}
+    .content{max-width:840px;margin:0 auto;padding-top:20px}
+  }
+  @media (max-width:900px){
+    .mock-body{grid-template-columns:1fr;min-height:0}
+    .mock-table{min-height:280px;padding:16px}
+    .mock-chat{min-height:300px;margin:12px}
+    .stats{grid-template-columns:1fr 1fr;gap:22px}
+    .grid-3,.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .sec-layout{grid-template-columns:240px minmax(0,1fr)}
+    .intro-split{grid-template-columns:minmax(0,1fr) 220px}
+  }
+  @media (max-width:720px){
+    .nav-title,.chip{display:none}
+    .hero{padding:50px 0 36px}
+    .hero-inner{padding:0 18px}
+    .docs{padding:0 18px}
+    .content{padding-bottom:80px}
+    .figure figcaption::after{content:"· 左右滑动查看";color:var(--indigo);white-space:nowrap}
+    .grid-2,.grid-3,.grid-4{grid-template-columns:minmax(0,1fr)}
+    .chain{grid-template-columns:1fr 1fr}
+    .chain li::after{display:none}
+    .pit-grid{grid-template-columns:minmax(0,1fr)}
+    .sec-layout{grid-template-columns:1fr}
+    .sec-art{max-width:300px;margin:0 auto}
+    .intro-split{grid-template-columns:1fr}
+    .intro-split .art{max-width:280px}
+    .step{grid-template-columns:36px minmax(0,1fr);gap:14px}
+    .step-n{width:36px;height:36px;font-size:14px;border-radius:10px}
+    .step:not(:last-child)::before{left:17px;top:40px}
+    .figure svg{min-width:460px}
+    .foot-inner{padding:0 18px}
+    .foot-meta{text-align:left}
+  }
+  @media (max-width:480px){
+    h1{font-size:36px}
+    .lead{font-size:15.5px}
+    .figure svg{min-width:400px}
+  }
+  @media print{
+    .nav,.side,.to-top,.progress,.mobile-menu{display:none}
+    .hero::before{display:none}
+    .docs{display:block;padding:0}
+    .content{max-width:none;padding:0}
+    .code{box-shadow:none}
+    .code pre{white-space:pre-wrap;word-break:break-word}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/></symbol>
+  <symbol id="i-device" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-contact" viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-reuse" viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 13.6-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 13a8 8 0 0 1-13.6 5.7L4 16"/><path d="M4 20v-4h4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-field" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h16"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 9v5M12 17.5v.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><path d="M11 11l9 9M17 17l2-2M14 14l2-2"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="3"/><path d="M5 5.5v13c0 1.7 3.1 3 7 3s7-1.3 7-3v-13M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M16 16l5 5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+</svg>
+
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top"><i></i><span>NocoBase Docs</span></a>
+    <span class="nav-title">AI 员工批量录入</span>
+    <div class="nav-right">
+      <span class="chip"><i></i>v2.2.41</span>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="i" style="width:15px;height:15px" aria-hidden="true"><use href="#i-grid"/></svg>
+        目录
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mm-head"><span>Contents / 09</span><button class="mm-close" id="menuClose" type="button" aria-label="关闭目录">✕</button></div>
+  <nav class="mm-links" id="mmLinks" aria-label="章节导航"></nav>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="pill"><i></i>AI Employee · Batch Entry</span>
+    <h1>让 AI 理解，<br><span>让流程落库。</span></h1>
+    <p class="hero-sub">把一段自然语言或一份表格交给 AI，由它理解、抽取、结构化、映射字段，再经确定性工作流批量写入目标表。业务人员不用懂导入模板，也不用逐条填表。</p>
+    <div class="actions">
+      <a class="btn primary" href="#ch4">直接看实施步骤 <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn ghost" href="#ch2">了解实现原理</a>
+    </div>
+
+    <div class="mock" aria-hidden="true">
+      <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">127.0.0.1/app1/ai-employee/typer</span></div>
+      <div class="mock-body">
+        <div class="mock-table">
+          <div class="row head"><span>标题</span><span>部门</span><span>数量</span></div>
+          <div class="row"><span>交换机</span><span>研发</span><span>2</span></div>
+          <div class="row"><span>复印机</span><span>行政</span><span>1</span></div>
+          <div class="row"><span>显示器</span><span>设计</span><span>3</span></div>
+          <div class="toast"><i>✓</i>3 条记录已创建</div>
+        </div>
+        <div class="mock-chat">
+          <div class="chat-head">
+            <span class="chat-back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></span>
+            <span class="chat-name">typer</span>
+            <span class="chat-more" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span>
+          </div>
+          <div class="chat-body">
+            <div class="msg user">
+              <div class="bubble user">11.3 研发领 2 台交换机，行政领 1 台复印机，设计领 3 台显示器。</div>
+              <span class="msg-avatar user-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.2" fill="#94a3b8"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0" fill="#94a3b8"/></svg></span>
+            </div>
+            <div class="msg ai">
+              <span class="msg-avatar" aria-hidden="true"></span>
+              <div class="bubble ai">已整理为 3 条记录，目标表 <b>设备领用申请表</b>：交换机 ×2、复印机 ×1、显示器 ×3。确认后写入。</div>
+            </div>
+            <div class="msg ai">
+              <span class="msg-avatar" aria-hidden="true"></span>
+              <div class="bubble ai">✓ 3 条记录已创建</div>
+            </div>
+          </div>
+          <div class="chat-input">
+            <span class="ci-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></span>
+            <span class="ci-field">输入要录入的内容…</span>
+            <span class="ci-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4 4 0 0 0 7 0"/><circle cx="9" cy="10" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r=".9" fill="currentColor" stroke="none"/></svg></span>
+            <span class="ci-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>4</b><span>核心组件</span></div>
+      <div class="stat"><b>7</b><span>实施步骤</span></div>
+      <div class="stat"><b>10</b><span>常见坑</span></div>
+      <div class="stat"><b>5</b><span>验收标准</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="docs">
+  <aside class="side">
+    <p class="side-label">本页目录</p>
+    <ul class="toc" id="toc">
+      <li><a href="#ch1"><span class="n">01</span>背景</a></li>
+      <li><a href="#ch2"><span class="n">02</span>思路：AI 与流程分工</a></li>
+      <li><a href="#ch3"><span class="n">03</span>方案怎么选</a></li>
+      <li><a href="#ch4"><span class="n">04</span>怎么做</a></li>
+      <li><a href="#ch5"><span class="n">05</span>关键约束与常见坑</a></li>
+      <li><a href="#ch6"><span class="n">06</span>出问题怎么查</a></li>
+      <li><a href="#ch7"><span class="n">07</span>安全与权限</a></li>
+      <li><a href="#ch8"><span class="n">08</span>配置清单与验收</a></li>
+      <li><a href="#ch9"><span class="n">09</span>以后怎么改</a></li>
+    </ul>
+    <div class="side-card">
+      <b>适用版本</b>NocoBase 2.2.41
+      <div class="sep"></div>
+      <b>验证环境</b>app1 · 2026.11
+    </div>
+  </aside>
+
+  <div class="content">
+<!-- ============ 01 背景 ============ -->
+<section class="chapter" id="ch1" data-title="01 · 背景">
+  <header class="ch-head">
+    <span class="pill"><i></i>01 · Context</span>
+    <h2>背景</h2>
+    <p class="lead">NocoBase 里有大量“把一批数据补进某张表”的需求。数据来源零散，但目标结构固定——这正是 AI 擅长、而手工操作最耗时的部分。</p>
+  </header>
+
+  <h3>1.1 业务场景</h3>
+  <p>这些需求通常长这样：</p>
+  <div class="grid grid-4">
+    <article class="card">
+      <span class="ico a"><svg class="i" aria-hidden="true"><use href="#i-device"/></svg></span>
+      <h4>设备领用申请</h4>
+      <p>行政 / 研发补录历史领用记录，一次十几条。</p>
+    </article>
+    <article class="card">
+      <span class="ico b"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg></span>
+      <h4>方案评审</h4>
+      <p>批量录入待评审方案。</p>
+    </article>
+    <article class="card">
+      <span class="ico c"><svg class="i" aria-hidden="true"><use href="#i-contact"/></svg></span>
+      <h4>客户资料</h4>
+      <p>从邮件、名片、Excel、聊天记录里批量补录客户。</p>
+    </article>
+    <article class="card">
+      <span class="ico d"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span>
+      <h4>物资 / 资产台账</h4>
+      <p>盘点后成批登记。</p>
+    </article>
+  </div>
+  <div class="note info">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg></span>
+    <div>共同点：<b>数据来源零散（自然语言、邮件、表格），但目标结构固定（若干字段的二维表）。</b></div>
+  </div>
+
+  <h3>1.2 现在的问题</h3>
+  <p><b>人工录入的三种方式，各有各的麻烦：</b></p>
+  <div class="table-card">
+    <table>
+      <thead><tr><th>录入方式</th><th>问题</th></tr></thead>
+      <tbody>
+        <tr><td><b>逐条新建表单</b></td><td>记录多时重复操作、字段多、易错易漏</td></tr>
+        <tr><td><b>Excel 导入</b></td><td>要预先做严格模板、逐字段对齐；非技术用户难操作；报错难定位</td></tr>
+        <tr><td><b>复制粘贴 / 手敲</b></td><td>容易串行、漏字段、格式不统一（日期、数量、单位）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>结果是单次批量补录耗时长、返工多。</p>
+
+  <p><b>内置 AI 员工也帮不上忙。</b>它能读懂你给的内容、帮你整理成结构化记录，但<b>最后一步“写进数据库”它做不了</b>——它默认没有写库能力，最多把内容填进一张表单的界面，而且填完还得人工逐个提交。10 条记录就是 10 次填表、10 次提交，和人工录入没有本质区别。</p>
+  <p>所以 AI 的价值停在“帮你整理”，上面的痛点并没有真正解决。</p>
+
+  <figure class="figure">
+    <svg viewBox="0 0 860 300" role="img" aria-label="零散输入被 AI 整理成结构化记录，但仍需逐条填表提交">
+      <defs>
+        <filter id="f1sh" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity=".08"/>
+        </filter>
+        <marker id="f1a" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+          <path d="M0 0L8 4L0 8Z" fill="#94a3b8"/>
+        </marker>
+        <marker id="f1r" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+          <path d="M0 0L8 4L0 8Z" fill="#ef4444"/>
+        </marker>
+      </defs>
+      <rect width="860" height="300" rx="18" fill="#f8fafc"/>
+
+      <text x="75" y="34" text-anchor="middle" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8" letter-spacing="1.5">INPUT</text>
+      <text x="75" y="48" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">零散输入</text>
+      <g filter="url(#f1sh)">
+        <rect x="20" y="60" width="96" height="60" rx="12" fill="#fff" stroke="#e2e8f0"/>
+        <path d="M36 76h48M36 88h34M36 100h42" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+        <rect x="34" y="128" width="96" height="60" rx="12" fill="#fff" stroke="#e2e8f0"/>
+        <path d="M34 136l48 28 48-28" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+        <rect x="20" y="196" width="96" height="60" rx="12" fill="#fff" stroke="#e2e8f0"/>
+        <path d="M20 214h96M52 196v60M84 196v60" stroke="#e2e8f0" stroke-width="1.5"/>
+        <rect x="28" y="203" width="16" height="5" rx="2.5" fill="#1d4ed8"/>
+      </g>
+
+      <path d="M130 158h30" stroke="#94a3b8" stroke-width="2" marker-end="url(#f1a)"/>
+
+      <g filter="url(#f1sh)">
+        <rect x="176" y="60" width="170" height="170" rx="18" fill="#fff" stroke="#bfdbfe"/>
+        <circle cx="261" cy="110" r="24" fill="#1d4ed8"/>
+        <path d="M261 96l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#fff"/>
+        <text x="261" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">AI 员工</text>
+        <text x="261" y="180" text-anchor="middle" font-size="10.5" fill="#64748b">理解 · 结构化</text>
+        <text x="261" y="196" text-anchor="middle" font-size="10.5" fill="#64748b">选择工具</text>
+      </g>
+
+      <path d="M356 158h30" stroke="#94a3b8" stroke-width="2" marker-end="url(#f1a)"/>
+
+      <g filter="url(#f1sh)">
+        <rect x="400" y="60" width="130" height="170" rx="14" fill="#fff" stroke="#e2e8f0"/>
+        <path d="M400 88h130" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="412" y="80" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8">records.json</text>
+        <rect x="414" y="104" width="60" height="5" rx="2.5" fill="#1d4ed8"/>
+        <rect x="414" y="120" width="90" height="5" rx="2.5" fill="#cbd5e1"/>
+        <rect x="414" y="136" width="70" height="5" rx="2.5" fill="#0d9488"/>
+        <rect x="414" y="152" width="84" height="5" rx="2.5" fill="#cbd5e1"/>
+        <rect x="414" y="168" width="50" height="5" rx="2.5" fill="#16a34a"/>
+        <circle cx="530" cy="60" r="11" fill="#16a34a"/>
+        <path d="M525 60l3.5 3.5 6-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="465" y="250" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">结构化记录</text>
+
+      <path d="M540 158h30" stroke="#94a3b8" stroke-width="2" marker-end="url(#f1a)"/>
+
+      <g filter="url(#f1sh)">
+        <rect x="584" y="60" width="150" height="170" rx="14" fill="#fff" stroke="#e2e8f0"/>
+        <path d="M584 86h150" stroke="#e2e8f0" stroke-width="1.5"/>
+        <circle cx="598" cy="73" r="3" fill="#f87171"/>
+        <circle cx="610" cy="73" r="3" fill="#fbbf24"/>
+        <circle cx="622" cy="73" r="3" fill="#4ade80"/>
+        <rect x="598" y="98" width="64" height="6" rx="3" fill="#e2e8f0"/>
+        <rect x="680" y="94" width="40" height="16" rx="8" fill="#1d4ed8"/>
+        <rect x="598" y="120" width="52" height="6" rx="3" fill="#e2e8f0"/>
+        <rect x="680" y="116" width="40" height="16" rx="8" fill="#1d4ed8"/>
+        <rect x="598" y="142" width="60" height="6" rx="3" fill="#e2e8f0"/>
+        <rect x="680" y="138" width="40" height="16" rx="8" fill="#1d4ed8"/>
+        <rect x="598" y="164" width="46" height="6" rx="3" fill="#e2e8f0"/>
+        <rect x="680" y="160" width="40" height="16" rx="8" fill="#1d4ed8"/>
+        <circle cx="714" cy="60" r="13" fill="#f59e0b"/>
+        <text x="714" y="64" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">×10</text>
+      </g>
+      <text x="659" y="250" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">逐条填表</text>
+
+      <path d="M744 158h30" stroke="#ef4444" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#f1r)"/>
+      <path d="M754 126l16 16M770 126l-16 16" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+
+      <g filter="url(#f1sh)">
+        <rect x="790" y="80" width="56" height="120" rx="14" fill="#fff" stroke="#fecaca"/>
+        <rect x="808" y="112" width="20" height="16" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+        <path d="M812 112v-5a6 6 0 0 1 12 0v5" fill="none" stroke="#ef4444" stroke-width="2"/>
+        <text x="818" y="168" text-anchor="middle" font-size="10" font-weight="700" font-family="'JetBrains Mono',monospace" fill="#ef4444">DB</text>
+      </g>
+      <text x="818" y="228" text-anchor="middle" font-size="10" font-weight="600" fill="#ef4444">写库被拦住</text>
+    </svg>
+    <figcaption><b>Fig 01</b>AI 能整理，但写库这一步仍被人工逐条提交卡住。</figcaption>
+  </figure>
+
+  <div class="quote">一句话：内置 AI 员工不是不够聪明，而是默认没有“写数据库”的能力。</div>
+
+  <h3>1.3 目标与预期效果</h3>
+  <p><b>目标</b>：让业务人员把一段自然语言或一份表格交给 AI，由 AI 理解、抽取、结构化、映射字段，再经确定性流程批量写入目标表。</p>
+  <div class="grid grid-4">
+    <article class="card">
+      <span class="ico c"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>
+      <h4>门槛低</h4>
+      <p>不用懂导入模板、不用逐条操作。</p>
+    </article>
+    <article class="card">
+      <span class="ico a"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></span>
+      <h4>错误少</h4>
+      <p>字段映射和格式规范化由系统统一处理。</p>
+    </article>
+    <article class="card">
+      <span class="ico b"><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg></span>
+      <h4>可把控</h4>
+      <p>AI 先把内容整理成结构化结果给用户确认，再落库。</p>
+    </article>
+    <article class="card">
+      <span class="ico d"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg></span>
+      <h4>更省时</h4>
+      <p>十几条记录从数十分钟缩短到一次对话。</p>
+    </article>
+  </div>
+  <p>使用方主要是行政、人事、运营等经常批量补录数据的业务人员。</p>
+</section>
+
+<!-- ============ 02 思路 ============ -->
+<section class="chapter" id="ch2" data-title="02 · 思路">
+  <header class="ch-head">
+    <span class="pill"><i></i>02 · Approach</span>
+    <h2>思路：让 AI 和确定性流程分工</h2>
+    <p class="lead">问题的本质是：AI 擅长“理解杂乱内容、整理成结构”，但不应该直接操作数据库——写错表、写错字段、绕过校验的风险太高。</p>
+  </header>
+
+  <figure class="figure">
+    <svg viewBox="0 0 860 250" role="img" aria-label="AI 负责理解与结构化，工作流负责校验与写库，中间通过自定义工具衔接">
+      <defs>
+        <filter id="f2sh" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity=".07"/>
+        </filter>
+        <marker id="f2a" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+          <path d="M0 0L8 4L0 8Z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+      <rect width="860" height="250" rx="18" fill="#f8fafc"/>
+
+      <text x="30" y="18" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8" letter-spacing="1.5">AI SIDE</text>
+      <rect x="20" y="26" width="330" height="200" rx="24" fill="#eff6ff" stroke="#bfdbfe"/>
+      <g filter="url(#f2sh)">
+        <circle cx="90" cy="90" r="28" fill="#1d4ed8"/>
+        <path d="M90 74l4.6 11.4L106 90l-11.4 4.6L90 106l-4.6-11.4L74 90l11.4-4.6z" fill="#fff"/>
+        <rect x="60" y="150" width="90" height="52" rx="10" fill="#fff" stroke="#e2e8f0"/>
+        <rect x="72" y="164" width="34" height="5" rx="2.5" fill="#1d4ed8"/>
+        <rect x="72" y="176" width="62" height="5" rx="2.5" fill="#cbd5e1"/>
+        <rect x="72" y="188" width="48" height="5" rx="2.5" fill="#cbd5e1"/>
+      </g>
+      <text x="135" y="82" font-size="16" font-weight="700" fill="#0f172a">AI 员工</text>
+      <text x="135" y="106" font-size="12" font-weight="600" fill="#1d4ed8">理解 · 结构化</text>
+      <text x="135" y="128" font-size="11" fill="#64748b">把零散内容整理成记录</text>
+
+      <text x="530" y="18" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8" letter-spacing="1.5">WORKFLOW SIDE</text>
+      <rect x="510" y="26" width="330" height="200" rx="24" fill="#f0fdf4" stroke="#bbf7d0"/>
+      <g filter="url(#f2sh)">
+        <circle cx="580" cy="90" r="28" fill="#16a34a"/>
+        <circle cx="580" cy="90" r="10" fill="none" stroke="#fff" stroke-width="2.5"/>
+        <path d="M580 72v6M580 102v6M562 90h6M592 90h6M567 77l4 4M589 99l4 4M593 77l-4 4M571 99l-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        <rect x="550" y="150" width="240" height="16" rx="6" fill="#fff" stroke="#bbf7d0"/>
+        <rect x="550" y="172" width="240" height="16" rx="6" fill="#fff" stroke="#bbf7d0"/>
+        <rect x="550" y="194" width="240" height="16" rx="6" fill="#fff" stroke="#bbf7d0"/>
+      </g>
+      <circle cx="562" cy="158" r="3" fill="#f59e0b"/>
+      <circle cx="562" cy="180" r="3" fill="#0d9488"/>
+      <circle cx="562" cy="202" r="3" fill="#16a34a"/>
+      <text x="625" y="82" font-size="16" font-weight="700" fill="#0f172a">工作流</text>
+      <text x="625" y="106" font-size="12" font-weight="600" fill="#047857">校验 · 写库</text>
+      <text x="625" y="128" font-size="11" fill="#64748b">确定性流程完成落库</text>
+
+      <path d="M350 126h18" stroke="#94a3b8" stroke-width="2" marker-end="url(#f2a)"/>
+      <rect x="370" y="96" width="120" height="60" rx="30" fill="#1d4ed8" filter="url(#f2sh)"/>
+      <text x="430" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">自定义工具</text>
+      <text x="430" y="140" text-anchor="middle" font-size="8.5" fill="#e0e7ff" font-family="'JetBrains Mono',monospace">CALL</text>
+      <path d="M492 126h18" stroke="#94a3b8" stroke-width="2" marker-end="url(#f2a)"/>
+    </svg>
+    <figcaption><b>Fig 02</b>AI 与确定性流程各司其职，中间用“AI 可调用的动作”衔接。</figcaption>
+  </figure>
+
+  <p>因此本方案的思路是分工：</p>
+  <ul>
+    <li><b>AI 负责“理解与结构化”</b>：把自然语言或表格整理成一条条结构化记录；</li>
+    <li><b>确定性流程负责“可靠落库”</b>：校验后批量写进目标表。</li>
+  </ul>
+  <p>两者通过一个“AI 可调用的动作”衔接：AI 把整理好的数据交给它，它背后的确定性流程完成写入，再把结果返回给 AI。</p>
+
+  <h3>2.2 为什么这样设计</h3>
+  <div class="grid grid-3">
+    <article class="card">
+      <span class="ico a"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg></span>
+      <h4>扬长避短</h4>
+      <p>AI 发挥理解能力，不碰数据库。</p>
+    </article>
+    <article class="card">
+      <span class="ico c"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></span>
+      <h4>安全可控</h4>
+      <p>写入由可校验、可审计的流程完成，AI 不会直接改库。</p>
+    </article>
+    <article class="card">
+      <span class="ico b"><svg class="i" aria-hidden="true"><use href="#i-reuse"/></svg></span>
+      <h4>可复用</h4>
+      <p>同一个流程可服务多个业务场景。</p>
+    </article>
+  </div>
+  <div class="note info">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    <div>具体由哪些技术组件构成、一次调用如何流转，见第 4 章「实现原理」。</div>
+  </div>
+</section>
+
+<!-- ============ 03 方案怎么选 ============ -->
+<section class="chapter" id="ch3" data-title="03 · 方案怎么选">
+  <header class="ch-head">
+    <span class="pill"><i></i>03 · Scope</span>
+    <h2>方案怎么选：服务一张表还是多张表</h2>
+    <p class="lead">同样的“AI 理解 + 流程落库”思路，落地上有两种做法，取舍在于服务范围。</p>
+  </header>
+
+  <div class="grid grid-2">
+    <article class="card pick-a">
+      <div class="card-top">
+        <span class="ico a"><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg></span>
+        <span class="tag">方案 A</span>
+      </div>
+      <h4 style="margin-top:0">固定单表方案</h4>
+      <p>一套流程只服务<b>一张指定的表</b>。</p>
+      <div class="mini-figure">
+        <svg viewBox="0 0 320 170" role="img" aria-label="固定单表：一套流程只写一张表">
+          <defs><marker id="m3s" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#94a3b8"/></marker></defs>
+          <rect width="320" height="170" rx="12" fill="none"/>
+          <rect x="30" y="42" width="90" height="70" rx="10" fill="#fff" stroke="#e2e8f0"/>
+          <path d="M30 64h90M56 42v70M82 42v70" stroke="#e2e8f0" stroke-width="1.5"/>
+          <rect x="38" y="50" width="14" height="5" rx="2.5" fill="#1d4ed8"/>
+          <path d="M124 77h34" stroke="#94a3b8" stroke-width="2" marker-end="url(#m3s)"/>
+          <rect x="168" y="42" width="110" height="70" rx="10" fill="#fff" stroke="#e2e8f0"/>
+          <ellipse cx="223" cy="60" rx="28" ry="7" fill="#eff6ff" stroke="#bfdbfe"/>
+          <path d="M195 60v28q28 12 56 0V60" fill="#eff6ff" stroke="#bfdbfe"/>
+          <text x="223" y="86" text-anchor="middle" font-size="9" font-weight="700" font-family="'JetBrains Mono',monospace" fill="#1d4ed8">ONE</text>
+          <text x="160" y="148" text-anchor="middle" font-size="11" fill="#64748b">1 套流程 = 1 张表</text>
+        </svg>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>优点</h5>
+          <ul>
+            <li><b>简单</b>：实现直观，落地快。</li>
+            <li><b>安全</b>：只认一张表，AI 不可能写错表。</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>缺点</h5>
+          <ul>
+            <li><b>只能服务一张表</b>：要录另一张表就得再建一套，重复建设。</li>
+            <li><b>表结构一变就要改</b>：字段增删、改名都要回来调整。</li>
+            <li><b>越堆越多</b>：每张表一套，AI 容易选错工具。</li>
+            <li><b>难复用</b>：换一张表就用不了。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="card pick-b">
+      <div class="card-top">
+        <span class="ico b"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg></span>
+        <span class="tag teal">方案 B</span>
+      </div>
+      <h4 style="margin-top:0">通用多表方案</h4>
+      <p>一套流程服务<b>所有表</b>，由 AI 在调用时指定目标表。</p>
+      <div class="mini-figure">
+        <svg viewBox="0 0 320 170" role="img" aria-label="通用多表：一套流程服务所有表">
+          <defs><marker id="m3m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#94a3b8"/></marker></defs>
+          <rect width="320" height="170" rx="12" fill="none"/>
+          <circle cx="66" cy="85" r="28" fill="#0d9488"/>
+          <g transform="translate(66,85)" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round">
+            <path d="M-8-12v6M8-12v6M-12-6h24v4a12 12 0 0 1-24 0zM0 10v7"/>
+          </g>
+          <path d="M96 85C130 85 150 40 188 40" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#m3m)"/>
+          <path d="M96 85h92" stroke="#94a3b8" stroke-width="2" marker-end="url(#m3m)"/>
+          <path d="M96 85C130 85 150 130 188 130" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#m3m)"/>
+          <g>
+            <rect x="194" y="26" width="96" height="28" rx="8" fill="#fff" stroke="#e2e8f0"/>
+            <rect x="194" y="71" width="96" height="28" rx="8" fill="#fff" stroke="#e2e8f0"/>
+            <rect x="194" y="116" width="96" height="28" rx="8" fill="#fff" stroke="#e2e8f0"/>
+            <ellipse cx="214" cy="40" rx="12" ry="3.5" fill="#f0fdfa" stroke="#99f6e4"/>
+            <path d="M202 40v10q12 6 24 0V40" fill="#f0fdfa" stroke="#99f6e4"/>
+            <ellipse cx="214" cy="85" rx="12" ry="3.5" fill="#f0fdfa" stroke="#99f6e4"/>
+            <path d="M202 85v10q12 6 24 0V85" fill="#f0fdfa" stroke="#99f6e4"/>
+            <ellipse cx="214" cy="130" rx="12" ry="3.5" fill="#f0fdfa" stroke="#99f6e4"/>
+            <path d="M202 130v10q12 6 24 0v-10" fill="#f0fdfa" stroke="#99f6e4"/>
+          </g>
+          <text x="160" y="162" text-anchor="middle" font-size="11" fill="#64748b">1 套流程 = 所有表</text>
+        </svg>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>优点</h5>
+          <ul>
+            <li><b>一个能力服务所有表</b>：新增表不用重建。</li>
+            <li><b>表结构变化免改</b>：字段调整不用动流程。</li>
+            <li><b>扩展性好</b>：一次建设，长期复用。</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>缺点</h5>
+          <ul>
+            <li><b>实现更复杂</b>：技术门槛更高。</li>
+            <li><b>有写错表的风险</b>：需白名单、受限角色兜底。</li>
+            <li><b>权限配置更复杂</b>：需单独管理调用权限。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <h3>3.3 选型建议</h3>
+  <div class="table-card">
+    <table>
+      <thead><tr><th>场景</th><th>建议</th></tr></thead>
+      <tbody>
+        <tr><td>只服务一张表、追求简单安全</td><td>固定单表</td></tr>
+        <tr><td>要服务多张表、表结构常变、想一次建设长期复用</td><td><b>通用多表（本方案）</b></td></tr>
+        <tr><td>想先快速上线、后续再扩展</td><td>先用固定单表，需要时再升级为通用多表</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>两种方案并非非此即彼：可先按固定单表快速落地，业务扩展到多表时再迁移。</p>
+
+  <h3>3.4 什么情况下不适合用这套</h3>
+  <p>这套方案解决的是“把已结构化的数据批量写进表”，不覆盖需要业务规则介入的场景：</p>
+  <ul>
+    <li><b>需要审批联动</b>：数据要经多级审批后才生效——应走审批流，而非直接写库。</li>
+    <li><b>需要强业务校验</b>：如跨表校验、唯一性约束、复杂计算——应在工作流里加校验节点，或走表单提交。</li>
+    <li><b>单批数据量过大</b>：数百上千条会触及请求超时，应分批，或改用专门的导入工具。</li>
+    <li><b>必须经表单校验</b>：若字段有前端校验规则，直接调 API 会绕过，需在服务端补校验。</li>
+  </ul>
+  <div class="note warn">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg></span>
+    <div>简言之：AI 负责“理解与结构化”，确定性规则交给工作流；两者都不该承担的业务规则，仍应放在业务系统里。</div>
+  </div>
+</section>
+<!-- ============ 04 怎么做 ============ -->
+<section class="chapter" id="ch4" data-title="04 · 怎么做">
+  <header class="ch-head">
+    <span class="pill"><i></i>04 · Build</span>
+    <h2>怎么做</h2>
+    <p class="lead">四个组件、一条固定调用链。AI 只负责理解与选工具，真正写库的是它背后的确定性工作流。</p>
+  </header>
+
+  <div class="note warn">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg></span>
+    <div>动手前请先阅读第 5 章「关键约束与常见坑」——其中的 <code>sync</code>、<code>autoCall</code>、工具描述等几条，是能否跑通的关键。</div>
+  </div>
+
+  <h3>4.1 实现原理</h3>
+  <p>本方案由 4 个部分组成，缺一不可。下图是一次批量录入的完整流转：</p>
+
+  <figure class="figure">
+    <svg viewBox="0 0 1000 440" role="img" aria-label="架构图：用户到 AI 员工，到自定义工具，到工作流，再到 NocoBase API 与数据库">
+      <defs>
+        <filter id="f4sh" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity=".08"/>
+        </filter>
+        <marker id="f4a" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+          <path d="M0 0L8 4L0 8Z" fill="#94a3b8"/>
+        </marker>
+        <marker id="f4b" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+          <path d="M0 0L8 4L0 8Z" fill="#1d4ed8"/>
+        </marker>
+      </defs>
+
+      <rect x="8" y="36" width="984" height="392" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="85" y="24" text-anchor="middle" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8" letter-spacing="1.5">CONVERSATION</text>
+      <text x="490" y="24" text-anchor="middle" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8" letter-spacing="1.5">ACTION</text>
+      <text x="725" y="24" text-anchor="middle" font-size="9" font-family="'JetBrains Mono',monospace" fill="#94a3b8" letter-spacing="1.5">EXECUTION</text>
+      <path d="M390 50v362M590 50v362" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+      <!-- 用户 -->
+      <g filter="url(#f4sh)">
+        <rect x="20" y="150" width="130" height="110" rx="14" fill="#fff" stroke="#e2e8f0"/>
+        <circle cx="85" cy="188" r="15" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+        <path d="M62 220a23 23 0 0 1 46 0" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+      </g>
+      <text x="85" y="242" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">用户</text>
+      <text x="85" y="258" text-anchor="middle" font-size="9" fill="#94a3b8">自然语言 / 表格</text>
+
+      <!-- AI 员工 -->
+      <g filter="url(#f4sh)">
+        <rect x="180" y="110" width="190" height="190" rx="18" fill="#eff6ff" stroke="#bfdbfe"/>
+        <rect x="248" y="142" width="64" height="52" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="2"/>
+        <circle cx="268" cy="168" r="4" fill="#1d4ed8"/>
+        <circle cx="292" cy="168" r="4" fill="#1d4ed8"/>
+        <line x1="280" y1="142" x2="280" y2="131" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="280" cy="126" r="5" fill="#0d9488"/>
+      </g>
+      <text x="275" y="222" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">AI 员工 typer</text>
+      <text x="275" y="240" text-anchor="middle" font-size="9.5" fill="#64748b">理解 · 结构化 · 选工具</text>
+      <circle cx="194" cy="124" r="11" fill="#1d4ed8"/>
+      <text x="194" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">1</text>
+
+      <!-- 自定义工具 -->
+      <g filter="url(#f4sh)">
+        <rect x="410" y="140" width="160" height="130" rx="14" fill="#fff" stroke="#e2e8f0"/>
+        <circle cx="490" cy="184" r="24" fill="#1d4ed8"/>
+        <g transform="translate(490,184)" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round">
+          <path d="M-10-14v7M10-14v7M-15-6h30v6a15 15 0 0 1-30 0zM0 15v8"/>
+        </g>
+      </g>
+      <text x="490" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">自定义工具</text>
+      <text x="490" y="254" text-anchor="middle" font-size="9" font-family="'JetBrains Mono',monospace" fill="#64748b">workflowCaller</text>
+      <text x="490" y="267" text-anchor="middle" font-size="8" font-family="'JetBrains Mono',monospace" fill="#94a3b8">collection + records</text>
+      <circle cx="424" cy="154" r="11" fill="#1d4ed8"/>
+      <text x="424" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">2</text>
+
+      <!-- 工作流 -->
+      <g filter="url(#f4sh)">
+        <rect x="610" y="90" width="230" height="230" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>
+        <rect x="630" y="132" width="190" height="38" rx="9" fill="#fff" stroke="#bbf7d0"/>
+        <circle cx="648" cy="151" r="4" fill="#f59e0b"/>
+        <text x="662" y="156" font-size="10.5" font-family="'JetBrains Mono',monospace" fill="#0f172a">script · 解析 JSON</text>
+        <rect x="630" y="178" width="190" height="38" rx="9" fill="#fff" stroke="#bbf7d0"/>
+        <circle cx="648" cy="197" r="4" fill="#0d9488"/>
+        <text x="662" y="202" font-size="10.5" font-family="'JetBrains Mono',monospace" fill="#0f172a">request · 批量写库</text>
+        <rect x="630" y="224" width="190" height="38" rx="9" fill="#fff" stroke="#bbf7d0"/>
+        <circle cx="648" cy="243" r="4" fill="#16a34a"/>
+        <text x="662" y="248" font-size="10.5" font-family="'JetBrains Mono',monospace" fill="#0f172a">output · 返回结果</text>
+      </g>
+      <text x="725" y="118" text-anchor="middle" font-size="11" font-weight="700" font-family="'JetBrains Mono',monospace" fill="#047857" letter-spacing="1.2">WORKFLOW</text>
+      <circle cx="624" cy="104" r="11" fill="#1d4ed8"/>
+      <text x="624" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">3</text>
+
+      <!-- API / DB -->
+      <g filter="url(#f4sh)">
+        <rect x="880" y="140" width="100" height="140" rx="14" fill="#fff" stroke="#e2e8f0"/>
+        <ellipse cx="930" cy="180" rx="24" ry="7" fill="#eff6ff" stroke="#bfdbfe"/>
+        <path d="M906 180v42q24 12 48 0v-42" fill="#eff6ff" stroke="#bfdbfe"/>
+      </g>
+      <text x="930" y="246" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">API / DB</text>
+      <text x="930" y="262" text-anchor="middle" font-size="8" font-family="'JetBrains Mono',monospace" fill="#94a3b8">NocoBase</text>
+
+      <!-- 主链路 -->
+      <path d="M150 205h22" stroke="#94a3b8" stroke-width="2" marker-end="url(#f4a)"/>
+      <path d="M370 205h32" stroke="#94a3b8" stroke-width="2" marker-end="url(#f4a)"/>
+      <path d="M570 205h32" stroke="#94a3b8" stroke-width="2" marker-end="url(#f4a)"/>
+      <path d="M840 205h32" stroke="#94a3b8" stroke-width="2" marker-end="url(#f4a)"/>
+      <text x="161" y="224" text-anchor="middle" font-size="8.5" font-family="'JetBrains Mono',monospace" fill="#94a3b8">对话</text>
+      <text x="386" y="224" text-anchor="middle" font-size="8.5" font-family="'JetBrains Mono',monospace" fill="#94a3b8">调用</text>
+      <text x="586" y="224" text-anchor="middle" font-size="8.5" font-family="'JetBrains Mono',monospace" fill="#94a3b8">trigger</text>
+      <text x="856" y="224" text-anchor="middle" font-size="8.5" font-family="'JetBrains Mono',monospace" fill="#94a3b8">POST</text>
+
+      <!-- 结果回传 -->
+      <path d="M810 320v60H275v-58" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#f4b)"/>
+      <text x="500" y="398" text-anchor="middle" font-size="9.5" font-family="'JetBrains Mono',monospace" fill="#1d4ed8">结果回传 AI</text>
+
+      <!-- API key -->
+      <g filter="url(#f4sh)">
+        <rect x="610" y="340" width="150" height="34" rx="17" fill="#fff" stroke="#e2e8f0"/>
+        <g transform="translate(628,357)" stroke="#1d4ed8" stroke-width="1.8" fill="none" stroke-linecap="round">
+          <circle cx="-3" cy="-3" r="4"/>
+          <path d="M0 0l8 8M6 6l2-2M4 4l2-2"/>
+        </g>
+        <text x="644" y="361" font-size="9.5" font-family="'JetBrains Mono',monospace" fill="#0f172a">API key</text>
+        <circle cx="740" cy="357" r="11" fill="#1d4ed8"/>
+        <text x="740" y="361" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">4</text>
+      </g>
+      <path d="M685 340v-14" stroke="#94a3b8" stroke-width="2" marker-end="url(#f4a)"/>
+    </svg>
+    <figcaption><b>Fig 03</b>AI 不直接碰数据库，写操作全部由工作流完成。</figcaption>
+  </figure>
+
+  <div class="table-card">
+    <table>
+      <thead><tr><th>组成部分</th><th>是什么</th><th>负责什么</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>AI 员工 <code>typer</code></b></td>
+          <td>一条 AI 员工记录（和内置的 dex/ellis 同类）</td>
+          <td>对话入口：理解用户要录什么，把零散内容解析成结构化记录，决定调用哪个工具</td>
+        </tr>
+        <tr>
+          <td><b>自定义工具 <code>workflowCaller-&lt;key&gt;</code></b></td>
+          <td>AI 可调用的一个“动作”</td>
+          <td>接收 AI 传来的 <code>collection</code>（目标表）和 <code>records</code>（记录 JSON），转交给背后的工作流</td>
+        </tr>
+        <tr>
+          <td><b>工作流</b><br><span class="mono" style="font-size:11px;color:var(--muted)">script → request → output</span></td>
+          <td>确定性后端流程</td>
+          <td>真正干活：解析 JSON、调用 NocoBase API 批量写库、把结果返回</td>
+        </tr>
+        <tr>
+          <td><b>API key</b></td>
+          <td>一个访问凭证</td>
+          <td>工作流调用 NocoBase 自身 API 时用于身份认证</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note warn">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-key"/></svg></span>
+    <div><b>关键分工：AI 员工不直接碰数据库。</b>它只负责“理解内容 + 决定调用工具”；真正写库的是工作流。这样 AI 发挥擅长的理解能力，写入则由可控、可校验的流程完成。</div>
+  </div>
+
+  <p><b>一次批量录入的调用链：</b></p>
+  <ol class="chain">
+    <li><b>用户发话</b><span>自然语言或表格</span></li>
+    <li><b>typer 理解</b><span>整理成结构化记录</span></li>
+    <li><b>调用工具</b><span>collection + records</span></li>
+    <li><b>工作流执行</b><span>解析 · 写库</span></li>
+    <li><b>结果返回</b><span>创建结果</span></li>
+    <li><b>汇总回复</b><span>“已创建 N 条”</span></li>
+  </ol>
+
+  <p>以设备领用为例：</p>
+  <ol>
+    <li>用户在对话框说：“11.3 研发领 2 台 iPhone，行政领 1 台复印机……”（或直接贴一份表格）。</li>
+    <li><b>AI 员工 typer</b> 理解内容，整理成结构化记录：<br>
+      <code>[{ "title": "...", "department": "研发", "deviceName": "iPhone15", "quantity": 2, ... }, ...]</code><br>
+      若不确定目标表的字段，会先用 <code>data-metadata</code> 技能查一下。</li>
+    <li>typer 决定调用工具 <code>workflowCaller-&lt;key&gt;</code>，传入：
+      <ul>
+        <li><code>collection</code> = <code>"equipmentRequests"</code>（写哪张表）</li>
+        <li><code>records</code> = <code>"[{...},{...}]"</code>（记录数组的 JSON 字符串）</li>
+      </ul>
+    </li>
+    <li><b>工具</b>把参数转交给工作流（<code>workflowPlugin.trigger</code>）。</li>
+    <li><b>工作流</b>执行三步：
+      <ul>
+        <li><code>script</code>：把 <code>records</code> 字符串解析成数组；</li>
+        <li><code>request</code>：带上 API key，<code>POST /api/equipmentRequests:create</code>，body 为数组 → 批量创建；</li>
+        <li><code>output</code>：把创建结果整理返回。</li>
+      </ul>
+    </li>
+    <li>工具把结果交回 typer，typer 汇总回复用户：“已创建 N 条”。</li>
+  </ol>
+
+  <p><b>和内置 AI 员工的技术差异：</b></p>
+  <div class="table-card">
+    <table>
+      <thead><tr><th>能力</th><th>内置员工</th><th>typer（本方案）</th></tr></thead>
+      <tbody>
+        <tr><td>理解 / 解析内容</td><td>✅</td><td>✅</td></tr>
+        <tr><td>查数据 / 读表结构</td><td>✅</td><td>✅</td></tr>
+        <tr><td>填表单（不落库，需逐个手动提交）</td><td>✅ <code>formFiller</code></td><td>✅</td></tr>
+        <tr><td><b>批量写入数据库</b></td><td class="no">❌</td><td class="yes">✅ <code>workflowCaller</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note info">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span>
+    <div>平台默认不开放“写库”工具，是出于安全考虑：让模型直接写数据库容易写错表、写错字段、绕过校验。把写操作交给可控的工作流，才稳妥。本方案就是补上这块。</div>
+  </div>
+
+  <h3>4.2 前置条件</h3>
+  <div class="code">
+    <div class="code-head">
+      <span class="code-dots"><i></i><i></i><i></i></span>
+      <span class="code-label">bash · 前置检查</span>
+      <button class="copy" type="button">复制</button>
+    </div>
+    <pre><code class="language-bash"># 1) CLI 已认证（OAuth 浏览器登录）
+nb env list                    # Auth 列应为 oauth
+nb env auth &lt;env&gt;              # 若失效
+
+# 2) 关键插件已启用
+nb plugin list | grep -E 'plugin-ai|plugin-workflow|plugin-api-keys'
+# 需启用：plugin-ai、plugin-workflow、plugin-api-keys（及工作流节点相关插件）
+
+# 3) AI 员工所需的大模型服务已配置
+#    AI 员工对话依赖已配置的 LLM 服务，未配置则员工无法工作。
+#    检查/配置请走 nocobase-ai-manager（如 nb api ai llm-providers list-llm-services）</code></pre>
+  </div>
+
+  <h3>4.3 实施步骤</h3>
+  <div class="note info">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-field"/></svg></span>
+    <div>约定：<code>&lt;env&gt;</code> 为环境名，<code>&lt;API_KEY&gt;</code> 为步骤 1 生成的 token，其余 <code>&lt;...&gt;</code> 为运行时获取的 ID/Key。</div>
+  </div>
+<div class="steps">
+
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-body">
+        <h3>生成 API key</h3>
+        <p>工作流 <code>request</code> 节点调用 NocoBase 自身 API 时<b>不自动带认证</b>，需要显式配置 <code>Authorization</code>。</p>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 创建 API key</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash">nb api resource create --resource apiKeys \
+  --values '{"name":"ai-batch-create","role":{"name":"admin"},"expiresIn":"never"}' \
+  --env &lt;env&gt; --yes
+# 返回 {"data":{"token":"eyJ..."}}，立即保存 &lt;API_KEY&gt;（token 字段 hidden，列表不再返回明文）</code></pre>
+        </div>
+        <div class="note warn">
+          <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-key"/></svg></span>
+          <div><code>role</code> 必须是对象 <code>{"name":"&lt;角色名&gt;"}</code>，角色可选 <code>admin</code> / <code>member</code> / <code>root</code>。生产环境应使用受限角色，见第 7 章。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-body">
+        <h3>创建同步工作流</h3>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 创建工作流</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash">cat &gt; /tmp/wf-sync.json &lt;&lt;'JSON'
+{
+  "title": "批量录入数据",
+  "type": "ai-employee",
+  "sync": true,
+  "description": "批量向指定数据集合写入多条记录。collection 为目标集合名（如 equipmentRequests/customers），records 为记录数组 JSON 字符串，每条记录字段名需匹配集合字段。不确定集合字段时先用 data-metadata 查询。",
+  "config": {
+    "description": "批量向指定数据集合写入多条记录。参数 collection 为目标集合名，records 为记录数组 JSON 字符串。",
+    "parameters": [
+      { "name": "collection", "type": "string", "required": true, "description": "目标数据集合名，例如 equipmentRequests" },
+      { "name": "records", "type": "string", "required": true, "description": "记录数组 JSON 字符串，例如 [{\"title\":\"申请1\",\"deviceName\":\"笔记本\",\"quantity\":2}]" }
+    ]
+  }
+}
+JSON
+
+nb api workflow workflows create --body-file /tmp/wf-sync.json --env &lt;env&gt; --yes -j
+# 记录返回的 id (&lt;WORKFLOW_ID&gt;) 与 key (&lt;WORKFLOW_KEY&gt;)；工具名将为 workflowCaller-&lt;WORKFLOW_KEY&gt;</code></pre>
+        </div>
+        <div class="note info">
+          <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg></span>
+          <div>用 <code>--body-file</code> 而非 <code>--config</code>，避免嵌套 JSON 的 shell 转义错误。顶层 <code>description</code> 决定 AI 看到的工具描述，务必写清楚。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-body">
+        <h3>搭建节点链（script → request → output）</h3>
+
+        <h4>3a. script 节点</h4>
+        <p>把 records 字符串解析成数组，并对非数组输入做兜底。</p>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · script 节点</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash">cat &gt; /tmp/n-script.json &lt;&lt;'JSON'
+{
+  "type": "script",
+  "title": "解析 records JSON",
+  "config": {
+    "arguments": [ { "name": "records", "value": "{{$context.records}}" } ],
+    "content": "const parsed = JSON.parse(records || '[]'); return Array.isArray(parsed) ? parsed : [parsed];",
+    "timeout": 5000,
+    "continue": false
+  }
+}
+JSON
+
+nb api workflow workflows nodes create --workflow-id &lt;WORKFLOW_ID&gt; --body-file /tmp/n-script.json --env &lt;env&gt; --yes -j
+# 记录 script 节点 id (&lt;SCRIPT_ID&gt;) 与 key (&lt;SCRIPT_KEY&gt;)</code></pre>
+        </div>
+
+        <h4>3b. request 节点</h4>
+        <p>动态表名批量写入。</p>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash + python · request 节点</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash"># 先把步骤 3a 返回的 SCRIPT_ID / SCRIPT_KEY、以及步骤 1 的 API key 设为环境变量
+# （把 &lt;...&gt; 替换为实际值）
+export SCRIPT_ID=&lt;SCRIPT_ID&gt;
+export SCRIPT_KEY=&lt;SCRIPT_KEY&gt;
+export API_KEY=$(cat /tmp/api_key.txt)   # 步骤 1 保存的 token
+
+python3 - &lt;&lt;'PY'
+import json, os
+body = {"type":"request","title":"HTTP 批量创建","upstreamId": int(os.environ["SCRIPT_ID"]), "config":{
+  "method":"POST",
+  "url":"http://127.0.0.1:13000/app1/api/{{$context.collection}}:create",
+  "contentType":"application/json",
+  "headers":[{"name":"Authorization","value":"Bearer "+os.environ["API_KEY"]}],
+  "data":"{{$jobsMapByNodeKey."+os.environ["SCRIPT_KEY"]+"}}",
+  "timeout":10000,"ignoreFail":False,"onlyData":True}}
+open('/tmp/n-request.json','w').write(json.dumps(body))
+PY
+
+nb api workflow workflows nodes create --workflow-id &lt;WORKFLOW_ID&gt; --body-file /tmp/n-request.json --env &lt;env&gt; --yes -j
+# 记录 request 节点 id (&lt;REQUEST_ID&gt;) 与 key (&lt;REQUEST_KEY&gt;)</code></pre>
+        </div>
+        <div class="note info">
+          <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          <div><code>url</code> 用 <code>{{$context.collection}}</code> 动态拼表名；<code>data</code> 引用 script 输出（数组）；<code>onlyData=true</code> 让输出直接是创建结果。</div>
+        </div>
+
+        <h4>3c. output 节点</h4>
+        <p>把结果返回给 AI。</p>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · output 节点</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash">cat &gt; /tmp/n-output.json &lt;&lt;'JSON'
+{
+  "type": "output",
+  "title": "返回创建结果",
+  "upstreamId": &lt;REQUEST_ID&gt;,
+  "config": {
+    "value": { "status": "success", "message": "批量创建完成", "created": "{{$jobsMapByNodeKey.&lt;REQUEST_KEY&gt;}}" }
+  }
+}
+JSON
+
+nb api workflow workflows nodes create --workflow-id &lt;WORKFLOW_ID&gt; --body-file /tmp/n-output.json --env &lt;env&gt; --yes -j</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">4</div>
+      <div class="step-body">
+        <h3>启用工作流（工具注册的前提）</h3>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 启用与验证</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash">nb api workflow workflows update --filter-by-tk &lt;WORKFLOW_ID&gt; --enabled --env &lt;env&gt; --yes
+# 验证工具已注册
+nb api resource list --resource aiTools --env &lt;env&gt; --yes -j \
+  | jq -r '.data[] | select(.definition.name|startswith("workflowCaller-")) | .definition.name'</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">5</div>
+      <div class="step-body">
+        <h3>创建 AI 员工</h3>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 创建员工</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash"># 先确认 username 不存在
+nb api ai employees list --env &lt;env&gt; --yes -j | jq -r '.data[].username'
+
+cat &gt; /tmp/employee.json &lt;&lt;'JSON'
+{
+  "username": "typer",
+  "nickname": "Typer",
+  "position": "数据录入专员",
+  "avatar": "nocobase-015-male",
+  "bio": "从文本/表格/文档中提取并整理数据，可批量写入任意数据表。",
+  "about": "你是 Typer，一名数据录入专员。基于用户提供的表格、Excel、邮件或文档内容：1) 提取并结构化每条记录；2) 若不确定目标集合或字段，先用 data-metadata 技能确认集合与字段名；3) 调用批量录入工具把 records 数组以 JSON 字符串传给指定 collection；4) 汇总创建结果。字段值须与集合字段名严格一致，数量等数字字段输出为数字。",
+  "greeting": "把要录入的表格或文档发给我，我帮你批量写入数据表。",
+  "enabled": true
+}
+JSON
+
+nb api ai employees create --body-file /tmp/employee.json --env &lt;env&gt; --yes -j</code></pre>
+        </div>
+        <div class="note warn">
+          <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg></span>
+          <div><code>avatar</code> 必须是受支持的种子值（默认 <code>nocobase-015-male</code>）。CLI 记录面<b>不支持</b> <code>skillSettings</code>，工具绑定要单独做（见步骤 6）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">6</div>
+      <div class="step-body">
+        <h3>绑定工具</h3>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 绑定与 readback</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash">nb api resource update --resource aiEmployees --filter-by-tk typer \
+  --values '{"skillSettings":{"skills":[],"tools":[{"name":"workflowCaller-&lt;WORKFLOW_KEY&gt;","autoCall":true}]}}' \
+  --env &lt;env&gt; --yes
+
+# readback 验证
+nb api ai employees get --filter-by-tk typer --env &lt;env&gt; --yes -j | jq -c '.data | {username, tools:.skillSettings.tools}'</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">7</div>
+      <div class="step-body">
+        <h3>验证</h3>
+        <div class="code">
+          <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 六项验证</span><button class="copy" type="button">复制</button></div>
+          <pre><code class="language-bash"># 1) 工作流：sync=true 且 enabled
+nb api workflow workflows get --filter-by-tk &lt;WORKFLOW_ID&gt; --env &lt;env&gt; --yes -j | jq -c '.data|{sync,enabled}'
+# 2) 工具已注册且描述非空
+nb api resource list --resource aiTools --env &lt;env&gt; --yes -j \
+  | jq -c '.data[]|select(.definition.name=="workflowCaller-&lt;WORKFLOW_KEY&gt;")|{name:.definition.name,desc:(.definition.description[0:40])}'
+# 3) 员工绑定 autoCall=true
+# 4) script 节点逻辑（flow-nodes test）
+nb api workflow flow-nodes test --body-file /tmp/test-script.json --env &lt;env&gt; --yes -j
+# 5) request 目标 API 等价冒烟（curl + &lt;API_KEY&gt; 写一条后删除）
+# 6) 在 AI 对话界面开新会话做端到端实测</code></pre>
+        </div>
+        <div class="note warn">
+          <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg></span>
+          <div><code>ai-employee</code> 触发器不支持 <code>workflows execute</code>，第 6 步是唯一可做的端到端验证。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ============ 05 常见坑 ============ -->
+<section class="chapter" id="ch5" data-title="05 · 关键约束与常见坑">
+  <header class="ch-head">
+    <span class="pill"><i></i>05 · Pitfalls</span>
+    <h2>关键约束与常见坑</h2>
+    <p class="lead">自定义工具名固定为 <code>workflowCaller-&lt;workflow.key&gt;</code>（<code>scope=CUSTOM</code>、<code>from=workflow</code>、<code>execution=backend</code>），绑定员工时务必用这个准确名字。</p>
+  </header>
+
+  <div class="note danger">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg></span>
+    <div><b>十个最容易踩的坑。</b>大多数“AI 不调用工具”“调用被中断”，都能在下面找到原因。实施时建议对照逐条检查。</div>
+  </div>
+
+  <div class="pit-grid">
+    <article class="pit">
+      <span class="pn">PITFALL 01</span>
+      <h4>工作流 <code>sync=false</code></h4>
+      <div class="row sym"><span class="lbl">现象</span><span>工具调用立即报错/中断，<code>executed=0</code></span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>创建时 <code>"sync": true</code>；建好后不能改，只能重建</span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 02</span>
+      <h4>员工 <code>autoCall=false</code></h4>
+      <div class="row sym"><span class="lbl">现象</span><span>每次调用弹确认，用户忽略后 AI 反复重试</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>绑工具时 <code>autoCall: true</code></span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 03</span>
+      <h4>工具描述为空</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>AI 不知道工具干什么，不调用或乱调</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>设工作流<b>顶层</b> <code>description</code>（不是 config.description）</span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 04</span>
+      <h4>参数类型限制</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>直接传数组/对象失败</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>多行数据用 <b>JSON 字符串</b>传 <code>records</code>，节点内 <code>JSON.parse</code></span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 05</span>
+      <h4>CLI 不支持 <code>skillSettings</code></h4>
+      <div class="row sym"><span class="lbl">现象</span><span><code>nb api ai employees create</code> 绑不了工具</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>用 <code>nb api resource update --resource aiEmployees</code> 写 <code>skillSettings</code></span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 06</span>
+      <h4>触发器不支持手动执行</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>没法用 CLI 测试</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>只能在 AI 对话界面端到端验证</span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 07</span>
+      <h4>工作流 key 变了 → 工具名变了</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>重建工作流后旧绑定失效</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>重建后更新员工 <code>tools[].name</code>，并停用旧工作流</span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 08</span>
+      <h4>非 string 字段赋值</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>数字字段写入失败/类型错</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span><code>create</code> 节点非 string 字段要“纯变量”赋值；本方案走 API 不受此限</span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 09</span>
+      <h4>重试导致重复写入</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>AI 重试可能重复落库</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>工作流用同步模式保证一次一结果；批量写入天然不幂等，建议按业务唯一键去重，或先让用户确认再写</span></div>
+    </article>
+    <article class="pit">
+      <span class="pn">PITFALL 10</span>
+      <h4>API key 权限过大</h4>
+      <div class="row sym"><span class="lbl">现象</span><span>能写任意表</span></div>
+      <div class="row fix"><span class="lbl">做法</span><span>用受限角色 + 集合白名单（见第 7 章）</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 06 出问题怎么查 ============ -->
+<section class="chapter" id="ch6" data-title="06 · 出问题怎么查">
+  <header class="ch-head">
+    <span class="pill"><i></i>06 · Debug</span>
+    <h2>出问题怎么查</h2>
+  </header>
+
+  <div class="intro-split">
+    <div>
+      <p class="lead" style="margin-bottom:10px">如果 AI 反复说“批量写入似乎被中断了”，按下面的证据链查，不要瞎改。</p>
+      <p>顺序很重要：先确认 AI 有没有真的调用工具，再看工作流有没有被触发，最后才去看节点内部的错误。</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 240 180" aria-hidden="true">
+        <rect x="28" y="28" width="150" height="124" rx="12" fill="#fff" stroke="#e2e8f0"/>
+        <path d="M46 56h84M46 76h64M46 96h76M46 116h52" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="150" cy="104" r="40" fill="#eff6ff" fill-opacity=".85" stroke="#1d4ed8" stroke-width="4"/>
+        <path d="M180 134l24 24" stroke="#1d4ed8" stroke-width="9" stroke-linecap="round"/>
+        <path d="M134 96h32M134 110h22" stroke="#0d9488" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl">
+      <h4>1. 看 AI 消息记录（<code>aiMessages</code>）</h4>
+      <div class="code">
+        <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 查看消息</span><button class="copy" type="button">复制</button></div>
+        <pre><code class="language-bash">nb api resource list --resource aiMessages --sort -createdAt --page-size 60 --env &lt;env&gt; --yes -j \
+  | jq -r '.data[] | select(.role=="typer") | "\(.content|tostring[0:80]) | toolCalls=\((.toolCalls//[])|tostring[0:200])"'</code></pre>
+      </div>
+      <p style="font-size:13px;color:var(--muted)">注：命令里的 <code>typer</code> 换成你的员工名。</p>
+      <ul>
+        <li><code>role=tool</code> 的消息是 <code>"The user ignored the application for tools usage"</code> → <code>autoCall</code>/确认问题（坑 2）。</li>
+        <li><code>toolCalls[].args</code> 缺 <code>collection</code> → 参数/schema 问题（坑 3/4）。</li>
+      </ul>
+    </div>
+
+    <div class="tl">
+      <h4>2. 看工作流执行记录</h4>
+      <div class="code">
+        <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">bash · 查看执行</span><button class="copy" type="button">复制</button></div>
+        <pre><code class="language-bash">nb api workflow executions list --filter '{"workflowId":&lt;WORKFLOW_ID&gt;}' --env &lt;env&gt; --yes -j | jq -c '{count:.meta.count}'
+nb api workflow workflows get --filter-by-tk &lt;WORKFLOW_ID&gt; --env &lt;env&gt; --yes -j | jq -c '.data|{sync,enabled,executed}'</code></pre>
+      </div>
+      <ul>
+        <li><code>executed=0</code> 且无 executions → 工具根本没触发工作流（多半是 sync/autoCall 问题）。</li>
+        <li>有 executions 但 status&lt;0 → 再看 jobs 的错误。</li>
+      </ul>
+    </div>
+
+    <div class="tl">
+      <h4>3. 看日志（<code>storage/logs/main/request_&lt;date&gt;.log</code>）</h4>
+      <ul>
+        <li>出现 <code>aiConversations:resumeToolCall</code> / <code>updateUserDecision</code> → 工具进了人工确认流程（坑 2）。</li>
+      </ul>
+    </div>
+
+    <div class="tl">
+      <h4>4. 核对配置</h4>
+      <p><code>sync=true</code>、<code>autoCall=true</code>、工具描述非空、员工绑定的是<b>当前启用</b>工作流的工具名。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 安全与权限 ============ -->
+<section class="chapter" id="ch7" data-title="07 · 安全与权限">
+  <header class="ch-head">
+    <span class="pill"><i></i>07 · Security</span>
+    <h2>安全与权限</h2>
+    <p class="lead">验证阶段用的是 <b>admin 角色</b> API key，能写任意集合。生产环境建议收紧。</p>
+  </header>
+
+  <div class="sec-layout">
+    <div class="sec-art">
+      <svg viewBox="0 0 260 220" aria-hidden="true">
+        <defs>
+        </defs>
+        <path d="M130 18L218 48V108C218 158 180 190 130 204C80 190 42 158 42 108V48Z" fill="#1d4ed8" opacity=".14" stroke="#1d4ed8" stroke-width="2"/>
+        <path d="M130 34L202 58V108C202 148 172 174 130 188C88 174 58 148 58 108V58Z" fill="#fff" stroke="#bfdbfe" stroke-width="1.5"/>
+        <circle cx="130" cy="100" r="16" fill="#1d4ed8"/>
+        <path d="M130 112v30" stroke="#1d4ed8" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="204" cy="168" r="18" fill="#16a34a"/>
+        <path d="M196 168l6 6 10-11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="sec-list">
+      <div class="sec-item"><span class="sl">a</span><div><b>用受限角色</b>API key 绑定只拥有目标表写权限的角色，而不是 admin。</div></div>
+      <div class="sec-item"><span class="sl">b</span><div><b>集合白名单</b>把步骤 3a 的 script 节点配置替换为下方内容（增加表名校验），防止 AI 写错表。</div></div>
+      <div class="sec-item"><span class="sl">c</span><div><b>字段白名单</b>如需限制可写字段，可在 script 中裁剪每条记录，只保留允许的键。</div></div>
+      <div class="sec-item"><span class="sl">d</span><div><b>API key 轮换</b>token 明文存在工作流节点配置里（管理员可读）。应定期轮换，并同步更新 request 节点的 <code>Authorization</code>。</div></div>
+      <div class="sec-item"><span class="sl">e</span><div><b>调用权限</b><code>autoCall: true</code> 是免确认自动执行，要通过员工/角色 ACL 控制谁能对话。</div></div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span class="code-label">json · script 节点（含集合白名单）</span><button class="copy" type="button">复制</button></div>
+    <pre><code class="language-json">{
+  "type": "script",
+  "config": {
+    "arguments": [
+      { "name": "collection", "value": "{{$context.collection}}" },
+      { "name": "records", "value": "{{$context.records}}" }
+    ],
+    "content": "const ALLOWED=['equipmentRequests','customers','schemeReviews']; if(!ALLOWED.includes(collection)){throw new Error('collection not allowed: '+collection);} const p=JSON.parse(records||'[]'); return Array.isArray(p)?p:[p];",
+    "timeout": 5000, "continue": false
+  }
+}</code></pre>
+  </div>
+</section>
+
+<!-- ============ 08 配置清单与验收 ============ -->
+<section class="chapter" id="ch8" data-title="08 · 配置清单与验收">
+  <header class="ch-head">
+    <span class="pill"><i></i>08 · Checklist</span>
+    <h2>配置清单与验收标准</h2>
+  </header>
+
+  <div class="table-card">
+    <table>
+      <thead><tr><th style="width:96px">项</th><th>值</th></tr></thead>
+      <tbody>
+        <tr><td><b>员工</b></td><td><code>typer</code>（business，数据录入专员，enabled）</td></tr>
+        <tr><td><b>工作流</b></td><td>id <code>397353149464576</code>，key <code>w5t0mociajk</code>，<code>sync=true</code>，enabled</td></tr>
+        <tr><td><b>工具</b></td><td><code>workflowCaller-w5t0mociajk</code>（CUSTOM / backend）</td></tr>
+        <tr><td><b>节点链</b></td><td>script <code>397353168338944</code>(ftsudy2gbhn) → request <code>397353180921856</code>(lu32supz3tw) → output <code>397353535340544</code>(cwjqs7nw8di)</td></tr>
+        <tr><td><b>API key</b></td><td><code>ai-batch-create</code>（admin，token 存于 request 节点 Authorization）</td></tr>
+        <tr><td><b>旧工作流</b></td><td><code>397351505297408</code>(yc30n4ksssf) 已停用（sync=false 的历史版本）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted)">上表为本环境实例；其他环境按实际 ID/Key 替换。</p>
+
+  <div class="intro-split" style="margin-top:34px">
+    <div>
+      <h3 style="margin-top:0">验收标准</h3>
+      <p style="margin-bottom:0">实施完成的判定条件：</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 220 180" aria-hidden="true">
+        <rect x="46" y="26" width="128" height="140" rx="14" fill="#fff" stroke="#e2e8f0"/>
+        <rect x="86" y="16" width="48" height="24" rx="10" fill="#1d4ed8"/>
+        <circle cx="68" cy="70" r="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+        <path d="M65 70l2 2 4-5" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M84 70h64M84 100h52M84 130h58" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="68" cy="100" r="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+        <path d="M65 100l2 2 4-5" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="68" cy="130" r="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+        <path d="M65 130l2 2 4-5" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <ol class="check">
+    <li><span class="ck"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>工作流 <code>sync=true</code> 且已启用；</span></li>
+    <li><span class="ck"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>自定义工具 <code>workflowCaller-&lt;key&gt;</code> 已注册、描述非空；</span></li>
+    <li><span class="ck"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>员工 <code>skillSettings.tools</code> 已绑定该工具且 <code>autoCall=true</code>；</span></li>
+    <li><span class="ck"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>在 AI 对话中开新会话，能成功批量写入 N 条记录；</span></li>
+    <li><span class="ck"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>异常输入（不存在的表、非法 JSON、空数组）返回可读错误，而非静默失败或崩溃。</span></li>
+  </ol>
+</section>
+
+<!-- ============ 09 以后怎么改 ============ -->
+<section class="chapter" id="ch9" data-title="09 · 以后怎么改">
+  <header class="ch-head">
+    <span class="pill"><i></i>09 · Evolve</span>
+    <h2>以后怎么改</h2>
+    <p class="lead">通用多表方案的价值在于：大多数变化不需要动工作流本身，只需要调整 AI 看到的描述或运行参数。</p>
+  </header>
+
+  <div class="grid grid-2">
+    <article class="card">
+      <span class="ico c"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span>
+      <h4>新增可写的表</h4>
+      <p>通用多表方案不用改工具，AI 直接传新的 <code>collection</code> 即可（前提：API key 角色有权限；若开了白名单，要把新表加进去）。</p>
+    </article>
+    <article class="card">
+      <span class="ico a"><svg class="i" aria-hidden="true"><use href="#i-field"/></svg></span>
+      <h4>改字段 / 类型</h4>
+      <p>不用改工作流（records 直接透传给 API），只要在工具描述里补上字段说明，方便 AI 正确映射。</p>
+    </article>
+    <article class="card">
+      <span class="ico d"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg></span>
+      <h4>改批量上限 / 超时</h4>
+      <p>调 request 节点的 <code>timeout</code>；大批量建议分批（比如每批 50 条）。</p>
+    </article>
+    <article class="card">
+      <span class="ico b"><svg class="i" aria-hidden="true"><use href="#i-chip"/></svg></span>
+      <h4>换模型</h4>
+      <p>员工的 <code>modelSettings</code> 通过 <code>nocobase-ai-manager</code> 配专用模型；本方案保持默认全局模型。</p>
+    </article>
+  </div>
+
+  <div class="note ok" style="margin-top:30px">
+    <span class="n-ico"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>
+    <div><b>记住边界：</b>AI 负责“理解与结构化”，确定性规则交给工作流；两者都不该承担的业务规则，仍应放在业务系统里。</div>
+  </div>
+</section>
+
+  </div>
+</div>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand"><i></i>NocoBase Docs · AI Employee</div>
+    <div class="foot-meta">
+      适用版本 2.2.41 · 2026.11<br>
+      依据 app1 环境实施与验证整理
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">
+  <svg class="i" aria-hidden="true"><use href="#i-up"/></svg>
+</button>
+
+<script>
+(function () {
+  var toc = document.getElementById('toc');
+  var mmLinks = document.getElementById('mmLinks');
+  var menu = document.getElementById('mobileMenu');
+  var menuBtn = document.getElementById('menuBtn');
+  var menuClose = document.getElementById('menuClose');
+
+  if (toc && mmLinks) mmLinks.innerHTML = toc.innerHTML;
+
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  menuClose.addEventListener('click', function () { setMenu(false); });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  var bar = document.getElementById('progressBar');
+  var toTop = document.getElementById('toTop');
+  var links = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var sections = links.map(function (a) {
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+
+  function onScroll() {
+    var d = document.documentElement;
+    var max = d.scrollHeight - d.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? d.scrollTop / max : 0) + ')';
+    toTop.classList.toggle('show', d.scrollTop > 700);
+
+    var y = d.scrollTop + 140;
+    var idx = 0;
+    sections.forEach(function (s, i) {
+      if (s.getBoundingClientRect().top + d.scrollTop <= y) idx = i;
+    });
+    links.forEach(function (a, i) { a.classList.toggle('active', i === idx); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.querySelectorAll('.code').forEach(function (block) {
+    var btn = block.querySelector('.copy');
+    var pre = block.querySelector('pre');
+    if (!btn || !pre) return;
+    btn.addEventListener('click', function () {
+      var text = pre.innerText;
+      function done() {
+        btn.textContent = '已复制';
+        btn.classList.add('ok');
+        setTimeout(function () {
+          btn.textContent = '复制';
+          btn.classList.remove('ok');
+        }, 1600);
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(); done(); });
+      } else {
+        fallback();
+        done();
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风格 C · 蓝图工程图纸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b2340;--sheet:#0d2c4f;--ink:#dce8f5;--muted:#8fb4d6;--line:#5d8fbe;--hair:rgba(127,212,255,.22);
+    --cyan:#7fd4ff;--yellow:#ffd166;--white:#eaf4ff;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    --sans:"Space Grotesk",-apple-system,"PingFang SC","Noto Sans SC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.75;
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(rgba(127,212,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(127,212,255,.08) 1px,transparent 1px),
+      linear-gradient(rgba(127,212,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(127,212,255,.035) 1px,transparent 1px);
+    background-size:96px 96px,96px 96px,24px 24px,24px 24px;
+  }
+  a{color:var(--cyan);text-decoration:none}
+  ::selection{background:var(--yellow);color:#0b2340}
+
+  .sheet{
+    position:relative;max-width:1160px;margin:26px auto;padding:0 46px 40px;
+    background:rgba(10,35,64,.78);border:1px solid var(--line);
+    box-shadow:0 30px 80px -40px rgba(0,0,0,.8);
+  }
+  .corner{position:absolute;width:16px;height:16px;border-color:var(--cyan);border-style:solid;border-width:0}
+  .corner.tl{left:-1px;top:-1px;border-left-width:2px;border-top-width:2px}
+  .corner.tr{right:-1px;top:-1px;border-right-width:2px;border-top-width:2px}
+  .corner.bl{left:-1px;bottom:-1px;border-left-width:2px;border-bottom-width:2px}
+  .corner.br{right:-1px;bottom:-1px;border-right-width:2px;border-bottom-width:2px}
+
+  .sheet-head{
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    padding:16px 0;border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  }
+  .sheet-head b{color:var(--cyan);font-weight:500}
+  .sheet-head .back{margin-left:auto;border:1px solid var(--line);padding:3px 9px;color:var(--muted)}
+  .sheet-head .back:hover{color:var(--yellow);border-color:var(--yellow)}
+
+  .hero{padding:56px 0 46px;border-bottom:1px solid var(--line)}
+  .hero .kicker{margin:0 0 18px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--cyan)}
+  h1{margin:0 0 24px;font-family:var(--mono);font-size:clamp(30px,4.6vw,50px);line-height:1.18;letter-spacing:-.02em;font-weight:700;color:var(--white)}
+  h1 span{color:var(--yellow)}
+  .dim{position:relative;height:26px;margin:0 0 24px;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  .dim::before{content:"";position:absolute;left:0;right:0;top:13px;height:1px;background:var(--line)}
+  .dim span{position:absolute;left:50%;top:0;transform:translateX(-50%);padding:0 10px;background:var(--bg);font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--muted)}
+  .hero p{margin:0;max-width:70ch;color:#b9d1e8;font-size:16px;line-height:1.8}
+
+  .section{padding:38px 0 44px;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+  .sec-tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--yellow);white-space:nowrap}
+  .sec-rule{flex:1;height:1px;background:var(--hair)}
+  h2{margin:0;font-family:var(--mono);font-size:24px;line-height:1.3;letter-spacing:-.01em;font-weight:700;color:var(--white)}
+  .lead{margin:0 0 26px;max-width:70ch;color:#b9d1e8;font-size:15.5px;line-height:1.85}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 28px}
+  .card{position:relative;padding:18px 18px 16px;border:1px dashed var(--line);background:rgba(127,212,255,.045);transition:.2s}
+  .card:hover{border-color:var(--cyan);background:rgba(127,212,255,.09)}
+  .card .tag{position:absolute;right:10px;top:9px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted)}
+  .card h3{margin:0 0 7px;font-size:15.5px;color:var(--white);font-weight:600}
+  .card p{margin:0;font-size:13px;line-height:1.7;color:#a9c4dd}
+
+  .figure{margin:0 0 28px;border:1px solid var(--line);padding:10px;background:rgba(7,28,51,.55)}
+  .figure svg{display:block;width:100%;height:auto}
+  .cap{margin:8px 2px 0;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--muted)}
+  .cap b{color:var(--yellow);font-weight:500}
+
+  table{width:100%;border-collapse:collapse;margin:0 0 28px;font-size:13.5px}
+  th{text-align:left;padding:9px 12px;border-bottom:1px solid var(--cyan);font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--cyan)}
+  td{padding:11px 12px;border-bottom:1px solid var(--hair);vertical-align:top;color:#b9d1e8}
+  tr:hover td{background:rgba(127,212,255,.05)}
+  td b{color:var(--white);font-weight:600}
+
+  .code{margin:0 0 28px;border:1px dashed var(--line);background:#071c33}
+  .code-head{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px dashed var(--hair);font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .code-head .led{width:7px;height:7px;border-radius:50%;background:var(--yellow);display:block}
+  .code pre{margin:0;padding:16px 18px;overflow-x:auto;font-family:var(--mono);font-size:12.2px;line-height:1.75;color:#cfe2f4}
+  .code .cm{color:#5f88ad}
+  .code .st{color:#ffd166}
+  .code .kw{color:#7fd4ff}
+
+  .note{margin:0 0 28px;padding:14px 18px;border:1px dashed var(--yellow);background:rgba(255,209,102,.06);color:#ffe6a3;font-size:13.5px;line-height:1.75}
+  .note b{display:block;margin-bottom:4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--yellow)}
+
+  .step{display:grid;grid-template-columns:82px minmax(0,1fr);gap:18px;padding:20px 0;border-bottom:1px dashed var(--hair)}
+  .step:last-child{border-bottom:none}
+  .step .n{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--yellow);line-height:1.2}
+  .step h3{margin:0 0 5px;font-size:17px;color:var(--white)}
+  .step p{margin:0;font-size:13.5px;line-height:1.7;color:#a9c4dd}
+
+  .titleblock{
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;margin-top:34px;
+    border:1px solid var(--line);font-family:var(--mono);
+  }
+  .titleblock div{padding:9px 12px;border-right:1px solid var(--line);font-size:9px;letter-spacing:.1em;color:var(--muted)}
+  .titleblock div:last-child{border-right:none}
+  .titleblock b{display:block;margin-top:2px;font-size:11px;letter-spacing:.06em;color:var(--white);font-weight:500}
+
+  @media(max-width:820px){
+    .sheet{margin:10px;padding:0 20px 26px}
+    .grid3{grid-template-columns:1fr}
+    .titleblock{grid-template-columns:1fr 1fr}
+    .titleblock div:nth-child(2){border-right:none}
+    h1{font-size:30px}
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <span class="corner tl"></span><span class="corner tr"></span>
+  <span class="corner bl"></span><span class="corner br"></span>
+
+  <div class="sheet-head">
+    <span>PROJECT <b>NOCOBASE / AI-EMPLOYEE</b></span>
+    <span>SHEET <b>01 OF 04</b></span>
+    <span>SCALE <b>N/A</b></span>
+    <span>DATE <b>2026.11</b></span>
+    <a class="back" href="./index.html">← 风格索引</a>
+  </div>
+
+  <header class="hero">
+    <p class="kicker">DRAWING 01 — BATCH DATA ENTRY</p>
+    <h1>AI 员工批量数据录入方案<br><span>理解 · 结构化 · 落库</span></h1>
+    <div class="dim"><span>AI + WORKFLOW</span></div>
+    <p>占位副标题：把一段自然语言或一份表格交给 AI，由它理解、结构化、映射字段，再经确定性流程批量写入目标表。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-head"><span class="sec-tag">DETAIL 01</span><span class="sec-rule"></span></div>
+    <h2>背景与问题</h2>
+    <p class="lead">这里是占位正文。用于展示蓝图风格下的正文可读性、标题层级与图纸式分隔线。</p>
+
+    <div class="grid3">
+      <article class="card"><span class="tag">A-01</span><h3>零散输入</h3><p>自然语言、邮件、表格混在一起，格式不统一，人工整理成本高。</p></article>
+      <article class="card"><span class="tag">A-02</span><h3>固定结构</h3><p>目标表字段固定，真正需要的是把杂乱内容映射成二维记录。</p></article>
+      <article class="card"><span class="tag">A-03</span><h3>写入缺口</h3><p>AI 能整理，但默认没有写库能力，最后一步仍要人工逐条提交。</p></article>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 1000 300" role="img" aria-label="蓝图风格调用链示意">
+        <defs>
+          <marker id="ba" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+            <path d="M0 0L8 4L0 8Z" fill="#7fd4ff"/>
+          </marker>
+        </defs>
+        <g stroke="rgba(127,212,255,.12)" stroke-width="1">
+          <path d="M0 60h1000M0 120h1000M0 180h1000M0 240h1000"/>
+          <path d="M100 0v300M200 0v300M300 0v300M400 0v300M500 0v300M600 0v300M700 0v300M800 0v300M900 0v300"/>
+        </g>
+        <rect x="46" y="92" width="176" height="104" fill="none" stroke="#dce8f5" stroke-width="1.5"/>
+        <text x="62" y="120" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#7fd4ff">USER</text>
+        <text x="62" y="148" font-family="Space Grotesk, sans-serif" font-size="17" font-weight="600" fill="#eaf4ff">用户</text>
+        <text x="62" y="172" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8fb4d6">自然语言 / 表格</text>
+
+        <line x1="222" y1="144" x2="286" y2="144" stroke="#7fd4ff" stroke-width="1.5" marker-end="url(#ba)"/>
+        <text x="254" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8fb4d6">01</text>
+
+        <rect x="292" y="80" width="196" height="128" fill="none" stroke="#7fd4ff" stroke-width="1.5"/>
+        <text x="308" y="108" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#7fd4ff">AI EMPLOYEE</text>
+        <text x="308" y="138" font-family="Space Grotesk, sans-serif" font-size="17" font-weight="600" fill="#eaf4ff">typer</text>
+        <text x="308" y="162" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8fb4d6">理解 · 结构化 · 选工具</text>
+
+        <line x1="488" y1="144" x2="552" y2="144" stroke="#7fd4ff" stroke-width="1.5" marker-end="url(#ba)"/>
+        <text x="520" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8fb4d6">02</text>
+
+        <rect x="558" y="92" width="176" height="104" fill="none" stroke="#ffd166" stroke-width="1.5"/>
+        <text x="574" y="120" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#ffd166">TOOL</text>
+        <text x="574" y="148" font-family="Space Grotesk, sans-serif" font-size="17" font-weight="600" fill="#eaf4ff">自定义工具</text>
+        <text x="574" y="172" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8fb4d6">collection + records</text>
+
+        <line x1="734" y1="144" x2="798" y2="144" stroke="#7fd4ff" stroke-width="1.5" marker-end="url(#ba)"/>
+        <text x="766" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8fb4d6">03</text>
+
+        <rect x="804" y="72" width="160" height="144" fill="none" stroke="#dce8f5" stroke-width="1.5"/>
+        <text x="820" y="100" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#7fd4ff">WORKFLOW</text>
+        <text x="820" y="128" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#eaf4ff">script</text>
+        <text x="820" y="152" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#eaf4ff">request</text>
+        <text x="820" y="176" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#eaf4ff">output</text>
+        <text x="820" y="202" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8fb4d6">解析 / 写库 / 返回</text>
+
+        <line x1="46" y1="246" x2="964" y2="246" stroke="rgba(127,212,255,.4)" stroke-width="1" stroke-dasharray="6 4"/>
+        <path d="M46 240v12M964 240v12" stroke="rgba(127,212,255,.4)" stroke-width="1"/>
+        <text x="505" y="270" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.5" fill="#8fb4d6">ONE REQUEST — ONE RESULT</text>
+      </svg>
+      <p class="cap"><b>FIG. 01</b>占位示意图，仅展示图纸式线条与标注</p>
+    </figure>
+
+    <div class="note"><b>NOTE 01</b>这里是提示块占位。虚线框 + 黄色标签用于强调，但保持与图纸一致的线性语言。</div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head"><span class="sec-tag">DETAIL 02</span><span class="sec-rule"></span></div>
+    <h2>方案结构</h2>
+    <p class="lead">占位说明：表格用于横向比较，代码块用于承载可复制的命令。</p>
+
+    <table>
+      <thead><tr><th>组成部分</th><th>是什么</th><th>负责什么</th></tr></thead>
+      <tbody>
+        <tr><td><b>AI 员工</b></td><td>对话入口</td><td>理解内容、整理记录、选择工具</td></tr>
+        <tr><td><b>自定义工具</b></td><td>可调用的动作</td><td>接收 collection 与 records</td></tr>
+        <tr><td><b>工作流</b></td><td>确定性后端流程</td><td>解析 JSON、批量写库、返回结果</td></tr>
+      </tbody>
+    </table>
+
+    <div class="code">
+      <div class="code-head"><span class="led"></span>TERMINAL / PLACEHOLDER</div>
+      <pre><span class="cm"># 占位命令，仅用于展示代码块样式</span>
+nb api workflow workflows create \
+  --body-file /tmp/workflow.json \
+  --env &lt;env&gt; --yes -j
+
+<span class="cm"># 返回示例</span>
+{ <span class="st">"id"</span>: <span class="kw">397353149464576</span>, <span class="st">"key"</span>: <span class="st">"w5t0mociajk"</span> }</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head"><span class="sec-tag">DETAIL 03</span><span class="sec-rule"></span></div>
+    <h2>实施步骤</h2>
+
+    <div class="step"><div class="n">01</div><div><h3>生成访问凭证</h3><p>占位说明文字，展示步骤标题与正文的层级关系。</p></div></div>
+    <div class="step"><div class="n">02</div><div><h3>创建同步工作流</h3><p>占位说明文字，展示步骤之间的分隔与节奏。</p></div></div>
+    <div class="step"><div class="n">03</div><div><h3>绑定工具并验证</h3><p>占位说明文字，展示最后一步的收尾方式。</p></div></div>
+  </section>
+
+  <div class="titleblock">
+    <div>STYLE<b>Blueprint / Engineering</b></div>
+    <div>DRAWN<b>2026.11</b></div>
+    <div>VERSION<b>2.2.41</b></div>
+    <div>SHEET<b>01 / 04</b></div>
+  </div>
+</div>
+
+</body>
+</html>

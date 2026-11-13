@@ -338,6 +338,19 @@
     color: var(--ink-3); font-size: 12.5px; letter-spacing: .02em;
   }
 
+  /* ===== 延伸资源 ===== */
+  .resources { margin-top: 52px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .resources > h2 { font-family: var(--serif); font-size: 20px; margin: 0 0 6px; letter-spacing: .01em; }
+  .resources .rlead { color: var(--ink-2); font-size: 13.5px; margin: 0 0 18px; }
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .res-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; background: var(--paper); transition: .18s; }
+  .res-card:hover { border-color: var(--bronze); box-shadow: var(--shadow); text-decoration: none; }
+  .res-card .rno { font-family: var(--serif); font-style: italic; color: var(--bronze); font-size: 12.5px; font-weight: 500; }
+  .res-card h3 { margin: 4px 0 6px; font-size: 16.5px; font-weight: 700; color: var(--ink); }
+  .res-card p { margin: 0 0 8px; color: var(--ink-2); font-size: 13.5px; line-height: 1.6; }
+  .res-card .go { color: var(--nb); font-weight: 650; font-size: 13px; }
+  @media (max-width: 680px) { .res-grid { grid-template-columns: 1fr; } }
+
   /* ===== 入场动效 ===== */
   @media (prefers-reduced-motion: no-preference) {
     .mast-inner > * { animation: rise .7s cubic-bezier(.2,.7,.3,1) both; }
@@ -1804,6 +1817,25 @@ docker run -d --name joget -p 8080:8080 jogetworkflow/joget-community:latest</co
     <footer class="doc-footer">
       企业级低代码平台选型调研报告 · 2026-11-06 · 本页面由 Markdown 报告转换生成，全部内容与原文档一致
     </footer>
+
+    <section class="resources">
+      <h2>延伸资源</h2>
+      <p class="rlead">基于本报告结论产出的后续交付物——NocoBase 实施手册与视觉方向探索。</p>
+      <div class="res-grid">
+        <a class="res-card" href="./ai-employee-batch-entry-guide.html">
+          <div class="rno">GUIDE</div>
+          <h3>AI 员工批量数据录入方案</h3>
+          <p>让 AI 负责理解与结构化，由确定性工作流完成批量落库。NocoBase 2.2.41 实施手册。</p>
+          <span class="go">阅读方案 →</span>
+        </a>
+        <a class="res-card" href="./style-samples/">
+          <div class="rno">STYLE</div>
+          <h3>风格样张 · 四组视觉方向</h3>
+          <p>深色终端工程手册、瑞士网格编辑部、蓝图工程图纸、明亮 SaaS 文档——四组视觉风格探索。</p>
+          <span class="go">查看样张 →</span>
+        </a>
+      </div>
+    </section>
 
   </div>
   </main>

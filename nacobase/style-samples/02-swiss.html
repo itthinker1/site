@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风格 B · 瑞士网格编辑部</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f7f4;--ink:#111111;--muted:#6b6b66;--line:#111111;--hair:#cfcfc8;
+    --red:#e03616;--sans:"Space Grotesk",Helvetica,-apple-system,"PingFang SC","Noto Sans SC",sans-serif;
+    --serif:"Instrument Serif",Georgia,"Songti SC",serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink);text-decoration:none}
+  ::selection{background:var(--red);color:#fff}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+  .top{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:22px 0 14px;border-bottom:2px solid var(--line);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .top .back{border-bottom:1px solid var(--ink);letter-spacing:.1em}
+  .top .back:hover{color:var(--red);border-color:var(--red)}
+
+  .hero{padding:64px 0 54px;border-bottom:2px solid var(--line)}
+  .hero-kicker{margin:0 0 26px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+  h1{margin:0 0 34px;font-size:clamp(46px,8.2vw,100px);line-height:.95;letter-spacing:-.055em;font-weight:700}
+  h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red);letter-spacing:-.02em}
+  .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:end}
+  .hero-sub{margin:0;max-width:52ch;font-size:18px;line-height:1.65;color:#333}
+  .hero-meta{display:grid;gap:10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .hero-meta div{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--hair);padding-top:7px}
+  .hero-meta b{font-weight:600}
+
+  .section{display:grid;grid-template-columns:132px minmax(0,1fr);gap:44px;padding:44px 0 50px;border-bottom:1px solid var(--line)}
+  .sec-num{font-size:64px;line-height:1;font-weight:700;color:var(--red);letter-spacing:-.05em}
+  .sec-label{margin:8px 0 0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .sec-body{min-width:0}
+  h2{margin:0 0 18px;font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.035em;font-weight:600}
+  .lead{margin:0 0 30px;max-width:66ch;font-size:18px;line-height:1.7;color:#333}
+
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:0 0 34px}
+  .card{border-top:2px solid var(--line);padding-top:14px}
+  .card .ci{display:block;margin-bottom:10px;font-size:11px;letter-spacing:.16em;color:var(--red)}
+  .card h3{margin:0 0 7px;font-size:18px;line-height:1.35}
+  .card p{margin:0;font-size:14px;line-height:1.65;color:var(--muted)}
+
+  .figure{margin:0 0 34px}
+  .figure svg{display:block;width:100%;height:auto}
+  .cap{display:flex;gap:10px;margin-top:9px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .cap b{color:var(--red);font-weight:600}
+
+  table{width:100%;border-collapse:collapse;margin:0 0 34px;font-size:14px}
+  th{text-align:left;padding:10px 12px 10px 0;border-bottom:2px solid var(--line);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  td{padding:12px 12px 12px 0;border-bottom:1px solid var(--hair);vertical-align:top;color:#333}
+  td b{color:var(--ink);font-weight:600}
+  tr:hover td{background:#efefe9}
+
+  .code{margin:0 0 30px;background:#111;color:#f2f2ec}
+  .code-head{display:flex;align-items:center;gap:10px;padding:9px 16px;border-bottom:1px solid #333;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a92}
+  .code-head .sq{width:8px;height:8px;background:var(--red);display:block}
+  .code pre{margin:0;padding:18px 20px;overflow-x:auto;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12.6px;line-height:1.7}
+  .code .cm{color:#7d7d74}
+  .code .st{color:#ffb09a}
+  .code .kw{color:#f4d35e}
+
+  .note{margin:0 0 32px;padding:4px 0 4px 20px;border-left:6px solid var(--red);font-size:15px;line-height:1.7;color:#333}
+  .note b{display:block;margin-bottom:4px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+
+  .steps{margin:0}
+  .step{display:grid;grid-template-columns:86px minmax(0,1fr);gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+  .step:last-child{border-bottom:1px solid var(--line)}
+  .step .sn{font-size:40px;line-height:1;font-weight:700;color:var(--red);letter-spacing:-.04em}
+  .step h3{margin:0 0 5px;font-size:20px;line-height:1.3}
+  .step p{margin:0;font-size:14.5px;line-height:1.65;color:var(--muted)}
+
+  footer{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:26px 0 46px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  footer b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+  footer .right{text-align:right}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .section{grid-template-columns:1fr;gap:14px}
+    .sec-num{font-size:44px}
+    .cards{grid-template-columns:1fr;gap:20px}
+    footer{grid-template-columns:1fr;gap:14px}
+    footer .right{text-align:left}
+    .wrap{padding:0 18px}
+    .hero{padding:44px 0 38px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <span>N° 02 — Field Note</span>
+    <a class="back" href="./index.html">← 风格索引</a>
+    <span>2026.11 / NocoBase</span>
+  </div>
+
+  <header class="hero">
+    <p class="hero-kicker">AI Employee · Batch Entry</p>
+    <h1>让 AI 理解，<br><em>让流程落库。</em></h1>
+    <div class="hero-grid">
+      <p class="hero-sub">占位副标题：把一段自然语言或一份表格交给 AI，由它理解、结构化、映射字段，再经确定性流程批量写入目标表。</p>
+      <div class="hero-meta">
+        <div><span>Components</span><b>04</b></div>
+        <div><span>Steps</span><b>07</b></div>
+        <div><span>Pitfalls</span><b>10</b></div>
+        <div><span>Checks</span><b>05</b></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div>
+      <div class="sec-num">01</div>
+      <p class="sec-label">Context</p>
+    </div>
+    <div class="sec-body">
+      <h2>背景与问题</h2>
+      <p class="lead">这里是占位正文。用于展示大标题、正文与栏间距之间的关系。真实内容会在风格确定后填入。</p>
+
+      <div class="cards">
+        <article class="card">
+          <span class="ci">A / 01</span>
+          <h3>零散输入</h3>
+          <p>自然语言、邮件、表格混在一起，格式不统一，人工整理成本高。</p>
+        </article>
+        <article class="card">
+          <span class="ci">A / 02</span>
+          <h3>固定结构</h3>
+          <p>目标表字段固定，真正需要的是把杂乱内容映射成二维记录。</p>
+        </article>
+        <article class="card">
+          <span class="ci">A / 03</span>
+          <h3>写入缺口</h3>
+          <p>AI 能整理，但默认没有写库能力，最后一步仍要人工逐条提交。</p>
+        </article>
+      </div>
+
+      <figure class="figure">
+        <svg viewBox="0 0 1000 240" role="img" aria-label="编辑部风格示意图">
+          <rect width="1000" height="240" fill="#f7f7f4"/>
+          <circle cx="820" cy="118" r="96" fill="none" stroke="#111" stroke-width="2"/>
+          <circle cx="820" cy="118" r="58" fill="#e03616"/>
+          <line x1="0" y1="196" x2="1000" y2="196" stroke="#111" stroke-width="2"/>
+          <line x1="0" y1="44" x2="1000" y2="44" stroke="#cfcfc8" stroke-width="1"/>
+          <rect x="54" y="76" width="190" height="96" fill="none" stroke="#111" stroke-width="2"/>
+          <text x="72" y="108" font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="2" fill="#e03616">INPUT</text>
+          <text x="72" y="134" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="600" fill="#111">零散内容</text>
+          <line x1="250" y1="124" x2="318" y2="124" stroke="#111" stroke-width="2"/>
+          <path d="M318 124l-10-5v10z" fill="#111"/>
+          <rect x="326" y="76" width="190" height="96" fill="none" stroke="#111" stroke-width="2"/>
+          <text x="344" y="108" font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="2" fill="#e03616">PROCESS</text>
+          <text x="344" y="134" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="600" fill="#111">结构化记录</text>
+          <line x1="522" y1="124" x2="590" y2="124" stroke="#111" stroke-width="2"/>
+          <path d="M590 124l-10-5v10z" fill="#111"/>
+          <rect x="598" y="76" width="150" height="96" fill="none" stroke="#111" stroke-width="2"/>
+          <text x="616" y="108" font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="2" fill="#e03616">OUTPUT</text>
+          <text x="616" y="134" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="600" fill="#111">写入目标表</text>
+          <text x="54" y="224" font-family="Space Grotesk, sans-serif" font-size="10" letter-spacing="1.5" fill="#6b6b66">FIG. 01 — 占位示意图，仅展示图形与版面的关系</text>
+        </svg>
+      </figure>
+
+      <div class="note">
+        <b>Note</b>
+        这里是提示块占位。红线和全大写标签用来制造强调，但不使用背景色，保持版面的克制。
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <div class="sec-num">02</div>
+      <p class="sec-label">Structure</p>
+    </div>
+    <div class="sec-body">
+      <h2>方案结构</h2>
+      <p class="lead">占位说明：表格用于横向比较，代码块用于承载可复制的命令。</p>
+
+      <table>
+        <thead><tr><th>组成部分</th><th>是什么</th><th>负责什么</th></tr></thead>
+        <tbody>
+          <tr><td><b>AI 员工</b></td><td>对话入口</td><td>理解内容、整理记录、选择工具</td></tr>
+          <tr><td><b>自定义工具</b></td><td>可调用的动作</td><td>接收 collection 与 records</td></tr>
+          <tr><td><b>工作流</b></td><td>确定性后端流程</td><td>解析 JSON、批量写库、返回结果</td></tr>
+        </tbody>
+      </table>
+
+      <div class="code">
+        <div class="code-head"><span class="sq"></span>Bash / Placeholder</div>
+        <pre><span class="cm"># 占位命令，仅用于展示代码块样式</span>
+nb api workflow workflows create \
+  --body-file /tmp/workflow.json \
+  --env &lt;env&gt; --yes -j
+
+<span class="cm"># 返回示例</span>
+{ <span class="st">"id"</span>: <span class="kw">397353149464576</span>, <span class="st">"key"</span>: <span class="st">"w5t0mociajk"</span> }</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <div class="sec-num">03</div>
+      <p class="sec-label">Build</p>
+    </div>
+    <div class="sec-body">
+      <h2>实施步骤</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="sn">01</div>
+          <div><h3>生成访问凭证</h3><p>占位说明文字，展示步骤标题与正文的层级关系。</p></div>
+        </div>
+        <div class="step">
+          <div class="sn">02</div>
+          <div><h3>创建同步工作流</h3><p>占位说明文字，展示步骤之间的分隔与节奏。</p></div>
+        </div>
+        <div class="step">
+          <div class="sn">03</div>
+          <div><h3>绑定工具并验证</h3><p>占位说明文字，展示最后一步的收尾方式。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div><b>Style B</b>Swiss / Editorial</div>
+    <div><b>Type</b>Space Grotesk + Instrument Serif</div>
+    <div class="right"><b>2026.11</b>NocoBase 2.2.41</div>
+  </footer>
+</div>
+
+</body>
+</html>
